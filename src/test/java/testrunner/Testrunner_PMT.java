@@ -20,7 +20,7 @@ import cucumber.api.junit.Cucumber;
 				//plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 		strict = false,
 				//tags = {"~@Parts","~@partdesc","@interchange"}
-				tags = {"@productrelated","~@partdesc","~@applicationTest","~@applicationTest1","~@interchange","~@Buyersguide"}
+				tags = {"@productrelated3","~@partdesc","~@applicationTest","~@applicationTest1","~@interchange","~@Buyersguide"}
 		
 		
 		)

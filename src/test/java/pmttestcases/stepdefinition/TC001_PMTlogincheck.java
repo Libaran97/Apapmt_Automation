@@ -43,7 +43,7 @@ public class TC001_PMTlogincheck extends Baseclass {
 	
 	
 	
-	
+	/*
 	@Given("^enter the url$")
 	public void enter_the_url() throws Throwable {
 	    
@@ -69,7 +69,7 @@ public class TC001_PMTlogincheck extends Baseclass {
 			} catch ( Exception e) {
 				//AssertionError |
 				TestStep("Fail",driver,loginfo,e);
-			}*/
+			}
 		
 	}
 
@@ -93,12 +93,12 @@ public class TC001_PMTlogincheck extends Baseclass {
 			
 		}catch ( Exception e) {
 			TestStep("Fail",driver,loginfo,e);
-		}	*/	
+		}	
 		
 		
-	}
+	}*/
 
-	
+
 	
 	
 	

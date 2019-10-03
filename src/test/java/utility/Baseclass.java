@@ -29,7 +29,7 @@ public class Baseclass extends ExtentReport {
 	public Baseclass() {
 		try {
 			pro = new Properties();
-			FileInputStream fis = new FileInputStream("F:\\Selenium test code\\PMTwithoutenginecode\\apapmtautomatecode\\Configuration\\pmtdetails.properties");
+			FileInputStream fis = new FileInputStream("F:\\Selenium_test_code\\PMTwithoutenginecode\\apapmt_automation\\Configuration\\pmtdetails.properties");
 			pro.load(fis);
 		} catch(IOException e) {
 			e.getMessage();

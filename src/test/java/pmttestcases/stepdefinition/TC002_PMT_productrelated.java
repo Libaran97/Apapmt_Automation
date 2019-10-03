@@ -19,9 +19,6 @@ public class TC002_PMT_productrelated extends Baseclass {
 	Masterproductrelated_POM mpom;
 	
 	
-	 
-	
-	
 	@Given("^User will mouse hover and choose the product category page$")
 	public void user_will_mouse_hover_and_choose_the_product_category_page() throws Throwable {
 	   
@@ -89,7 +86,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	   
 		try {
 			//extent=setup();	
-			//test = extent.createTest(Feature.class, "PMT Product Related Testcases");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Sub Cateory").pass("sub category added thanks");
 			test=test.createNode(Scenario.class, "Adding product sub category");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to master and choose product sub category");
 			mpom = new Masterproductrelated_POM();
@@ -118,9 +115,11 @@ public class TC002_PMT_productrelated extends Baseclass {
 	}	
 	}
 
-	@And("^User will enter the sub category name  and choose the equivalent and save button is clicked$")
+	
+	
+	@And("^User will enter the sub category name and choose the equivalent and save button is clicked$")
 	public void user_will_enter_the_sub_category_name_and_choose_the_equivalent_and_save_button_is_clicked() throws Throwable {
-	  
+	    
 		try {
 			loginfo=test.createNode(new GherkinKeyword("And"),"User will enter the sub category name  and choose the equivalent and save button is clicked");
 			mpom.entrysubcategory(pro.getProperty("subcategoryname"));
@@ -132,10 +131,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
-	}	
 	}
-	
-	
+	}
+
+
 	@Then("^User will successfully added and verify the record has come in the sub category grid$")
 	public void user_will_successfully_added_and_verify_the_record_has_come_in_the_sub_category_grid() throws Throwable {
 	    
@@ -164,7 +163,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	    
 		try {
 			//extent=setup();	
-			//test = extent.createTest(Feature.class, "PMT Product Related Testcases");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Part Description Tag");
 			test=test.createNode(Scenario.class, "Adding part description");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to master and choose part description");
 			mpom = new Masterproductrelated_POM();
@@ -195,9 +194,16 @@ public class TC002_PMT_productrelated extends Baseclass {
 	}
 
 
-	@And("^User will enter the part description name  and save button is clicked$")
+	/*@And("^User will enter the part description name  and save button is clicked$")
 	public void user_will_enter_the_part_description_name_and_save_button_is_clicked() throws Throwable {
-	   
+	  
+	}*/
+	
+	
+	@And("^User will enter the part description name and save button is clicked$")
+	public void user_will_enter_the_part_description_name_and_save_button_is_clicked() throws Throwable {
+	 
+		 
 		try {
 			loginfo=test.createNode(new GherkinKeyword("And"),"User will enter the part description name  and save button is clicked");
 			mpom.savingpartdesc();
@@ -209,17 +215,18 @@ public class TC002_PMT_productrelated extends Baseclass {
 	}	
 	}
 	
-	
 	@Then("^User will see successfully added and verify the record has come in the description grid$")
 	public void user_will_see_successfully_added_and_verify_the_record_has_come_in_the_description_grid() throws Throwable {
 	    
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfully added and verify the record has come");
-			System.out.println("PArt Description Added in the grid");
+			System.out.println("Part Description Added in the grid");
 			loginfo.pass("Product part description submit button clicked & saved in the grid successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			extent.flush();
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
+		extent.flush();
 	}
 	}
 
@@ -287,10 +294,6 @@ public class TC002_PMT_productrelated extends Baseclass {
 	
 	
 	
-	
-	/*
-	 * @After public void quit_initialize() { Baseclass.teardown(); }
-	 */
-	
+
 }
 
