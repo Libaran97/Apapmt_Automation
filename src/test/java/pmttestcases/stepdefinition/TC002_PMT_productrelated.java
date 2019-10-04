@@ -1,6 +1,10 @@
 package pmttestcases.stepdefinition;
 
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
@@ -24,7 +28,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	   
 		try {
 			extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Cateory").pass("category added thanks");
 			test=test.createNode(Scenario.class, "Adding product category");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mouse hover and choose the product category page");
 			mpom = new Masterproductrelated_POM();	
@@ -56,12 +60,13 @@ public class TC002_PMT_productrelated extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("And"),"User will enter the category name and choose the equivalent PIES category");
 			mpom.entrycategory(pro.getProperty("categoryname"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			mpom.savingcategory();
-			//Thread.sleep(3000);
-			//loginfo.pass("Product category Saved Successfully");
-			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Product category Saved Successfully");	
+			
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
+		
 	}	
 	}
 
@@ -71,12 +76,27 @@ public class TC002_PMT_productrelated extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify that the record has come");
 			mpom.acceptAlert();
-			//mpom.verifyingtext(pro.getProperty("categoryname"));
+			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println("category successfully added");
-			loginfo.pass("Product category Saved Successfully & shown in grid");
+			mpom.verifyingtext(pro.getProperty("categoryname"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Product category saved");
+			System.out.println("Category Verified");
+			//loginfo.pass("Product category Saved Successfully & shown in grid");
+			
+		
 		}	catch ( Exception e) {
+			 JavascriptExecutor js = (JavascriptExecutor)driver;
+			 String text = js.executeScript("return document.getElementById('MainContent_lblError').innerHTML").toString();
+			 System.out.println(text);
+			 WebElement element = driver.findElement(By.xpath("//*[@id='MainContent_Image1']"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
+			System.out.println("Failed to insert");
+			//loginfo.fail("Insert Failed");
 			TestStep("Fail",driver,loginfo,e);
+			//loginfo.fail("Already exists");
+			
 	}	
 	}
 
@@ -85,8 +105,8 @@ public class TC002_PMT_productrelated extends Baseclass {
 	public void user_will_go_to_master_and_choose_product_sub_category() throws Throwable {
 	   
 		try {
-			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Sub Cateory").pass("sub category added thanks");
+			extent=setup();	
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Sub Category").pass("sub category added thanks");
 			test=test.createNode(Scenario.class, "Adding product sub category");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to master and choose product sub category");
 			mpom = new Masterproductrelated_POM();
@@ -123,11 +143,11 @@ public class TC002_PMT_productrelated extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("And"),"User will enter the sub category name  and choose the equivalent and save button is clicked");
 			mpom.entrysubcategory(pro.getProperty("subcategoryname"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			mpom.savingcategory();
 			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			mpom.acceptAlertsub();
 			loginfo.pass("Product sub category entered success");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
@@ -137,11 +157,29 @@ public class TC002_PMT_productrelated extends Baseclass {
 
 	@Then("^User will successfully added and verify the record has come in the sub category grid$")
 	public void user_will_successfully_added_and_verify_the_record_has_come_in_the_sub_category_grid() throws Throwable {
-	    
-			
-			System.out.println("sub category successfully added");
-			
+	    try {
+	    	loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify the record has come in the sub category grid");
+	    	mpom.acceptAlertsub();
+	    	System.out.println("sub category successfully added");
+	    	mpom.verifysubcategory(pro.getProperty("subcategoryname"));
+	    	loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+	    	loginfo.pass("Product sub category verified");
+			extent.flush();
+	}catch (Exception e) {
+			 JavascriptExecutor js = (JavascriptExecutor)driver;
+			 String text = js.executeScript("return document.getElementById('MainContent_lblError').innerHTML").toString();
+			 System.out.println(text);
+			 WebElement element = driver.findElement(By.xpath("//*[@id='MainContent_Image1']"));
+			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
+			System.out.println("Failed to insert");
+			//loginfo.fail("Insert Failed");
+			TestStep("Fail",driver,loginfo,e);
+			//loginfo.fail("Already exists");
+		extent.flush();
 	}
+	    }
+			
 
 	/*@Then("^User will successfully added and verify the record has come$")
 	public void user_will_successfully_added_and_verify_the_record_has_come() throws Throwable {
@@ -223,10 +261,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			System.out.println("Part Description Added in the grid");
 			loginfo.pass("Product part description submit button clicked & saved in the grid successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
-		extent.flush();
+		//extent.flush();
 	}
 	}
 

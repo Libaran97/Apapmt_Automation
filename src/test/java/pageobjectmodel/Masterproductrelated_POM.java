@@ -2,11 +2,13 @@ package pageobjectmodel;
 
 
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -16,10 +18,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import utility.Baseclass;
 
 public class Masterproductrelated_POM extends Baseclass {
 
+	
+	ExtentTest loginfo=null;
 	
 	public Masterproductrelated_POM() {
 		PageFactory.initElements(driver, this);
@@ -44,7 +50,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	@FindBy(xpath="//input[@id='MainContent_btnSave']")
 	private WebElement savecategory;
 	
-	@FindBy(xpath = "/html[1]/body[1]/div[1]/form[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/td[1]")
+	@FindBy(xpath = "//td[@class='sorting_1']")
 	private WebElement verifytext;
 	
 	@FindBy(xpath = "//a[contains(text(),'Product Sub Category')]")
@@ -87,6 +93,23 @@ public class Masterproductrelated_POM extends Baseclass {
 	@FindBy(xpath="//input[@id='MainContent_txtlinename']")
 	private WebElement txtlinename;
 	
+	/*@FindBy(xpath="//span[@id='MainContent_lblError']")
+	private WebElement lblError;
+	
+	@FindBy(xpath="//*[@id='MainContent_Image1']")
+	private WebElement closeext;*/
+	
+	@FindBy(xpath="//input[@placeholder='Product Category']")
+	private WebElement searchfilter1;
+	
+	@FindBy(xpath="//select[@id='MainContent_drpProductCategory']")
+	private WebElement verifytxt1; 
+	
+	@FindBy(xpath="//input[@placeholder='Product Subcategory Name']")
+	private WebElement filtercategory;
+	
+	
+	
 	
 	public void clickonproductcategory() throws Throwable {
 			
@@ -106,25 +129,35 @@ public class Masterproductrelated_POM extends Baseclass {
 		entercategory.sendKeys(categoryname);
 		equivalentcategory.click();
 		Thread.sleep(2000);
+		//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 	}
+	
 	
 	public void savingcategory() throws InterruptedException {
 		savecategory.click();
 		Thread.sleep(2000);
-		//wait(2);
 	}
 	
-	public void acceptAlert() throws InterruptedException{
+			
+	
+	public void acceptAlert() throws InterruptedException, IOException{
+		
+		//if(savecategory.isDisplayed())
 		Alert alert = driver.switchTo().alert();
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Product Category " +pro.getProperty("categoryname") + alert.getText());
+		//WebDriverWait wait = new WebDriverWait(driver, 3 /*timeout in seconds*/);
+		//if(wait.until(ExpectedConditions.alertIsPresent())==null) {
 		alert.accept();
-		Thread.sleep(3000);
+		Thread.sleep(3000);	
+		System.out.println("Record newly to be inserted");
+		}
 		
-	}
 	
-	public void verifyingtext(String vrfytxt) {
+	
+	public void verifyingtext(String vrfytxt ) throws IOException {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		searchfilter1.sendKeys(pro.getProperty("categoryname"));
 		String actualtext = verifytext.getText();
 		System.out.println("Text present as "+ actualtext);
 		if(actualtext.equals(vrfytxt))
@@ -170,6 +203,27 @@ public class Masterproductrelated_POM extends Baseclass {
 	}
 	
 	
+	/*
+	 * verification for product sub cateory
+	 * 
+	 */
+	public void verifysubcategory(String vrfytxt1) {
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		WebElement element1 = verifytxt1;
+		Select select = new Select(element1);
+		select.selectByVisibleText(pro.getProperty("categoryname"));
+		filtercategory.sendKeys(pro.getProperty("subcategoryname"));
+		String actualtext = verifytext.getText();
+		System.out.println("Text present as "+ actualtext);
+		if(actualtext.equals(vrfytxt1))
+		{
+			System.out.println("Both are same");
+		}else {
+			System.out.println("Both are not same");
+		}
+		
+	}
+	
 	public void partdesc1() throws InterruptedException {
 		
 		Actions action = new Actions(driver);
@@ -200,7 +254,7 @@ public class Masterproductrelated_POM extends Baseclass {
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Product Category " +pro.getProperty("partdesc") + alert.getText());
 		alert.accept();
-		
+		Thread.sleep(3000);
 	}
 	
 	
