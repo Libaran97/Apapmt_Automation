@@ -81,7 +81,8 @@ public class PartsAdd_POM extends Baseclass {
 	@FindBy(xpath="//input[@id='MainContent_btnSearch']")
 	private WebElement btnSearch;
 	
-	
+	@FindBy(xpath="//input[@id='MainContent_txtPart']")
+	private WebElement txtPartverify;
 	
 	
 	public void partslandingpage() throws InterruptedException{
@@ -153,6 +154,9 @@ public class PartsAdd_POM extends Baseclass {
 	}
 	
 	
+	public void verifypart() {
+		
+	}
 	
 	public void partslandingpage2() throws InterruptedException{
 		partspageheaderclick.click();

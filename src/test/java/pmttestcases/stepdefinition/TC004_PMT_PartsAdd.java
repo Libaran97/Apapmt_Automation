@@ -27,7 +27,7 @@ public class TC004_PMT_PartsAdd extends Baseclass {
 	  
 	try {
 		extent=setup();	
-		test = extent.createTest(Feature.class, "PMT Add Product List").assignCategory("Cateory").pass("category added thanks");
+		test = extent.createTest(Feature.class, "PMT Add Product List").assignCategory("Parts Add").pass("category added thanks");
 		test=test.createNode(Scenario.class, "Adding part# with created product category");
 		loginfo=test.createNode(new GherkinKeyword("Given"),"User will click on parts page and it will redirect to parts page");
 		parts = new PartsAdd_POM();
@@ -53,7 +53,9 @@ public class TC004_PMT_PartsAdd extends Baseclass {
 		loginfo.pass("Parts page landed successfully");
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 	} 	catch ( Exception e) {
+		System.out.println(e);
 		TestStep("Fail",driver,loginfo,e);
+		
 	}	
 	}
 
@@ -66,7 +68,9 @@ public class TC004_PMT_PartsAdd extends Baseclass {
 		loginfo.pass("Parts page landed successfully");
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 	}catch ( Exception e) {
+		System.out.println(e);
 		TestStep("Fail",driver,loginfo,e);
+		
 		
 	}
 		
@@ -83,6 +87,7 @@ public class TC004_PMT_PartsAdd extends Baseclass {
 		//extent.flush();
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
+		System.out.println(e);
 		//extent.flush();
 		
 	}
@@ -94,7 +99,7 @@ public class TC004_PMT_PartsAdd extends Baseclass {
 	    
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Add Product List").assignCategory("Sub Category").pass("sub category added thanks");
+			test = extent.createTest(Feature.class, "PMT Add Product List").assignCategory("Parts Dropdown search").pass("sub category added thanks");
 			test=test.createNode(Scenario.class, "Search part# by given dropdown list");
 		loginfo=test.createNode(new GherkinKeyword("Given"),"User will click on parts page and it will redirect to parts page for part# search through dropdown");
 		parts = new PartsAdd_POM();
@@ -113,6 +118,7 @@ public class TC004_PMT_PartsAdd extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on the add button and choose the category drop down list");
 		parts.dropdownfiltercategory();
+		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		//parts.dropdownfiltersubcategory();
 		//parts.dropdownfilterpartdesc();
 		//parts.dropdownfilterprdtln();

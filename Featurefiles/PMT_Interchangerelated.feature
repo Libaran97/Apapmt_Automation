@@ -26,7 +26,7 @@ Description: User will add Application related like vehicle, make & model
 	And User will click delete and accept the alert 
 	Then User will verify Interchange Partno is deleted or not
 	
-@Interchange22333	
+@Interchange	
 	Scenario: Deleting InterchangeName
 	Given User will mouse over emaster and click Interchange Name
 	When User search InterchangeName in searchBox
