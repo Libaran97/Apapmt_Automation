@@ -105,7 +105,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	public void user_will_go_to_master_and_choose_product_sub_category() throws Throwable {
 	   
 		try {
-			extent=setup();	
+			//extent=setup();	
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Sub Category").pass("sub category added thanks");
 			test=test.createNode(Scenario.class, "Adding product sub category");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to master and choose product sub category");
@@ -180,20 +180,6 @@ public class TC002_PMT_productrelated extends Baseclass {
 	}
 	    }
 			
-
-	/*@Then("^User will successfully added and verify the record has come$")
-	public void user_will_successfully_added_and_verify_the_record_has_come() throws Throwable {
-	  
-		try {
-			loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify the record has come");
-			mpom.acceptAlertsub();
-			loginfo.pass("Product sub category added success");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-	}catch ( Exception e) {
-		TestStep("Fail",driver,loginfo,e);
-	}	
-	}*/
-
 	
 	
 	@Given("^User will go to master and choose part description$")
@@ -232,10 +218,6 @@ public class TC002_PMT_productrelated extends Baseclass {
 	}
 
 
-	/*@And("^User will enter the part description name  and save button is clicked$")
-	public void user_will_enter_the_part_description_name_and_save_button_is_clicked() throws Throwable {
-	  
-	}*/
 	
 	
 	@And("^User will enter the part description name and save button is clicked$")
@@ -258,9 +240,12 @@ public class TC002_PMT_productrelated extends Baseclass {
 	    
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfully added and verify the record has come");
+			
+			mpom.verifycategory1();
+			mpom.verifypartdesc(pro.getProperty("partdesc"));
 			System.out.println("Part Description Added in the grid");
-			loginfo.pass("Product part description submit button clicked & saved in the grid successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Product part description submit button clicked & saved in the grid successfully");
 			//extent.flush();
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
@@ -269,25 +254,13 @@ public class TC002_PMT_productrelated extends Baseclass {
 	}
 
 
-	/*@Then("^User will see successfully added and verify the record has come$")
-	public void user_will_see_successfully_added_and_verify_the_record_has_come() throws Throwable {
-	   
-		try {
-			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfully added and verify the record has come");
-			mpom.acceptAlertdesc();
-			loginfo.pass("Product part description submit button clicked & saved in the grid successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-	}catch ( Exception e) {
-		TestStep("Fail",driver,loginfo,e);
-	}	
-	}*/
 
 	@Given("^User will go to master and choose product line$")
 	public void user_will_go_to_master_and_choose_product_line() throws Throwable {
 	    
 		try {
 			//extent=setup();	
-			//test = extent.createTest(Feature.class, "PMT Product Related Testcases");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Product Line Tag");
 			test=test.createNode(Scenario.class, "Adding product Line");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to master and choose product line");
 			mpom = new Masterproductrelated_POM();
@@ -306,10 +279,11 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on add button and enter the line code and line name");
 			mpom.addcategory1();
 			mpom.addproductline(pro.getProperty("productline"), pro.getProperty("linename"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			mpom.savebtn();
 			mpom.acceptAlertline();
 			loginfo.pass("Product line trying to add & entering the value");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
 	}	
@@ -320,6 +294,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	    
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfully alert and verify the record has come in the grid");
+			mpom.verifyproductline(pro.getProperty("productline"));
 			System.out.println("Product Line  Added in the grid");
 			loginfo.pass("Product line added successfully & shown in grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));

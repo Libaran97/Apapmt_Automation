@@ -148,6 +148,7 @@ public class PartsAdd_POM extends Baseclass {
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Parts Related " +pro.getProperty("partname") + alert.getText());
 		alert.accept();
+		Thread.sleep(3000);
 		
 	}
 	

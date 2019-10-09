@@ -108,6 +108,12 @@ public class Masterproductrelated_POM extends Baseclass {
 	@FindBy(xpath="//input[@placeholder='Product Subcategory Name']")
 	private WebElement filtercategory;
 	
+	@FindBy(xpath="//select[@id='MainContent_drpProductCategory']")
+	private WebElement filtercategory1;
+	
+	@FindBy(xpath="//input[@placeholder='Line Code']")
+	private WebElement linefilter;
+	
 	
 	
 	
@@ -280,7 +286,27 @@ public class Masterproductrelated_POM extends Baseclass {
 		//wait(2);
 	}
 	
+	public void verifycategory1() throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		WebElement element = filtercategory1;
+		Select select = new Select(element);
+		select.selectByVisibleText(pro.getProperty("categoryname"));		
+		Thread.sleep(2000);
+	}
 	
+
+	public void verifypartdesc(String vrfytxt1) {
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//filtercategory.sendKeys(pro.getProperty("subcategoryname"));
+		String actualtext = verifytext.getText();
+		System.out.println("Text present as "+ actualtext);
+		if(actualtext.equals(vrfytxt1))
+		{
+			System.out.println("Both are same");
+		}else {
+			System.out.println("Both are not same");
+		}
+	}
 	
 	
 	public void clickonproductlinecode() throws Throwable {
@@ -320,6 +346,20 @@ public class Masterproductrelated_POM extends Baseclass {
 		
 	}
 	
+	
+	public void verifyproductline(String vrfytxt1) {
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		linefilter.sendKeys(pro.getProperty("productline"));
+		String actualtext = verifytext.getText();
+		System.out.println("Text present as "+ actualtext);
+		if(actualtext.equals(vrfytxt1))
+		{
+			System.out.println("Both are same");
+		}else {
+			System.out.println("Both are not same");
+		}
+		
+	}
 	
 	
 }

@@ -1,12 +1,12 @@
 [
   {
-    "line": 1,
+    "line": 2,
     "elements": [
       {
         "before": [
           {
             "result": {
-              "duration": 23287776200,
+              "duration": 24840720500,
               "status": "passed"
             },
             "match": {
@@ -14,14 +14,14 @@
             }
           }
         ],
-        "line": 12,
-        "name": "Adding product sub category",
+        "line": 6,
+        "name": "Adding product category",
         "description": "",
-        "id": "pmt-add-product-list;adding-product-sub-category",
+        "id": "pmt-add-product-list;adding-product-category",
         "after": [
           {
             "result": {
-              "duration": 971828300,
+              "duration": 876470000,
               "status": "passed"
             },
             "match": {
@@ -34,10 +34,90 @@
         "steps": [
           {
             "result": {
-              "duration": 7602972000,
+              "duration": 11937041700,
               "status": "passed"
             },
-            "line": 13,
+            "line": 7,
+            "name": "User will mouse hover and choose the product category page",
+            "match": {
+              "location": "TC002_PMT_productrelated.user_will_mouse_hover_and_choose_the_product_category_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3873595900,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User will click on the add button and add a new category",
+            "match": {
+              "location": "TC002_PMT_productrelated.user_will_click_on_the_add_button_and_add_a_new_category()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 5031011300,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User will enter the category name and choose the equivalent PIES category",
+            "match": {
+              "location": "TC002_PMT_productrelated.user_will_enter_the_category_name_and_choose_the_equivalent_PIES_category()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4200007500,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User will successfully added and verify that the record has come",
+            "match": {
+              "location": "TC002_PMT_productrelated.user_will_successfully_added_and_verify_that_the_record_has_come()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 22389871400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TC001_PMTlogincheck.login_initialize()"
+            }
+          }
+        ],
+        "line": 13,
+        "name": "Adding product sub category",
+        "description": "",
+        "id": "pmt-add-product-list;adding-product-sub-category",
+        "after": [
+          {
+            "result": {
+              "duration": 813801700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TC001_PMTlogincheck.quit_initialize()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 7434863600,
+              "status": "passed"
+            },
+            "line": 14,
             "name": "User will go to master and choose product sub category",
             "match": {
               "location": "TC002_PMT_productrelated.user_will_go_to_master_and_choose_product_sub_category()"
@@ -46,10 +126,10 @@
           },
           {
             "result": {
-              "duration": 5759132500,
+              "duration": 6170449900,
               "status": "passed"
             },
-            "line": 14,
+            "line": 15,
             "name": "User will click on the add button and choose the category drop down list",
             "match": {
               "location": "TC002_PMT_productrelated.user_will_click_on_the_add_button_and_choose_the_category_drop_down_list()"
@@ -58,10 +138,10 @@
           },
           {
             "result": {
-              "duration": 2984835300,
+              "duration": 3838308000,
               "status": "passed"
             },
-            "line": 15,
+            "line": 16,
             "name": "User will enter the sub category name and choose the equivalent and save button is clicked",
             "match": {
               "location": "TC002_PMT_productrelated.user_will_enter_the_sub_category_name_and_choose_the_equivalent_and_save_button_is_clicked()"
@@ -70,21 +150,163 @@
           },
           {
             "result": {
-              "duration": 8699693700,
+              "duration": 9141985900,
               "status": "passed"
             },
-            "line": 16,
+            "line": 17,
             "name": "User will successfully added and verify the record has come in the sub category grid",
             "match": {
               "location": "TC002_PMT_productrelated.user_will_successfully_added_and_verify_the_record_has_come_in_the_sub_category_grid()"
             },
             "keyword": "Then "
           }
-        ],
-        "tags": [
+        ]
+      },
+      {
+        "before": [
           {
-            "line": 11,
-            "name": "@productrelated3"
+            "result": {
+              "duration": 25159453700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TC001_PMTlogincheck.login_initialize()"
+            }
+          }
+        ],
+        "line": 20,
+        "name": "Adding part description",
+        "description": "",
+        "id": "pmt-add-product-list;adding-part-description",
+        "after": [
+          {
+            "result": {
+              "duration": 1082514100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TC001_PMTlogincheck.quit_initialize()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4647856500,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "User will go to master and choose part description",
+            "match": {
+              "location": "TC002_PMT_productrelated.user_will_go_to_master_and_choose_part_description()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 8718589800,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "User will click on the add button and choose the category \u0026 sub category drop down list",
+            "match": {
+              "location": "TC002_PMT_productrelated.user_will_click_on_the_add_button_and_choose_the_category_sub_category_drop_down_list()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 5722060800,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "User will enter the part description name and save button is clicked",
+            "match": {
+              "location": "TC002_PMT_productrelated.user_will_enter_the_part_description_name_and_save_button_is_clicked()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3287644500,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "User will see successfully added and verify the record has come in the description grid",
+            "match": {
+              "location": "TC002_PMT_productrelated.user_will_see_successfully_added_and_verify_the_record_has_come_in_the_description_grid()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 22183413500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TC001_PMTlogincheck.login_initialize()"
+            }
+          }
+        ],
+        "line": 27,
+        "name": "Adding product Line",
+        "description": "",
+        "id": "pmt-add-product-list;adding-product-line",
+        "after": [
+          {
+            "result": {
+              "duration": 804395600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TC001_PMTlogincheck.quit_initialize()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 10249676800,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "User will go to master and choose product line",
+            "match": {
+              "location": "TC002_PMT_productrelated.user_will_go_to_master_and_choose_product_line()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 8928500100,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "User will click on add button and enter the line code and line name",
+            "match": {
+              "location": "TC002_PMT_productrelated.user_will_click_on_add_button_and_enter_the_line_code_and_line_name()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1042234000,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "User will see successfully alert and verify the record has come in the grid",
+            "match": {
+              "location": "TC002_PMT_productrelated.user_will_see_successfully_alert_and_verify_the_record_has_come_in_the_grid()"
+            },
+            "keyword": "Then "
           }
         ]
       }
@@ -93,6 +315,12 @@
     "description": "Description: User will add product category,sub category \u0026 part description",
     "id": "pmt-add-product-list",
     "keyword": "Feature",
-    "uri": "PMT_productrelated.feature"
+    "uri": "PMT_productrelated.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@productrelated"
+      }
+    ]
   }
 ]
