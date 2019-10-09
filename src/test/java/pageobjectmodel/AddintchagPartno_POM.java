@@ -2,6 +2,8 @@ package pageobjectmodel;
 
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -52,7 +54,14 @@ public class AddintchagPartno_POM extends Baseclass{
 	@FindBy(xpath ="//input[@id='MainContent_btnSave']")
 	public WebElement eSaveButton;
 	
+	@FindBy(xpath="//*[@id='MainContent_drpCompetitor']")
+	WebElement eInterchangeDDbox;
 	
+	@FindBy(xpath ="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
+	public WebElement esearchbox;
+	
+	@FindBy(xpath ="//*[@id='DataTableViewer']/tbody/tr/td")
+	public WebElement ePDverify;
 
 	public void clickonInterchangePart() throws Throwable {
 		
@@ -105,9 +114,29 @@ public class AddintchagPartno_POM extends Baseclass{
 		System.out.println("Acess: " + alert.getText());
 		alert.accept();
 		}
+	public void verifytext1(String IntchgNameValue4DBox,String interchangepartno) throws InterruptedException{
+		
+		
+		
+		try
+		{
+			Select InterchangeN = new Select(eInterchangeDDbox);
+			InterchangeN.selectByVisibleText(IntchgNameValue4DBox);
+			Thread.sleep(3000);
+			esearchbox.sendKeys(interchangepartno);
+			
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String actualText= ePDverify.getText();
+			System.out.println("Text"+actualText);
+			actualText.equals(interchangepartno);
+			System.out.println("Both are same");
+			
+		}
+		catch (Exception e)
+		{
+			System.out.println("Both are not same");
+		}
+		
+	}
 	
 }
-
-
-
-

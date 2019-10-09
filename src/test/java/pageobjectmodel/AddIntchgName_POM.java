@@ -1,7 +1,11 @@
 package pageobjectmodel;
 
 
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -30,17 +34,21 @@ public class AddIntchgName_POM extends Baseclass{
 	@FindBy(xpath="//input[@id='MainContent_txtCompetitorName']")
 	WebElement eIntnameTBox;
 	
-	@FindBy(xpath="//input[@id='MainContent_checkACESList_3']")
-	WebElement eIntTypeName;
+	
 	
 	@FindBy(xpath="//input[@id='MainContent_txtbrandname']")
 	WebElement eBrandAAIAbox;
 	
-	@FindBy(xpath ="//input[@id='MainContent_btnSave']")
-	public WebElement eBlankpage;
+	
 	
 	@FindBy(xpath ="//input[@id='MainContent_btnSave']")
 	public WebElement eSaveButton;
+	
+	@FindBy(xpath="//*[@id='DataTableViewer']/tfoot/tr/th[1]/input")
+	WebElement esearchbox;
+	
+	@FindBy(xpath ="//*[@id='DataTableViewer']/tbody/tr/td")
+	public WebElement eInverify;
 	
 	public void clickonInterchangeName() throws Throwable {
 		
@@ -60,16 +68,29 @@ public class AddIntchgName_POM extends Baseclass{
 		eIntnameTBox.sendKeys(InterchangeNameValue);
 		Thread.sleep(3000);
 	}
-	public void clickIntTypeName() throws InterruptedException {
-		eIntTypeName.click();
-		Thread.sleep(3000);
-	}
-	public void EnterBrandAAIA(String BrandAAIAvalue) {
+	
+	
+	public void EnterBrandAAIA(String BrandAAIAvalue) throws InterruptedException {
+		System.out.println("pass1");
 		eBrandAAIAbox.sendKeys(BrandAAIAvalue);
+		System.out.println("pass2");
+		
+		Thread.sleep(3000);
+		List<WebElement> list = driver.findElements(By.xpath("//*[@id='ACBehavior_completionListElem']/li"));
+		System.out.println("total number of BrandAAIA -->" + list.size());
+		Thread.sleep(3000);
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i).getText());
+			if(list.get(i).getText().contains("ACC Climate Control")) {
+				list.get(i).click();
+				break;
+			}
+		}
+		Thread.sleep(3000);
+		
 	}
 	public void Clicksave() throws InterruptedException {
-		eBlankpage.click();
-		Thread.sleep(3000);
+		
 		eSaveButton.click();
 		Thread.sleep(3000);
 		}
@@ -77,7 +98,30 @@ public class AddIntchgName_POM extends Baseclass{
 		Alert alert = driver.switchTo().alert();
 		System.out.println("Acess: " + alert.getText());
 		alert.accept();
-		}
+		Thread.sleep(3000);
+		
+	}
+	
+	public void SearchInterchangeName(String InterchangeNameValue) {
+		esearchbox.sendKeys(InterchangeNameValue);
+	}
+   
+	public void verifytext1(String InterchangeNameValue){
+	
+	
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	String actualText= eInverify.getText();
+	System.out.println("Text"+ actualText);
+	if(actualText.equals(InterchangeNameValue))
+	{
+		System.out.println("Both are same");
+	}
+	else
+	{
+		System.out.println("Both are not same");
+	}
+	
+}
 
 }
 
