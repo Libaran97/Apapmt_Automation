@@ -20,8 +20,8 @@ public class TC031_DeleteSubProductCatagory extends Baseclass {
 	@Given("^User will mousehover and choose the Sub product category page$")
 	public void user_will_mousehover_and_choose_the_Sub_product_category_page() throws Throwable {
 		try {
-			/*extent=setup();	
-			test = extent.createTest(Feature.class, "PMT ProductRelated Delete");*/
+			//extent=setup();	
+			test = extent.createTest(Feature.class, "PMT ProductRelated Delete");
 			test=test.createNode(Scenario.class, "Delete SubProductCatagory");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mousehover and choose the Sub product category page");
 			spdpom = new DeleteSubProductCatagory();
@@ -41,8 +41,8 @@ public class TC031_DeleteSubProductCatagory extends Baseclass {
 	public void user_will_select_Category_in_drop_down_and_Enter_product_catagory_name_in_search_box() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will select Category in drop down and Enter product catagory name in search box");
-			spdpom.SelectCategory(pro.getProperty("CategoryValue4DBox"));
-			spdpom.SelectsearchTextbox(pro.getProperty("EnterSsubproductCatagory"));
+			spdpom.SelectCategory(pro.getProperty("categoryname"));
+			spdpom.SelectsearchTextbox(pro.getProperty("subcategoryname"));
 			loginfo.pass("Category selected in drop down and product catagory name Entered Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -72,16 +72,17 @@ public class TC031_DeleteSubProductCatagory extends Baseclass {
 	public void user_will_Verify_Sub_product_category_is_deleted_or_not() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Verify Sub product category is deleted or not");
-			spdpom.SelectCategory(pro.getProperty("CategoryValue4DBox"));
-			spdpom.SelectsearchTextbox(pro.getProperty("EnterSsubproductCatagory"));
-			spdpom.verifytext1(pro.getProperty("DeleteProducttxt"));
+			spdpom.verifytext1(pro.getProperty("categoryname"), pro.getProperty("subcategoryname"), pro.getProperty("DeleteProducttxt"));
+			
 			loginfo.pass("Deleteded Sub product category verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println("Deleteded Sub product category Not verify "+e.getMessage());
 			loginfo.fail("Deleteded Sub product category Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
 		
 	    

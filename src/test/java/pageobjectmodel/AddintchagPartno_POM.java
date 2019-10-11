@@ -80,7 +80,7 @@ public class AddintchagPartno_POM extends Baseclass{
 	public void EnterIntName(String IntchgNameValue4DBox) throws InterruptedException {
 		Select intName = new Select(eIntnameDDBox);
 		intName.selectByVisibleText(IntchgNameValue4DBox);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	}
 	public void EnterIntchgpartValue(String interchangepartno) throws InterruptedException {
 		eIntnamePartTbox.sendKeys(interchangepartno);
@@ -110,6 +110,7 @@ public class AddintchagPartno_POM extends Baseclass{
 		Thread.sleep(3000);
 		}
 	public void acceptAlert() throws InterruptedException{
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Alert alert = driver.switchTo().alert();
 		System.out.println("Acess: " + alert.getText());
 		alert.accept();

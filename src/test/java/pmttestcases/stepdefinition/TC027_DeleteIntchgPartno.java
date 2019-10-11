@@ -22,7 +22,7 @@ public class TC027_DeleteIntchgPartno extends Baseclass {
 	@Given("^User will mouse over master and click Interchange Partno$")
 	public void user_will_mouse_over_master_and_click_Interchange_Partno() throws Throwable {
 		try {
-			extent=setup();	
+			//extent=setup();	
 			test = extent.createTest(Feature.class, "PMT Interchange Related");
 			test=test.createNode(Scenario.class, "Deleting Interchange Partno");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mouse over master and click Interchange Partno");

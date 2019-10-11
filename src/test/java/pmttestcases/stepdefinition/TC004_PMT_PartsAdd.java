@@ -65,6 +65,7 @@ public class TC004_PMT_PartsAdd extends Baseclass {
 	try {
 		loginfo=test.createNode(new GherkinKeyword("And"),"User will enter the part# and click on save");
 		parts.savenewpart(pro.getProperty("partno"));
+		parts.acceptAlert();
 		loginfo.pass("Parts page landed successfully");
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 	}catch ( Exception e) {
@@ -81,7 +82,7 @@ public class TC004_PMT_PartsAdd extends Baseclass {
 	 
 	try {
 		loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the part# thorugh part# search");
-		parts.acceptAlert();
+		
 		loginfo.pass("Parts page landed successfully");
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		//extent.flush();

@@ -46,14 +46,14 @@ public class DeleteSubProductCatagory extends Baseclass{
 		emastersubcategory.click();
 		Thread.sleep(3000);
 	}
-	public void SelectCategory(String CategoryValue4DBox) throws InterruptedException {
+	public void SelectCategory(String categoryname) throws InterruptedException {
 		Select Category = new Select(eCategoryDDBox);
-		Category.selectByVisibleText(CategoryValue4DBox);
+		Category.selectByVisibleText(categoryname);
 		Thread.sleep(5000);
 	}
 	
-	public void SelectsearchTextbox(String EnterSsubproductCatagory) throws InterruptedException {
-		esearchbox.sendKeys(EnterSsubproductCatagory);
+	public void SelectsearchTextbox(String subcategoryname) throws InterruptedException {
+		esearchbox.sendKeys(subcategoryname);
 		Thread.sleep(3000);
 	}
 	public void ClickDelete() throws InterruptedException {
@@ -66,20 +66,27 @@ public class DeleteSubProductCatagory extends Baseclass{
 		alert.accept();
 		Thread.sleep(3000);
 		}
-	public void verifytext1(String DeleteProducttxt)
+	public void verifytext1(String categoryname, String subcategoryname, String DeleteProducttxt)
 	{
 		
-		
+		try {
+			Select Category = new Select(eCategoryDDBox);
+			Category.selectByVisibleText(categoryname);
+			Thread.sleep(5000);
+			
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		String actualText= ePscverify.getText();
 		System.out.println("Text"+actualText);
-		if(actualText.equals(DeleteProducttxt))
-		{
-			System.out.println("Both are same");
-		}
-		else
-		{
-			System.out.println("Both are not same");
+		actualText.equals(DeleteProducttxt);
+		
+		esearchbox.sendKeys(subcategoryname);
+		Thread.sleep(3000);
+		
+			System.out.println("Both are same"+ actualText);
+			
+		} catch (Exception e) {
+			
+			System.out.println("Category not available in droipdown  part description deleted successfully");
 		}
 		
 	}

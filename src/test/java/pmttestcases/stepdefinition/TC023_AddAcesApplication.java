@@ -142,13 +142,13 @@ public class TC023_AddAcesApplication extends Baseclass {
 				apom.verifytext1(pro.getProperty("SearchTextVey"));
 				loginfo.pass("Aces Application added successfully & shown in grid");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				extent.flush();
+				//extent.flush();
 				
 			} catch (Exception e) {
 				System.out.println("Aces Application Not verify "+e.getMessage());
 				loginfo.fail("Aces Application Not added");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				extent.flush();
+				//extent.flush();
 				
 			}
 		}

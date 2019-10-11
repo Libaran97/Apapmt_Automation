@@ -50,20 +50,20 @@ public class DeletePartsDescription extends Baseclass{
 	}
 	
 	
-	public void SelectCategory(String CategoryValue4DBox) throws InterruptedException {
+	public void SelectCategory(String categoryname) throws InterruptedException {
 		Select Category = new Select(eCategoryDDBox);
-		Category.selectByVisibleText(CategoryValue4DBox);
+		Category.selectByVisibleText(categoryname);
 		Thread.sleep(3000);
 	}
-	public void SelectSubCategory(String SubCategoryValue4DBox) throws InterruptedException {
+	public void SelectSubCategory(String subcategoryname) throws InterruptedException {
 		Select SubCategory = new Select(eSubCategoryDDBox);
-		SubCategory.selectByVisibleText(SubCategoryValue4DBox);
+		SubCategory.selectByVisibleText(subcategoryname);
 		Thread.sleep(3000);
 	}
 	
 	
-	public void SelectsearchTextbox(String EnterSPartsDescription) throws InterruptedException {
-		esearchbox.sendKeys(EnterSPartsDescription);
+	public void SelectsearchTextbox(String partdesc) throws InterruptedException {
+		esearchbox.sendKeys(partdesc);
 		Thread.sleep(3000);
 	}
 	public void ClickDelete() throws InterruptedException {
@@ -76,20 +76,32 @@ public class DeletePartsDescription extends Baseclass{
 		alert.accept();
 		Thread.sleep(3000);
 		}
-	public void verifytext1(String DeleteProducttxt)
+	public void verifytext1(String DeleteProducttxt, String categoryname, String subcategoryname, String partdesc)
 	{
 		
-		
+		try {
+			Select Category = new Select(eCategoryDDBox);
+			Category.selectByVisibleText(categoryname);
+			Thread.sleep(3000);
+			
+			Select SubCategory = new Select(eSubCategoryDDBox);
+			SubCategory.selectByVisibleText(subcategoryname);
+			Thread.sleep(3000);
+			
+			esearchbox.sendKeys(partdesc);
+			Thread.sleep(3000);
+			
+			
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		String actualText= ePDverify.getText();
 		System.out.println("Text"+actualText);
-		if(actualText.equals(DeleteProducttxt))
-		{
-			System.out.println("Both are same");
+		actualText.equals(DeleteProducttxt);
+		
+			System.out.println("Both are same"+ actualText );
 		}
-		else
+		catch(Exception e)
 		{
-			System.out.println("Both are not same");
+			System.out.println("Category or sub category not selected part description deleted successfully");
 		}
 		
 	}

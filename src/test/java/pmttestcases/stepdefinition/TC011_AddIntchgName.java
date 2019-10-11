@@ -100,13 +100,13 @@ public class TC011_AddIntchgName extends Baseclass {
 			ipom.verifytext1(pro.getProperty("DeleteProducttxt"));
 			loginfo.pass(" InterchangeName verify  Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println("InterchangeName Not verify "+e.getMessage());
 			loginfo.fail(" InterchangeName Not verify ");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		}
 	    
 	}

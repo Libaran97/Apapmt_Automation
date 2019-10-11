@@ -20,8 +20,8 @@ public class TC026_DeleteApplication extends Baseclass {
 	@Given("^User will click on ApplicationPage$")
 	public void user_will_click_on_ApplicationPage() throws Throwable {
 		try {
-			 /*extent=setup();	
-				test = extent.createTest(Feature.class, "PMT Application Page");*/
+			 //extent=setup();	
+				test = extent.createTest(Feature.class, "PMT Application Page");
 				test=test.createNode(Scenario.class, "Deleting Applicarion");
 				loginfo=test.createNode(new GherkinKeyword("Given"),"User will click on ApplicationPage");
 			dapom = new DeleteApplication();
@@ -114,12 +114,12 @@ public class TC026_DeleteApplication extends Baseclass {
 			dapom.verifytext1(pro.getProperty("DeleteVryTxt"));
 			loginfo.pass("Deleted Application verifyed Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleted Application Not verify "+e.getMessage());
 			loginfo.fail("Deleted Application Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			extent.flush();
 		}
 		
 		

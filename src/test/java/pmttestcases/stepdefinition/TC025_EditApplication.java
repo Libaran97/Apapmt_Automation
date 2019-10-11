@@ -19,7 +19,7 @@ public class TC025_EditApplication extends Baseclass {
 	@Given("^User will click on Application page$")
 	public void user_will_click_on_Application_page() throws Throwable {
 		try {
-			extent=setup();	
+			//extent=setup();	
 			test = extent.createTest(Feature.class, "PMT Application Page");
 			test=test.createNode(Scenario.class, "Editing Applicarion");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will click on Application page");

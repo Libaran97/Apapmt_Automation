@@ -22,8 +22,8 @@ public class TC032_DeleteProductCatagory extends Baseclass {
 	public void user_will_mousehover_and_choose_the_product_category_page() throws Throwable {
 		
 		try {
-			/*extent=setup();	
-			test = extent.createTest(Feature.class, "PMT ProductRelated Delete");*/
+			//extent=setup();	
+			test = extent.createTest(Feature.class, "PMT ProductRelated Delete");
 			test=test.createNode(Scenario.class, "Delete ProductCatagory");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mousehover and choose the product category page");
 			pdpom = new DeleteProductCatagory();
@@ -44,7 +44,7 @@ public class TC032_DeleteProductCatagory extends Baseclass {
 	public void user_will_Enter_product_catagory_name_in_search_box() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Enter product catagory name in search box");
-			pdpom.SelectsearchTextbox(pro.getProperty("EnterSproductCatagory"));
+			pdpom.SelectsearchTextbox(pro.getProperty("categoryname"));
 			loginfo.pass("Product catagory name Entered Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -76,7 +76,7 @@ public class TC032_DeleteProductCatagory extends Baseclass {
 	public void user_will_Verify_Sub_product_category_is_deleted_or_not() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Verify product category is deleted or not");
-			pdpom.SelectsearchTextbox(pro.getProperty("EnterSproductCatagory"));
+			pdpom.SelectsearchTextbox(pro.getProperty("categoryname"));
 			pdpom.verifytext1(pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Deleteded Sub product category verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));

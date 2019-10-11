@@ -21,7 +21,7 @@ public class TC029_DeleteProductLine extends Baseclass {
 	@Given("^User will mousehover and choose the product Line page$")
 	public void user_will_mousehover_and_choose_the_product_Line_page() throws Throwable {
 		try {
-			extent=setup();	
+			//extent=setup();	
 			test = extent.createTest(Feature.class, "PMT ProductRelated Delete");
 			test=test.createNode(Scenario.class, "DeleteProductLine");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mousehover and choose the product Line pag");
@@ -44,7 +44,7 @@ public class TC029_DeleteProductLine extends Baseclass {
 	public void user_will_Enter_product_Line_name_in_search_box() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Enter product Line name in search box");
-			dplpom.SelectsearchTextbox(pro.getProperty("EnterSproductLine"));
+			dplpom.SelectsearchTextbox(pro.getProperty("linecode"));
 			loginfo.pass("Product Line name Entered in search box Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -77,7 +77,7 @@ public class TC029_DeleteProductLine extends Baseclass {
 	public void user_will_Verify_product_Line_is_deleted_or_not() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Verify product Line is deleted or not");
-			dplpom.SelectsearchTextbox(pro.getProperty("EnterSproductLine"));
+			dplpom.SelectsearchTextbox(pro.getProperty("linecode"));
 			dplpom.verifytext1(pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Deleteded product Line verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));

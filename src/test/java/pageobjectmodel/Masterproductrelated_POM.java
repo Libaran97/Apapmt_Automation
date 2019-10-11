@@ -161,12 +161,12 @@ public class Masterproductrelated_POM extends Baseclass {
 		
 	
 	
-	public void verifyingtext(String vrfytxt ) throws IOException {
+	public void verifyingtext(String categoryname ) throws IOException {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		searchfilter1.sendKeys(pro.getProperty("categoryname"));
 		String actualtext = verifytext.getText();
 		System.out.println("Text present as "+ actualtext);
-		if(actualtext.equals(vrfytxt))
+		if(actualtext.equals(categoryname))
 		{
 			System.out.println("Both are same");
 		}else {
@@ -213,7 +213,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	 * verification for product sub cateory
 	 * 
 	 */
-	public void verifysubcategory(String vrfytxt1) {
+	public void verifysubcategory(String subcategoryname) {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		WebElement element1 = verifytxt1;
 		Select select = new Select(element1);
@@ -221,7 +221,7 @@ public class Masterproductrelated_POM extends Baseclass {
 		filtercategory.sendKeys(pro.getProperty("subcategoryname"));
 		String actualtext = verifytext.getText();
 		System.out.println("Text present as "+ actualtext);
-		if(actualtext.equals(vrfytxt1))
+		if(actualtext.equals(subcategoryname))
 		{
 			System.out.println("Both are same");
 		}else {
@@ -295,12 +295,12 @@ public class Masterproductrelated_POM extends Baseclass {
 	}
 	
 
-	public void verifypartdesc(String vrfytxt1) {
+	public void verifypartdesc(String partdesc) {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//filtercategory.sendKeys(pro.getProperty("subcategoryname"));
 		String actualtext = verifytext.getText();
 		System.out.println("Text present as "+ actualtext);
-		if(actualtext.equals(vrfytxt1))
+		if(actualtext.equals(partdesc))
 		{
 			System.out.println("Both are same");
 		}else {
@@ -340,19 +340,19 @@ public class Masterproductrelated_POM extends Baseclass {
 	public void acceptAlertline() throws InterruptedException{
 		Alert alert = driver.switchTo().alert();
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
-		System.out.println("Product Category " +pro.getProperty("productline") + alert.getText());
+		System.out.println("Product Category " +pro.getProperty("linecode") + alert.getText());
 		alert.accept();
 		Thread.sleep(2000);
 		
 	}
 	
 	
-	public void verifyproductline(String vrfytxt1) {
+	public void verifyproductline(String linecode) {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		linefilter.sendKeys(pro.getProperty("productline"));
+		linefilter.sendKeys(pro.getProperty("linecode"));
 		String actualtext = verifytext.getText();
 		System.out.println("Text present as "+ actualtext);
-		if(actualtext.equals(vrfytxt1))
+		if(actualtext.equals(linecode))
 		{
 			System.out.println("Both are same");
 		}else {

@@ -129,6 +129,7 @@ public class ApplicationAddAces extends Baseclass {
 		Thread.sleep(3000);
 		}
 	public void acceptAlert() throws InterruptedException{
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Alert alert = driver.switchTo().alert();
 		System.out.println("Acess: " + alert.getText());
 		alert.accept();
@@ -140,26 +141,26 @@ public class ApplicationAddAces extends Baseclass {
 	}
 	
    public void ChooseVehiclevry(String vehicletypename) throws InterruptedException {
-		
+	   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Select Vvehicle = new Select(eVSelectVehicle);
 		Vvehicle.selectByVisibleText(vehicletypename);
-		Thread.sleep(5000);
+		
 	
 		}
 
 	public void ChooseMakevry(String makename ) throws InterruptedException {
-	 
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Select Vmake = new Select(eVSelectMake);
 		Vmake.selectByVisibleText(makename);
-		Thread.sleep(5000);
+		
 		
 		}
  
 	public void ChooseModelvry(String modelname ) throws InterruptedException {
-		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Select Vmodel = new Select(eVSelectModel);
 		Vmodel.selectByVisibleText(modelname);
-		Thread.sleep(3000);
+		
 		
 		}
 	public void Clicksearch() throws InterruptedException {

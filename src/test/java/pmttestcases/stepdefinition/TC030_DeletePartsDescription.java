@@ -21,8 +21,8 @@ public class TC030_DeletePartsDescription extends Baseclass {
 	@Given("^User will mousehover and choose the Parts Description page$")
 	public void user_will_mousehover_and_choose_the_Parts_Description_page() throws Throwable {
 		try {
-			/*extent=setup();	
-			test = extent.createTest(Feature.class, "PMT ProductRelated Delete");*/
+			//extent=setup();	
+			test = extent.createTest(Feature.class, "PMT ProductRelated Delete");
 			test=test.createNode(Scenario.class, "DeletePartsDescription");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mousehover and choose the Parts Description page");
 			dpdpom = new DeletePartsDescription();
@@ -42,8 +42,8 @@ public class TC030_DeletePartsDescription extends Baseclass {
 	public void user_will_select_Category_and_Sub_Category_in_dropdown() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will select Category and Sub Category in dropdown");
-			dpdpom.SelectCategory(pro.getProperty("CategoryValue4DBox"));
-			dpdpom.SelectSubCategory(pro.getProperty("SubCategoryValue4DBox"));
+			dpdpom.SelectCategory(pro.getProperty("categoryname"));
+			dpdpom.SelectSubCategory(pro.getProperty("subcategoryname"));
 			loginfo.pass("Category and Sub Category Selected Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -58,7 +58,7 @@ public class TC030_DeletePartsDescription extends Baseclass {
 	public void user_will_Enter_Parts_Description_name_in_search_box() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Enter Parts Description name in search box");
-			dpdpom.SelectsearchTextbox(pro.getProperty("EnterSPartsDescription"));
+			dpdpom.SelectsearchTextbox(pro.getProperty("partdesc"));
 			loginfo.pass("PartsDescription name Entered Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -88,16 +88,15 @@ public class TC030_DeletePartsDescription extends Baseclass {
 	public void user_will_Verify_Parts_Description_is_deleted_or_not() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Verify Parts Description is deleted or not");
-			dpdpom.SelectCategory(pro.getProperty("CategoryValue4DBox"));
-			dpdpom.SelectSubCategory(pro.getProperty("SubCategoryValue4DBox"));
-			dpdpom.SelectsearchTextbox(pro.getProperty("EnterSPartsDescription"));
-			dpdpom.verifytext1(pro.getProperty("DeleteProducttxt"));
+			dpdpom.verifytext1(pro.getProperty("categoryname"),pro.getProperty("subcategoryname"),pro.getProperty("partdesc"), pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Deleteded Parts Description verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleteded Parts Description Not verify "+e.getMessage());
 			loginfo.fail("Deleteded Parts Description Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
 	}
 	

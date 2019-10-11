@@ -39,12 +39,14 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 	    
 		bguide.apppartsenginebase();
 		bguide.savebtn();
+		bguide.acceptAlert();
 	}
 
 	@Then("^User will see successfull alert and verify the reocrd has shown in the below grid$")
 	public void user_will_see_successfull_alert_and_verify_the_reocrd_has_shown_in_the_below_grid() throws Throwable {
 	   
-		bguide.acceptAlert();
+		
+		
 	}
 
 	@Given("^User will go to parts page and search for a part# will edit notes$")

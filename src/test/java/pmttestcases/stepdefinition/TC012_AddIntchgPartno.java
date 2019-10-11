@@ -23,7 +23,7 @@ public class TC012_AddIntchgPartno extends Baseclass {
 	@Given("^User will mouse over master and click Interchange Part#$")
 	public void user_will_mouse_over_master_and_click_Interchange_Part() throws Throwable {
 		try {
-			extent=setup();	
+			//extent=setup();	
 			test = extent.createTest(Feature.class, "PMT Interchange Related");
 			test=test.createNode(Scenario.class, "Adding Interchange Part#");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mouse over master and click Interchange Part#");
@@ -116,12 +116,12 @@ public class TC012_AddIntchgPartno extends Baseclass {
 			
 			loginfo.pass("Added IntchgPartno verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println("Added IntchgPartno Not verify "+e.getMessage());
 			loginfo.fail("Added IntchgPartno Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		}
 	}
 	

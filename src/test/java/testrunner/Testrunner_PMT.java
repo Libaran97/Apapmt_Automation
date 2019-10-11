@@ -10,8 +10,8 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "Featurefiles",
-		//features = "Featurefiles_parts",
+		features = {"Featurefiles"},
+		//features = "Featurefiles",
 		glue = "pmttestcases.stepdefinition",
 		dryRun = false,
 		monochrome = true,
@@ -19,10 +19,11 @@ import cucumber.api.junit.Cucumber;
 			//	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"},
 				//plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 		strict = false,
-				//tags = {"~@Parts","~@partdesc","@interchange"}
-				tags = {"~@Parts","@productrelated","~@partdesc","~@applicationTest","~@applicationTest1","~@interchange","~@Buyersguide"}
+				tags = {"@productrelated2,@productrelated1,@productrelated3"}
+			
+				//tags = {"~@Parts","@productrelated","~@partdesc","~@applicationTest","~@applicationTest1","~@interchange","~@Buyersguide"}
 		
-		//tags = {"@Interchange"}
+	
 		)
 
 public class Testrunner_PMT {

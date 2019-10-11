@@ -121,7 +121,7 @@ public class PartsAdd_POM extends Baseclass {
 	public void partsadddrp4() throws InterruptedException {
 		WebElement prdctlnselect = drpproductline;
 		Select select = new Select(prdctlnselect);
-		select.selectByVisibleText(pro.getProperty("productline"));
+		select.selectByVisibleText(pro.getProperty("linecode"));
 		Thread.sleep(2000);
 	}
 	

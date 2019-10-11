@@ -1,4 +1,4 @@
-@Parts
+@productrelated1
 Feature: PMT Add Product List
 Description: User will add part#
 

@@ -43,9 +43,9 @@ public class DeleteProductLine extends Baseclass{
 		Thread.sleep(3000);
 	}
 	
-	public void SelectsearchTextbox(String EnterSproductLine) throws InterruptedException {
+	public void SelectsearchTextbox(String linecode) throws InterruptedException {
 		Thread.sleep(3000);
-		esearchbox.sendKeys(EnterSproductLine);
+		esearchbox.sendKeys(linecode);
 		Thread.sleep(3000);
 	}
 	public void ClickDelete() throws InterruptedException {

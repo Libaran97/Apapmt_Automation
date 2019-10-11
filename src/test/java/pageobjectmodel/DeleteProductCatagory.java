@@ -44,8 +44,8 @@ public class DeleteProductCatagory extends Baseclass{
 		Thread.sleep(3000);
 	}
 	
-	public void SelectsearchTextbox(String EnterSproductCatagory) throws InterruptedException {
-		esearchbox.sendKeys(EnterSproductCatagory);
+	public void SelectsearchTextbox(String categoryname) throws InterruptedException {
+		esearchbox.sendKeys(categoryname);
 		Thread.sleep(3000);
 	}
 	public void ClickDelete() throws InterruptedException {

@@ -22,7 +22,7 @@ public class TC028_DeleteIntchgName extends Baseclass {
 	@Given("^User will mouse over emaster and click Interchange Name$")
 	public void user_will_mouse_over_emaster_and_click_Interchange_Name() throws Throwable {
 		try {
-			extent=setup();	
+			//extent=setup();	
 			test = extent.createTest(Feature.class, "PMT Interchange Related");
 			test=test.createNode(Scenario.class, "Deleting InterchangeName");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mouse over emaster and click Interchange Name");

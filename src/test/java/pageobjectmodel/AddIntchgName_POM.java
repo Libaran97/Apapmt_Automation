@@ -95,6 +95,7 @@ public class AddIntchgName_POM extends Baseclass{
 		Thread.sleep(3000);
 		}
 	public void acceptAlert() throws InterruptedException{
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Alert alert = driver.switchTo().alert();
 		System.out.println("Acess: " + alert.getText());
 		alert.accept();

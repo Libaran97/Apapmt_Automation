@@ -192,7 +192,6 @@ public class Buyersguide_POM extends Baseclass {
 				//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 				System.out.println("Parts Related " + "application added " + alert.getText());
 				alert.accept();
-				
 				Thread.sleep(3000);
 			}
 			
