@@ -16,7 +16,7 @@ public class TC041_Multiaddattrqtyandposition extends Baseclass {
 	@Given("^: user will select the application pages and multiadd pages$")
 	public void user_will_select_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
-			extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
 			test = test.createNode(Scenario.class, "Multiadd qty,notes to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),"user will select the application pages and multiadd pages");
@@ -138,11 +138,11 @@ public class TC041_Multiaddattrqtyandposition extends Baseclass {
 	public void finally_qty_and_position_added() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally qty and position added");
-			extent.flush();
+			//extent.flush();
 			loginfo.fail("Attributes qty,position details verified");
 			System.out.println("Attributes qty,position details verified..");
 		} catch (Exception e) {
-			extent.flush();
+			//extent.flush();
 			loginfo.fail("Attributes qty,position details not verified");
 			System.out.println("Attributes qty,position details not verified..");
 		}

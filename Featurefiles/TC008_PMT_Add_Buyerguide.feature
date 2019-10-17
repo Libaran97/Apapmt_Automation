@@ -1,5 +1,5 @@
 @productrelated1
-Feature: PMT Add Product List
+Feature: PMT parts buyers guide
 Description: User will add application for a part# through buyersguide
 
 

@@ -19,7 +19,7 @@ public class TC040_Multiaddattr1qtyandnotes extends Baseclass {
 	public void user_will_click_the_application_pages_and_multiadd_page() throws Throwable {
 
 		try {
-			extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
 			test = test.createNode(Scenario.class, "Multiadd qty,notes to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -144,11 +144,11 @@ public class TC040_Multiaddattr1qtyandnotes extends Baseclass {
 	public void finally_qty_and_notes_added() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally qty and notes added");
-			extent.flush();
+			//extent.flush();
 			loginfo.pass("Attributes qty,notes details verified");
 			System.out.println("Attributes qty,notes details verified..");
 		} catch (Exception e) {
-			extent.flush();
+			//extent.flush();
 			loginfo.fail("Attributes qty,notes details not verified");
 			System.out.println("Attributes qty,notes details not verified..");
 		}

@@ -20,7 +20,7 @@ public class TC034_MultiaddNonAces extends Baseclass {
 	public void user_will_create_the_application_pages() throws Throwable {
 
 		try {
-			extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces save and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"), "user will create the application pages");
@@ -106,13 +106,13 @@ public class TC034_MultiaddNonAces extends Baseclass {
 	public void finally_Non_Aces_matched_successfully() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Non Aces matched successfully");
-			extent.flush();
+			//extent.flush();
 			loginfo.pass("Non Aces is successfully working");
 			System.out.println("**Non Aces is successfully working**");
 		} catch (Exception e) {
 			loginfo.fail("Finally Non Aces matched not success");
 			System.out.println("**Non Aces is not working**");
-			extent.flush();
+			//extent.flush();
 		}
 	}
 

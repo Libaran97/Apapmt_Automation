@@ -17,7 +17,7 @@ public class TC042_Multiaddattrnotesandposition extends Baseclass {
 	@Given("^: user will select the application paged and multiadd pages$")
 	public void user_will_select_the_application_paged_and_multiadd_pages() throws Throwable {
 		try {
-			extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
 			test = test.createNode(Scenario.class, "Multiadd position,notes to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),

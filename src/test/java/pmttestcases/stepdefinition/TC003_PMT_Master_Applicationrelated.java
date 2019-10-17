@@ -3,6 +3,9 @@ package pmttestcases.stepdefinition;
 
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.GherkinKeyword;
+import com.aventstack.extentreports.gherkin.model.Feature;
+import com.aventstack.extentreports.gherkin.model.Scenario;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -15,85 +18,151 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 
 	//Pageobjectclass pom;
 	Applicationrelated_vehicle_make_model master;
-	//ExtentTest loginfo=null;
+	ExtentTest loginfo=null;
 	
 	
 	
 	@Given("^User will mouse hover on Master and choose the vehicle type page$")
 	public void user_will_mouse_hover_on_Master_and_choose_the_vehicle_type_page() throws Throwable {
 	  
+		try {
+			//extent=setup();	
+			test = extent.createTest(Feature.class, "PMT Add Application related List").assignCategory("Master-Application Related vehicle").pass("category added thanks");
+			test=test.createNode(Scenario.class, "Adding Application Related vehicle type, Make & Model Test Cases");
+			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mouse hover on Master and choose the vehicle type page");
 		master = new Applicationrelated_vehicle_make_model();
 		master.clickonvehicletype();
+		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} 	catch ( Exception e) {
+			System.out.println(e);
+			TestStep("Fail",driver,loginfo,e);
+			
+		}
 	}
 
 	@When("^User will click on the add button and will enter the new vehicle type and choose the equivalent ACES & save$")
 	public void user_will_click_on_the_add_button_and_will_enter_the_new_vehicle_type_and_choose_the_equivalent_ACES_save() throws Throwable {
 	
+		try {
+			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on the add button and will enter the new vehicle type and choose the equivalent ACES & save");
 		master.vehicletypename(pro.getProperty("vehicletypename"));
+		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} 	catch ( Exception e) {
+			System.out.println(e);
+			TestStep("Fail",driver,loginfo,e);
+			
+		}
 	}
 
-	/*@Then("^User will successfully added and verify the added record should be shown in grid$")
-	public void user_will_successfully_added_and_verify_the_added_record_should_be_shown_in_vehicle_grid() throws Throwable {
-	   
-		master.acceptAlert();
-		
-	}*/
 	
 	@Then("^User will successfully added and verify the added record should be shown in vehicle grid$")
 	public void user_will_successfully_added_and_verify_the_added_record_should_be_shown_in_vehicle_grid() throws Throwable {
 	    
+		try {
+			loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify the added record should be shown in vehicle grid");
 		master.acceptAlert();
+		} 	catch ( Exception e) {
+			System.out.println(e);
+			TestStep("Fail",driver,loginfo,e);
+			
+		}
+		
 	}
 	
 
 	@Given("^User will mouse hover on master and choose the make$")
 	public void user_will_mouse_hover_on_master_and_choose_the_make() throws Throwable {
 	   
+		try {
+			//extent=setup();	
+			test = extent.createTest(Feature.class, "PMT Add Application related List").assignCategory("Master-Application Related Make").pass("category added thanks");
+			test=test.createNode(Scenario.class, "Adding Application Related Make");
+			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to parts page and search for the part# to edit");
 		master = new Applicationrelated_vehicle_make_model();
 		master.clickonmake();
+		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} 	catch ( Exception e) {
+			System.out.println(e);
+			TestStep("Fail",driver,loginfo,e);
+			
+		}
 	}
 
 	@When("^User will click on the add button and will choose the added vehicle type, enter the new make name and choose the equivalent ACES & save$")
 	public void user_will_click_on_the_add_button_and_will_choose_the_added_vehicle_type_enter_the_new_make_name_and_choose_the_equivalent_ACES_save() throws Throwable {
 	
+		try {
+			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on the add button and will choose the added vehicle type, enter the new make name and choose the equivalent ACES & save");
 		master.addmakename();
 		master.newmakename(pro.getProperty("makename"));
+		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} 	catch ( Exception e) {
+			System.out.println(e);
+			TestStep("Fail",driver,loginfo,e);
+			
+		}
 		
 	}
 
-	/*@Then("^User will successfully added and verify the added record should be shown in grid$")
-	public void user_will_successfully_added_and_verify_the_added_record_should_be_shown_in_make_grid() throws Throwable {
-		
-		master.acceptAlertformake();
-	} */   
 
 	@Then("^User will successfully added and verify the added record should be shown in make grid$")
 	public void user_will_successfully_added_and_verify_the_added_record_should_be_shown_in_make_grid() throws Throwable {
 	   
+		try {
+			loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify the added record should be shown in make grid");
 		master.acceptAlertformake();
+	} 	catch ( Exception e) {
+		System.out.println(e);
+		TestStep("Fail",driver,loginfo,e);
+		
+	}
 	}
 
-	
 	
 	@Given("^User will mouse hover on master and choose the model$")
 	public void user_will_mouse_hover_on_master_and_choose_the_model() throws Throwable {
 		
+		try {
+			//extent=setup();	
+			test = extent.createTest(Feature.class, "PMT Add Application related List").assignCategory("Master-Application Related Model").pass("category added thanks");
+			test=test.createNode(Scenario.class, "Adding Application Related Model");
+			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to parts page and search for the part#");
 		master = new Applicationrelated_vehicle_make_model();
 		master.clickonmodel();
+		} 	catch ( Exception e) {
+			System.out.println(e);
+			TestStep("Fail",driver,loginfo,e);
+			
+		}
 	}    
 
 	@When("^User will mouse hover on master and choose the model,click on the add button and will choose the added vehicle type, make & enter the new model name and choose the equivalent ACES & save$")
 	public void user_will_mouse_hover_on_master_and_choose_the_model_click_on_the_add_button_and_will_choose_the_added_vehicle_type_make_enter_the_new_model_name_and_choose_the_equivalent_ACES_save() throws Throwable {
 	    
+		try {
+			loginfo=test.createNode(new GherkinKeyword("When"),"User will mouse hover on master and choose the model,click on the add button and will choose the added vehicle type, make & enter the new model name and choose the equivalent ACES & save");
 		master.addmodelname();
 		master.addmodeldrp2();
 		master.modelnameadd(pro.getProperty("modelname"));
+		} 	catch ( Exception e) {
+			System.out.println(e);
+			TestStep("Fail",driver,loginfo,e);
+			
+		}
 	}
 
 	@Then("^User will successfully added and verify that the record has come\\.$")
 	public void user_will_successfully_added_and_verify_that_the_record_has_come() throws Throwable {
 	    
+		try {
+			loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify that the record has come");
 		master.acceptAlertformodel();
+		}catch ( Exception e) {
+			TestStep("Fail",driver,loginfo,e);
+			System.out.println(e);
+			//extent.flush();
+			
+		}
 
 }
 	

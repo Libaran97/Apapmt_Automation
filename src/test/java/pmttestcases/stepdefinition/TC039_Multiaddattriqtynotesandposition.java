@@ -17,7 +17,7 @@ public class TC039_Multiaddattriqtynotesandposition extends Baseclass {
 	@Given("^: user will click the application pages and multiadd pages$")
 	public void user_will_click_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
-			extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
 			test = test.createNode(Scenario.class, "Multiadd attributes values check and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -143,12 +143,12 @@ public class TC039_Multiaddattriqtynotesandposition extends Baseclass {
 	@Then("^: Finally Show attributes details is finished$")
 	public void finally_Show_attributes_details_is_finished() throws Throwable {
 		try {
-			extent.flush();
+			//extent.flush();
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Show attributes details is finished");
 			loginfo.pass("Attributes qty,position and notes details verified");
 			System.out.println("Attributes qty,position and notes details verified..");
 		} catch (Exception e) {
-			extent.flush();
+			//extent.flush();
 			loginfo.fail("Attributes qty,position and notes details not verified");
 			System.out.println("Attributes qty,position and notes details not verified..");
 		}

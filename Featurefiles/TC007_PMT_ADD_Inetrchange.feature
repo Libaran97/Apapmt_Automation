@@ -1,5 +1,5 @@
 @productrelated1
-Feature: PMT Add Product List
+Feature: PMT PIES Interchange
 Description: User will add Interchange
 
 

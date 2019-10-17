@@ -17,7 +17,7 @@ public class TC038_MultiaddNonacesattributes extends Baseclass {
 	@Given("^: user will create the application pages and multiadd pages$")
 	public void user_will_create_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
-			extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases2");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces attributes values reflected to buyers guide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -117,11 +117,11 @@ public class TC038_MultiaddNonacesattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"Finally Show non aces attributes is finished");
-			extent.flush();
+			//extent.flush();
 			System.out.println("**Show non-aces attributes succussfully added**");
 			loginfo.pass("Show non-aces attributes succussfully added");
 		} catch (Exception e) {
-			extent.flush();
+			//extent.flush();
 			loginfo.fail("Show non-aces attributes succussfully not added");
 			System.out.println("**Show non-aces attributes succussfully not added**");
 		}

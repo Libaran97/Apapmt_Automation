@@ -18,7 +18,7 @@ public class TC033_MultiaddAces extends Baseclass {
 	@Given("^User will Click the Application page and multiadd page$")
 	public void user_will_Click_the_Application_page_and_multiadd_page() throws Throwable {
 		try {
-			extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
 			test = test.createNode(Scenario.class, "Multiadd aces save and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -40,7 +40,7 @@ public class TC033_MultiaddAces extends Baseclass {
 	@When("^User will select vehicle,make,model and will click the search option$")
 	public void user_will_select_vehicle_make_model_and_will_click_the_search_option() throws Throwable {
 		try {
-			extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
 			test = test.createNode(Scenario.class, "Multiadd aces save and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("When"),
@@ -113,13 +113,13 @@ public class TC033_MultiaddAces extends Baseclass {
 	public void finally_macthed_successfully() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally macthed successfully");
-			extent.flush();
+			//extent.flush();
 			loginfo.pass("Aces is successfully working");
 			System.out.println("**Aces is successfully working**");
 		} catch (Exception e) {
 			loginfo.fail("Aces is not working");
 			System.out.println("**Aces is not working**");
-			extent.flush();
+			//extent.flush();
 		}
 	}
 

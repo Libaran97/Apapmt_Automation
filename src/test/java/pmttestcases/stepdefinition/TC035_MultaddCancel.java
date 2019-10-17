@@ -17,7 +17,7 @@ public class TC035_MultaddCancel extends Baseclass {
 	@Given("^: user will create the application pages and multiadd links$")
 	public void user_will_create_the_application_pages_and_multiadd_links() throws Throwable {
 		try {
-			extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
 			test = test.createNode(Scenario.class, "Multiadd Cancel case in the Multi add page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -93,13 +93,13 @@ public class TC035_MultaddCancel extends Baseclass {
 	public void finally_Cancel_button_finished() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Cancel button finished");
-			extent.flush();
+			//extent.flush();
 			loginfo.pass("Cancel button was succussfully working");
 			System.out.println("**Cancel button was succussfully working**");
 
 		} catch (Exception e) {
 			loginfo.fail("Cancel button is not click");
-			extent.flush();
+			//extent.flush();
 			System.out.println("**Cancel button was not succussfully working**");
 			e.printStackTrace();
 		}

@@ -1,5 +1,5 @@
 @productrelated3
-Feature: PMT Add Product List
+Feature: PMT Add Application related List
 Description: User will add Application related like vehicle, make & model
 
 

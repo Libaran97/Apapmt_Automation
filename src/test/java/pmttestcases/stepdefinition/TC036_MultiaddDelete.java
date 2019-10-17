@@ -17,7 +17,7 @@ public class TC036_MultiaddDelete extends Baseclass {
 	@Given("^: user will create the application pages and multiadd links on same page$")
 	public void user_will_create_the_application_pages_and_multiadd_links_on_same_page() throws Throwable {
 		try {
-			extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
 			test = test.createNode(Scenario.class, "Multiadd Delete case in the Multi add page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -90,11 +90,11 @@ public class TC036_MultiaddDelete extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally delete button finished");
 			mpom1.Deleteverify(pro.getProperty("Delete"));
-			extent.flush();
+			//extent.flush();
 			loginfo.pass("*Delete button succussfully added...");
 			System.out.println("**Delete button succussfully added**");
 		} catch (Exception e) {
-			extent.flush();
+			//extent.flush();
 			System.out.println("Failed Delete functionality..");
 			loginfo.fail("Failed Delete functionality..");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
