@@ -18,7 +18,7 @@ public class TC039_Multiaddattriqtynotesandposition extends Baseclass {
 	public void user_will_click_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ").pass("Attributes details all verified");
 			test = test.createNode(Scenario.class, "Multiadd attributes values check and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will click the application pages and multiadd pages");

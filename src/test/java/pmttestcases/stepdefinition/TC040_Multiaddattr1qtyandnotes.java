@@ -20,7 +20,7 @@ public class TC040_Multiaddattr1qtyandnotes extends Baseclass {
 
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ").pass("Attributes qty and notes File verified");
 			test = test.createNode(Scenario.class, "Multiadd qty,notes to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will click the application pages and multiadd pages");

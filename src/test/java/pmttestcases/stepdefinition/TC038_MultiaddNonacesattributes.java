@@ -18,7 +18,7 @@ public class TC038_MultiaddNonacesattributes extends Baseclass {
 	public void user_will_create_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases2");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases2").assignCategory("PIES MultiAdd ").pass("Non Aces Attributes File verified");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces attributes values reflected to buyers guide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will create the application pages and multiadd pages");

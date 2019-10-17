@@ -148,7 +148,7 @@ public class Buyersguide_POM extends Baseclass {
 				WebElement modelselect = drpModel ;
 				Select select = new Select(modelselect);
 				//select.selectByVisibleText(pro.getProperty("modelname"));
-				select.selectByValue("1091");
+				select.selectByValue("1103");
 				Thread.sleep(2000);
 			}
 			

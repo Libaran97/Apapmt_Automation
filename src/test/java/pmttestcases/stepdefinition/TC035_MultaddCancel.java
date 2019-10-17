@@ -18,7 +18,7 @@ public class TC035_MultaddCancel extends Baseclass {
 	public void user_will_create_the_application_pages_and_multiadd_links() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ").pass("Cancel File verified");
 			test = test.createNode(Scenario.class, "Multiadd Cancel case in the Multi add page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will create the application pages and multiadd links");

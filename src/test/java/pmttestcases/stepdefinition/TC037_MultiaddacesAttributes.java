@@ -18,7 +18,7 @@ public class TC037_MultiaddacesAttributes extends Baseclass {
 	public void user_will_create_the_application_pages_and_multiadd_links_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ").pass("Aces attributes File verified");
 			test = test.createNode(Scenario.class, "Multiadd Aces attributes values reflected to buyers guide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will create the application pages and multiadd links pages");

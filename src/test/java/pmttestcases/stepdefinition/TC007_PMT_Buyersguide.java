@@ -120,6 +120,7 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 			loginfo=test.createNode(new GherkinKeyword("And"),"User will enter notes in notes textbox and click on save");
 		bguide.apppartsnote(pro.getProperty("apppartnotes"));
 		bguide.updatebtn();
+		bguide.acceptAlert();
 		}catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);	
@@ -133,7 +134,7 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 	    
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see succesfull alert and verify the notes added");
-		bguide.acceptAlert();
+		//bguide.acceptAlert();
 		}catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);	

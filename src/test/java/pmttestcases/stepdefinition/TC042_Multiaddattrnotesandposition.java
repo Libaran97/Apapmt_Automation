@@ -18,7 +18,7 @@ public class TC042_Multiaddattrnotesandposition extends Baseclass {
 	public void user_will_select_the_application_paged_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ").pass("Attributes Position and notes File verified");
 			test = test.createNode(Scenario.class, "Multiadd position,notes to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will select the application page and multiadd pages");

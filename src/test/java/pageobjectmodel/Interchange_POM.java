@@ -99,7 +99,7 @@ public class Interchange_POM extends Baseclass{
 			driver.switchTo().frame(0);
 			WebElement intnotesselect = drpCompetitorName ;
 			Select select = new Select(intnotesselect);
-			select.selectByValue("22");
+			select.selectByValue("2");
 			Thread.sleep(2000);
 		}
 		

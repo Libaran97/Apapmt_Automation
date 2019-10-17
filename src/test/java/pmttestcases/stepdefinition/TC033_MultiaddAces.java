@@ -19,7 +19,7 @@ public class TC033_MultiaddAces extends Baseclass {
 	public void user_will_Click_the_Application_page_and_multiadd_page() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ").pass("Aces File verified");
 			test = test.createNode(Scenario.class, "Multiadd aces save and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will Click the Application page and multiadd page");

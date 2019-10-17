@@ -17,8 +17,8 @@ public class TC041_Multiaddattrqtyandposition extends Baseclass {
 	public void user_will_select_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
-			test = test.createNode(Scenario.class, "Multiadd qty,notes to check add or not");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ").pass("Attributes qty and position File verified");
+			test = test.createNode(Scenario.class, "Multiadd qty,position to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),"user will select the application pages and multiadd pages");
 			mpom1 = new MultiAddPom();
 			mpom1.Application();

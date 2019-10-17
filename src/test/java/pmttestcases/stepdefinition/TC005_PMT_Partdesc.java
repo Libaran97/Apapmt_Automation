@@ -163,6 +163,7 @@ public class TC005_PMT_Partdesc extends Baseclass {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on part description frame and will delete the added or available record");
 		partdesc.descriptionclick();
 		partdesc.deletepartdesc();
+		partdesc.acceptAlertdelete();
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} 	catch ( Exception e) {
 			System.out.println(e);
@@ -176,7 +177,7 @@ public class TC005_PMT_Partdesc extends Baseclass {
 	   
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the part# thorugh part# search");
-		partdesc.acceptAlert();
+		//partdesc.acceptAlert();
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}catch ( Exception e) {
 			TestStep("Fail",driver,loginfo,e);

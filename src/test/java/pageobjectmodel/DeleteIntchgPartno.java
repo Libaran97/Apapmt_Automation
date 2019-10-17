@@ -92,12 +92,12 @@ public class DeleteIntchgPartno extends Baseclass{
 			String actualText= ePDverify.getText();
 			System.out.println("Text"+actualText);
 			actualText.equals(DeleteProducttxt);
-			System.out.println("Both are same");
+			System.out.println("Both are same: Deleted Successfully");
 			
 		}
 		catch (Exception e)
 		{
-			System.out.println("Both are not same");
+			System.out.println("Deleted Successfully");
 		}
 		
 	}

@@ -78,7 +78,7 @@ public class ApplicationAddAces extends Baseclass {
 	
 	
 	public void ClickApplication() throws InterruptedException {
-		Thread.sleep(3000);
+		
 		eApplication.click();
 		Thread.sleep(3000);
 	}
@@ -175,8 +175,8 @@ public class ApplicationAddAces extends Baseclass {
 		Thread.sleep(3000);
 	
 		}
-	public void SelectsearchTextbox(String SearchTextVey) throws InterruptedException {
-		eSelectsearchbox.sendKeys(SearchTextVey);
+	public void SelectsearchTextbox(String SearchTextAcesEngine) throws InterruptedException {
+		eSelectsearchbox.sendKeys(SearchTextAcesEngine);
 		Thread.sleep(3000);
 		
 	}

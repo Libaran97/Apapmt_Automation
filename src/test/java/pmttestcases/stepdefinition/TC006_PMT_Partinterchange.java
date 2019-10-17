@@ -50,6 +50,7 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 		inter.interchangenoteenter(pro.getProperty("interchangepartno"));
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		inter.savebtn();
+		inter.acceptAlert();
 		} 	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
@@ -62,7 +63,7 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 	    
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the record to be shown in the grid below");
-			inter.acceptAlert();
+			//inter.acceptAlert();
 		} 	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
@@ -97,6 +98,7 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 		inter.editinterchange(pro.getProperty("interditpart"),pro.getProperty("editinternotes"));
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		inter.savebtn();
+		inter.acceptAlert();
 		}catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);	
@@ -109,7 +111,7 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 	   
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the record should be edited successfully");
-		inter.acceptAlert();
+		//inter.acceptAlert();
 		} 	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);

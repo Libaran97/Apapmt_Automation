@@ -46,6 +46,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on the add button and will enter the new vehicle type and choose the equivalent ACES & save");
 		master.vehicletypename(pro.getProperty("vehicletypename"));
+		master.acceptAlert();
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} 	catch ( Exception e) {
 			System.out.println(e);
@@ -60,7 +61,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 	    
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify the added record should be shown in vehicle grid");
-		master.acceptAlert();
+		//master.acceptAlert();
 		} 	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
@@ -95,6 +96,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on the add button and will choose the added vehicle type, enter the new make name and choose the equivalent ACES & save");
 		master.addmakename();
 		master.newmakename(pro.getProperty("makename"));
+		master.acceptAlertformake();
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} 	catch ( Exception e) {
 			System.out.println(e);
@@ -110,7 +112,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 	   
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify the added record should be shown in make grid");
-		master.acceptAlertformake();
+		//master.acceptAlertformake();
 	} 	catch ( Exception e) {
 		System.out.println(e);
 		TestStep("Fail",driver,loginfo,e);

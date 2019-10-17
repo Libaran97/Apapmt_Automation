@@ -152,7 +152,16 @@ public class Partdescription_POM extends Baseclass {
 		
 	}
 	
-	
+	public void acceptAlertdelete() throws InterruptedException{
+		Alert alert = driver.switchTo().alert();
+		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
+		System.out.println("Parts Related " + "Description Notes" + alert.getText());
+		alert.accept();
+		Thread.sleep(1000);
+		alert.accept();
+		Thread.sleep(3000);
+		
+	}
 	
 	
 	public void editpartdesc(String editnotes) throws Exception {

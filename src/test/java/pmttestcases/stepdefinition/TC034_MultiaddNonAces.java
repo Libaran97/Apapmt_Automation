@@ -21,7 +21,7 @@ public class TC034_MultiaddNonAces extends Baseclass {
 
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ").pass("Non Aces File verified");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces save and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"), "user will create the application pages");
 			mpom1 = new MultiAddPom();

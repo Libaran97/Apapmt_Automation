@@ -262,7 +262,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Application Related " +pro.getProperty("modelname") + alert.getText());
 		alert.accept();
-		
+		Thread.sleep(3000);
 	}
 	
 	
