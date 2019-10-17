@@ -1,3 +1,4 @@
+@Sanitycheck
 Feature: PMT Delete,Cancel,Attributes option TestCases 
 
 Scenario: Check the Cancel button[TC035] 

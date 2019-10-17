@@ -24,7 +24,7 @@ public class TC005_PMT_Partdesc extends Baseclass {
 		
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT PIES Description ").assignCategory("PIES Description").pass("category added thanks");
+			test = extent.createTest(Feature.class, "PMT PIES Description").assignCategory("PIES Description Add").pass("category added thanks");
 			test=test.createNode(Scenario.class, "Adding part description Test case");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to parts page and search for the part#");
 			partdesc = new Partdescription_POM();

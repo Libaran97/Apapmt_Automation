@@ -1,4 +1,4 @@
-@productrelated1
+@Sanitycheck
 Feature: PMT parts buyers guide
 Description: User will add application for a part# through buyersguide
 

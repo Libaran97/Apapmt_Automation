@@ -1,3 +1,4 @@
+@Sanitycheck
 Feature: PMT Application Page
 
 @productrelated1

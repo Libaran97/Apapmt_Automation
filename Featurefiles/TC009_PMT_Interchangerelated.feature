@@ -1,4 +1,4 @@
-@productrelated2
+@Sanitycheck
 Feature: PMT Interchange Related
 Description: User will add Application related like vehicle, make & model
 

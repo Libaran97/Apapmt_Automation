@@ -1,5 +1,5 @@
-@productrelated1
-Feature: PMT Add Product List
+@Sanitycheck
+Feature: PMT PIES Description
 Description: User will add part description for that part#
 
 

@@ -19,9 +19,9 @@ import cucumber.api.junit.Cucumber;
 			//	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"},
 				//plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 		strict = false,
-				tags = {"@productrelated2,@productrelated1,@productrelated3"}
+				//tags = {"@productrelated2,@productrelated1,@productrelated3"}
 			
-				//tags = {"~@Parts","@productrelated","~@partdesc","~@applicationTest","~@applicationTest1","~@interchange","~@Buyersguide"}
+				tags = {"@Sanitycheck"}
 		
 	
 		)

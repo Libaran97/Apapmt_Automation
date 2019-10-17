@@ -1,4 +1,4 @@
-@productrelated3
+@Sanitycheck
 Feature: PMT Add Application related List
 Description: User will add Application related like vehicle, make & model
 

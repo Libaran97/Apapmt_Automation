@@ -1,4 +1,4 @@
-@productrelated1
+@Sanitycheck
 Feature: PMT PIES Interchange
 Description: User will add Interchange
 

@@ -1,4 +1,4 @@
-@productrelated2 
+@Sanitycheck
 Feature: PMT Add Product List
 Description: User will add product category,sub category & part description
 

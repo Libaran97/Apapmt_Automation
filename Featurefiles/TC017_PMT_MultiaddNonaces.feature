@@ -1,3 +1,4 @@
+@Sanitycheck
 Feature: PMT ACES,Non ACES,Delete,Cancel,Attributes aces and nonaces  option TestCases 
 
 Scenario: Check the Non Aces files in multi add [TC034] 
