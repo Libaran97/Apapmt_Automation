@@ -23,7 +23,7 @@ public class TC028_DeleteIntchgName extends Baseclass {
 	public void user_will_mouse_over_emaster_and_click_Interchange_Name() throws Throwable {
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Interchange Related");
+			test = extent.createTest(Feature.class, "PMT Interchange Related").assignCategory("Delete InterchangeName").pass("InterchangeName Deleted");
 			test=test.createNode(Scenario.class, "Deleting InterchangeName");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mouse over emaster and click Interchange Name");
 			indpom = new DeleteIntchgName();
@@ -80,12 +80,12 @@ public class TC028_DeleteIntchgName extends Baseclass {
 			
 			loginfo.pass("Deleted InterchangeName verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleted InterchangeName Not verify "+e.getMessage());
 			loginfo.fail("Deleted InterchangeName Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		}
 	}
 

@@ -23,7 +23,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 	public void user_will_click_on_Application_and_Click_add_button() throws Throwable {
 		 try {
 			// extent=setup();	
-				test = extent.createTest(Feature.class, "PMT Application Page");
+				test = extent.createTest(Feature.class, "PMT Application Page").assignCategory("NonAces Applicarion").pass("NonAces Applicarion added");
 				test=test.createNode(Scenario.class, "Adding NonAces Applicarion");
 				loginfo=test.createNode(new GherkinKeyword("Given"),"User will click on Application and Click add button");
 			 		 

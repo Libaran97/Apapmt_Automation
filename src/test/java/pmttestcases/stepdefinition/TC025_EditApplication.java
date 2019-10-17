@@ -20,7 +20,7 @@ public class TC025_EditApplication extends Baseclass {
 	public void user_will_click_on_Application_page() throws Throwable {
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Application Page");
+			test = extent.createTest(Feature.class, "PMT Application Page").assignCategory("Edit NonAces Applicarion").pass("NonAces Applicarion Edited");
 			test=test.createNode(Scenario.class, "Editing Applicarion");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will click on Application page");
 			eapom = new EditApplication();

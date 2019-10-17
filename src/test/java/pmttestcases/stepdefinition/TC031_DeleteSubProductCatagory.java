@@ -21,17 +21,17 @@ public class TC031_DeleteSubProductCatagory extends Baseclass {
 	public void user_will_mousehover_and_choose_the_Sub_product_category_page() throws Throwable {
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT ProductRelated Delete");
-			test=test.createNode(Scenario.class, "Delete SubProductCatagory");
-			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mousehover and choose the Sub product category page");
+			test = extent.createTest(Feature.class, " PMT ProductRelated Delete ").assignCategory(" Delete SubProductCatagory ").pass(" SubProductCatagory Deleted ");
+			test=test.createNode(Scenario.class, " Deleting SubProductCatagory ");
+			loginfo=test.createNode(new GherkinKeyword("Given")," User will mousehover and choose the Sub product category page ");
 			spdpom = new DeleteSubProductCatagory();
 			    
 			spdpom.clickonSubproductcategory();
-			loginfo.pass("Sub product category page Successfully");
+			loginfo.pass(" Sub product category page Successfully ");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println(" Sub product category page Not Clicked "+e.getMessage());
-			loginfo.fail("Sub product category page Not Clicked");
+			loginfo.fail(" Sub product category page Not Clicked ");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	    
@@ -40,7 +40,7 @@ public class TC031_DeleteSubProductCatagory extends Baseclass {
 	@When("^User will select Category in drop down and Enter product catagory name in search box$")
 	public void user_will_select_Category_in_drop_down_and_Enter_product_catagory_name_in_search_box() throws Throwable {
 		try {
-			loginfo=test.createNode(new GherkinKeyword("When"),"User will select Category in drop down and Enter product catagory name in search box");
+			loginfo=test.createNode(new GherkinKeyword("When")," User will select Category in drop down and Enter product catagory name in search box ");
 			spdpom.SelectCategory(pro.getProperty("categoryname"));
 			spdpom.SelectsearchTextbox(pro.getProperty("subcategoryname"));
 			loginfo.pass("Category selected in drop down and product catagory name Entered Successfully");

@@ -21,7 +21,7 @@ public class TC026_DeleteApplication extends Baseclass {
 	public void user_will_click_on_ApplicationPage() throws Throwable {
 		try {
 			 //extent=setup();	
-				test = extent.createTest(Feature.class, "PMT Application Page");
+				test = extent.createTest(Feature.class, "PMT Application Page").assignCategory("Delete NonAces Applicarion").pass("NonAces Applicarion Deleted");
 				test=test.createNode(Scenario.class, "Deleting Applicarion");
 				loginfo=test.createNode(new GherkinKeyword("Given"),"User will click on ApplicationPage");
 			dapom = new DeleteApplication();

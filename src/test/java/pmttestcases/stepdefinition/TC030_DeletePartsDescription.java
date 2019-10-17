@@ -22,8 +22,8 @@ public class TC030_DeletePartsDescription extends Baseclass {
 	public void user_will_mousehover_and_choose_the_Parts_Description_page() throws Throwable {
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT ProductRelated Delete");
-			test=test.createNode(Scenario.class, "DeletePartsDescription");
+			test = extent.createTest(Feature.class, "PMT ProductRelated Delete").assignCategory("Delete PartsDescription").pass("PartsDescription Deleted");
+			test=test.createNode(Scenario.class, "Deleting PartsDescription");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mousehover and choose the Parts Description page");
 			dpdpom = new DeletePartsDescription();
 			loginfo.pass("PartsDescription page clicked successfully");

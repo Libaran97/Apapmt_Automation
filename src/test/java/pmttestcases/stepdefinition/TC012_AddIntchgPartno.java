@@ -24,7 +24,7 @@ public class TC012_AddIntchgPartno extends Baseclass {
 	public void user_will_mouse_over_master_and_click_Interchange_Part() throws Throwable {
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Interchange Related");
+			test = extent.createTest(Feature.class, "PMT Interchange Related").assignCategory("Interchange Part#").pass("Interchange Part# added");
 			test=test.createNode(Scenario.class, "Adding Interchange Part#");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mouse over master and click Interchange Part#");
 			ippom = new AddintchagPartno_POM();

@@ -21,8 +21,8 @@ public class TC023_AddAcesApplication extends Baseclass {
 		public void user_will_click_on_the_Application_and_Click_add_button() throws Throwable {
 			
 			 try {
-				 extent=setup();	
-					test = extent.createTest(Feature.class, "PMT Application Page");
+				 //extent=setup();	
+					test = extent.createTest(Feature.class, "PMT Application Page").assignCategory("Aces Applicarion").pass("Aces Applicarion added");
 					test=test.createNode(Scenario.class, "Adding Aces Applicarion");
 					loginfo=test.createNode(new GherkinKeyword("Given"),"User will click on the Application and Click add button");
 				 
@@ -137,9 +137,9 @@ public class TC023_AddAcesApplication extends Baseclass {
 				apom.ChooseModelvry(pro.getProperty("modelname"));
 				apom.Clicksearch();
 				apom.SelectFiterdropdown(pro.getProperty("SelectFilterName"));
-				apom.SelectsearchTextbox(pro.getProperty("SearchTextVey"));
+				apom.SelectsearchTextbox(pro.getProperty("SearchTextAcesEngine"));
 				apom.Clicksearch2();
-				apom.verifytext1(pro.getProperty("SearchTextVey"));
+				apom.verifytext1(pro.getProperty("SearchTextAcesEngine"));
 				loginfo.pass("Aces Application added successfully & shown in grid");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 				//extent.flush();

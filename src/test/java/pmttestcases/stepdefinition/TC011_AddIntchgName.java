@@ -24,8 +24,8 @@ public class TC011_AddIntchgName extends Baseclass {
 	@Given("^User will mouse over master and click Interchange Name$")
 	public void user_will_mouse_over_master_and_click_Interchange_Name() throws Throwable {
 		try {
-			extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Interchange Related");
+			//extent=setup();	
+			test = extent.createTest(Feature.class, "PMT Interchange Related").assignCategory("Interchange Name").pass("Interchange Name added");
 			test=test.createNode(Scenario.class, "Adding InterchangeName");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mouse over master and click Interchange Name");
 			ipom = new AddIntchgName_POM();

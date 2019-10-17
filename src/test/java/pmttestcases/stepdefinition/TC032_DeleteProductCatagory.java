@@ -23,7 +23,7 @@ public class TC032_DeleteProductCatagory extends Baseclass {
 		
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT ProductRelated Delete");
+			test = extent.createTest(Feature.class, "PMT ProductRelated Delete").assignCategory(" Delete ProductCatagory ").pass(" ProductCatagory Deleted ");
 			test=test.createNode(Scenario.class, "Delete ProductCatagory");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mousehover and choose the product category page");
 			pdpom = new DeleteProductCatagory();
@@ -80,13 +80,13 @@ public class TC032_DeleteProductCatagory extends Baseclass {
 			pdpom.verifytext1(pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Deleteded Sub product category verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println("Deleteded Sub product category Not verify "+e.getMessage());
 			loginfo.fail("Deleteded Sub product category Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		}
 		
 	    

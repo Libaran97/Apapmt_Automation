@@ -22,8 +22,8 @@ public class TC029_DeleteProductLine extends Baseclass {
 	public void user_will_mousehover_and_choose_the_product_Line_page() throws Throwable {
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT ProductRelated Delete");
-			test=test.createNode(Scenario.class, "DeleteProductLine");
+			test = extent.createTest(Feature.class, "PMT ProductRelated Delete").assignCategory("Delete ProductLine").pass("ProductLine Deleted");
+			test=test.createNode(Scenario.class, "Deleting ProductLine");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mousehover and choose the product Line pag");
 			dplpom = new DeleteProductLine();
 			    
