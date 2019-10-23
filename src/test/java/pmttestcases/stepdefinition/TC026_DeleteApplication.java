@@ -111,7 +111,7 @@ public class TC026_DeleteApplication extends Baseclass {
 			
 			dapom.dSelectsearchTextbox(pro.getProperty("SearchText2"));
 			dapom.dClicksearch2();
-			dapom.verifytext1(pro.getProperty("DeleteVryTxt"));
+			dapom.verifytext1(pro.getProperty("AlertVrytext"));
 			loginfo.pass("Deleted Application verifyed Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			extent.flush();

@@ -118,9 +118,9 @@ public class ApplicationAddAces extends Baseclass {
 		eAces.click();
 		Thread.sleep(3000);
 		}
-	public void ChooseEngineBase() throws InterruptedException {
+	public void ChooseEngineBase(String engine1) throws InterruptedException {
 		Select engine = new Select(eEngineBase);
-		engine.selectByIndex(1);
+		engine.selectByVisibleText(engine1);
 		Thread.sleep(3000);
 		}
 	

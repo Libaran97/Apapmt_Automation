@@ -21,7 +21,7 @@ public class TC023_AddAcesApplication extends Baseclass {
 		public void user_will_click_on_the_Application_and_Click_add_button() throws Throwable {
 			
 			 try {
-				 //extent=setup();	
+				 extent=setup();	
 					test = extent.createTest(Feature.class, "PMT Application Page").assignCategory("Aces Applicarion").pass("Aces Applicarion added");
 					test=test.createNode(Scenario.class, "Adding Aces Applicarion");
 					loginfo=test.createNode(new GherkinKeyword("Given"),"User will click on the Application and Click add button");
@@ -99,7 +99,7 @@ public class TC023_AddAcesApplication extends Baseclass {
 			try {
 				loginfo=test.createNode(new GherkinKeyword("Then"),"User will Select Engine Base in dropdown");
 				
-				apom.ChooseEngineBase();
+				apom.ChooseEngineBase(pro.getProperty("engine1"));
 				loginfo.pass("Engine Base Dropdown Selected successfully");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			} catch (Exception e) {

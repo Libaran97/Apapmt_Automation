@@ -164,7 +164,7 @@ public class DeleteApplication extends Baseclass{
 			eSearchButton2.click();
 			Thread.sleep(3000);
 			}
-		public void verifytext1(String DeleteVryTxt)
+		public void verifytext1(String AlertVrytext)
 		{
 			
 			
@@ -172,13 +172,16 @@ public class DeleteApplication extends Baseclass{
 			Alert alert2 = driver.switchTo().alert();
 			String actualText= alert2.getText();
 			System.out.println("Text"+actualText);
-			if(actualText.equals(DeleteVryTxt))
+			
+			if(actualText.equals(AlertVrytext))
 			{
 				System.out.println("Both are same");
+				alert2.accept();
 			}
 			else
 			{
 				System.out.println("Both are not same");
+				alert2.accept();
 			}
 			
 		}
