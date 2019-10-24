@@ -74,7 +74,8 @@ public class ApplicationAddAces extends Baseclass {
 	@FindBy(xpath ="//span[@id='MainContent_GVData_lblEngineBase_0']")
 	public WebElement eAppverify;
 	
-	
+	@FindBy(xpath ="//span[@id='MainContent_GVData_lblYear_0']")
+	public WebElement eAppverifyYr;
 	
 	
 	public void ClickApplication() throws InterruptedException {
@@ -192,6 +193,24 @@ public class ApplicationAddAces extends Baseclass {
 		String actualText= eAppverify.getText();
 		System.out.println("Text"+actualText);
 		if(actualText.equals(SearchTextVey))
+		{
+			System.out.println("Both are same");
+		}
+		else
+		{
+			System.out.println("Both are not same");
+		}
+		
+	}
+	
+	public void verifyyear(String EnterallYear)
+	{
+		
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		String actualText= eAppverifyYr.getText();
+		System.out.println("Text"+actualText);
+		if(actualText.equals(EnterallYear))
 		{
 			System.out.println("Both are same");
 		}

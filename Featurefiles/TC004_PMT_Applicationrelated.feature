@@ -35,6 +35,33 @@ When User will Choose Vehicle, Make & Model in dropdown and Click search
 And User will selectfilter Engine Base and enter search value and search Button
 And User will Click Delete and Accept alert
 Then User will verify that NonAces record has Deleted or Not
+
+@productrelated1
+Scenario: Adding Aces All engine Applicarion
+Given User will click on Application and Click add
+When User will select dropdown and Choose Vehicle, Make and Model
+And User will Enter year in text box
+Then User will select Aces Engine Radio Button
+Then User will successfully added the Adding Aces All engine
+Then User will verify that Aces All engine record has come
+@productrelated1
+Scenario: Adding NonAces All year Application
+Given User will click on Application and Click add Application
+When User will select dropdown & Choose Vehicle, Make and Model
+And User will Enter year in textbox
+Then User will select AcesEngine Radio Button
+Then User will successfully add the Adding NonAces All year
+Then User will verify that NonAces All year record has come
+@productrelated1
+Scenario: Adding NonAces Invalid year Application
+Given User will click on Application and add Application
+When User will Choose Vehicle, Make and Model in dropdown
+And User will Enter invalid year in textbox
+Then User will select Acesengine Radio Button
+Then User will successfully add the Adding NonAces invalid year
+Then User will verify that NonAces invalid year record has come
+
+	
 	
 	
 	

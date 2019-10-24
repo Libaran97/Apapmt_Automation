@@ -1,4 +1,4 @@
-@Partslistall
+@Sanitycheck
 Feature: PMT Parts ListAll
 
 Background: Create part no for copy appparts
