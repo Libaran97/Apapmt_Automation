@@ -38,6 +38,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 		
 		 }   catch (Exception e) {
 			 TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 	}
 	}
 
@@ -50,6 +51,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("Value Entered Successfully");
 			 loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} 	catch ( Exception e) {
+			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
 		}	
 
@@ -65,6 +67,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("Product category Saved Successfully");	
 			
 	}catch ( Exception e) {
+		System.out.println(e);
 		TestStep("Fail",driver,loginfo,e);
 		
 	}	
@@ -83,7 +86,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("Product category saved");
 			System.out.println("Category Verified");
 			//loginfo.pass("Product category Saved Successfully & shown in grid");
-			
+			extent.flush();
 		
 		}	catch ( Exception e) {
 			 JavascriptExecutor js = (JavascriptExecutor)driver;
@@ -95,8 +98,9 @@ public class TC002_PMT_productrelated extends Baseclass {
 			System.out.println("Failed to insert");
 			//loginfo.fail("Insert Failed");
 			TestStep("Fail",driver,loginfo,e);
+			System.out.println(e);
 			//loginfo.fail("Already exists");
-			
+			extent.flush();
 	}	
 	}
 

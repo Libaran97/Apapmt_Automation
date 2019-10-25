@@ -139,7 +139,7 @@ public class TC041_Multiaddattrqtyandposition extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally qty and position added");
 			//extent.flush();
-			loginfo.fail("Attributes qty,position details verified");
+			loginfo.pass("Attributes qty,position details verified");
 			System.out.println("Attributes qty,position details verified..");
 		} catch (Exception e) {
 			//extent.flush();

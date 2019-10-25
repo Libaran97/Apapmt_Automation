@@ -198,7 +198,7 @@ public class Buyersguide_POM extends Baseclass {
 			public void acceptAlert1() throws InterruptedException{
 				Alert alert = driver.switchTo().alert();
 				//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
-				System.out.println("Parts Related " + "application deleted " + alert.getText());
+				System.out.println("Parts Related " + "application deleted" + alert.getText());
 				alert.accept();
 				Thread.sleep(1000);
 				alert.accept();

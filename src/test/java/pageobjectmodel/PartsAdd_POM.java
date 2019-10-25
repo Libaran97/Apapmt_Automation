@@ -89,7 +89,7 @@ public class PartsAdd_POM extends Baseclass {
 		partspageheaderclick.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		addbutton.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 	}
 	
 	

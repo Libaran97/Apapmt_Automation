@@ -1,8 +1,7 @@
-@Sanitycheck
 Feature: PMT Add Product List
 Description: User will add product category,sub category & part description
 
-
+@Sanitycheck12
 Scenario: Adding product category
 Given User will mouse hover and choose the product category page
 When User will click on the add button and add a new category

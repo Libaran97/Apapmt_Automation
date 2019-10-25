@@ -35,7 +35,7 @@ public class ExtentReport {
 		String reportlocation = "./Reports/Extent_PMTReports.html";
 		report = new ExtentHtmlReporter(reportlocation);
 		report.config().setDocumentTitle("AUTOMATION TEST REPORT");
-		report.config().setReportName("PMT BASIC FUNCTIONALITY TEST REPORT");
+		report.config().setReportName("AUTOZONE PMT TEST REPORT");
 		report.config().setTheme(Theme.STANDARD);
 		System.out.println("Extent Report Initialized");
 		report.start();
@@ -82,7 +82,7 @@ public class ExtentReport {
 	public static String Screenshotcapture(WebDriver driver) throws IOException {
 		TakesScreenshot screen = (TakesScreenshot) driver;
 		File src = screen.getScreenshotAs(OutputType.FILE);
-		String desc = "F:\\Selenium test code\\pmt\\pmtincucumber\\Screenshot\\" + getcurrentdateandtime() + ".png";
+		String desc = "./report/Screenshot/" + getcurrentdateandtime() + ".png";
 		File target = new File(desc);
 		FileUtils.copyFile(src, target);
 		return desc;
