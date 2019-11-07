@@ -15,6 +15,7 @@ public class Testlink {
 
 
 //Key
+    
     public static String SERVER_URL = "https://www.apagreen.com/testlink/login.php"; //your testlink server url
     public static String PROJECT_NAME = "PMT"; 
     public static String PLAN_NAME = "PMTAutomationTestPlan";

@@ -38,7 +38,10 @@ public class Digitalasset_POM extends Baseclass{
 	
 	
 	
-	
+	/*
+	 * 
+	 * image add and delete
+	 */
 	
 	public void clickasset() throws InterruptedException {
 		clkasset.click();

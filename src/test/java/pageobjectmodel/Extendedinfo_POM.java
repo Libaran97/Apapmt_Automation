@@ -47,6 +47,12 @@ public class Extendedinfo_POM extends Baseclass {
 	
 	//table[@id='MainContent_GVextended']//preceding-sibling::td[2]
 	
+	
+	/*
+	 * 
+	 * extendedinfo add and delete
+	 */
+	
 	public void extendframe() throws InterruptedException {
 		clkextended.click();
 		Thread.sleep(2000);

@@ -33,7 +33,7 @@ public class ExtentReport {
 	
 	public static ExtentReports setup() {
 		String reportlocation = "./Reports/Extent_PMTReports.html";
-		//report.config().setAutoCreateRelativePathMedia(true);
+		//rreport.config().setAutoCreateRelativePathMedia(true);
 		report = new ExtentHtmlReporter(reportlocation);
 		report.config().setDocumentTitle("AUTOMATION TEST REPORT");
 		report.config().setReportName("AUTOZONE PMT TEST REPORT");

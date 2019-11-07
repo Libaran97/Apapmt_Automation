@@ -1,4 +1,4 @@
-@extendedinfo
+@extendedinfo1
 Feature: PMT Extended Info
 Description: User will add the part extended info details
 

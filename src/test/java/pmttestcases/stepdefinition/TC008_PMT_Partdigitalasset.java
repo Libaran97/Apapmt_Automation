@@ -18,7 +18,10 @@ public class TC008_PMT_Partdigitalasset extends Baseclass {
 	ExtentTest loginfo=null;
 	Partdescription_POM partdesc;
 	
-	
+	/*
+	 * 
+	 * digitalasset
+	 */
 	
 	@Given("^User will click on parts page and enter the part# and click on the digital asset tab$")
 	public void user_will_click_on_parts_page_and_enter_the_part_and_click_on_the_digital_asset_tab() throws Throwable {

@@ -22,7 +22,7 @@ import cucumber.api.junit.Cucumber;
 		strict = false,
 				//tags = {"@productrelated2,@productrelated1,@productrelated3"}
 			
-				tags = {"@Sanitycheck123"}
+				tags = {"@Sanitycheck1234"}
 		
 	
 		)

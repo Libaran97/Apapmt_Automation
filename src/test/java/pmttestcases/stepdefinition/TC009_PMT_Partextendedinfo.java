@@ -19,7 +19,10 @@ public class TC009_PMT_Partextendedinfo extends Baseclass {
 	ExtentTest loginfo=null;
 	Partdescription_POM partdesc;
 	
-	
+	/*
+	 * 
+	 * extendedinfo
+	 */
 	
 	@Given("^User will go to parts page and search for partno$")
 	public void user_will_go_to_parts_page_and_search_for_partno() throws Throwable {

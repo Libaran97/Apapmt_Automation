@@ -34,6 +34,8 @@ public class Baseclass extends ExtentReport {
 	public static String TESTCASE_NAME = "Product category";
 	public static String BUILD_NAME = "PMTAutomationTestBuild";
 
+	
+	
 	    //String result = "";
 	    //String exception = null;
 	    

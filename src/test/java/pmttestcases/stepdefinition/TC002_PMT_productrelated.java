@@ -112,7 +112,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			TestStep("Fail",driver,loginfo,e);
 			//loginfo.fail("Already exists");
 			Baseclass.updateTestLinkResult("01-2", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
-			extent.flush();
+			//extent.flush();
 	}	
 	}
 

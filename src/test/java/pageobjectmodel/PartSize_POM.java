@@ -32,6 +32,11 @@ public class PartSize_POM extends Baseclass{
 	
 	
 	
+	
+	/*
+	 *partsize check and uncheck 
+	 */
+	
 	public void partsizelanding() throws InterruptedException {
 		Sizelanding.click();
 		Thread.sleep(3000);

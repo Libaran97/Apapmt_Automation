@@ -20,6 +20,10 @@ public class TC010_PMT_PartSize extends Baseclass {
 	PartSize_POM size;
 	
 	
+	/*
+	 *partsize check and uncheck 
+	 */
+	
 	@Given("^User will go to parts page and search for partno to add partsize$")
 	public void user_will_go_to_parts_page_and_search_for_partno_to_add_partsize() throws Throwable {
 	  
