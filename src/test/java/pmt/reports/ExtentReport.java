@@ -33,6 +33,7 @@ public class ExtentReport {
 	
 	public static ExtentReports setup() {
 		String reportlocation = "./Reports/Extent_PMTReports.html";
+		//report.config().setAutoCreateRelativePathMedia(true);
 		report = new ExtentHtmlReporter(reportlocation);
 		report.config().setDocumentTitle("AUTOMATION TEST REPORT");
 		report.config().setReportName("AUTOZONE PMT TEST REPORT");
@@ -54,7 +55,7 @@ public class ExtentReport {
 		switch(teststatus) {
 		
 		case "Fail":
-			extenttest.fail(MarkupHelper.createLabel("Test Case is Failed: ", ExtentColor.RED));
+			extenttest.fail(MarkupHelper.createLabel("Test Case is Failed:", ExtentColor.RED));
 			extenttest.error(throwable.fillInStackTrace());
 			
 			try {
@@ -82,7 +83,7 @@ public class ExtentReport {
 	public static String Screenshotcapture(WebDriver driver) throws IOException {
 		TakesScreenshot screen = (TakesScreenshot) driver;
 		File src = screen.getScreenshotAs(OutputType.FILE);
-		String desc = "./report/Screenshot/" + getcurrentdateandtime() + ".png";
+		String desc = System.getProperty("user.dir")+"/Reports/screenshots/"+getcurrentdateandtime()+".png";
 		File target = new File(desc);
 		FileUtils.copyFile(src, target);
 		return desc;
@@ -91,7 +92,7 @@ public class ExtentReport {
 	private static String getcurrentdateandtime() {
 		String str = null;
 		try {
-			DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss:SSS");
+			DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyyHH:mm:ss:SSS");
 			Date date = new Date();
 			str = dateformat.format(date);
 			str = str.replace("", "").replaceAll("/", "").replaceAll(":","");

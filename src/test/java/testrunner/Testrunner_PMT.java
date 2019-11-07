@@ -15,13 +15,14 @@ import cucumber.api.junit.Cucumber;
 		glue = "pmttestcases.stepdefinition",
 		dryRun = false,
 		monochrome = true,
-		//format = {"pretty", "html: test-output", "json:json_output/cucumbeer.json"},
+		//format = {"pretty", "html: test-output"},
+				plugin = {"junit:target/cucumber-results.xml"},
 			//	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"},
 				//plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 		strict = false,
 				//tags = {"@productrelated2,@productrelated1,@productrelated3"}
 			
-				tags = {"@Sanitycheck12"}
+				tags = {"@Sanitycheck123"}
 		
 	
 		)

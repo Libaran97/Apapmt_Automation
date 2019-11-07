@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
+
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
@@ -15,17 +16,19 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageobjectmodel.Masterproductrelated_POM;
+import testlink.api.java.client.TestLinkAPIResults;
 import utility.Baseclass;
 
 public class TC002_PMT_productrelated extends Baseclass {
 
 	ExtentTest loginfo=null;
 	Masterproductrelated_POM mpom;
-	
+  
+	    
 	
 	@Given("^User will mouse hover and choose the product category page$")
 	public void user_will_mouse_hover_and_choose_the_product_category_page() throws Throwable {
-	   
+		
 		try {
 			extent=setup();	
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Cateory").pass("category added thanks");
@@ -35,10 +38,11 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.clickonproductcategory();
 			loginfo.pass("product category landed successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		
+			Baseclass.updateTestLinkResult("01-2", null, TestLinkAPIResults.TEST_PASSED);
 		 }   catch (Exception e) {
 			 TestStep("Fail",driver,loginfo,e);
 			 System.out.println(e);
+			 Baseclass.updateTestLinkResult("01-2", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 	}
 	}
 
@@ -49,10 +53,12 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on the add button and add a new category");
 			mpom.addcategory1();
 			loginfo.pass("Value Entered Successfully");
-			 loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			Baseclass.updateTestLinkResult("01-2", null, TestLinkAPIResults.TEST_PASSED);
 		} 	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
+			Baseclass.updateTestLinkResult("01-2", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 		}	
 
 		}
@@ -65,10 +71,14 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			mpom.savingcategory();
 			loginfo.pass("Product category Saved Successfully");	
+			Baseclass.updateTestLinkResult("01-2", null, TestLinkAPIResults.TEST_PASSED);
 			
 	}catch ( Exception e) {
-		System.out.println(e);
+		
 		TestStep("Fail",driver,loginfo,e);
+		System.out.println(e);
+		Baseclass.updateTestLinkResult("01-2", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+		
 		
 	}	
 	}
@@ -85,11 +95,12 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product category saved");
 			System.out.println("Category Verified");
-			//loginfo.pass("Product category Saved Successfully & shown in grid");
+			loginfo.pass("Product category Saved Successfully & shown in grid");
+			Baseclass.updateTestLinkResult("01-2", null, TestLinkAPIResults.TEST_PASSED);
 			extent.flush();
 		
 		}	catch ( Exception e) {
-			 JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor)driver;
 			 String text = js.executeScript("return document.getElementById('MainContent_lblError').innerHTML").toString();
 			 System.out.println(text);
 			 WebElement element = driver.findElement(By.xpath("//*[@id='MainContent_Image1']"));
@@ -97,9 +108,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
 			System.out.println("Failed to insert");
 			//loginfo.fail("Insert Failed");
-			TestStep("Fail",driver,loginfo,e);
 			System.out.println(e);
+			TestStep("Fail",driver,loginfo,e);
 			//loginfo.fail("Already exists");
+			Baseclass.updateTestLinkResult("01-2", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 			extent.flush();
 	}	
 	}

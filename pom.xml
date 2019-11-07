@@ -12,8 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!--   <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>-->
+       <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
   
   
@@ -167,6 +167,44 @@
     <version>3.7.1</version>
     <scope>test</scope>
 </dependency>
+
+
+
+<!-- https://mvnrepository.com/artifact/br.eti.kinoshita/testlink-java-api 
+<dependency>
+    <groupId>br.eti.kinoshita</groupId>
+    <artifactId>testlink-java-api</artifactId>
+    <version>1.9.3-2</version>
+</dependency>
+
+
+
+
+<dependency>
+    <groupId>org.apache.xmlrpc</groupId>
+    <artifactId>xmlrpc-common</artifactId>
+    <version>3.1.3</version>
+</dependency>
+
+
+
+
+<dependency>
+    <groupId>org.apache.xmlrpc</groupId>
+    <artifactId>xmlrpc-client</artifactId>
+    <version>3.1.3</version>
+</dependency>
+
+
+
+<
+<dependency>
+    <groupId>org.apache.ws.commons.util</groupId>
+    <artifactId>ws-commons-util</artifactId>
+    <version>1.0.2</version>
+</dependency> -->
+
+
 
 
 </dependencies>

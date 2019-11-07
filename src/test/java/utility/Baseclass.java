@@ -6,11 +6,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import testlink.api.java.client.TestLinkAPIClient;
+import testlink.api.java.client.TestLinkAPIException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,7 +27,16 @@ public class Baseclass extends ExtentReport {
 	public static WebDriver driver;
 	public static Properties pro;
 	public static PhantomJsDriverManager drive;
-	
+	public static String DEV_KEY = "bf719946efbcf835b6e9c6d00ea90d17"; //Your API 
+	public static String SERVER_URL = "https://www.apagreen.com/testlink/lib/api/xmlrpc/v1/xmlrpc.php"; //your testlink server url
+	public static String PROJECT_NAME = "PMT";
+	public static String PLAN_NAME = "PMTAutomationTestPlan";
+	public static String TESTCASE_NAME = "Product category";
+	public static String BUILD_NAME = "PMTAutomationTestBuild";
+
+	    //String result = "";
+	    //String exception = null;
+	    
 	
 	public Baseclass() {
 		try {
@@ -105,6 +117,13 @@ public class Baseclass extends ExtentReport {
 		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
+	
+	
+	public static void updateTestLinkResult(String testCase, String exception, String result) throws TestLinkAPIException{
+        TestLinkAPIClient testlinkAPIClient = new TestLinkAPIClient(DEV_KEY, SERVER_URL);
+        testlinkAPIClient.reportTestCaseResult(PROJECT_NAME, PLAN_NAME, testCase, BUILD_NAME, exception, result);
+        
+    }
 	
 }
 

@@ -7,6 +7,8 @@ Given User will click on parts page and enter the part# and click on the digital
 When User will add the image enter the sort by value and save
 Then User will add succesfully and verify 
 
+
+
 Scenario: Deleting Image
 Given User will go to parts page and choose digital asset tab to delete an image
 When User will click on delete icon

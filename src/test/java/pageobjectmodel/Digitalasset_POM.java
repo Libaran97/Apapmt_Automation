@@ -1,6 +1,7 @@
 package pageobjectmodel;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -47,7 +48,7 @@ public class Digitalasset_POM extends Baseclass{
 	
 	public void imagesselect() throws Exception {
 		driver.switchTo().frame(0);
-		imageselect.sendKeys("F:\\Images\\test_image");
+		imageselect.sendKeys("C:\\Users\\arunkumar\\git\\apapmt_automation\\Store\\Partnotest.jpg");
 		txtSortBy.sendKeys("1");
 		Thread.sleep(2000);
 	}
@@ -70,6 +71,10 @@ public class Digitalasset_POM extends Baseclass{
 	
 	
 	public void deleteimg() throws InterruptedException {
+		driver.switchTo().frame(0);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", imgDelete);
+		Thread.sleep(1000);
 		imgDelete.click();
 		Thread.sleep(1000);
 	}
@@ -78,12 +83,12 @@ public class Digitalasset_POM extends Baseclass{
 	public void assetAlertdelete() throws InterruptedException{
 		Alert alert = driver.switchTo().alert();
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
-		System.out.println("Digital asset" + alert.getText());
+		System.out.println("Digital asset " + alert.getText());
 		alert.accept();
 		Thread.sleep(1000);
-		System.out.println("Digital asset" + alert.getText());
+		/*System.out.println("Digital asset " + alert.getText());
 		alert.accept();
-		Thread.sleep(3000);
+		Thread.sleep(3000); */
 		
 	}
 	
