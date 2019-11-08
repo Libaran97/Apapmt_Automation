@@ -10,6 +10,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageobjectmodel.Digitalasset_POM;
 import pageobjectmodel.Partdescription_POM;
+import testlink.api.java.client.TestLinkAPIResults;
 import utility.Baseclass;
 
 public class TC008_PMT_Partdigitalasset extends Baseclass {
@@ -37,9 +38,11 @@ public class TC008_PMT_Partdigitalasset extends Baseclass {
 			partdesc.partsearch(pro.getProperty("partnoenter"));
 			dat.clickasset();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			Baseclass.updateTestLinkResult("01-", null, TestLinkAPIResults.TEST_PASSED);
 		}	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
+			Baseclass.updateTestLinkResult("01-", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 			
 		}
 	}
@@ -54,9 +57,11 @@ public class TC008_PMT_Partdigitalasset extends Baseclass {
 			dat.savebutton();
 			dat.assetAlert();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			Baseclass.updateTestLinkResult("01-", null, TestLinkAPIResults.TEST_PASSED);
 		}catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
+			Baseclass.updateTestLinkResult("01-", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 			
 		}
 	}
@@ -66,10 +71,11 @@ public class TC008_PMT_Partdigitalasset extends Baseclass {
 	    
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will add succesfully and verify");
-			
+			Baseclass.updateTestLinkResult("01-", null, TestLinkAPIResults.TEST_PASSED);
 		}catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
+			Baseclass.updateTestLinkResult("01-", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 			
 		}
 	}

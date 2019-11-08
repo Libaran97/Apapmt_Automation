@@ -51,7 +51,7 @@ public class Digitalasset_POM extends Baseclass{
 	
 	public void imagesselect() throws Exception {
 		driver.switchTo().frame(0);
-		imageselect.sendKeys("C:\\Users\\arunkumar\\git\\apapmt_automation\\Store\\Partnotest.jpg");
+		imageselect.sendKeys("C:\\Users\\arunkumar\\git\\apapmt_automation\\Store\\Parttest.jpg");
 		txtSortBy.sendKeys("1");
 		Thread.sleep(2000);
 	}

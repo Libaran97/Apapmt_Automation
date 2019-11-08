@@ -1,7 +1,7 @@
-@digitalasset1
 Feature: PMT Digital Asset
 Description: User will add the part image in digital asset tab
 
+@Sanitycheck1234
 Scenario: Adding Image
 Given User will click on parts page and enter the part# and click on the digital asset tab
 When User will add the image enter the sort by value and save
