@@ -77,8 +77,27 @@ public class PartsListAll extends Baseclass{
 	WebElement eSelectallbtn;
 	@FindBy(xpath ="//input[@id='MainContent_btnsaveappparts']")
 	WebElement ecreateduplicatebtn;
+	
+	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_5']")
+	WebElement eReports;
+	
+	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_rptLevel2_5_rptLevel3_1_lnkLink3_1']")
+	WebElement eDropedPart;
+	
+	@FindBy(xpath="//select[@id='MainContent_drpPartDescription']")
+	WebElement ePartdes;
+	
+	@FindBy(xpath="//select[@id='MainContent_drpReason']")
+	WebElement eReason;
+	
+	@FindBy(xpath="//input[@id='MainContent_btnSearch']")
+	WebElement eSearchbtn;
+	
+	@FindBy(xpath="//table[@id='MainContent_GVData']/tbody/tr[2]/td[1]")
+	WebElement eVerifyTable;
+	
 	public void clickonParts() throws InterruptedException {
-		
+		Thread.sleep(3000);
 		ePartsButton.click();
 		Thread.sleep(3000);
 		
@@ -92,26 +111,33 @@ public class PartsListAll extends Baseclass{
 	
 	
 	public void SelectCategory(String categoryname) throws InterruptedException {
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Select Category = new Select(eCategoryDDBox);
 		Category.selectByVisibleText(categoryname);
 		Thread.sleep(3000);
 	}
 	public void SelectSubCategory(String subcategoryname) throws InterruptedException {
-		Select SubCategory = new Select(eSubCategoryDDBox);
-		SubCategory.selectByVisibleText(subcategoryname);
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Select Subcategory = new Select(eSubCategoryDDBox);
+		Subcategory.selectByVisibleText(subcategoryname);
+		
 	}
 	public void SelectPartsDescription(String partdesc) throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Select Prodes = new Select(ePartsDescription);
 		Prodes.selectByVisibleText(partdesc);
-		Thread.sleep(3000);
+		
 	}
 	public void SelectProductLine(String linecode) throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Select ProdLine = new Select(eProductLine);
 		ProdLine.selectByVisibleText(linecode);
 		Thread.sleep(3000);
+		
 	}
 	public void Clicksearch() throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		eSearchButton.click();
 		Thread.sleep(3000);
 		}
@@ -292,9 +318,52 @@ public class PartsListAll extends Baseclass{
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Alert alert = driver.switchTo().alert();
 		System.out.println(alert.getText());
-		alert.accept();
+		alert.dismiss();
 		Thread.sleep(3000);
+		
+		
 			
+	}
+	
+public void clickonReports() throws InterruptedException {
+		
+		eReports.click();
+		Thread.sleep(3000);
+		
+	}
+	
+	public void clickonDropedPart() throws Throwable {
+		
+		
+		eDropedPart.click();
+		Thread.sleep(3000);
+	}
+	
+	public void SelectDescription(String partdesc) throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Select Description = new Select(ePartdes);
+		Description.selectByVisibleText(partdesc);
+		Thread.sleep(3000);
+	}
+	
+	public void SelectReason(String Reason1) throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Select Reason = new Select(eReason);
+		Reason.selectByVisibleText(Reason1);
+		Thread.sleep(3000);
+		eSearchbtn.click();
+	}
+	public void Verify(String partno3) throws InterruptedException {
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	String actualText1= eVerifyTable.getText();
+	System.out.println("Text "+actualText1);
+	if(actualText1.equals(partno3)) {
+		System.out.println("Both are same"+ actualText1  );
+	}
+	
+	else {
+		System.out.println("Both are not same"+ actualText1 );
+	}
 	}
 	
 }
