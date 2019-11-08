@@ -1,0 +1,316 @@
+package pmttestcases.stepdefinition;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.GherkinKeyword;
+import com.aventstack.extentreports.gherkin.model.Feature;
+import com.aventstack.extentreports.gherkin.model.Scenario;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import pageobjectmodel.MultiAddPom;
+import pageobjectmodel.MultiAddPom2;
+import utility.Baseclass;
+
+public class TC037_Multiaddmutipleletimes extends Baseclass {
+	MultiAddPom mpom1 = new MultiAddPom();
+	MultiAddPom2 mpom2 = new MultiAddPom2();
+	ExtentTest loginfo = null;
+
+	@Given("^: user will choos the application paged and multiadd pages$")
+	public void user_will_choos_the_application_paged_and_multiadd_pages() throws Throwable {
+		try {
+			//extent = setup();
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd")
+					.pass("Part Linked Edit option is verified");
+			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"user will choos the application paged and multiadd pages");
+			mpom1.Application();
+			mpom1.Multiaddbt();
+			loginfo.pass("Application and Multiadd page landed successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println("Application and Multiadd page is not click" + e.getMessage());
+			loginfo.fail("Application and Multiadd page is not click");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			TestStep("Fail", driver, loginfo, e);
+		}
+
+	}
+
+	@When("^: user will check the all chosed Vehicle make model along with click the search$")
+	public void user_will_check_the_all_chosed_Vehicle_make_model_along_with_click_the_search() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"user will check the all chosed Vehicle,make,model along with click the search");
+			Thread.sleep(5000);
+			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Makedata(pro.getProperty("makename"));
+			mpom1.Modeldata(pro.getProperty("modelname"));
+			mpom1.searchbt();
+			loginfo.pass("Vehicle,Make,Model drop down values getting properly");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println("Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
+			loginfo.fail("Vehicle,Make,Model drop down values not getting properly");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@When("^:  user will Click the Parts Linked popup$")
+	public void user_will_Click_the_Parts_Linked_popup() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"), "user will Click the Parts Linked popup");
+			// mpom2 = new MultiAddPom2();
+			mpom2.partslinked();
+			mpom2.windowhandler();
+			mpom2.viewedit();
+			mpom2.POPEdit("vehicletypename");
+			mpom2.acceptAlert();
+			// mpom2.verifyedit("vehicletypename");
+			System.out.println("Click the Parts linked and Edit is verification Passed");
+			loginfo.pass("Click the Parts linked and Edit is verification Passed");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+
+		} catch (Exception e) {
+			loginfo.fail("Finally click the Parts linked and open the popup box and verification failed");
+			System.out.println(
+					"Finally click the Parts linked and open the popup box and verification failed " + e.getMessage());
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@Then("^: Finally click the Parts linked and open the popup box and verification$")
+	public void finally_click_the_Parts_linked_and_open_the_popup_box_and_verification() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"Finally click the Parts linked and open the popup box and verification");
+			loginfo.pass("Finally click the Parts linked Edit or delete verification");
+			System.out.println("Finally click the Parts linkedEdit or delete verification");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// extent.flush();
+		} catch (Exception e) {
+			loginfo.fail("Finally click the Parts linked Edit verification failed");
+			System.out.println("Finally click the Parts linked Edit verification failed" + e.getMessage());
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// extent.flush();
+		}
+	}
+
+	@Given("^: user will choos the application paged and multiadd page$")
+	public void user_will_choos_the_application_paged_and_multiadd_page() throws Throwable {
+		try {
+			// extent = setup();
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd")
+					.pass("Part Linked Cancel is verified");
+			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"user will choos the application paged and multiadd pages");
+			// mpom1 = new MultiAddPom();
+			mpom1.Application();
+			mpom1.Multiaddbt();
+			loginfo.pass("Application and Multiadd page landed successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println("Application and Multiadd page is not click" + e.getMessage());
+			loginfo.fail("Application and Multiadd page is not click");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			TestStep("Fail", driver, loginfo, e);
+		}
+	}
+
+	@When("^: user will check the all chosed Vehicle make model along with click search$")
+	public void user_will_check_the_all_chosed_Vehicle_make_model_along_with_click_search() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"user will check the all chosed Vehicle make model along with click search");
+			Thread.sleep(5000);
+			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Makedata(pro.getProperty("makename"));
+			mpom1.Modeldata(pro.getProperty("modelname"));
+			mpom1.searchbt();
+			loginfo.pass("Vehicle,Make,Model drop down values getting properly");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println("Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
+			loginfo.fail("Vehicle,Make,Model drop down values not getting properly");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@When("^: user check the Cancel button and Part linkeds$")
+	public void user_check_the_Cancel_button_and_Part_linkeds() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"), "user check the Cancel button and Part linked");
+			// mpom2 = new MultiAddPom2();
+			mpom2.partslinked();
+			mpom2.windowhandler();
+			mpom2.viewedit();
+			mpom2.vieweditcancel("vehicletypename");
+			// mpom2.acceptAlert();
+			// mpom2.verifyedit("vehicletypename");
+			System.out.println("Click the Parts linked Cancel and verification Passed");
+			loginfo.pass("Click the Parts linked Cancel and verification Passed");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+
+		} catch (Exception e) {
+			loginfo.fail("Click the Parts linked Cancel and verification failed");
+			System.out.println("Click the Parts linked Cancel and verification failed " + e.getMessage());
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@Then("^: Finally click the Parts linked open the popup box and verification$")
+	public void finally_click_the_Parts_linked_open_the_popup_box_and_verification() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"Finally click the Parts linked open the popup box and verification");
+			loginfo.pass("Finally click the Parts linked Cancel verification$");
+			System.out.println("Finally click the Parts linked Cancel verification");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// extent.flush();
+		} catch (Exception e) {
+			loginfo.fail("Finally click the Parts linked Cancel failed");
+			System.out.println("Finally click the Parts linked Cancel failed" + e.getMessage());
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// extent.flush();
+		}
+	}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	@Given("^: user will choos the application page and multiadd pages$")
+	public void user_will_choos_the_application_page_and_multiadd_pages() throws Throwable {
+		try {
+			// extent = setup();
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd")
+					.pass("Part Linked Delete is verified");
+			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"user will choos the application page and multiadd pages");
+			// mpom1 = new MultiAddPom();
+			mpom1.Application();
+			mpom1.Multiaddbt();
+			loginfo.pass("Application and Multiadd page landed successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println("Application and Multiadd page is not click" + e.getMessage());
+			loginfo.fail("Application and Multiadd page is not click");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			TestStep("Fail", driver, loginfo, e);
+		}
+	}
+
+	@When("^: user will check the all chosed Vehicle make model with click the search$")
+	public void user_will_check_the_all_chosed_Vehicle_make_model_with_click_the_search() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"user will check the all chosed Vehicle make model with click the search");
+			Thread.sleep(5000);
+			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Makedata(pro.getProperty("makename"));
+			mpom1.Modeldata(pro.getProperty("modelname"));
+			mpom1.searchbt();
+			loginfo.pass("Vehicle,Make,Model drop down values getting properly");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println("Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
+			loginfo.fail("Vehicle,Make,Model drop down values not getting properly");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@When("^: user check the Delete button and Part linked$")
+	public void user_check_the_Delete_button_and_Part_linked() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"), "user check the Delete button and Part linked");
+			mpom2.partslinked();
+			mpom2.windowhandler();
+			try {
+				mpom2.vieweditdelete();
+				mpom2.acceptAlert();
+				mpom2.verifyvieweditdelete();
+			} catch (Exception e) {
+				System.out.println("No record found to delete into the popup**");
+			}
+
+			System.out.println("Click the Parts linked Delete and verification Passed");
+			loginfo.pass("Click the Parts linked Delete and verification Passed");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			loginfo.fail("Click the Parts linked Delete and verification failed");
+			System.out.println("Click the Parts linked Delete and verification failed " + e.getMessage());
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@Then("^: Finally click the Parts linked$")
+	public void finally_click_the_Parts_linked() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally click the Parts linked");
+			loginfo.pass("Finally click the Parts delete verification");
+			System.out.println("Finally click the Parts delete verification");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		} catch (Exception e) {
+			loginfo.fail("Finally click the Parts delete verification failed");
+			System.out.println("Finally click the Parts delete verification failed" + e.getMessage());
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		//	extent.flush();
+		}
+	}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	@Given("^: user will choos the application paged and multiadd$")
+	public void user_will_choos_the_application_paged_and_multiadd() throws Throwable {
+		try {
+			//extent = setup();
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd").pass("Vehicle sorting is verified");
+			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"user will choos the application paged and multiadd");
+			mpom1.Application();
+			mpom1.Multiaddbt();
+			loginfo.pass("Application and Multiadd page landed successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println("Application and Multiadd page is not click" + e.getMessage());
+			loginfo.fail("Application and Multiadd page is not click");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			TestStep("Fail", driver, loginfo, e);
+		}
+	}
+
+	@And("^: user will check the sorting order TC037$")
+	public void user_will_check_the_sorting_order_TC037() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("And"), "user will check the sorting order TC037");
+			mpom2.SortPartDescription_TC037();
+			loginfo.pass("sorting order verification Passed");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+
+		} catch (Exception e) {
+			loginfo.fail("sorting order verification Passed failed");
+			System.out.println("sorting order verification Passed failed" + e.getMessage());
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@Then("^: Finally click the Parts linked and open the popup box$")
+	public void finally_click_the_Parts_linked_and_open_the_popup_box() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"Finally click the Parts linked and open the popup box");
+			loginfo.pass("Finally click the Parts sorting verification Passed");
+			System.out.println("Finally click the Parts sorting verification Passed");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		} catch (Exception e) {
+			loginfo.fail("Finally click the Parts sorting verification failed");
+			System.out.println("Finally click the Parts sorting verification failed" + e.getMessage());
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		}
+	}
+
+}
