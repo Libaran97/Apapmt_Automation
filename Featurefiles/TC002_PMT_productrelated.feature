@@ -1,13 +1,13 @@
 Feature: PMT Add Product List
 Description: User will add product category,sub category & part description
 
-@Sanitycheck123
+@SanitycheckTestLink
 Scenario: Adding product category
 Given User will mouse hover and choose the product category page
 When User will click on the add button and add a new category
 And User will enter the category name and choose the equivalent PIES category
 Then User will successfully added and verify that the record has come
-
+@Sanitycheck
 Scenario: Adding product sub category
 Given User will go to master and choose product sub category
 When User will click on the add button and choose the category drop down list 
@@ -24,3 +24,9 @@ Scenario: Adding product Line
 Given User will go to master and choose product line
 When User will click on add button and enter the line code and line name
 Then User will see successfully alert and verify the record has come in the grid
+@Sanitycheck567
+Scenario: Adding Custom Attributes
+Given User will goto master and choose Custom Attributes
+When User will click on add and enter Custom Attribute Name
+And User will select Data Type, enter Min & MaxLength and select Parts Description
+Then User will Click save Accept Alert and Verify the record has come in the grid

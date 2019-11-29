@@ -38,11 +38,11 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.clickonproductcategory();
 			loginfo.pass("product category landed successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			Baseclass.updateTestLinkResult("01-2", null, TestLinkAPIResults.TEST_PASSED);
+			Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
 		 }   catch (Exception e) {
 			 TestStep("Fail",driver,loginfo,e);
 			 System.out.println(e);
-			 Baseclass.updateTestLinkResult("01-2", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+			 Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 	}
 	}
 
@@ -54,11 +54,11 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.addcategory1();
 			loginfo.pass("Value Entered Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			Baseclass.updateTestLinkResult("01-2", null, TestLinkAPIResults.TEST_PASSED);
+			Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
 		} 	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
-			Baseclass.updateTestLinkResult("01-2", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+			Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 		}	
 
 		}
@@ -71,13 +71,13 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			mpom.savingcategory();
 			loginfo.pass("Product category Saved Successfully");	
-			Baseclass.updateTestLinkResult("01-2", null, TestLinkAPIResults.TEST_PASSED);
+			Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
 			
 	}catch ( Exception e) {
 		
 		TestStep("Fail",driver,loginfo,e);
 		System.out.println(e);
-		Baseclass.updateTestLinkResult("01-2", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+		Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 		
 		
 	}	
@@ -96,23 +96,23 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("Product category saved");
 			System.out.println("Category Verified");
 			loginfo.pass("Product category Saved Successfully & shown in grid");
-			Baseclass.updateTestLinkResult("01-2", null, TestLinkAPIResults.TEST_PASSED);
+			Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
 			extent.flush();
 		
 		}	catch ( Exception e) {
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			/*JavascriptExecutor js = (JavascriptExecutor)driver;
 			 String text = js.executeScript("return document.getElementById('MainContent_lblError').innerHTML").toString();
 			 System.out.println(text);
 			 WebElement element = driver.findElement(By.xpath("//*[@id='MainContent_Image1']"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
 			System.out.println("Failed to insert");
-			//loginfo.fail("Insert Failed");
+			//loginfo.fail("Insert Failed");*/
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
 			//loginfo.fail("Already exists");
-			Baseclass.updateTestLinkResult("01-2", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
-			//extent.flush();
+			Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+			extent.flush();
 	}	
 	}
 
@@ -318,6 +318,74 @@ public class TC002_PMT_productrelated extends Baseclass {
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
 		//extent.flush();
+	}	
+	}
+	
+	@Given("^User will goto master and choose Custom Attributes$")
+	public void user_will_goto_master_and_choose_Custom_Attributes() throws Throwable {
+		try {
+			extent=setup();	
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Cateory").pass("Custom Attributes added");
+			test=test.createNode(Scenario.class, "Adding Custom Attributes");
+			loginfo=test.createNode(new GherkinKeyword("Given"),"User will goto master and choose Custom Attributes");
+			mpom = new Masterproductrelated_POM();	
+			mpom.clickonCustomAttributes();
+			loginfo.pass("Custom Attributes landed successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		 }   catch (Exception e) {
+			 TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
+	}
+	}
+
+	@When("^User will click on add and enter Custom Attribute Name$")
+	public void user_will_click_on_add_and_enter_Custom_Attribute_Name() throws Throwable {
+		try {
+			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on add and enter Custom Attribute Name");
+			mpom.AddbtnEnterCustomAtbName(pro.getProperty("AttributeName"));
+			loginfo.pass("Attribute Name Entered Successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
+		} 	catch ( Exception e) {
+			System.out.println(e);
+			TestStep("Fail",driver,loginfo,e);
+			
+		}	
+	}
+
+	@When("^User will select Data Type, enter Min & MaxLength and select Parts Description$")
+	public void user_will_select_Data_Type_enter_Min_MaxLength_and_select_Parts_Description() throws Throwable {
+		try {
+			loginfo=test.createNode(new GherkinKeyword("When"),"User will select Data Type, enter Min & MaxLength and select Parts Description");
+			mpom.AttributeDetails();
+			mpom.SelectPartDescription();
+			loginfo.pass("Attribute Value Entered Successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
+		} 	catch ( Exception e) {
+			System.out.println(e);
+			TestStep("Fail",driver,loginfo,e);
+			
+		}
+	    
+	}
+
+	@Then("^User will Click save Accept Alert and Verify the record has come in the grid$")
+	public void user_will_Click_save_Accept_Alert_and_Verify_the_record_has_come_in_the_grid() throws Throwable {
+		try {
+			loginfo=test.createNode(new GherkinKeyword("Then"),"User will Click save Accept Alert and Verify the record has come in the grid");
+			mpom.savebtn2();
+			mpom.acceptAlertAttribute();
+
+			mpom.VerufyAttribute(pro.getProperty("AttributeName"));
+			
+			loginfo.pass("Product line added successfully & shown in grid");
+			System.out.println("Product Line  Added in the grid");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			extent.flush();
+	}catch ( Exception e) {
+		TestStep("Fail",driver,loginfo,e);
+		extent.flush();
 	}	
 	}
 	

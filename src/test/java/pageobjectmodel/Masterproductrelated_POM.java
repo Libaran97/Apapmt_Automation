@@ -3,10 +3,13 @@ package pageobjectmodel;
 
 
 import java.io.IOException;
+
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
@@ -19,7 +22,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.sun.tools.internal.xjc.reader.gbind.Element;
 
+import junit.framework.Assert;
 import utility.Baseclass;
 
 public class Masterproductrelated_POM extends Baseclass {
@@ -114,8 +119,32 @@ public class Masterproductrelated_POM extends Baseclass {
 	@FindBy(xpath="//input[@placeholder='Line Code']")
 	private WebElement linefilter;
 	
+	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_2']")
+	private WebElement eCustomAttribute;
 	
+	@FindBy(xpath="//button[@id='MainContent_btnAdd']")
+	private WebElement eAddCustomAttribute;
 	
+	@FindBy(xpath="//input[@id='MainContent_txtPartsSpecification']")
+	private WebElement eEtrCustomAttribute;
+	
+	@FindBy (xpath="//select[@id='MainContent_ddlDatatype']")
+	private WebElement eDataType;
+	
+	@FindBy (xpath="//input[@id='MainContent_txtMinLength']")
+	private WebElement eMinLength;
+	
+	@FindBy (xpath="//input[@id='MainContent_txtMaxLength']")
+	private WebElement eMaxLength;
+	
+	@FindBy (xpath="//label[text()='Ignition Test | Ignition Coil Test | Ignition Test']")
+	private WebElement eselectpdes;
+	
+	@FindBy(xpath ="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
+	public WebElement esearchbox;
+	
+	@FindBy(xpath ="//*[@id='DataTableViewer']/tbody/tr/td")
+	public WebElement ePDverify;
 	
 	public void clickonproductcategory() throws Throwable {
 			
@@ -361,7 +390,74 @@ public class Masterproductrelated_POM extends Baseclass {
 		
 	}
 	
+	public void clickonCustomAttributes() throws Throwable {
+		
+		Actions action = new Actions(driver);
+		action.moveToElement(master).build().perform();
+		Thread.sleep(3000);
+		eCustomAttribute.click();
+		Thread.sleep(5000);
+	}
 	
+	public void AddbtnEnterCustomAtbName(String AttributeName) throws Throwable {
+		eAddCustomAttribute.click();
+		Thread.sleep(3000);
+		
+		eEtrCustomAttribute.sendKeys(AttributeName);
+		
+		Thread.sleep(3000);
+	}
+	
+	public void AttributeDetails() throws InterruptedException {
+		Select Datatype = new Select(eDataType);
+		Datatype.selectByIndex(1);
+		Thread.sleep(3000);
+		eMinLength.sendKeys("1");
+		Thread.sleep(3000);
+		eMaxLength.sendKeys("100");
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void SelectPartDescription() throws InterruptedException {
+		
+		Thread.sleep(6000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eselectpdes);
+		if(eselectpdes.isDisplayed()){
+			eselectpdes.click();
+			
+		}else {
+			//Assert.assertNotNull(eselectpdes);
+			Assert.assertNull(eselectpdes);
+		}
+		
+	}
+	
+	public void savebtn2() throws InterruptedException {
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", savecategory);
+		savecategory.click();
+		Thread.sleep(2000);
+		
+	}
+	public void acceptAlertAttribute() throws InterruptedException{
+		  
+		Alert alert = driver.switchTo().alert();
+		System.out.println("Custom Attribute" +pro.getProperty("AttributeName") + alert.getText());
+		alert.accept();
+		Thread.sleep(5000);
+	}
+	
+	public void VerufyAttribute(String AttributeName) throws InterruptedException {
+		
+		esearchbox.sendKeys(AttributeName);
+		Thread.sleep(5000);
+		String actualText= ePDverify.getText();
+		System.out.println("Text"+actualText);
+		actualText.equals(AttributeName);
+		System.out.println("Both are same: Added Successfully");
+	}
 }
 
 
