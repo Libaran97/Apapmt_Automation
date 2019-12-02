@@ -18,13 +18,15 @@ public class MultiAddPom extends Baseclass {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_lnkLink1_1']")	
+	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_lnkLink1_1']")
 	public WebElement eApplication;
 
 	@FindBy(xpath = "//button[@id='MainContent_Button1']")
 	public WebElement eMultiaddbt;
 
 	@FindBy(xpath = "//select[@id='MainContent_drpVehicleType']")
+	
+	
 	public WebElement eVehicle1;
 
 	@FindBy(xpath = "//select[@id='MainContent_drpMake']")
@@ -116,19 +118,21 @@ public class MultiAddPom extends Baseclass {
 	@FindBy(xpath = "//*[@id=\"BuyersGuid1\"]/img")
 	WebElement ebuyerguide;
 
-	@FindBy(xpath = "(//input[@placeholder='Year Range'])[1]")	
-	WebElement efilter;
-	
-/*	@FindBy(xpath = "(//input[@placeholder='Vehicle Type'])[1]")
+	@FindBy(xpath = "(//input[@placeholder='Year Range'])[1]")
 	WebElement efilter;
 
-	@FindBy(xpath = "(//input[@placeholder='Vehicle Type'])[1]")
-	WebElement efilter1;*/
-	
-	//(//*[@placeholder='Year Range'])
-	
-	@FindBy(xpath = "(//input[@placeholder='Engine Details'])[1]")	
-	WebElement efilter2;	
+	/*
+	 * @FindBy(xpath = "(//input[@placeholder='Vehicle Type'])[1]") WebElement
+	 * efilter;
+	 * 
+	 * @FindBy(xpath = "(//input[@placeholder='Vehicle Type'])[1]") WebElement
+	 * efilter1;
+	 */
+
+	// (//*[@placeholder='Year Range'])
+
+	@FindBy(xpath = "(//input[@placeholder='Engine Details'])[1]")
+	WebElement efilter2;
 
 	@FindBy(xpath = "(//input[@placeholder='Vehicle Type'])[1]")
 	WebElement efilter1;
@@ -145,24 +149,33 @@ public class MultiAddPom extends Baseclass {
 
 	@FindBy(xpath = "//*[@role='row']/td[4]")
 	WebElement everifynon1ACES;
+
+	@FindBy(xpath = "//*[@role='row']/td[6]")
+	WebElement everifyposition;
 	
+	//@FindBy(xpath = "//*[@role='row']/td[8]")
+	@FindBy(xpath ="//*[@id='appartsedit_btn']")
+	WebElement Everifyedit;
+	
+	@FindBy(xpath = "//*[@id='MainContent_GvApplications_txtquantity_0']")
+	WebElement Everifyqty;
+	
+
 	@FindBy(id = "MainContent_GVData_lblEngineBase_0")
-	WebElement eengine;	
+	WebElement eengine;
 	/*
 	 * @FindBy(xpath = "//tr[@id='tr_0']//td[4]") WebElement everifynonACES;
 	 */
 
 	@FindBy(xpath = "//tr[@role='row'] //td[6]")
 	WebElement Everifyattr;
-	
+
 	// table[@id='tbl_apppartstable'] //td[6]
 	@FindBy(xpath = "//tr[@role='row'] //td[6]")
 	WebElement Everifyattr1;
-	
+
 	@FindBy(xpath = "//*[@id='MainContent_dlDisplayColumnList_txtattr_0']")
 	WebElement eatrtxtbox;
-	
-	
 
 	@FindBy(xpath = "//label[@for='MainContent_dlDisplayColumnList_chkList_0_0_0']")
 	WebElement eregion;
@@ -202,25 +215,24 @@ public class MultiAddPom extends Baseclass {
 	// **************end attributes**************//
 
 	// **************Strart Part**************//
-	@FindBy(xpath = "//table[@class='add_bulk_table']//tr[2]//td[2]")	               
+	@FindBy(xpath = "//table[@class='add_bulk_table']//tr[2]//td[2]")
 	WebElement epa1;
 
 	@FindBy(xpath = "//table[@class='add_bulk_table']//tr[3]//td[2]")
 	WebElement epa2;
 
-	
-	@FindBy(xpath = "//table[@class='add_bulk_table']//tr[2]//td[3]")    
+	@FindBy(xpath = "//table[@class='add_bulk_table']//tr[2]//td[3]")
 	WebElement epa3;
 
 	@FindBy(xpath = "//table[@class='add_bulk_table']//tr[3]//td[3]")
 	WebElement epa4;
-	
-	@FindBy(xpath = "//table[@class='add_bulk_table']//tr[2]//td[4]")    
+
+	@FindBy(xpath = "//table[@class='add_bulk_table']//tr[2]//td[4]")
 	WebElement epa5;
 
 	@FindBy(xpath = "//table[@class='add_bulk_table']//tr[3]//td[4]")
 	WebElement epa6;
-	
+
 	@FindBy(id = "MainContent_GVData_lblPartsLinked_0")
 	WebElement epartslinked;
 
@@ -260,10 +272,10 @@ public class MultiAddPom extends Baseclass {
 	String acesexpectedtext = "";
 
 	public void Checkbox1() throws Throwable {
-		eChk1.click();		
+		eChk1.click();
 		String acesexpectedtext = efirst1.getText();
-		//String engine= eengine.getText();
-		//System.out.println("Engine value is...."+engine);
+		// String engine= eengine.getText();
+		// System.out.println("Engine value is...."+engine);
 		System.out.println("Year value is..." + acesexpectedtext);
 	}
 
@@ -280,46 +292,44 @@ public class MultiAddPom extends Baseclass {
 		EProduct.selectByVisibleText(linecode);
 		Thread.sleep(5000);
 	}
-	
+
 	public void Productline1(String linecode1) throws Throwable {
 		Select EProduct = new Select(eSelectProduct);
 		EProduct.selectByVisibleText(linecode1);
 		Thread.sleep(5000);
 	}
-	
 
 	public void Partdesc(String Partdesc) throws Throwable {
 		Select epart = new Select(eSelectdesc);
 		epart.selectByVisibleText(Partdesc);
 		Thread.sleep(5000);
 	}
-	
+
 	public void Partdesc1(String Partdesc1) throws Throwable {
 		Select epart = new Select(eSelectdesc);
 		epart.selectByVisibleText(Partdesc1);
 		Thread.sleep(5000);
 	}
-	
-
 
 	public void Partnum(String partno) throws Throwable {
-		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Select epartno = new Select(eSelectPartno);
 		epartno.selectByVisibleText(partno);
 		Thread.sleep(5000);
-	}	
-	
-	/*public void Partnum1(String partno1) throws Throwable {
-		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Select epartno = new Select(eSelectPartno);
-		epartno.selectByVisibleText(partno1);
-		Thread.sleep(5000);
-	}	*/
+	}
+
+	/*
+	 * public void Partnum1(String partno1) throws Throwable {
+	 * //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); Select
+	 * epartno = new Select(eSelectPartno); epartno.selectByVisibleText(partno1);
+	 * Thread.sleep(5000); }
+	 */
 
 	public void Addbutton() throws Throwable {
 		eSelectaddbt.click();
 		Thread.sleep(5000);
 	}
+
 	public void Savebutton() throws Throwable {
 		eSelectsave.click();
 		Thread.sleep(5000);
@@ -350,7 +360,8 @@ public class MultiAddPom extends Baseclass {
 	}
 
 	String erregion = "";
-	String engine= "";  
+	String engine = "";
+
 	public void attributepage() throws Throwable {
 		eshowattribt.click();
 		Thread.sleep(10000);
@@ -366,7 +377,7 @@ public class MultiAddPom extends Baseclass {
 		eshowattribt4.click();
 		Thread.sleep(3000);
 	}
-	
+
 	public void attrtxtbox(String Region) throws Throwable {
 		eatrtxtbox.sendKeys(pro.getProperty("Region"));
 		Thread.sleep(3000);
@@ -389,7 +400,7 @@ public class MultiAddPom extends Baseclass {
 	}
 
 	public void partsearch() throws InterruptedException {
-		epartsearch.sendKeys(pro.getProperty("Partnum"));
+		epartsearch.sendKeys(pro.getProperty("partno"));
 		Thread.sleep(5000);
 		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ACBehavior_completionListElem']//li"));
 		System.out.println("total number of parts-->" + list.size());
@@ -410,12 +421,11 @@ public class MultiAddPom extends Baseclass {
 		ebuyerguide.click();
 		Thread.sleep(5000);
 	}
-	
- 
-	public void ACesverify(String EnterYear,String SearchTextAcesallEngine) throws Exception {
+
+	public void ACesverify(String EnterYear, String SearchTextAcesallEngine) throws Exception {
 		driver.switchTo().frame(0);
 		Thread.sleep(5000);
-		efilter.sendKeys(pro.getProperty("EnterYear"));			
+		efilter.sendKeys(pro.getProperty("EnterYear"));
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -429,11 +439,11 @@ public class MultiAddPom extends Baseclass {
 		}
 
 	}
-	
-	public void NonACesverify(String EnterInvalidYear,String SearchTextAcesallEngine) throws Exception {
+
+	public void NonACesverify(String EnterInvalidYear, String SearchTextAcesallEngine) throws Exception {
 		driver.switchTo().frame(0);
 		Thread.sleep(3000);
-		efilter.sendKeys(pro.getProperty("EnterInvalidYear"));	
+		efilter.sendKeys(pro.getProperty("EnterInvalidYear"));
 		Thread.sleep(3000);
 		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
 		Thread.sleep(5000);
@@ -444,7 +454,7 @@ public class MultiAddPom extends Baseclass {
 			System.out.println("Both are same");
 		} else {
 			System.out.println("Both are not same");
-		}		
+		}
 
 	}
 
@@ -471,13 +481,13 @@ public class MultiAddPom extends Baseclass {
 		}
 	}
 
-	public void Acesattverify(String EnterYear,String SearchTextAcesallEngine) throws Exception {
+	public void Acesattverify(String EnterYear, String SearchTextAcesallEngine) throws Exception {
 		driver.switchTo().frame(0);
 		Thread.sleep(3000);
-		efilter.sendKeys(pro.getProperty("EnterYear"));	
+		efilter.sendKeys(pro.getProperty("EnterYear"));
 		Thread.sleep(3000);
 		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
-		Thread.sleep(5000);		
+		Thread.sleep(5000);
 		// String expectedtext=eregion.getText();
 		String actualText = Everifyattr1.getText();
 		System.out.println("Text" + actualText);
@@ -488,14 +498,14 @@ public class MultiAddPom extends Baseclass {
 		}
 
 	}
-	
-	public void attrtxtverify(String EnterYear,String SearchTextAcesallEngine) throws Exception {
+
+	public void attrtxtverify(String EnterYear, String SearchTextAcesallEngine) throws Exception {
 		driver.switchTo().frame(0);
 		Thread.sleep(3000);
-		efilter.sendKeys(pro.getProperty("EnterYear"));	
+		efilter.sendKeys(pro.getProperty("EnterYear"));
 		Thread.sleep(3000);
 		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
-		Thread.sleep(5000);		
+		Thread.sleep(5000);
 		// String expectedtext=eregion.getText();
 		String actualText = Everifyattr1.getText();
 		System.out.println("Text" + actualText);
@@ -507,10 +517,10 @@ public class MultiAddPom extends Baseclass {
 
 	}
 
-	public void NonAcesattverify(String EnterInvalidYear,String SearchTextAcesallEngine) throws Exception {
+	public void NonAcesattverify(String EnterInvalidYear, String SearchTextAcesallEngine) throws Exception {
 		driver.switchTo().frame(0);
 		Thread.sleep(3000);
-		efilter.sendKeys(pro.getProperty("EnterInvalidYear"));	
+		efilter.sendKeys(pro.getProperty("EnterInvalidYear"));
 		Thread.sleep(3000);
 		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
 		Thread.sleep(5000);
@@ -577,63 +587,50 @@ public class MultiAddPom extends Baseclass {
 		}
 	}
 
-	public void verifyattr1() {
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		String actualText = eqty1.getText();
-		System.out.println("Qty is..." + actualText);
-		if (actualText.contains(pro.getProperty("qtydata"))) {
-			System.out.println("Both are same **Qty** ");
-		} else {
-			System.out.println("Both are not same");
-		}
+	/*
+	 * public void verifyattr1() { driver.manage().timeouts().implicitlyWait(30,
+	 * TimeUnit.SECONDS); String actualText = eqty1.getText();
+	 * System.out.println("Qty is..." + actualText); if
+	 * (actualText.contains(pro.getProperty("qtydata"))) {
+	 * System.out.println("Both are same **Qty** "); } else {
+	 * System.out.println("Both are not same"); }
+	 * 
+	 * driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); String
+	 * actualText2 = enotes1.getText(); System.out.println("Notes is..." +
+	 * actualText2); if (actualText2.contains(pro.getProperty("notesdata"))) {
+	 * System.out.println("Both are same **Notes** "); } else {
+	 * System.out.println("Both are not same"); } }
+	 */
 
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		String actualText2 = enotes1.getText();
-		System.out.println("Notes is..." + actualText2);
-		if (actualText2.contains(pro.getProperty("notesdata"))) {
-			System.out.println("Both are same **Notes** ");
-		} else {
-			System.out.println("Both are not same");
-		}
-	}
-
-	public void verifyattr2() {
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		String actualText = eqty1.getText();
-		System.out.println("Qty is..." + actualText);
-		if (actualText.contains(pro.getProperty("qtydata"))) {
-			System.out.println("Both are same **Qty** ");
-		} else {
-			System.out.println("Both are not same");
-		}
-
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		String actualText1 = eposition1.getText();
-		System.out.println("Position is..." + actualText1);
-		if (actualText1.contains(pro.getProperty("postion"))) {
-			System.out.println("Both are same **position** ");
-		} else {
-			System.out.println("Both are not same");
-		}
-
-	}
-
-	public void verifyalert3() throws InterruptedException {
-
-		Alert alert = driver.switchTo().alert();
-		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
-		String actualtest = alert.getText();
-		System.out.println("Invalid alert is..:" + alert.getText());
-		alert.accept();
-		Thread.sleep(10000);
-
-		System.out.println("Invalid alert message is..." + actualtest);
-		if (actualtest.contains(pro.getProperty("invalid"))) {
-			System.out.println("Both are same");
-		} else {
-			System.out.println("Both are not same");
-		}
-	}
+	/*
+	 * public void verifyattr2() { driver.manage().timeouts().implicitlyWait(30,
+	 * TimeUnit.SECONDS); String actualText = eqty1.getText();
+	 * System.out.println("Qty is..." + actualText); if
+	 * (actualText.contains(pro.getProperty("qtydata"))) {
+	 * System.out.println("Both are same **Qty** "); } else {
+	 * System.out.println("Both are not same"); }
+	 * 
+	 * driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); String
+	 * actualText1 = eposition1.getText(); System.out.println("Position is..." +
+	 * actualText1); if (actualText1.contains(pro.getProperty("postion"))) {
+	 * System.out.println("Both are same **position** "); } else {
+	 * System.out.println("Both are not same"); }
+	 * 
+	 * }
+	 */
+	/*
+	 * public void verifyalert3() throws InterruptedException {
+	 * 
+	 * Alert alert = driver.switchTo().alert(); //
+	 * logger.log(LogStatus.INFO,"Alert text " + alert.getText()); String actualtest
+	 * = alert.getText(); System.out.println("Invalid alert is..:" +
+	 * alert.getText()); alert.accept(); Thread.sleep(10000);
+	 * 
+	 * System.out.println("Invalid alert message is..." + actualtest); if
+	 * (actualtest.contains(pro.getProperty("invalid"))) {
+	 * System.out.println("Both are same"); } else {
+	 * System.out.println("Both are not same"); } }
+	 */
 
 	// **start multipart with description**//
 	public void multidesc(String Enterpartdesc1) throws InterruptedException {
@@ -649,8 +646,9 @@ public class MultiAddPom extends Baseclass {
 	}
 
 	// **multiple partnumber selected**//
-/*	String partss ="";
-	String partsss ="";*/
+	/*
+	 * String partss =""; String partsss ="";
+	 */
 	public void verifymultidescandpart() throws Throwable {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		String partss = epa1.getText();
@@ -662,7 +660,7 @@ public class MultiAddPom extends Baseclass {
 		} else {
 			System.out.println("Both are same");
 		}
-		
+
 	}
 
 	// **end multipart with description**//
@@ -670,16 +668,14 @@ public class MultiAddPom extends Baseclass {
 	public void VerifyParslinked(String Partnum) {
 		String actualText = epartslinked.getText();
 		System.out.println("Parts Linked value is.." + actualText);
-		if(actualText.contains(Partnum))
-		{
+		if (actualText.contains(Partnum)) {
 			System.out.println("Both are same");
-		}else
-		{
+		} else {
 			System.out.println("Both are not same");
 		}
 
 	}
-	
+
 	public void VerifymultipleProduct() {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		String Prod1 = epa3.getText();
@@ -692,7 +688,7 @@ public class MultiAddPom extends Baseclass {
 			System.out.println("Both are different");
 		}
 	}
-	
+
 	public void Verifymultipledesc() {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		String desc1 = epa5.getText();
@@ -703,6 +699,43 @@ public class MultiAddPom extends Baseclass {
 			System.out.println("Both are check");
 		} else {
 			System.out.println("Both are different");
+		}
+	}
+
+	public void Qtyverify(String acesexpectedtext2, String SearchTextAcesallEngine, String postion) throws Exception {
+		driver.switchTo().frame(0);
+		Thread.sleep(5000);
+		efilter.sendKeys(pro.getProperty("acesexpectedtext2"));
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		// String expectedtext=efirst1.getText();
+		String actualText = everifyposition.getText();
+		System.out.println("Text.." + actualText);
+		if (actualText.contains(pro.getProperty("postion"))) {
+			System.out.println("Both are same");
+		} else {
+			System.out.println("Both are not same");
+		}
+	}
+
+	public void Qtyverify1(String acesexpectedtext2, String SearchTextAcesallEngine, String qtydata) throws Exception {
+		driver.switchTo().frame(0);
+		Thread.sleep(5000);
+		efilter.sendKeys(pro.getProperty("acesexpectedtext2"));
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
+		Thread.sleep(8000);
+		// String expectedtext=efirst1.getText();
+		Everifyedit.click();
+		Thread.sleep(8000);
+		//driver.switchTo().frame(0);
+		String actualText = Everifyqty.getAttribute("value");		
+		System.out.println("Text.." + actualText);
+		if (actualText.contains(pro.getProperty("qtydata"))) {
+			System.out.println("Both are same");
+		} else {
+			System.out.println("Both are not same");
 		}
 	}
 }

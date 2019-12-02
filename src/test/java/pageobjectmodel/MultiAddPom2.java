@@ -33,6 +33,9 @@ public class MultiAddPom2 extends Baseclass {
 	WebElement epartdesc;
 
 	@FindBy(xpath = "//table[@class='table table-striped table-bordered']//tr[2]/td[3]")
+	
+	
+	
 	WebElement epartno;
 
 	@FindBy(xpath = "//table[@class='table table-striped table-bordered']//tr[2]/td[4]")
@@ -224,4 +227,6 @@ public class MultiAddPom2 extends Baseclass {
 			System.out.println("The Vehicle details were NOT in correct order");
 		} 		
 		}
+	
+	
 	}
