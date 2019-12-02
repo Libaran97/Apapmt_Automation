@@ -38,11 +38,11 @@ public class TC008_PMT_Partdigitalasset extends Baseclass {
 			partdesc.partsearch(pro.getProperty("partnoenter"));
 			dat.clickasset();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			Baseclass.updateTestLinkResult("01-", null, TestLinkAPIResults.TEST_PASSED);
+			//Baseclass.updateTestLinkResult("01-", null, TestLinkAPIResults.TEST_PASSED);
 		}	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
-			Baseclass.updateTestLinkResult("01-", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+			//Baseclass.updateTestLinkResult("01-", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 			
 		}
 	}
@@ -57,11 +57,11 @@ public class TC008_PMT_Partdigitalasset extends Baseclass {
 			dat.savebutton();
 			dat.assetAlert();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			Baseclass.updateTestLinkResult("01-", null, TestLinkAPIResults.TEST_PASSED);
+			//Baseclass.updateTestLinkResult("01-", null, TestLinkAPIResults.TEST_PASSED);
 		}catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
-			Baseclass.updateTestLinkResult("01-", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+			//Baseclass.updateTestLinkResult("01-", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 			
 		}
 	}
@@ -71,11 +71,11 @@ public class TC008_PMT_Partdigitalasset extends Baseclass {
 	    
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will add succesfully and verify");
-			Baseclass.updateTestLinkResult("01-", null, TestLinkAPIResults.TEST_PASSED);
+			//Baseclass.updateTestLinkResult("01-", null, TestLinkAPIResults.TEST_PASSED);
 		}catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
-			Baseclass.updateTestLinkResult("01-", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+			//Baseclass.updateTestLinkResult("01-", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 			
 		}
 	}
@@ -122,11 +122,11 @@ public class TC008_PMT_Partdigitalasset extends Baseclass {
 	    
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will delete successfully and verify");
-			extent.flush();
+			//extent.flush();
 		}catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
-			extent.flush();
+			//extent.flush();
 		}
 	}
 

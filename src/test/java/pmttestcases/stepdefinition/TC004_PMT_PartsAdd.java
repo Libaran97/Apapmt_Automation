@@ -26,7 +26,7 @@ public class TC004_PMT_PartsAdd extends Baseclass {
 	public void user_will_click_on_parts_page_and_it_will_redirect_to_parts_page() throws Throwable {
 	  
 	try {
-		extent=setup();	
+		//extent=setup();	
 		test = extent.createTest(Feature.class, "PMT Add Product List").assignCategory("Parts Add").pass("category added thanks");
 		test=test.createNode(Scenario.class, "Adding part# with created product category");
 		loginfo=test.createNode(new GherkinKeyword("Given"),"User will click on parts page and it will redirect to parts page");

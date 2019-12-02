@@ -38,11 +38,11 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.clickonproductcategory();
 			loginfo.pass("product category landed successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
+			//Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
 		 }   catch (Exception e) {
 			 TestStep("Fail",driver,loginfo,e);
 			 System.out.println(e);
-			 Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 	}
 	}
 
@@ -54,11 +54,11 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.addcategory1();
 			loginfo.pass("Value Entered Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
+			//Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
 		} 	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
-			Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+			//Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 		}	
 
 		}
@@ -71,13 +71,13 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			mpom.savingcategory();
 			loginfo.pass("Product category Saved Successfully");	
-			Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
+			//Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
 			
 	}catch ( Exception e) {
 		
 		TestStep("Fail",driver,loginfo,e);
 		System.out.println(e);
-		Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+		//Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
 		
 		
 	}	
@@ -96,8 +96,8 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("Product category saved");
 			System.out.println("Category Verified");
 			loginfo.pass("Product category Saved Successfully & shown in grid");
-			Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
-			extent.flush();
+			//Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
+			//extent.flush();
 		
 		}	catch ( Exception e) {
 			/*JavascriptExecutor js = (JavascriptExecutor)driver;
@@ -111,8 +111,8 @@ public class TC002_PMT_productrelated extends Baseclass {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
 			//loginfo.fail("Already exists");
-			Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
-			extent.flush();
+			//Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+			//extent.flush();
 	}	
 	}
 
@@ -324,7 +324,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	@Given("^User will goto master and choose Custom Attributes$")
 	public void user_will_goto_master_and_choose_Custom_Attributes() throws Throwable {
 		try {
-			extent=setup();	
+			//extent=setup();	
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Cateory").pass("Custom Attributes added");
 			test=test.createNode(Scenario.class, "Adding Custom Attributes");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will goto master and choose Custom Attributes");
@@ -385,7 +385,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			extent.flush();
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
-		extent.flush();
+		//extent.flush();
 	}	
 	}
 	

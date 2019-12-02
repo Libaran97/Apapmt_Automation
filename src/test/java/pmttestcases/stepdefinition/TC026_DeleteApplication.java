@@ -114,12 +114,12 @@ public class TC026_DeleteApplication extends Baseclass {
 			dapom.verifytext1(pro.getProperty("AlertVrytext"));
 			loginfo.pass("Deleted Application verifyed Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleted Application Not verify "+e.getMessage());
 			loginfo.fail("Deleted Application Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		}
 		
 		
