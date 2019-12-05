@@ -31,7 +31,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 		
 		try {
 			extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Cateory").pass("category added thanks");
+			test = extent.createTest(Feature.class, "PMT Product Related-Add Category").assignCategory("Cateory").pass("category added thanks");
 			test=test.createNode(Scenario.class, "Adding product category");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mouse hover and choose the product category page");
 			mpom = new Masterproductrelated_POM();	
@@ -89,7 +89,6 @@ public class TC002_PMT_productrelated extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify that the record has come");
 			mpom.acceptAlert();
-			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println("category successfully added");
 			mpom.verifyingtext(pro.getProperty("categoryname"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -100,14 +99,6 @@ public class TC002_PMT_productrelated extends Baseclass {
 			//extent.flush();
 		
 		}	catch ( Exception e) {
-			/*JavascriptExecutor js = (JavascriptExecutor)driver;
-			 String text = js.executeScript("return document.getElementById('MainContent_lblError').innerHTML").toString();
-			 System.out.println(text);
-			 WebElement element = driver.findElement(By.xpath("//*[@id='MainContent_Image1']"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
-			System.out.println("Failed to insert");
-			//loginfo.fail("Insert Failed");*/
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
 			//loginfo.fail("Already exists");
@@ -122,7 +113,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	   
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Sub Category").pass("sub category added thanks");
+			test = extent.createTest(Feature.class, "PMT Product Related-Add SubCategory").assignCategory("Sub Category").pass("sub category added thanks");
 			test=test.createNode(Scenario.class, "Adding product sub category");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to master and choose product sub category");
 			mpom = new Masterproductrelated_POM();
@@ -203,7 +194,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	    
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Part Description Tag");
+			test = extent.createTest(Feature.class, "PMT Product Related-Add Description").assignCategory("Part Description Tag");
 			test=test.createNode(Scenario.class, "Adding part description");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to master and choose part description");
 			mpom = new Masterproductrelated_POM();
@@ -276,7 +267,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	    
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Product Line Tag");
+			test = extent.createTest(Feature.class, "PMT Product Related-Add prodLine").assignCategory("Product Line Tag");
 			test=test.createNode(Scenario.class, "Adding product Line");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to master and choose product line");
 			mpom = new Masterproductrelated_POM();
@@ -325,7 +316,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	public void user_will_goto_master_and_choose_Custom_Attributes() throws Throwable {
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Cateory").pass("Custom Attributes added");
+			test = extent.createTest(Feature.class, "PMT Product Related-Add Attribute").assignCategory("Cateory").pass("Custom Attributes added");
 			test=test.createNode(Scenario.class, "Adding Custom Attributes");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will goto master and choose Custom Attributes");
 			mpom = new Masterproductrelated_POM();	
@@ -382,7 +373,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("Product line added successfully & shown in grid");
 			System.out.println("Product Line  Added in the grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
 		//extent.flush();

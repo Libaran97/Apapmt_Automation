@@ -162,7 +162,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	
 	public void entrycategory(String categoryname) throws InterruptedException {
 		entercategory.sendKeys(categoryname);
-		//equivalentcategory.click();
+		equivalentcategory.click();
 		Thread.sleep(2000);
 		//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 	}
