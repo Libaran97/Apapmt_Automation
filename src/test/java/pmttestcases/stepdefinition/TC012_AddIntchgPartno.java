@@ -44,7 +44,7 @@ public class TC012_AddIntchgPartno extends Baseclass {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click Add Button and Select Interchange name");
 			ippom.clickAdd();
 			
-			ippom.EnterIntName(pro.getProperty("IntchgNameValue4DBox"));
+			ippom.EnterIntName(pro.getProperty("InterchangeNameValue"));
 			loginfo.pass(" Add button & Interchange Name Selected  successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {

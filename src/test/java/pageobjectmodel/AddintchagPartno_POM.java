@@ -77,9 +77,10 @@ public class AddintchagPartno_POM extends Baseclass{
 		Thread.sleep(3000);
 		
 	}
-	public void EnterIntName(String IntchgNameValue4DBox) throws InterruptedException {
+	public void EnterIntName(String InterchangeNameValue) throws InterruptedException {
+		Thread.sleep(5000);
 		Select intName = new Select(eIntnameDDBox);
-		intName.selectByVisibleText(IntchgNameValue4DBox);
+		intName.selectByVisibleText(InterchangeNameValue);
 		Thread.sleep(5000);
 	}
 	public void EnterIntchgpartValue(String interchangepartno) throws InterruptedException {
