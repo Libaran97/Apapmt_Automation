@@ -17,8 +17,8 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	@Given("^: user will create the application pages and multiadd links$")
 	public void user_will_create_the_application_pages_and_multiadd_links() throws Throwable {
 		try {
-			// extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ")
+			//extent = setup();
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Cancel-TC035").assignCategory("PIES MultiAdd ")
 					.pass("Cancel button verified");
 			test = test.createNode(Scenario.class, "Multiadd Cancel case in the Multi add page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -58,7 +58,8 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the checkbox product desc part number");
-			mpom1.Checkboxall();
+			//mpom1.Checkboxall();
+			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
 			mpom1.Productline(pro.getProperty("linecode"));
 			mpom1.Partdesc(pro.getProperty("partdesc"));
@@ -107,12 +108,12 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			e.printStackTrace();
 		}
 	}
-
+   //2nd program-delete
 	@Given("^: user will create the application pages and multiadd links on same page$")
 	public void user_will_create_the_application_pages_and_multiadd_links_on_same_page() throws Throwable {
 		try {
 			// extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Delete-TC035").assignCategory("PIES MultiAdd ")
 					.pass("Delete button verified");
 			test = test.createNode(Scenario.class, "Multiadd Delete case in the Multi add page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -150,7 +151,8 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the checkbox product desc part number also");
-			mpom1.Checkboxall();
+			//mpom1.Checkboxall();
+			mpom1.Checkbox2("EnterYear", "Acesvalue");
 			mpom1.scrolldown();
 			mpom1.Productline(pro.getProperty("linecode"));
 			mpom1.Partdesc(pro.getProperty("partdesc"));
@@ -186,7 +188,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally delete button finished");
 			mpom1.Deleteverify(pro.getProperty("Delete"));
-			// extent.flush();
+			//extent.flush();
 			loginfo.pass("*Delete button succussfully added...");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println("**Delete button succussfully added**");
@@ -198,11 +200,12 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		}
 	}
 
+	//3rd program
 	@Given("^: user will click the application pages and multiadd pages$")
 	public void user_will_click_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
-			// extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ")
+			//extent = setup();
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD all attributes-TC035").assignCategory("PIES MultiAdd ")
 					.pass("Attributes values all verified");
 			test = test.createNode(Scenario.class, "Multiadd attributes values check and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -243,7 +246,8 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check the checkbox in the grid");
-			mpom1.Checkbox1();
+			//mpom1.Checkbox1();
+			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
 			loginfo.pass("Check box is working");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -305,7 +309,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			mpom1.partsearch();
 			mpom1.buyerguide();
 			mpom1.scrolldown();
-			mpom1.Qtyverify("acesexpectedtext2", "SearchTextAcesallEngine", "postion");
+			mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine", "postion");
 			loginfo.pass("Verify attributes values is working");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -337,9 +341,9 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void user_will_click_the_application_pages_and_multiadd_page() throws Throwable {
 		try {
 		//	extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases");
-			test = test.createNode(Scenario.class, "Multiadd qty,notes to check add or not")
-					.assignCategory("PIES MultiAdd ").pass("Attribues Qty,notes values verified");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD qty and notes-TC035").assignCategory("PIES MultiAdd ").pass("Attribues Qty,notes values verified");
+			test = test.createNode(Scenario.class, "Multiadd qty,notes to check add or not");
+			
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will click the application pages and multiadd pages");
 			// mpom1 = new MultiAddPom();
@@ -377,7 +381,8 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void user_will_check_the_checkbox_in_the_table() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check the checkbox in the table");
-			mpom1.Checkbox1();
+			//mpom1.Checkbox1();
+			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
 			loginfo.pass("Checkbox is click");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -469,7 +474,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void user_will_select_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD qty and position-TC035").assignCategory("PIES MultiAdd ")
 					.pass("Attribues Qty,position values verified");
 			test = test.createNode(Scenario.class, "Multiadd qty,Position to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -512,7 +517,8 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void user_will_check_the_checkbox_in_the_tables() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check the checkbox in the tables");
-			mpom1.Checkbox1();
+			//mpom1.Checkbox1();
+			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
 			loginfo.pass("Vehicle,Make,Model drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -579,7 +585,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			mpom1.partsearch();
 			mpom1.buyerguide();
 			mpom1.scrolldown();			
-			mpom1.Qtyverify("acesexpectedtext2", "SearchTextAcesallEngine", "postion");
+			mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine", "postion");
 			loginfo.pass("Verify attributes values is working");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -611,7 +617,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void user_will_select_the_application_paged_and_multiadd_pages() throws Throwable {
 		try {
 		   //extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD position and notes-TC035").assignCategory("PIES MultiAdd ")
 					.pass("Attribues Position,notes values verified");
 			test = test.createNode(Scenario.class, "Multiadd position,notes to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -651,7 +657,8 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void user_will_check_the_checkboxs_in_the_tables() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check the checkbox in the tables column");
-			mpom1.Checkbox1();
+			//mpom1.Checkbox1();
+			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
 			loginfo.pass("Checkbox is click");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -717,7 +724,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will verify the position and notes in the tabular column");
 
-			mpom1.Qtyverify("acesexpectedtext2", "SearchTextAcesallEngine", "postion");
+			mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine", "postion");
 			loginfo.pass("Verify attributes values is working");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -735,7 +742,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			loginfo.pass("Notes and POStion is success");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println("Notes and Postion is success");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			loginfo.fail("Notes and POStion is not success");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));

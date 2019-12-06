@@ -19,7 +19,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	public void user_will_Click_the_Application_page_and_multiadd_page() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD aces-TC033").assignCategory("PIES MultiAdd ")
 					.pass("Aces values verified");
 			test = test.createNode(Scenario.class, "Multiadd aces save and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -39,10 +39,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 
 	@When("^User will select vehicle,make,model and will click the search option$")
 	public void user_will_select_vehicle_make_model_and_will_click_the_search_option() throws Throwable {
-		try {
-			//extent = setup();
-			//test = extent.createTest(Feature.class, "PMT Product Related Testcases");
-			//test = test.createNode(Scenario.class, "Multiadd aces save and reflected to buyersguide");
+		try {			
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will select vehicle,make,model and will click the search option");
 			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
@@ -65,7 +62,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will check the checkbox button and product line,part description,part number will chose");
-			mpom1.Checkbox2();
+			mpom1.Checkbox2("EnterYear", "Acesvalue");
 			mpom1.scrolldown();
 			mpom1.Productline(pro.getProperty("linecode"));
 			mpom1.Partdesc(pro.getProperty("partdesc"));
@@ -126,7 +123,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	public void user_will_create_the_application_pages_and_multiadd_links_pages() throws Throwable {
 		try {
 			// extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD aces-TC033").assignCategory("PIES MultiAdd ")
 					.pass("Aces attributes values verified");
 			test = test.createNode(Scenario.class, "Multiadd Aces attributes values reflected to buyers guide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -168,7 +165,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will click the checkbox and use show attributes option");
-			mpom1.Checkbox2();
+			mpom1.Checkbox2("EnterYear", "Acesvalue");
 			mpom1.scrolldown();
 			mpom1.attributepage();
 			mpom1.scrolldown();
@@ -246,7 +243,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	public void user_will_create_the_application_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd textbox verified")
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD aces-TC033").assignCategory("PIES MultiAdd textbox verified")
 					.pass("Aces attributes textbox values verified");
 			test = test.createNode(Scenario.class, "user will create the application and multiadd pages");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -288,7 +285,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will click the checkbox box");
-			mpom1.Checkbox2();
+			mpom1.Checkbox2("EnterYear", "Acesvalue");
 			mpom1.scrolldown();
 			mpom1.attributepage();
 			mpom1.scrolldown();
@@ -366,7 +363,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	public void user_will_create_the_application_and_multiadd() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd")
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD aces-TC033").assignCategory("PIES MultiAdd")
 					.pass("PIES MultiAdd textbox and dropdown verified");
 			test = test.createNode(Scenario.class, "user will create the application and multiadd");
 			loginfo = test.createNode(new GherkinKeyword("Given"),"user will create the application and multiadd");		
@@ -406,7 +403,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will click the checkbox button");
-			mpom1.Checkbox2();
+			mpom1.Checkbox2("EnterYear", "Acesvalue");
 			mpom1.scrolldown();
 			mpom1.attributepage();
 			mpom1.attributepagebt();

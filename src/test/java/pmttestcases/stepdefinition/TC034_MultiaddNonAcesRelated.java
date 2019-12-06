@@ -20,8 +20,8 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 	public void user_will_create_the_application_pages() throws Throwable {
 
 		try {
-			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd ").pass("Non Aces values verified");
+		//	extent = setup();
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD non aces-TC034").assignCategory("PIES MultiAdd ").pass("Non Aces values verified");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces save and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"), "user will create the application pages");			
 			mpom1.Application();
@@ -59,7 +59,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 	public void user_will_check_the_all_part_types() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check the all part types");
-			mpom1.Checkbox1();
+			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
 			mpom1.Productline(pro.getProperty("linecode"));
 			mpom1.Partdesc(pro.getProperty("partdesc"));
@@ -114,11 +114,13 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 			//extent.flush();
 		}
 	}
+	
+	
 	@Given("^: user will create the application pages and multiadd pages$")
 	public void user_will_create_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
-		//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases2").assignCategory("PIES MultiAdd ").pass("Non Aces attributes values verified");
+		   // extent = setup();
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD non aces-TC034").assignCategory("PIES MultiAdd ").pass("Non Aces attributes values verified");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces attributes values reflected to buyers guide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will create the application pages and multiadd pages");			
@@ -157,7 +159,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the checkbox and use nonaces attributes");
-			mpom1.Checkbox1();
+			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
 			mpom1.attributepage10();
 			mpom1.scrolldown();
@@ -179,8 +181,9 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 					"user will select the product, description, part number");
 			mpom1.Productline(pro.getProperty("linecode"));
 			mpom1.Partdesc(pro.getProperty("partdesc"));
-			mpom1.Partnum(pro.getProperty("partno"));
-			mpom1.Addbutton();
+			mpom1.Partnum(pro.getProperty("partno"));	
+			mpom1.scrolldown();
+			mpom1.Addbutton();	
 			mpom1.scrolldown();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product,desc,part...is working");
@@ -196,9 +199,8 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will do save option and alert popup to accept or not");
-			
 			mpom1.Savebutton();
-			mpom1.acceptAlert();
+			mpom1.acceptAlert();		
 			mpom1.Part();
 			mpom1.partsearch();
 			mpom1.buyerguide();
@@ -220,9 +222,10 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 					"Finally Show non aces attributes is finished");			
 			System.out.println("**Show non-aces attributes succussfully added**");
 			loginfo.pass("Show non-aces attributes succussfully added");
-		//	extent.flush();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		} catch (Exception e) {
-			
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.fail("Show non-aces attributes succussfully not added");
 			System.out.println("**Show non-aces attributes succussfully not added**");
 			//extent.flush();

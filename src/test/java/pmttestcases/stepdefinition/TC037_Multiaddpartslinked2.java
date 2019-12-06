@@ -12,7 +12,7 @@ import pageobjectmodel.MultiAddPom;
 import pageobjectmodel.MultiAddPom2;
 import utility.Baseclass;
 
-public class TC037_Multiaddmutipleletimes extends Baseclass {
+public class TC037_Multiaddpartslinked2 extends Baseclass {
 	MultiAddPom mpom1 = new MultiAddPom();
 	MultiAddPom2 mpom2 = new MultiAddPom2();
 	ExtentTest loginfo = null;
@@ -21,7 +21,7 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 	public void user_will_choos_the_application_paged_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd")
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked2 edit-TC037").assignCategory("PIES MultiAdd")
 					.pass("Part Linked Edit option is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -32,9 +32,10 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Application and Multiadd page is not click" + e.getMessage());
-			loginfo.fail("Application and Multiadd page is not click");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);			
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			TestStep("Fail", driver, loginfo, e);
+			
 		}
 
 	}
@@ -53,7 +54,8 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
-			loginfo.fail("Vehicle,Make,Model drop down values not getting properly");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -74,7 +76,8 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 
 		} catch (Exception e) {
-			loginfo.fail("Finally click the Parts linked and open the popup box and verification failed");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			System.out.println(
 					"Finally click the Parts linked and open the popup box and verification failed " + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -91,18 +94,19 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		} catch (Exception e) {
-			loginfo.fail("Finally click the Parts linked Edit verification failed");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			System.out.println("Finally click the Parts linked Edit verification failed" + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		}
 	}
-
+////////////////////////////////////////////////////////////////////////////////////////////////
 	@Given("^: user will choos the application paged and multiadd page$")
 	public void user_will_choos_the_application_paged_and_multiadd_page() throws Throwable {
 		try {
 			// extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd")
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked2 Cancel-TC037").assignCategory("PIES MultiAdd")
 					.pass("Part Linked Cancel is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -114,7 +118,8 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Application and Multiadd page is not click" + e.getMessage());
-			loginfo.fail("Application and Multiadd page is not click");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			TestStep("Fail", driver, loginfo, e);
 		}
@@ -134,7 +139,8 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
-			loginfo.fail("Vehicle,Make,Model drop down values not getting properly");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -155,7 +161,8 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 
 		} catch (Exception e) {
-			loginfo.fail("Click the Parts linked Cancel and verification failed");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			System.out.println("Click the Parts linked Cancel and verification failed " + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
@@ -171,7 +178,8 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		} catch (Exception e) {
-			loginfo.fail("Finally click the Parts linked Cancel failed");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			System.out.println("Finally click the Parts linked Cancel failed" + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
@@ -182,22 +190,22 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 	@Given("^: user will choos the application page and multiadd pages$")
 	public void user_will_choos_the_application_page_and_multiadd_pages() throws Throwable {
 		try {
-			// extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd")
+			//extent = setup();
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked2 Delete-TC037").assignCategory("PIES MultiAdd")
 					.pass("Part Linked Delete is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
-					"user will choos the application page and multiadd pages");
-			// mpom1 = new MultiAddPom();
+					"user will choos the application page and multiadd pages");			
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Application and Multiadd page is not click" + e.getMessage());
-			loginfo.fail("Application and Multiadd page is not click");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			TestStep("Fail", driver, loginfo, e);
+			
 		}
 	}
 
@@ -215,7 +223,8 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
-			loginfo.fail("Vehicle,Make,Model drop down values not getting properly");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -238,7 +247,8 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.pass("Click the Parts linked Delete and verification Passed");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
-			loginfo.fail("Click the Parts linked Delete and verification failed");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			System.out.println("Click the Parts linked Delete and verification failed " + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
@@ -251,9 +261,10 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.pass("Finally click the Parts delete verification");
 			System.out.println("Finally click the Parts delete verification");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+		//	extent.flush();
 		} catch (Exception e) {
-			loginfo.fail("Finally click the Parts delete verification failed");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			System.out.println("Finally click the Parts delete verification failed" + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		//	extent.flush();
@@ -265,7 +276,7 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 	public void user_will_choos_the_application_paged_and_multiadd() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("PIES MultiAdd").pass("Vehicle sorting is verified");
+			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked2 sorting-TC037").assignCategory("PIES MultiAdd").pass("Vehicle sorting is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will choos the application paged and multiadd");
@@ -275,9 +286,10 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Application and Multiadd page is not click" + e.getMessage());
-			loginfo.fail("Application and Multiadd page is not click");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			TestStep("Fail", driver, loginfo, e);
+			
 		}
 	}
 
@@ -290,7 +302,8 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 
 		} catch (Exception e) {
-			loginfo.fail("sorting order verification Passed failed");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			System.out.println("sorting order verification Passed failed" + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
@@ -306,7 +319,8 @@ public class TC037_Multiaddmutipleletimes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			//extent.flush();
 		} catch (Exception e) {
-			loginfo.fail("Finally click the Parts sorting verification failed");
+			TestStep("Fail",driver,loginfo,e);
+			 System.out.println(e);
 			System.out.println("Finally click the Parts sorting verification failed" + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			//extent.flush();
