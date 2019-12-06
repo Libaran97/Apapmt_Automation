@@ -84,7 +84,7 @@ public class TC005_PMT_Partdesc extends Baseclass {
 		}catch ( Exception e) {
 			TestStep("Fail",driver,loginfo,e);
 			System.out.println(e);
-			//extent.flush();
+			
 			
 		}
 	}

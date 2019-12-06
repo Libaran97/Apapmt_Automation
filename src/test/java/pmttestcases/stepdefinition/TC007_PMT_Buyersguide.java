@@ -47,9 +47,9 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on buyersguide frame and choose the vehicle, make, model & search");
 		bguide.buyerguideclick();
-		bguide.apppartsvehicldropdown();
-		bguide.apppartsmakedropdown();
-		bguide.apppartsmodeldropdown();
+		bguide.apppartsvehicldropdown(pro.getProperty("vehicletypename"));
+		bguide.apppartsmakedropdown(pro.getProperty("makename"));
+		bguide.apppartsmodeldropdown(pro.getProperty("modelname"));
 		bguide.apppartsearch();
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}   catch (Exception e) {
@@ -180,10 +180,11 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see succesfull alert and verify the application is deleted from the show grid");
 		bguide.acceptAlert1();
+		//extent.flush();
 		}catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);	
-			
+			//extent.flush();
 		}
 	}
 	

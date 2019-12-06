@@ -121,34 +121,35 @@ public class Buyersguide_POM extends Baseclass {
 			
 			
 			
-			public void apppartsvehicldropdown() throws InterruptedException {
+			public void apppartsvehicldropdown(String vehicletypename) throws InterruptedException {
 				driver.switchTo().frame(0);
+				Thread.sleep(2000);
 				WebElement vehiclesselect = drpVehicleType ;
 				Select select = new Select(vehiclesselect);
-				//select.selectByVisibleText(pro.getProperty("vehicletypename"));
-				select.selectByValue("2");
+				select.selectByVisibleText(vehicletypename);
+				//select.selectByValue("2");
 				Thread.sleep(2000);
 			}
 			
 			
 			
-			public void apppartsmakedropdown() throws InterruptedException {
+			public void apppartsmakedropdown(String makename) throws InterruptedException {
 				//driver.switchTo().frame(0);
 				WebElement makeselect = drpMake ;
 				Select select = new Select(makeselect);
-				//select.selectByVisibleText(pro.getProperty("makename"));
-				select.selectByValue("163");
+				select.selectByVisibleText(makename);
+				//select.selectByValue("163");
 				Thread.sleep(2000);
 			}
 			
 			
 			
 			
-			public void apppartsmodeldropdown() throws InterruptedException {
+			public void apppartsmodeldropdown(String modelname) throws InterruptedException {
 				WebElement modelselect = drpModel ;
 				Select select = new Select(modelselect);
-				//select.selectByVisibleText(pro.getProperty("modelname"));
-				select.selectByValue("1103");
+				select.selectByVisibleText(modelname);
+				//select.selectByValue("1103");
 				Thread.sleep(2000);
 			}
 			

@@ -19,14 +19,14 @@ And User will select Type code and enter internal & interchange notes
 Then User will click save button and accept the alert
 Then User will verify Interchange Part# is added or not
 
-Scenario: Deleting Interchange Partno
-Given User will mouse over master and click Interchange Partno
-When User will Select Interchange Name and search Interchange Partno
-And User will click delete and accept the alert 
-Then User will verify Interchange Partno is deleted or not
+#Scenario: Deleting Interchange Partno
+#Given User will mouse over master and click Interchange Partno
+#When User will Select Interchange Name and search Interchange Partno
+#And User will click delete and accept the alert 
+#Then User will verify Interchange Partno is deleted or not
 
-Scenario: Deleting InterchangeName
-Given User will mouse over emaster and click Interchange Name
-When User search InterchangeName in searchBox
-And User will click delete and accept alert 
-Then User will verify InterchangeName is deleted or not
+#Scenario: Deleting InterchangeName
+#Given User will mouse over emaster and click Interchange Name
+#When User search InterchangeName in searchBox
+#And User will click delete and accept alert 
+#Then User will verify InterchangeName is deleted or not

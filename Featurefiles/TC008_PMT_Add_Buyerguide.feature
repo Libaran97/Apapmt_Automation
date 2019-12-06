@@ -2,7 +2,6 @@
 Feature: PMT parts buyers guide
 Description: User will add application for a part# through buyersguide
 
-
 Scenario: Adding application through buyers guide
 Given User will go to parts page and search for a part# and will tie-up the application
 When User will click on buyersguide frame and choose the vehicle, make, model & search

@@ -157,9 +157,11 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the record has been deleted or not");
 		inter.acceptAlert();
+		//extent.flush();
 	} 	catch ( Exception e) {
 		System.out.println(e);
 		TestStep("Fail",driver,loginfo,e);
+		//extent.flush();
 		
 	}
 	}
