@@ -80,7 +80,14 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	@FindBy(xpath="//i[@class='fas fa-th-large theme_txt_clr sec_lv_menu']")
 	private WebElement clickdashboard;
 	
+	@FindBy(xpath="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
+	private WebElement eSearchBox;
 	
+	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[1]")
+	private WebElement eVryText;
+	
+	@FindBy(xpath="//select[@id='MainContent_drpVehicleType']")
+	private WebElement eselectddVehicle;
 	
 	/*
 	 * choosing vehicle type & add button click
@@ -119,6 +126,20 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		alert.accept();
 		Thread.sleep(2000);
 
+	}
+	
+	public void VerifyVehicle(String vehiclename) throws InterruptedException {
+		Thread.sleep(5000);
+		eSearchBox.sendKeys(vehiclename);
+		Thread.sleep(3000);
+		String text=eVryText.getText();
+		if(text.equals(vehiclename)) {
+			System.out.println("Both are same vehicle verified");
+			
+		} else {
+			System.out.println("Both are not same vehicle verified");
+		}
+		
 	}
 	
 	/*
@@ -191,6 +212,25 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Application Related " +pro.getProperty("makename") + alert.getText());
 		alert.accept();
+		
+	}
+	
+	public void VerifyMake(String vehiclename, String makename) throws InterruptedException {
+		
+		Select ddvehicle=new Select(eselectddVehicle);
+	
+		ddvehicle.selectByVisibleText(vehiclename);
+		Thread.sleep(5000);
+		
+		eSearchBox.sendKeys(makename);
+		Thread.sleep(3000);
+		String text=eVryText.getText();
+		if(text.equals(makename)) {
+			System.out.println("Both are same Make verified");
+			
+		} else {
+			System.out.println("Both are not same Make verified");
+		}
 		
 	}
 	

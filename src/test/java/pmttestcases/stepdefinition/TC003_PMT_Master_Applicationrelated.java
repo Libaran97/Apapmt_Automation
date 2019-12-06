@@ -27,12 +27,13 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 	  
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Add Application related List").assignCategory("Master-Application Related vehicle").pass("category added thanks");
+			test = extent.createTest(Feature.class, "PMT Add Application related-Add Vehicle").assignCategory("Master-Application Related vehicle").pass("category added thanks");
 			test=test.createNode(Scenario.class, "Adding Application Related vehicle type, Make & Model Test Cases");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mouse hover on Master and choose the vehicle type page");
 		master = new Applicationrelated_vehicle_make_model();
 		master.clickonvehicletype();
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		loginfo.pass("vehicle type page landed successfully");
 		} 	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
@@ -48,6 +49,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 		master.vehicletypename(pro.getProperty("vehicletypename"));
 		master.acceptAlert();
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		loginfo.pass("vehicle type Added successfully");
 		} 	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
@@ -56,16 +58,17 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 	}
 
 	
-	@Then("^User will successfully added and verify the added record should be shown in vehicle grid$")
+	@Then("^User will verify the added record should be shown in vehicle grid$")
 	public void user_will_successfully_added_and_verify_the_added_record_should_be_shown_in_vehicle_grid() throws Throwable {
 	    
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify the added record should be shown in vehicle grid");
-		//master.acceptAlert();
+		    master.VerifyVehicle(pro.getProperty("vehicletypename"));
+			//extent.flush();
 		} 	catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
-			
+			//extent.flush();
 		}
 		
 	}
@@ -76,9 +79,9 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 	   
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Add Application related List").assignCategory("Master-Application Related Make").pass("category added thanks");
+			test = extent.createTest(Feature.class, "PMT Add Application related-Add Make").assignCategory("Master-Application Related Make").pass("category added thanks");
 			test=test.createNode(Scenario.class, "Adding Application Related Make");
-			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to parts page and search for the part# to edit");
+			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mouse hover on master and choose the make");
 		master = new Applicationrelated_vehicle_make_model();
 		master.clickonmake();
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -107,16 +110,21 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 	}
 
 
-	@Then("^User will successfully added and verify the added record should be shown in make grid$")
+	@Then("^User will verify the added record should be shown in make grid$")
 	public void user_will_successfully_added_and_verify_the_added_record_should_be_shown_in_make_grid() throws Throwable {
 	   
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify the added record should be shown in make grid");
-		//master.acceptAlertformake();
+			/*
+			 * master.VerifyMake(pro.getProperty("vehiclename"),
+			 * pro.getProperty("makename"));
+			 * loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			 */
+			//extent.flush();
 	} 	catch ( Exception e) {
 		System.out.println(e);
 		TestStep("Fail",driver,loginfo,e);
-		
+		//extent.flush();
 	}
 	}
 
@@ -126,7 +134,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 		
 		try {
 			//extent=setup();	
-			test = extent.createTest(Feature.class, "PMT Add Application related List").assignCategory("Master-Application Related Model").pass("category added thanks");
+			test = extent.createTest(Feature.class, "PMT Add Application related-Add Model").assignCategory("Master-Application Related Model").pass("category added thanks");
 			test=test.createNode(Scenario.class, "Adding Application Related Model");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to parts page and search for the part#");
 		master = new Applicationrelated_vehicle_make_model();
@@ -159,6 +167,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass{
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will successfully added and verify that the record has come");
 		master.acceptAlertformodel();
+		//extent.flush();
 		}catch ( Exception e) {
 			TestStep("Fail",driver,loginfo,e);
 			System.out.println(e);
