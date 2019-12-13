@@ -451,7 +451,7 @@ public class TC013PartsListAll extends Baseclass {
 	public void user_will_click_Reports_and_click_Dropped_Partno() throws Throwable {
 	    
 		try {
-			extent=setup();	
+			//extent=setup();	
 			test = extent.createTest(Feature.class, "PMT Parts ListAll and Dropped Part#").assignCategory("ACES UnMapped").pass("ACES UnMapped");
 			test=test.createNode(Scenario.class, "Dropped Part# With ACES UnMapped");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will click Reports and click Dropped Partno");
@@ -490,12 +490,12 @@ public class TC013PartsListAll extends Baseclass {
 			eppom.Verify(pro.getProperty("partno3"));
 			loginfo.pass("Verified");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(" Not Verified"+e.getMessage());
 			loginfo.fail("Not Verified");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		}
 	}
 

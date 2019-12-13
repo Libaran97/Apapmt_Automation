@@ -7,7 +7,7 @@ When User will click on the add buton and choose product category, sub category,
 And User will enter the part# and click on save1
 Then User will see successfull alert and verify the part# thorugh part# search1
 
-Scenario: Dropped Part# With NoApplicarion
+Scenario: Dropped PartNo With NoApplicarion
 Given User will click Reports and click Dropped Part#
 When User will select Description, Reason NoApplicarion and click search
 And User will Verify the parts number
@@ -37,7 +37,7 @@ When User will Select Dropdown Category, sub category, part description, Product
 And User will Search for part number and Copy Appparts to other partno
 Then User will Verify Copy Appparts to other partno is added or not
 
-Scenario: Dropped Part# With ACES Unmapped
+Scenario: Dropped PartNo With ACES Unmapped
 Given User will click Reports and click Dropped Partno
 When User will select Description, Reason ACES Unmapped and click search
 And User will Verify ACES Unmapped parts number
