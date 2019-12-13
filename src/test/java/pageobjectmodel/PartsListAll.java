@@ -315,10 +315,11 @@ public class PartsListAll extends Baseclass{
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		ecreateduplicatebtn.click();
 		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(5000);
 		Alert alert = driver.switchTo().alert();
 		System.out.println(alert.getText());
-		alert.dismiss();
+		alert.accept();
 		Thread.sleep(3000);
 		
 		
