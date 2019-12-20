@@ -12,7 +12,7 @@
 	import cucumber.api.java.en.When;
 	import pageobjectmodel.MultiAddPom2;
 	import pageobjectmodel.Singleinallpage;
-import testlink.api.java.client.TestLinkAPIResults;
+//import testlink.api.java.client.TestLinkAPIResults;
 import utility.Baseclass;
 	
 	public class TN039_SingleinallpageDescription extends Baseclass {
@@ -23,8 +23,8 @@ import utility.Baseclass;
 		@Given("^: user will Click the Search button$")
 		public void user_will_Click_the_Search_button() throws Throwable {
 			try {
-				//extent = setup();
-				test = extent.createTest(Feature.class, "PMT Product Related Testcases")
+			//	extent = setup();
+				test = extent.createTest(Feature.class, "PMT Product Related Testcases DESC_TN039")
 						.assignCategory("PIES Single in All page ").pass("Description is add verified");
 				test = test.createNode(Scenario.class, "user will Click the add button");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search button");
@@ -63,8 +63,8 @@ import utility.Baseclass;
 			try {
 				loginfo = test.createNode(new GherkinKeyword("When"),
 						"user will verify the Add product line,Notes and description");
-				spom1.descriptionaddoption("descriptionNotestype", "partno1", "Region");
-				spom1.Verifydescriptionadd("descriptionNotestype", "partno1", "Region");
+				spom1.descriptionaddoption("descriptionNotestype","Region");
+				spom1.Verifydescriptionadd("descriptionNotestype","Region");
 				loginfo.pass("user will verify the Add product line,Notes and description");
 				System.out.println("user will verify the Add product line,Notes and description added");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -95,8 +95,8 @@ import utility.Baseclass;
 		@Given("^: user will Click the Search box and partnum$")
 		public void user_will_Click_the_Search_box_and_partnum() throws Throwable {
 			try {
-				// extent = setup();
-				test = extent.createTest(Feature.class, "PMT Product Related Testcases")
+				//extent = setup();
+				test = extent.createTest(Feature.class, "PMT Product Related Testcases DESC_TN039")
 						.assignCategory("PIES Single in All page ").pass("Description is edit verified");
 				test = test.createNode(Scenario.class, "user will Click the Search box and partnum");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search box and partnum");
@@ -118,7 +118,7 @@ import utility.Baseclass;
 				loginfo = test.createNode(new GherkinKeyword("When"), "user will edit the Description");
 				spom1.descedit();
 				spom1.windowhandler();
-				spom1.descchange("Enterpartdesc1", "EnterInvalidYear1");
+				spom1.descchange("qtydata", "notesdata");
 				loginfo.pass("user will Click the descripion Edit work");
 				System.out.println("user will Click the descripion Edit work");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -133,7 +133,7 @@ import utility.Baseclass;
 		public void user_will_verify_the_edited_description_value() throws Throwable {
 			try {
 				loginfo = test.createNode(new GherkinKeyword("When"), "user will verify the edited description value");
-				spom1.VerifyEditchange("Enterpartdesc1", "EnterInvalidYear1");
+				spom1.VerifyEditchange("qtydata", "notesdata");
 				loginfo.pass("user will verify the Add product line,Notes and description");
 				System.out.println("user will verify the Add product line,Notes and description added");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -152,7 +152,7 @@ import utility.Baseclass;
 				System.out.println("**Finally click the Description Edited success**");
 				loginfo.pass("Finally click the Description Edited success");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				// extent.flush();
+				//extent.flush();
 			} catch (Exception e) {
 				System.out.println("**Finally click the Description Edited failed**");
 				loginfo.fail("Finally click the Description Edited failed");
@@ -164,8 +164,8 @@ import utility.Baseclass;
 		@Given("^: user will Click the Search boxes and partnumber$")
 		public void user_will_Click_the_Search_boxes_and_partnumber() throws Throwable {
 			try {
-			//	extent = setup();
-				test = extent.createTest(Feature.class, "PMT Product Related Testcases")
+				extent = setup();
+				test = extent.createTest(Feature.class, "PMT Product Related Testcases DESC_TN039")
 						.assignCategory("PIES Single in All page ").pass("Description is delete verified");
 				test = test.createNode(Scenario.class, "user will Click the Search boxes and partnumber");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search boxes and partnumber");
@@ -207,7 +207,7 @@ import utility.Baseclass;
 				System.out.println("**Finally click the Description deleted success**");
 				loginfo.pass("Finally click the Description deleted success");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				//extent.flush();
+				extent.flush();
 			} catch (Exception e) {
 				System.out.println("**Finally click the Description deleted failed**");
 				loginfo.fail("Finally click the Description deleted failed");

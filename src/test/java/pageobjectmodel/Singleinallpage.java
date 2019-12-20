@@ -50,10 +50,10 @@ public class Singleinallpage extends Baseclass {
 	@FindBy(xpath = "//*[@id='MainContent_searchbtn']")
 	WebElement esearchbutton;
 
-	@FindBy(xpath = "//*[@id='MainContent_GvApplications_chkActivee1_2']")
-	WebElement eaceschkbox;
+	/*@FindBy(xpath = "//*[@id='MainContent_GvApplications_chkActivee1_2']")
+	WebElement eaceschkbox;*/
 
-	@FindBy(xpath = "//*[@id='MainContent_GvApplications_chkActivee1_0']")
+	@FindBy(xpath = "//*[@id='MainContent_GvApplications_chkActivee1_1']")
 	WebElement enonaceschkbox;
 
 	@FindBy(xpath = "//*[@id='MainContent_btnSave']")
@@ -146,7 +146,7 @@ public class Singleinallpage extends Baseclass {
 	WebElement epartfilter;
 	
 
-	public void partadd(String descve, String linecode, String adduom,String newpartno) throws Exception {
+	public void partadd(String subcategoryname1, String linecode, String adduom,String newpartno) throws Exception {
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement elementclose = driver.findElement(By.xpath("(//*[@id='close_img'])[2]"));
@@ -162,11 +162,11 @@ public class Singleinallpage extends Baseclass {
 		Thread.sleep(3000);
 
 		Select desc = new Select(epartdesc);
-		desc.selectByVisibleText(pro.getProperty("descve"));
+		desc.selectByVisibleText(pro.getProperty("subcategoryname1"));
 		Thread.sleep(2000);
 
 		Select prop = new Select(epartpro);
-		prop.selectByVisibleText(pro.getProperty("linecode"));
+		prop.selectByVisibleText(pro.getProperty("linecode1"));
 		Thread.sleep(2000);
 
 		Select qtyuom = new Select(eqtyuom);
@@ -219,7 +219,7 @@ public class Singleinallpage extends Baseclass {
 
 	public void searchbt() throws Exception {
 		esearchbt.click();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 	}
 
 	public void searchbt1() throws Exception {
@@ -289,13 +289,66 @@ public class Singleinallpage extends Baseclass {
 		}
 	}
 
-	public void aceschkbox() throws Throwable {
-		eaceschkbox.click();
+	public void aceschkbox() throws Throwable {		
+		List<WebElement> list = driver.findElements(By.xpath("//span[@class='chkBottomItem']"));
+		System.out.println("Checkbox values..." + list.size());
+
+		int j = 2;
+		//int z=0;
+		for (int i = 1; i < list.size(); i++) {
+			j = i+1;
+			//z= i-1;
+			//String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]")).getText();
+			String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications\"]/tbody/tr["+ j +"]/td[2]")).getText();
+			//String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + z + "\"]")).getText();
+			                                                     
+			System.out.println("Year value is..." + Year);
+			//System.out.println("Type value is..." + Type);
+			if ((Year.contains(pro.getProperty("EnterYear")))) {
+				//driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
+				
+				driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
+				//*[@id='MainContent_GvApplications_chkActivee1_2']
+			} else {
+				continue;
+			}
+
+		}
+
+		
+		
+		//eaceschkbox.click();
 		Thread.sleep(3000);
 	}
 
 	public void Nonaceschkbox() throws Throwable {
-		enonaceschkbox.click();
+		//enonaceschkbox.click();
+		
+		
+		List<WebElement> list = driver.findElements(By.xpath("//span[@class='chkBottomItem']"));
+		System.out.println("Checkbox values..." + list.size());
+
+		int j = 2;
+		//int z=0;
+		for (int i = 1; i < list.size(); i++) {
+			j = i+1;
+			//z= i-1;
+			//String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]")).getText();
+			String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications\"]/tbody/tr["+ j +"]/td[2]")).getText();
+			//String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + z + "\"]")).getText();
+			                                                     
+			System.out.println("Year value is..." + Year);
+			//System.out.println("Type value is..." + Type);
+			if ((Year.contains(pro.getProperty("EnterInvalidYear")))) {
+				//driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
+				
+				driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
+				//*[@id='MainContent_GvApplications_chkActivee1_2']
+			} else {
+				continue;
+			}
+
+		}
 		Thread.sleep(3000);
 	}
 
@@ -313,14 +366,14 @@ public class Singleinallpage extends Baseclass {
 		Thread.sleep(5000);
 	}
 
-	public void verifydata(String EnterInvalidYear2) throws Throwable {
-		eyear.sendKeys(pro.getProperty("EnterInvalidYear2"));
+	public void verifydata(String EnterYear) throws Throwable {
+		eyear.sendKeys(pro.getProperty("EnterYear"));
 		Thread.sleep(3000);
 		eenginer.sendKeys("");
 
 		String actualText = eyere1.getText();
 		System.out.println("Parts Linked value is.." + actualText);
-		if (actualText.contains(pro.getProperty("EnterInvalidYear2"))) {
+		if (actualText.contains(pro.getProperty("EnterYear"))) {
 			System.out.println("Both are same");
 		} else {
 			System.out.println("Both are not same");
@@ -420,12 +473,12 @@ public class Singleinallpage extends Baseclass {
 		Thread.sleep(5000);
 	}
 
-	public void descriptionaddoption(String descriptionNotestype, String partno1, String Region) throws Throwable {
+	public void descriptionaddoption(String descriptionNotestype,String Region) throws Throwable {
 		Select eset = new Select(edesnotes);
 		eset.selectByVisibleText(pro.getProperty("descriptionNotestype"));
 		Thread.sleep(5000);
-		edessequence.sendKeys(pro.getProperty("partno1"));
-		Thread.sleep(5000);
+		//edessequence.sendKeys(pro.getProperty("partno"));
+		//Thread.sleep(5000);
 		edesdescription.sendKeys(pro.getProperty("Region"));
 		Thread.sleep(5000);
 		edessave.click();
@@ -438,12 +491,12 @@ public class Singleinallpage extends Baseclass {
 
 	}
 
-	public void Verifydescriptionadd(String descriptionNotestype, String partno1, String Region) throws Throwable {
+	public void Verifydescriptionadd(String descriptionNotestype,String Region) throws Throwable {
 		Thread.sleep(3000);
 		String Actual1 = everify1.getText();
 		System.out.println("Notes type value is.. " + Actual1);
-		String Actual2 = everify2.getText();
-		System.out.println("Sequence value is.. " + Actual2);
+		/*String Actual2 = everify2.getText();
+		System.out.println("Sequence value is.. " + Actual2);*/
 		String Actual3 = everify3.getText();
 		System.out.println("Description value is.. " + Actual3);
 		Thread.sleep(3000);
@@ -451,9 +504,9 @@ public class Singleinallpage extends Baseclass {
 		 * if (Actual1.contains(pro.getProperty("descriptionNotestype"))) {
 		 * System.out.println("**Notestype is same**"); }
 		 */
-		if (Actual2.contains(pro.getProperty("partno1"))) {
+		/*if (Actual2.contains(pro.getProperty("partno"))) {
 			System.out.println("**sequence value is. same**");
-		}
+		}*/
 		if (Actual3.equals(pro.getProperty("Region"))) {
 			System.out.println("**Description value same**");
 		} else {
@@ -464,14 +517,14 @@ public class Singleinallpage extends Baseclass {
 
 	public void descedit() throws Exception {
 		edescedit.click();
-		Thread.sleep(5000);
+		Thread.sleep(20000);
 	}
 
-	public void descchange(String Enterpartdesc1, String EnterInvalidYear1) throws Exception {
+	public void descchange(String qtydata, String notesdata) throws Exception {
 		edessequence.clear();
-		edessequence.sendKeys(pro.getProperty("Enterpartdesc1"));
+		edessequence.sendKeys(pro.getProperty("qtydata"));
 		edesdescription.clear();
-		edesdescription.sendKeys(pro.getProperty("EnterInvalidYear1"));
+		edesdescription.sendKeys(pro.getProperty("notesdata"));
 		edessave.click();
 		Thread.sleep(3000);
 		Alert alert = driver.switchTo().alert();
@@ -481,7 +534,7 @@ public class Singleinallpage extends Baseclass {
 		Thread.sleep(5000);
 	}
 
-	public void VerifyEditchange(String Enterpartdesc1, String EnterInvalidYear1) throws Throwable {
+	public void VerifyEditchange(String qtydata, String notesdata) throws Throwable {
 
 		String Actual2 = everify2.getText();
 		System.out.println("Sequence Edited value is.. " + Actual2);
@@ -492,10 +545,10 @@ public class Singleinallpage extends Baseclass {
 		 * if (Actual1.contains(pro.getProperty("descriptionNotestype"))) {
 		 * System.out.println("**Notestype is same**"); }
 		 */
-		if (Actual2.contains(pro.getProperty("Enterpartdesc1"))) {
+		if (Actual2.contains(pro.getProperty("qtydata"))) {
 			System.out.println("**sequence value is. same**");
 		}
-		if (Actual3.equals(pro.getProperty("EnterInvalidYear1"))) {
+		if (Actual3.equals(pro.getProperty("notesdata"))) {
 			System.out.println("**Description value same**");
 		} else {
 			System.out.println("Not same Description Edited values once again**");

@@ -47,8 +47,12 @@ public class PartsAdd_POM extends Baseclass {
 	private WebElement drpproductline;
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_txtPart']")
+	@FindBy(xpath="//*[@id='MainContent_txtPart']")
 	private WebElement txtPart;
+	
+	@FindBy(xpath="//textarea[@id='MainContent_txtPart']")
+	private WebElement txtPart1;
+	
 	
 	@FindBy(xpath="//select[@id='MainContent_drpMinQtyUOM']")
 	private WebElement drpMinQtyUOM;
@@ -100,6 +104,13 @@ public class PartsAdd_POM extends Baseclass {
 		Thread.sleep(2000);
 	}
 	
+	public void partsadd1() throws InterruptedException {
+		WebElement categoryselect = selectproductcategory;
+		Select select = new Select(categoryselect);
+		select.selectByVisibleText(pro.getProperty("categoryname1"));
+		Thread.sleep(2000);
+	}
+	
 	
 	public void partsadddrp2() throws InterruptedException {
 		WebElement subcategoryselect = selectsubcategorydropdown;
@@ -108,11 +119,25 @@ public class PartsAdd_POM extends Baseclass {
 		Thread.sleep(2000);
 	}
 	
+	public void partsadddrp21() throws InterruptedException {
+		WebElement subcategoryselect = selectsubcategorydropdown;
+		Select select = new Select(subcategoryselect);
+		select.selectByVisibleText(pro.getProperty("subcategoryname1"));
+		Thread.sleep(2000);
+	}
+	
 	
 	public void partsadddrp3() throws InterruptedException {
 		WebElement partdescselect = selectpartdescdropdown;
 		Select select = new Select(partdescselect);
 		select.selectByVisibleText(pro.getProperty("partdesc"));
+		Thread.sleep(2000);
+	}
+	
+	public void partsadddrp31() throws InterruptedException {
+		WebElement partdescselect = selectpartdescdropdown;
+		Select select = new Select(partdescselect);
+		select.selectByVisibleText(pro.getProperty("subcategoryname1"));
 		Thread.sleep(2000);
 	}
 	
@@ -125,6 +150,13 @@ public class PartsAdd_POM extends Baseclass {
 		Thread.sleep(2000);
 	}
 	
+	public void partsadddrp41() throws InterruptedException {
+		WebElement prdctlnselect = drpproductline;
+		Select select = new Select(prdctlnselect);
+		select.selectByVisibleText(pro.getProperty("linecode1"));
+		Thread.sleep(2000);
+	}
+	
 	
 	
 	public void savenewpart(String partname) throws InterruptedException {
@@ -133,6 +165,21 @@ public class PartsAdd_POM extends Baseclass {
 		Select select = new Select(minqtyselect);
 		select.selectByVisibleText(pro.getProperty("minqty"));
 		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", btnSave);
+		btnSave.click();
+		Thread.sleep(2000);
+	}
+	
+	public void savenewpart1(String partno) throws InterruptedException {
+		Thread.sleep(2000);
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("window.scrollBy(0,250)");
+		txtPart1.sendKeys(partno);
+		WebElement minqtyselect = drpMinQtyUOM;
+		Select select = new Select(minqtyselect);
+		select.selectByVisibleText(pro.getProperty("minqty"));
+		Thread.sleep(2000);		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
 		btnSave.click();

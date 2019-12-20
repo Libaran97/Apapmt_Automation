@@ -182,8 +182,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 					.pass("Multiple part # is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
-					"user will chosed the application paged and multiadd pages");
-			//mpom1 = new MultiAddPom();
+					"user will chosed the application paged and multiadd pages");			
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
@@ -238,9 +237,9 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, descriptions, part numbers in the dropdown");
-			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.multidesc(pro.getProperty("Partdesc1"));
-			mpom1.multipart(pro.getProperty("Enterpartpart"));
+			mpom1.Productline(pro.getProperty("linecode1"));
+			mpom1.multidesc(pro.getProperty("subcategoryname1"));
+			mpom1.multipart(pro.getProperty("partno"));
 			mpom1.Addbutton();
 			mpom1.scrolldown();
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
@@ -370,8 +369,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part numbers in the drop");
 			mpom1.Productline(pro.getProperty("linecode1"));
-			mpom1.multidesc(pro.getProperty("Enterpartdesc1"));
-			mpom1.multipart(pro.getProperty("Enterpartpart1"));
+			mpom1.multidesc(pro.getProperty("subcategoryname1"));
+			mpom1.multipart(pro.getProperty("partno"));
 			mpom1.Addbutton();
 			mpom1.scrolldown();
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
@@ -527,7 +526,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, descriptions, part numbers in the dropdown");
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc1(pro.getProperty("desc1"));
+			mpom1.Partdesc1(pro.getProperty("partdesc"));
 			mpom1.Partnum1(pro.getProperty("Enterpartpart"));
 			mpom1.Addbutton();
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
