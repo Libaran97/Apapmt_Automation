@@ -161,9 +161,9 @@ public class PartsAdd_POM extends Baseclass {
 	
 	public void savenewpart(String partname) throws InterruptedException {
 		txtPart.sendKeys(partname);
-		WebElement minqtyselect = drpMinQtyUOM;
-		Select select = new Select(minqtyselect);
-		select.selectByVisibleText(pro.getProperty("minqty"));
+//		WebElement minqtyselect = drpMinQtyUOM;
+//		Select select = new Select(minqtyselect);
+//		select.selectByVisibleText(pro.getProperty("minqty"));
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
@@ -176,9 +176,9 @@ public class PartsAdd_POM extends Baseclass {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)");
 		txtPart1.sendKeys(partno);
-		WebElement minqtyselect = drpMinQtyUOM;
-		Select select = new Select(minqtyselect);
-		select.selectByVisibleText(pro.getProperty("minqty"));
+//		WebElement minqtyselect = drpMinQtyUOM;
+//		Select select = new Select(minqtyselect);
+//		select.selectByVisibleText(pro.getProperty("minqty"));
 		Thread.sleep(2000);		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
