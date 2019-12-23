@@ -93,7 +93,7 @@ public class PartsAdd_POM extends Baseclass {
 		partspageheaderclick.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		addbutton.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	}
 	
 	
@@ -108,7 +108,7 @@ public class PartsAdd_POM extends Baseclass {
 		WebElement categoryselect = selectproductcategory;
 		Select select = new Select(categoryselect);
 		select.selectByVisibleText(pro.getProperty("categoryname1"));
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 	
 	
@@ -123,7 +123,7 @@ public class PartsAdd_POM extends Baseclass {
 		WebElement subcategoryselect = selectsubcategorydropdown;
 		Select select = new Select(subcategoryselect);
 		select.selectByVisibleText(pro.getProperty("subcategoryname1"));
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 	
 	
@@ -138,7 +138,7 @@ public class PartsAdd_POM extends Baseclass {
 		WebElement partdescselect = selectpartdescdropdown;
 		Select select = new Select(partdescselect);
 		select.selectByVisibleText(pro.getProperty("subcategoryname1"));
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 	
 	
@@ -154,16 +154,16 @@ public class PartsAdd_POM extends Baseclass {
 		WebElement prdctlnselect = drpproductline;
 		Select select = new Select(prdctlnselect);
 		select.selectByVisibleText(pro.getProperty("linecode1"));
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 	
 	
 	
 	public void savenewpart(String partname) throws InterruptedException {
 		txtPart.sendKeys(partname);
-//		WebElement minqtyselect = drpMinQtyUOM;
-//		Select select = new Select(minqtyselect);
-//		select.selectByVisibleText(pro.getProperty("minqty"));
+		WebElement minqtyselect = drpMinQtyUOM;
+		Select select = new Select(minqtyselect);
+		select.selectByVisibleText(pro.getProperty("minqty"));
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
@@ -176,14 +176,14 @@ public class PartsAdd_POM extends Baseclass {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)");
 		txtPart1.sendKeys(partno);
-//		WebElement minqtyselect = drpMinQtyUOM;
-//		Select select = new Select(minqtyselect);
-//		select.selectByVisibleText(pro.getProperty("minqty"));
+		WebElement minqtyselect = drpMinQtyUOM;
+		Select select = new Select(minqtyselect);
+		select.selectByVisibleText(pro.getProperty("minqty"));
 		Thread.sleep(2000);		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
 		btnSave.click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 	
 	
@@ -196,7 +196,7 @@ public class PartsAdd_POM extends Baseclass {
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Parts Related " +pro.getProperty("partname") + alert.getText());
 		alert.accept();
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		
 	}
 	

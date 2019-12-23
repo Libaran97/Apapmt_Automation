@@ -162,26 +162,26 @@ public class Masterproductrelated_POM extends Baseclass {
 
 	public void addcategory1() throws Throwable {
 		addcategory.click();
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 	}
 
 	public void entrycategory(String categoryname) throws InterruptedException {
 		entercategory.sendKeys(categoryname);
 		equivalentcategory.click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 	}
 
 	public void entrycategory1(String categoryname1) throws InterruptedException {
 		entercategory.sendKeys(categoryname1);
 		equivalentcategory1.click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 	}
 
 	public void savingcategory() throws InterruptedException {
 		savecategory.click();
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 	}
 
 	public void acceptAlert() throws InterruptedException, IOException {
@@ -227,7 +227,7 @@ public class Masterproductrelated_POM extends Baseclass {
 		action.moveToElement(master).build().perform();
 		Thread.sleep(2000);
 		subcategory.click();
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 
 	}
 
@@ -244,7 +244,7 @@ public class Masterproductrelated_POM extends Baseclass {
 		WebElement element = selectcategory;
 		Select select = new Select(element);
 		select.selectByVisibleText(pro.getProperty("categoryname1"));
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 
 	public void entrysubcategory(String subcategoryname) throws InterruptedException {
@@ -310,7 +310,7 @@ public class Masterproductrelated_POM extends Baseclass {
 
 		Actions action = new Actions(driver);
 		action.moveToElement(master).build().perform();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		partdesc.click();
 	}
 
@@ -346,7 +346,7 @@ public class Masterproductrelated_POM extends Baseclass {
 		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Product Category " + pro.getProperty("partdesc") + alert.getText());
 		alert.accept();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	}
 
 	public void equivalentpartdesc() throws InterruptedException {
@@ -364,7 +364,7 @@ public class Masterproductrelated_POM extends Baseclass {
 		WebElement element1 = equivalentpartdes;
 		Select select1 = new Select(element1);
 		select1.selectByVisibleText(pro.getProperty("equivalentpartsdesc1"));
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 
 	public void savingpartdesc() throws InterruptedException {
@@ -374,7 +374,7 @@ public class Masterproductrelated_POM extends Baseclass {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", savecategory);
 		savecategory.click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		// wait(2);
 	}
 
@@ -391,7 +391,7 @@ public class Masterproductrelated_POM extends Baseclass {
 		WebElement element = filtercategory1;
 		Select select = new Select(element);
 		select.selectByVisibleText(pro.getProperty("categoryname1"));
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 
 	public void verifypartdesc(String subcategoryname) {
@@ -439,7 +439,7 @@ public class Masterproductrelated_POM extends Baseclass {
 
 	public void verifyproductline(String linecode1) {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		linefilter.sendKeys(pro.getProperty("linecode"));
+		linefilter.sendKeys(pro.getProperty("linecode1"));
 		String actualtext = verifytext.getText();
 		System.out.println("Text present as " + actualtext);
 		if (actualtext.equals(linecode1)) {
@@ -456,7 +456,7 @@ public class Masterproductrelated_POM extends Baseclass {
 		action.moveToElement(master).build().perform();
 		Thread.sleep(3000);
 		eCustomAttribute.click();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 
 	public void AddbtnEnterCustomAtbName(String AttributeName) throws Throwable {
@@ -471,7 +471,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	public void AddbtnEnterCustomAtbName1(String AttributeName1) throws Throwable {
 		eAddCustomAttribute.click();
 		//eEtrCustomAttribute.click();
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 
 		eEtrCustomAttribute.sendKeys(AttributeName1);
 
@@ -481,9 +481,9 @@ public class Masterproductrelated_POM extends Baseclass {
 	public void AttributeDetails() throws InterruptedException {
 		Select Datatype = new Select(eDataType);
 		Datatype.selectByIndex(1);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		eMinLength.sendKeys("1");
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		eMaxLength.sendKeys("100");
 	}
 
@@ -524,7 +524,7 @@ public class Masterproductrelated_POM extends Baseclass {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", savecategory);
 		savecategory.click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 
 	}
 
