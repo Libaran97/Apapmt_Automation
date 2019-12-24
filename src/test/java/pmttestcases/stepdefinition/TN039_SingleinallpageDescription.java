@@ -207,12 +207,12 @@ import utility.Baseclass;
 				System.out.println("**Finally click the Description deleted success**");
 				loginfo.pass("Finally click the Description deleted success");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				//extent.flush();
+				extent.flush();
 			} catch (Exception e) {
 				System.out.println("**Finally click the Description deleted failed**");
 				loginfo.fail("Finally click the Description deleted failed");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				//extent.flush();
+				extent.flush();
 			}
 		}
 	
