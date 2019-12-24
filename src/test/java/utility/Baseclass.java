@@ -9,8 +9,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import testlink.api.java.client.TestLinkAPIClient;
-import testlink.api.java.client.TestLinkAPIException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -27,12 +26,12 @@ public class Baseclass extends ExtentReport {
 	public static WebDriver driver;
 	public static Properties pro;
 	public static PhantomJsDriverManager drive;
-	public static String DEV_KEY = "bf719946efbcf835b6e9c6d00ea90d17"; //Your API 
+	/*public static String DEV_KEY = "bf719946efbcf835b6e9c6d00ea90d17"; //Your API 
 	public static String SERVER_URL = "https://www.apagreen.com/testlink/lib/api/xmlrpc/v1/xmlrpc.php"; //your testlink server url
 	public static String PROJECT_NAME = "PMT";
 	public static String PLAN_NAME = "PMTAutomationTestPlan";
 	public static String TESTCASE_NAME = "Product category";
-	public static String BUILD_NAME = "PMTAutomationTestBuild";
+	public static String BUILD_NAME = "PMTAutomationTestBuild";*/
 
 	
 	
@@ -43,7 +42,7 @@ public class Baseclass extends ExtentReport {
 	public Baseclass() {
 		try {
 			pro = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\arunkumar\\git\\apapmt_automation\\Configuration\\pmtdetails.properties");
+			FileInputStream fis = new FileInputStream("C:\\Users\\qctest\\git\\apapmt_automation\\Configuration\\pmtdetails.properties");
 			pro.load(fis);
 		} catch(IOException e) {
 			e.getMessage();
@@ -61,14 +60,14 @@ public class Baseclass extends ExtentReport {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();		
 		}else if(browsername.equals("firefox")) {
-			//System.setProperty("webdriver.gecko.driver", "");
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();			
+			System.setProperty("webdriver.ie.driver", "C:\\Users\\qctest\\git\\apapmt_automation\\Drivers\\IEDriverServer.exe");
+			//WebDriverManager.iedriver().setup();
+			driver = new InternetExplorerDriver();			
 		}else if(browsername.equals("IE")) {
 			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();
 		}else if(browsername.equals("edge")) {
-			System.setProperty("webdriver.edge.driver", "F:\\Selenium test code\\PMTwithoutenginecode\\apapmtautomatecode\\Drivers\\MicrosoftWebDriver.exe");
+			System.setProperty("webdriver.edge.driver", "C:\\Users\\qctest\\git\\apapmt_automation\\Drivers\\MicrosoftWebDriver.exe");
 			//WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		}else if(browsername.equals("headless")) {
@@ -121,11 +120,11 @@ public class Baseclass extends ExtentReport {
 	}
 	
 	
-	public static void updateTestLinkResult(String testCase, String exception, String result) throws TestLinkAPIException{
+	/*public static void updateTestLinkResult(String testCase, String exception, String result) throws TestLinkAPIException{
         TestLinkAPIClient testlinkAPIClient = new TestLinkAPIClient(DEV_KEY, SERVER_URL);
         testlinkAPIClient.reportTestCaseResult(PROJECT_NAME, PLAN_NAME, testCase, BUILD_NAME, exception, result);
         
-    }
+    }*/
 	
 }
 

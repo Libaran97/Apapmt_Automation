@@ -30,7 +30,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	@CacheLookup
 	private WebElement master;
 	
-	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_1_lnkLink3_0']")
+	@FindBy(xpath="(//*[text()='Vehicle Type'])[1]")
 	@CacheLookup
 	private WebElement vehicletype;
 	
@@ -48,7 +48,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	private WebElement savebutton;
 	
 	
-	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_1_lnkLink3_1']")
+	@FindBy(xpath="//*[text()='Make']")
 	private WebElement clickmake;
 	
 	                
@@ -62,7 +62,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	private WebElement eqmakeradibutton;
 	
 	
-	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_1_lnkLink3_2']")
+	@FindBy(xpath="//*[text()='Model']")
 	private WebElement modelselect;
 	
 	
