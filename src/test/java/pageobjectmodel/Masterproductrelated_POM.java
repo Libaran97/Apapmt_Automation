@@ -48,7 +48,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	@FindBy(xpath = "//input[@id='MainContent_radioACESList_14']")
 	private WebElement equivalentcategory;
 
-	@FindBy(xpath = "//*[@id='MainContent_radioACESList_9']")
+	@FindBy(xpath = "//*[text()='Engine']")
 	private WebElement equivalentcategory1;
 
 	@FindBy(xpath = "//input[@id='MainContent_btnSave']")
@@ -73,7 +73,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	@FindBy(id = "MainContent_radioACESList_6")
 	private WebElement eqsubcategory;
 
-	@FindBy(id = "MainContent_radioACESList_5")
+	@FindBy(xpath = "//*[text()='Fasteners']")
 	private WebElement eqsubcategory1;
 
 	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_3']")
@@ -142,7 +142,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	@FindBy(xpath = "//label[text()='Ignition Test | Ignition Coil Test | Ignition Test']")
 	private WebElement eselectpdes;
 	
-	@FindBy(xpath = "//label[text()='Engine Coils | Engine oil test | Engine oil test']")
+	@FindBy(xpath = "//label[text()='Engine Coils test | Engine oil test | Engine oil test']")
 	private WebElement eselectpdes1;
 
 	@FindBy(xpath = "//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")

@@ -5,6 +5,7 @@ package pageobjectmodel;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -177,10 +178,14 @@ public class PartsAdd_POM extends Baseclass {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)");
 		txtPart1.sendKeys(partno);
-		WebElement minqtyselect = drpMinQtyUOM;
-		Select select = new Select(minqtyselect);
-		select.selectByVisibleText(pro.getProperty("minqty"));
-		Thread.sleep(2000);		
+		/*
+		 * WebElement minqtyselect = drpMinQtyUOM; Select select = new
+		 * Select(minqtyselect); select.selectByVisibleText(pro.getProperty("minqty"));
+		 * Thread.sleep(2000);
+		 * driver.findElement(By.xpath("//*[@id='MainContent_txtMinQty']")).sendKeys("1"
+		 * );
+		 */
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
 		btnSave.click();
