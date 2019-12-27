@@ -293,22 +293,20 @@ public class Singleinallpage extends Baseclass {
 		List<WebElement> list = driver.findElements(By.xpath("//span[@class='chkBottomItem']"));
 		System.out.println("Checkbox values..." + list.size());
 
-		int j = 2;
-		//int z=0;
+		int j = 0;
+		int z=0;
 		for (int i = 1; i < list.size(); i++) {
-			j = i+1;
-			//z= i-1;
-			//String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]")).getText();
+			j = i+1;	
+			z=i-1;
 			String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications\"]/tbody/tr["+ j +"]/td[2]")).getText();
-			//String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + z + "\"]")).getText();
-			                                                     
+			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications_lblacesnonaces_" + z + "\"]")).getText();
+			                                                                 
 			System.out.println("Year value is..." + Year);
-			//System.out.println("Type value is..." + Type);
-			if ((Year.contains(pro.getProperty("EnterYear")))) {
-				//driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
+			System.out.println("Type value is..." + Type);
+			if ((Year.contains(pro.getProperty("EnterYear"))) && (Type.contains(pro.getProperty("Acesvalue")))) {				
 				
 				driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
-				//*[@id='MainContent_GvApplications_chkActivee1_2']
+				
 			} else {
 				continue;
 			}
@@ -322,28 +320,25 @@ public class Singleinallpage extends Baseclass {
 	}
 
 	public void Nonaceschkbox() throws Throwable {
-		//enonaceschkbox.click();
-		
+		//enonaceschkbox.click();		
 		
 		List<WebElement> list = driver.findElements(By.xpath("//span[@class='chkBottomItem']"));
 		System.out.println("Checkbox values..." + list.size());
 
-		int j = 2;
-		//int z=0;
+		int j = 0;
+		int z=0;
 		for (int i = 1; i < list.size(); i++) {
 			j = i+1;
-			//z= i-1;
+			z= i-1;
 			//String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]")).getText();
 			String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications\"]/tbody/tr["+ j +"]/td[2]")).getText();
-			//String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + z + "\"]")).getText();
+			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications_lblacesnonaces_" + z + "\"]")).getText();
 			                                                     
 			System.out.println("Year value is..." + Year);
-			//System.out.println("Type value is..." + Type);
-			if ((Year.contains(pro.getProperty("EnterInvalidYear")))) {
-				//driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
-				
+			System.out.println("Type value is..." + Type);
+			if ((Year.contains(pro.getProperty("EnterInvalidYear")))&& (Type.contains(pro.getProperty("NonAcesvalue")))) {					
 				driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
-				//*[@id='MainContent_GvApplications_chkActivee1_2']
+				
 			} else {
 				continue;
 			}
@@ -382,6 +377,7 @@ public class Singleinallpage extends Baseclass {
 	}
 
 	public void verifydata1(String EnterInvalidYear) throws Throwable {
+		Thread.sleep(1000);
 		eyear.sendKeys(pro.getProperty("EnterInvalidYear"));
 		Thread.sleep(5000);
 		//eenginer.sendKeys("");

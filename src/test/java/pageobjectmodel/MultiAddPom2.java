@@ -79,7 +79,7 @@ public class MultiAddPom2 extends Baseclass {
 			System.out.println("Type value is..." + Type);
 			if ((Year.contains(pro.getProperty("EnterYear"))) && (Type.contains(pro.getProperty("Acesvalue")))) {
 				//driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
-				driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblPartsLinked_" + i + "\"]")).click();
+				driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblPartsLinked_" + j + "\"]")).click();
 
 			} else {
 				continue;

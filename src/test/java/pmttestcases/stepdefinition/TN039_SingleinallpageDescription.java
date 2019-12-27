@@ -23,7 +23,7 @@ import utility.Baseclass;
 		@Given("^: user will Click the Search button$")
 		public void user_will_Click_the_Search_button() throws Throwable {
 			try {
-			//	extent = setup();
+				//extent = setup();
 				test = extent.createTest(Feature.class, "PMT Product Related Testcases DESC_TN039")
 						.assignCategory("PIES Single in All page ").pass("Description is add verified");
 				test = test.createNode(Scenario.class, "user will Click the add button");
@@ -83,7 +83,7 @@ import utility.Baseclass;
 				System.out.println("**Finally click the Description added success**");
 				loginfo.pass("Finally click the Description added success");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				// extent.flush();
+			//	 extent.flush();
 			} catch (Exception e) {
 				System.out.println("**Finally click the Description added failed**");
 				loginfo.fail("Finally click the Description added failed");

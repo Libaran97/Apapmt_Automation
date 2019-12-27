@@ -287,7 +287,8 @@ public class MultiAddPom extends Baseclass {
 			
 			String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]")).getText();
 			
-			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications_lblacesnonaces_" + j + "\"]")).getText();			                       
+			//String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications_lblacesnonaces_" + j + "\"]")).getText();		
+			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + j + "\"]")).getText();
 			System.out.println("Year value is..." + Year);
 			System.out.println("Type value is..." + Type);
 			if ((Year.contains(pro.getProperty("EnterYear"))) && (Type.contains(pro.getProperty("Acesvalue")))) {

@@ -1,3 +1,4 @@
+@Sanitycheck
 Feature: PMT PartLinked option TestCases 
 
 
