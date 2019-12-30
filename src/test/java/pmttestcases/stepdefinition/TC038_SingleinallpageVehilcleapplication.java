@@ -14,7 +14,7 @@
 	import pageobjectmodel.Singleinallpage;
 	import utility.Baseclass;
 	
-	public class TN038_SingleinallpageVehilcleapplication extends Baseclass {
+	public class TC038_SingleinallpageVehilcleapplication extends Baseclass {
 		Singleinallpage spom1 = new Singleinallpage();
 		ExtentTest loginfo = null;
 		MultiAddPom2 mpom2 = new MultiAddPom2();
@@ -29,13 +29,13 @@
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search box");
 				spom1.searchsingles("newpartnos");
 				spom1.searchbt();
-				spom1.partadd("subcategoryname1", "linecode1", "adduom", "newpartno");
-				loginfo.pass("user will Click the Search box success");
+				spom1.partadd( "newpartno","subcategoryname1", "linecode1", "adduom");
+				loginfo.pass("user will Click the Search box success ");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 				//Baseclass.updateTestLinkResult("01-33", null, TestLinkAPIResults.TEST_PASSED);
 	
 			} catch (Exception e) {
-				System.out.println("user will Click the Search box not work" + e.getMessage());
+				System.out.println("user will Click the Search box not work " + e.getMessage());
 				TestStep("Fail",driver,loginfo,e);
 				 System.out.println(e);		
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));

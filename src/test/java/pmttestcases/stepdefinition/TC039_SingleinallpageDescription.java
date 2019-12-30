@@ -15,7 +15,7 @@
 //import testlink.api.java.client.TestLinkAPIResults;
 import utility.Baseclass;
 	
-	public class TN039_SingleinallpageDescription extends Baseclass {
+	public class TC039_SingleinallpageDescription extends Baseclass {
 		Singleinallpage spom1 = new Singleinallpage();
 		ExtentTest loginfo = null;
 		MultiAddPom2 mpom2 = new MultiAddPom2();
@@ -207,12 +207,12 @@ import utility.Baseclass;
 				System.out.println("**Finally click the Description deleted success**");
 				loginfo.pass("Finally click the Description deleted success");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				extent.flush();
+				//extent.flush();
 			} catch (Exception e) {
 				System.out.println("**Finally click the Description deleted failed**");
 				loginfo.fail("Finally click the Description deleted failed");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				extent.flush();
+				//extent.flush();
 			}
 		}
 	
