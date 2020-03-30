@@ -20,7 +20,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 	public void user_will_select_the_Multiadd_page_with_application() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked first-TC036").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "Check the multiplepart part linked verfication in the grid -first-TC036").assignCategory("PIES MultiAdd ")
 					.pass("Partlinked is verified");
 			test = test.createNode(Scenario.class, "user will select the Multiadd page with application");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -178,7 +178,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 	public void user_will_chosed_the_application_paged_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked second-TC036").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "Check the multiple part description and partno-second-TC036").assignCategory("PIES MultiAdd ")
 					.pass("Multiple part # is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -309,7 +309,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 	public void user_will_chosed_the_application_paged_and_multiadd_page() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked third-TC036").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "Check the multiple Productline,description and part no-third-TC036").assignCategory("PIES MultiAdd ")
 					.pass("Multiple Product line is verified");
 			test = test.createNode(Scenario.class, "user will chosed the application paged and multiadd page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -445,7 +445,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 	public void user_will_chosed_the_application_pag_and_multiadd_page() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked Fourth-TC036").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "Check the multiplepartdesc,product line and part-Fourth-TC036").assignCategory("PIES MultiAdd ")
 					.pass("Multiple Product line is verified");
 			test = test.createNode(Scenario.class, "user will chosed the application paged and multiadd page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -504,9 +504,9 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part numbers in the drop");
-			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
-			mpom1.Partnum(pro.getProperty("partno"));
+			mpom1.Productline(pro.getProperty("linecode1"));
+			mpom1.multidesc(pro.getProperty("subcategoryname1"));
+			mpom1.multipart(pro.getProperty("partno"));
 			mpom1.Addbutton();
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -526,8 +526,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, descriptions, part numbers in the dropdown");
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc1(pro.getProperty("partdesc"));
-			mpom1.Partnum1(pro.getProperty("Enterpartpart"));
+			mpom1.multidesc(pro.getProperty("partdesc"));
+			mpom1.multipart(pro.getProperty("Enterpartpart"));
 			mpom1.Addbutton();
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));

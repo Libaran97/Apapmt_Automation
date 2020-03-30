@@ -18,7 +18,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void user_will_create_the_application_pages_and_multiadd_links() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Cancel-TC035").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "Check the Cancel button in MULTIADD-TC035").assignCategory("PIES MultiAdd ")
 					.pass("Cancel button verified");
 			test = test.createNode(Scenario.class, "Multiadd Cancel case in the Multi add page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -81,7 +81,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check Cancel button");
 			mpom1.Cancel();
-			mpom1.cancelverify(pro.getProperty("canvalue"));
+			mpom1.cancelverify();
 			loginfo.pass("Cancel button is  click");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -95,11 +95,11 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void finally_Cancel_button_finished() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Cancel button finished");
-			// extent.flush();
+			
 			loginfo.pass("Cancel button was succussfully working");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println("**Cancel button was succussfully working**");
-
+			//extent.flush();
 		} catch (Exception e) {
 			loginfo.fail("Cancel button is not click");
 			// extent.flush();
@@ -112,8 +112,8 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	@Given("^: user will create the application pages and multiadd links on same page$")
 	public void user_will_create_the_application_pages_and_multiadd_links_on_same_page() throws Throwable {
 		try {
-			// extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Delete-TC035").assignCategory("PIES MultiAdd ")
+			//extent=setup();
+			test = extent.createTest(Feature.class, "Check the Delete button in multiadd-TC035").assignCategory("PIES MultiAdd ")
 					.pass("Delete button verified");
 			test = test.createNode(Scenario.class, "Multiadd Delete case in the Multi add page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -205,7 +205,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void user_will_click_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD all attributes-TC035").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "Check the qty,Position and notes in multiadd and verify the buyerguide-TC035").assignCategory("PIES MultiAdd ")
 					.pass("Attributes values all verified");
 			test = test.createNode(Scenario.class, "Multiadd attributes values check and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -340,8 +340,8 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	@Given("^: user will click the application pages and multiadd page$")
 	public void user_will_click_the_application_pages_and_multiadd_page() throws Throwable {
 		try {
-		//	extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD qty and notes-TC035").assignCategory("PIES MultiAdd ").pass("Attribues Qty,notes values verified");
+			//extent = setup();
+			test = extent.createTest(Feature.class, "Check the Qty,notesin multiadd and verify the buyerguide-TC035").assignCategory("PIES MultiAdd ").pass("Attribues Qty,notes values verified");
 			test = test.createNode(Scenario.class, "Multiadd qty,notes to check add or not");
 			
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -474,7 +474,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void user_will_select_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD qty and position-TC035").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "Check the qty,Position in multiadd and verify the buyerguide-TC035").assignCategory("PIES MultiAdd ")
 					.pass("Attribues Qty,position values verified");
 			test = test.createNode(Scenario.class, "Multiadd qty,Position to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -617,7 +617,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void user_will_select_the_application_paged_and_multiadd_pages() throws Throwable {
 		try {
 		   //extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD position and notes-TC035").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "Check the Notes,Position in multiadd and verify the buyerguide-TC035").assignCategory("PIES MultiAdd ")
 					.pass("Attribues Position,notes values verified");
 			test = test.createNode(Scenario.class, "Multiadd position,notes to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),

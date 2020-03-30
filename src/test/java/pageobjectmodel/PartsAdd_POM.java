@@ -24,7 +24,7 @@ public class PartsAdd_POM extends Baseclass {
 	
 	
 	
-	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_2']")
+	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_3']")
 	private WebElement partspageheaderclick;
 	
 	
@@ -83,7 +83,8 @@ public class PartsAdd_POM extends Baseclass {
 	private WebElement drpPart;
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_btnSearch']")
+	//@FindBy(xpath="//input[@id='MainContent_btnSearch']")
+	@FindBy(xpath="//*[@id='hiding_search']/input")
 	private WebElement btnSearch;
 	
 	@FindBy(xpath="//input[@id='MainContent_txtPart']")

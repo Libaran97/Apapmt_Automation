@@ -59,13 +59,13 @@ public class ApplicationAddNonAces  extends Baseclass{
 	@FindBy(xpath ="//select[@id='MainContent_drpVehicleType']")
 	public WebElement eVSelectVehicle;
 	
-	@FindBy(xpath ="//select[@id='MainContent_drpMake']")
+	@FindBy(xpath ="//select[@id='MainContent_drpMake1']")
 	public WebElement eVSelectMake;
 	
-	@FindBy(xpath ="//select[@id='drpModel']")
+	@FindBy(xpath ="//select[@id='drpModel1']")
 	public WebElement eVSelectModel;
 	
-	@FindBy(xpath ="//input[@id='MainContent_imgbtnsearch']")
+	@FindBy(xpath ="//button[@id='MainContent_imgbtnsearchnew']")
 	public WebElement eSearchButton;
 	
 	@FindBy(xpath ="//select[@id='MainContent_ddlFilter']")

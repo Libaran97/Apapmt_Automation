@@ -28,11 +28,12 @@ public class MyCatalogApplicationsPom extends Baseclass {
 	}
 
 	// <My Catalogs> menu link
-	@FindBy(xpath = "//a[@id=\"ucMenu_rptLevel1_lnkLink1_4\"]")
+	@FindBy(xpath = "//a[@id=\"ucMenu_rptLevel1_lnkLink1_5\"]")
 	public WebElement MyCatalogs;
 
 	// <Applications> submenu link
-	@FindBy(xpath = "//a[@id=\"ucMenu_rptLevel1_rptLevel2_4_lnkLink2_0\"]")
+	//@FindBy(xpath = "//a[@id=\"ucMenu_rptLevel1_rptLevel2_4_lnkLink2_0\"]")
+	@FindBy(xpath="//*[@id='ucMenu_rptLevel1_rptLevel2_5_lnkLink2_0']")
 	public WebElement MyCatalogApplications;
 	
 	// <Search> button

@@ -21,7 +21,6 @@ public class TC004_PMT_PartsAdd extends Baseclass {
 	PartsAdd_POM parts;
 	
 
-	
 	@Given("^User will click on parts page and it will redirect to parts page$")
 	public void user_will_click_on_parts_page_and_it_will_redirect_to_parts_page() throws Throwable {
 	  

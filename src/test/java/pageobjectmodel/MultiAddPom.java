@@ -25,7 +25,6 @@ public class MultiAddPom extends Baseclass {
 	public WebElement eMultiaddbt;
 
 	@FindBy(xpath = "//select[@id='MainContent_drpVehicleType']")
-
 	public WebElement eVehicle1;
 
 	@FindBy(xpath = "//select[@id='MainContent_drpMake']")
@@ -64,20 +63,23 @@ public class MultiAddPom extends Baseclass {
 	@FindBy(xpath = "//select[@id='MainContent_ddlpartno']")
 	public WebElement eSelectPartno;
 
-	@FindBy(xpath = "//input[@id='MainContent_btnPadd']")
+	//@FindBy(xpath = "//input[@id='MainContent_btnPadd']")
+	@FindBy(xpath="// button[@id='MainContent_btnAdd']")
 	public WebElement eSelectaddbt;
 
-	@FindBy(xpath = "//input[@id='MainContent_imgSave']")
+	//@FindBy(xpath = "//input[@id='MainContent_imgSave']")
+	@FindBy(xpath = "//button[@id='MainContent_imgSave']")
 	public WebElement eSelectsave;
 
-	@FindBy(xpath = "//input[@id= 'MainContent_imgCancel']")
+	@FindBy(xpath = "//button[@id= 'MainContent_imgCancel']")
 	public WebElement eSelectCancel;
 
 	@FindBy(xpath = "//input[@id='MainContent_gvpartlist_imgDelete_0']")
 	public WebElement eSelectDelete;
 
 	// *****Attributes page *****//
-	@FindBy(xpath = "//input[@id='MainContent_btnacesattibues']")
+	//@FindBy(xpath = "//input[@id='MainContent_btnacesattibues']")
+	@FindBy(xpath="//*[@id='MainContent_btnacesattibues']")
 	public WebElement eshowattribt;
 	// *****Attributes page start *****//
 	@FindBy(xpath = "//input[@id='MainContent_dlDisplayColumnList_chkselectAll1_0']")
@@ -95,7 +97,7 @@ public class MultiAddPom extends Baseclass {
 	// *****Attributes page ACes End*****//
 
 	// *****Attributes non aces page *****//
-	@FindBy(xpath = "//input[@id='MainContent_btnnonacesattributes']")
+	@FindBy(xpath = "//button[@id='MainContent_btnnonacesattributes']")
 	public WebElement eshowattribt10;
 
 	// *****Attributes page Non-ACes Start*****//
@@ -105,7 +107,7 @@ public class MultiAddPom extends Baseclass {
 
 	// *****Attributes page Non-ACes End*****//`
 /////////////////////////////////////////////////////////
-	@FindBy(id = "ucMenu_rptLevel1_lnkLink1_2")
+	@FindBy(id = "ucMenu_rptLevel1_lnkLink1_3")
 	WebElement ePart;
 
 	@FindBy(xpath = "//input[@id='MainContent_txtMelling']")
@@ -241,7 +243,7 @@ public class MultiAddPom extends Baseclass {
 
 	public void Multiaddbt() throws InterruptedException {
 		eMultiaddbt.click();
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 	}
 
 	public void Vehicledata(String vehicletypename) throws Throwable {
@@ -264,7 +266,7 @@ public class MultiAddPom extends Baseclass {
 
 	public void searchbt() throws Exception {
 		eSearch.click();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 
 	String acesexpectedtext = "";
@@ -291,7 +293,7 @@ public class MultiAddPom extends Baseclass {
 			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + j + "\"]")).getText();
 			System.out.println("Year value is..." + Year);
 			System.out.println("Type value is..." + Type);
-			if ((Year.contains(pro.getProperty("EnterYear"))) && (Type.contains(pro.getProperty("Acesvalue")))) {
+			if ((Year.equals(pro.getProperty("EnterYear"))) && (Type.equals(pro.getProperty("Acesvalue")))) {
 				driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
 
 			} else {
@@ -415,7 +417,7 @@ public class MultiAddPom extends Baseclass {
 
 	public void Cancel() throws Throwable {
 		eSelectCancel.click();
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 	}
 
 	public void Delete() throws Throwable {
@@ -423,9 +425,10 @@ public class MultiAddPom extends Baseclass {
 		Thread.sleep(10000);
 	}
 
-	public void scrolldown() {
+	public void scrolldown()  {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollBy(0,250)");
+		jse.executeScript("window.scrollBy(0,350)");
+		//Thread.sleep(3000);
 
 	}
 
@@ -483,21 +486,21 @@ public class MultiAddPom extends Baseclass {
 			}
 		}
 		btnPsearch.click();
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 
 	}
 
 	public void buyerguide() throws Throwable {
 		ebuyerguide.click();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 
-	public void ACesverify(String EnterYear, String SearchTextAcesallEngine) throws Exception {
+	public void ACesverify(String EnterYear, String engine1) throws Exception {
 		driver.switchTo().frame(0);
 		Thread.sleep(5000);
 		efilter.sendKeys(pro.getProperty("EnterYear"));
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
+		efilter2.sendKeys(pro.getProperty("engine1"));
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// String expectedtext=efirst1.getText();
 		String actualText = everifynon1ACES.getText();
@@ -540,7 +543,7 @@ public class MultiAddPom extends Baseclass {
 
 	}
 
-	public void cancelverify(String canvalue) throws InterruptedException {
+	public void cancelverify() throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		String actualText = ecancelverify.getText();
 		System.out.println("Text.." + actualText);
@@ -551,12 +554,12 @@ public class MultiAddPom extends Baseclass {
 		}
 	}
 
-	public void Acesattverify(String EnterYear, String SearchTextAcesallEngine) throws Exception {
+	public void Acesattverify(String EnterYear, String engine1) throws Exception {
 		driver.switchTo().frame(0);
 		Thread.sleep(3000);
 		efilter.sendKeys(pro.getProperty("EnterYear"));
 		Thread.sleep(3000);
-		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
+		efilter2.sendKeys(pro.getProperty("engine1"));
 		Thread.sleep(5000);
 		// String expectedtext=eregion.getText();
 		String actualText = Everifyattr1.getText();
@@ -569,12 +572,12 @@ public class MultiAddPom extends Baseclass {
 
 	}
 
-	public void attrtxtverify(String EnterYear, String SearchTextAcesallEngine) throws Exception {
+	public void attrtxtverify(String EnterYear, String engine1) throws Exception {
 		driver.switchTo().frame(0);
 		Thread.sleep(3000);
 		efilter.sendKeys(pro.getProperty("EnterYear"));
 		Thread.sleep(3000);
-		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
+		efilter2.sendKeys(pro.getProperty("engine1"));
 		Thread.sleep(5000);
 		// String expectedtext=eregion.getText();
 		String actualText = Everifyattr1.getText();
@@ -625,7 +628,7 @@ public class MultiAddPom extends Baseclass {
 
 	public void Notes(String notesdata) throws InterruptedException {
 		enotes.sendKeys(notesdata);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	}
 
 	public void verifyattr() {

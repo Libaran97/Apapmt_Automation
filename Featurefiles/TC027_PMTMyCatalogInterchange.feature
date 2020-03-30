@@ -1,3 +1,4 @@
+@Sanitycheck
 Feature: PMT [My Catalog - Interchange] functionality testcases
 
 @sanitytest5

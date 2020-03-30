@@ -31,3 +31,9 @@ Given User will goto master and choose Custom Attributes
 When User will click on add and enter Custom Attribute Name
 And User will select Data Type, enter Min & MaxLength and select Parts Description
 Then User will Click save Accept Alert and Verify the record has come in the grid
+
+
+Scenario: Give User permission to user1
+Given User will chose the settings menu 
+When User chose the appropiate part descripion
+Then User will logout the this user

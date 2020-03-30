@@ -53,13 +53,13 @@ public class ApplicationAddAces extends Baseclass {
 	@FindBy(xpath ="//select[@id='MainContent_drpVehicleType']")
 	public WebElement eVSelectVehicle;
 	
-	@FindBy(xpath ="//select[@id='MainContent_drpMake']")
+	@FindBy(xpath ="//select[@id='MainContent_drpMake1']")
 	public WebElement eVSelectMake;
 	
-	@FindBy(xpath ="//select[@id='drpModel']")
+	@FindBy(xpath ="//select[@id='drpModel1']")
 	public WebElement eVSelectModel;
 	
-	@FindBy(xpath ="//input[@id='MainContent_imgbtnsearch']")
+	@FindBy(xpath ="//button[@id='MainContent_imgbtnsearchnew']")
 	public WebElement eSearchButton;
 	
 	@FindBy(xpath ="//select[@id='MainContent_ddlFilter']")
@@ -68,7 +68,7 @@ public class ApplicationAddAces extends Baseclass {
 	@FindBy(xpath ="//input[@id='MainContent_txtFind']")
 	public WebElement eSelectsearchbox;
 	
-	@FindBy(xpath ="//input[@id='MainContent_btnFilterSearch']")
+	@FindBy(xpath ="//button[@id='MainContent_imgbtnsearchnew']")
 	public WebElement eSearchButton2;
 	
 	@FindBy(xpath ="//span[@id='MainContent_GVData_lblEngineBase_0']")
@@ -141,13 +141,13 @@ public class ApplicationAddAces extends Baseclass {
 		Thread.sleep(3000);
 	}
 	
-   public void ChooseVehiclevry(String vehicletypename) throws InterruptedException {
-	   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Select Vvehicle = new Select(eVSelectVehicle);
-		Vvehicle.selectByVisibleText(vehicletypename);
-		
-	
-		}
+//   public void ChooseVehiclevry(String vehicletypename) throws InterruptedException {
+//	   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//		Select Vvehicle = new Select(eVSelectVehicle);
+//		Vvehicle.selectByVisibleText(vehicletypename);
+//		
+//	
+//		}
 
 	public void ChooseMakevry(String makename ) throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

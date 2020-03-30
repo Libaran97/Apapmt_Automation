@@ -21,7 +21,7 @@ public class TC042_PMTMyCatalogBuyersGuide extends Baseclass {
 	public void click_the_mycatalog_menu_link_SP_BG() throws Throwable {
 		try {
 			
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT My Catalog Buyers Guide Related Testcases TC_SP_007").assignCategory("PMT MyCatalog Buyers Guide TC_SP_007 >>>>> ").pass("PMT MyCatalog Buyers Guide Test Scenarios Verification TC_SP_007 >>>>>>");
 			test = test.createNode(Scenario.class, "PMT My Catalog Buyers Guide Related Testscenarios TC_SP_007");
 			loginfo = test.createNode(new GherkinKeyword("Given"),

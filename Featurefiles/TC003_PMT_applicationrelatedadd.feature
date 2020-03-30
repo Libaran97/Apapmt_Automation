@@ -9,6 +9,12 @@ When User will click on the add button and will enter the new vehicle type and c
 Then User will verify the added record should be shown in vehicle grid
 
 
+Scenario: Adding Application Related vehicle
+Given User will mouse hover on Master and choose the vehicle type group page
+When User will click on the add button and will enter the new vehicle type group,group and choose the equivalent ACES & save
+Then User will verify the added record should be shown in vehicle type group grid
+
+
 Scenario: Adding Application Related Make
 Given User will mouse hover on master and choose the make 
 When User will click on the add button and will choose the added vehicle type, enter the new make name and choose the equivalent ACES & save   

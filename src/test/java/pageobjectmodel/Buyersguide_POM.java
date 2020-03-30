@@ -25,7 +25,7 @@ public class Buyersguide_POM extends Baseclass {
 			}
 				
 			
-			@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_2']")
+			@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_3']")
 			private WebElement partspageheaderclick;
 			
 			

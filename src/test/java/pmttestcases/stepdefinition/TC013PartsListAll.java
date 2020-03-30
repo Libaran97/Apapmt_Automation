@@ -280,12 +280,12 @@ public class TC013PartsListAll extends Baseclass {
 			eppom.Verifydelete(pro.getProperty("categoryname"), pro.getProperty("subcategoryname"), pro.getProperty("partdesc"), pro.getProperty("linecode"), pro.getProperty("partno"), pro.getProperty("DeleteProducttxt"), pro.getProperty("DeleteProducttxt2"));
 			loginfo.pass("Verified Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(" Not Verified"+e.getMessage());
 			loginfo.fail("Not Verified");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			
+			//extent.flush();
 		}
 	}
 	

@@ -132,7 +132,7 @@ public class TC023_AddAcesApplication extends Baseclass {
 			try {
 				loginfo=test.createNode(new GherkinKeyword("Then"),"User will verify that the record has come");
 				apom.ClickApplication2();
-				apom.ChooseVehiclevry(pro.getProperty("vehicletypename"));
+				//apom.ChooseVehiclevry(pro.getProperty("vehicletypename"));
 				apom.ChooseMakevry(pro.getProperty("makename"));
 				apom.ChooseModelvry(pro.getProperty("modelname"));
 				apom.Clicksearch();
@@ -252,7 +252,7 @@ public class TC023_AddAcesApplication extends Baseclass {
 			try {
 				loginfo=test.createNode(new GherkinKeyword("Then"),"User will verify that the record has come");
 				apom.ClickApplication2();
-				apom.ChooseVehiclevry(pro.getProperty("vehicletypename"));
+				//apom.ChooseVehiclevry(pro.getProperty("vehicletypename"));
 				apom.ChooseMakevry(pro.getProperty("makename"));
 				apom.ChooseModelvry(pro.getProperty("modelname"));
 				apom.Clicksearch();

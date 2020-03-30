@@ -19,7 +19,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	public void user_will_Click_the_Application_page_and_multiadd_page() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD aces-TC033").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "Check the ACES in multi add page and verify to buyerguide-TC033").assignCategory("PIES MultiAdd ")
 					.pass("Aces values verified");
 			test = test.createNode(Scenario.class, "Multiadd aces save and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -92,7 +92,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			mpom1.partsearch();
 			mpom1.buyerguide();
 			mpom1.scrolldown();
-			mpom1.ACesverify("EnterYear", "SearchTextAcesallEngine");
+			mpom1.ACesverify("EnterYear", "engine1");
 			loginfo.pass("Save or Pop up aleat was working");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -123,7 +123,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	public void user_will_create_the_application_pages_and_multiadd_links_pages() throws Throwable {
 		try {
 			// extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD aces-TC033").assignCategory("PIES MultiAdd ")
+			test = extent.createTest(Feature.class, "Check the Show attributes aces and and verify to buyerguide-TC033").assignCategory("PIES MultiAdd ")
 					.pass("Aces attributes values verified");
 			test = test.createNode(Scenario.class, "Multiadd Aces attributes values reflected to buyers guide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -211,7 +211,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			mpom1.partsearch();
 			mpom1.buyerguide();
 			mpom1.scrolldown();
-			mpom1.Acesattverify("EnterYear", "SearchTextAcesallEngine");
+			mpom1.Acesattverify("EnterYear", "engine1");
 			loginfo.pass("Product add and saves working..");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -228,7 +228,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			System.out.println("**Show Aces attributes succussfully added**");
 			loginfo.pass("Show Aces attributes succussfully added..");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			// extent.flush();			
 			loginfo.fail("Show Aces attributes succussfully not added....");
@@ -237,13 +237,14 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 		}
 	}
 
+	//3rd
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	@Given("^: user will create the application and multiadd pages$")
 	public void user_will_create_the_application_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD aces-TC033").assignCategory("PIES MultiAdd textbox verified")
+			test = extent.createTest(Feature.class, "Check the Show attributes ACES and textbox with and verify to buyerguide-TC033").assignCategory("PIES MultiAdd ")
 					.pass("Aces attributes textbox values verified");
 			test = test.createNode(Scenario.class, "user will create the application and multiadd pages");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -331,7 +332,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			mpom1.partsearch();
 			mpom1.buyerguide();
 			mpom1.scrolldown();
-			mpom1.attrtxtverify("EnterYear", "SearchTextAcesallEngine");
+			mpom1.attrtxtverify("EnterYear", "engine1");
 						
 			loginfo.pass("Product add and saves working..");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -363,7 +364,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	public void user_will_create_the_application_and_multiadd() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD aces-TC033").assignCategory("PIES MultiAdd")
+			test = extent.createTest(Feature.class, "Check the Show textbox and dropdown values attributes ACES with and verify to buyerguide-TC033").assignCategory("PIES MultiAdd")
 					.pass("PIES MultiAdd textbox and dropdown verified");
 			test = test.createNode(Scenario.class, "user will create the application and multiadd");
 			loginfo = test.createNode(new GherkinKeyword("Given"),"user will create the application and multiadd");		
@@ -450,7 +451,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			mpom1.partsearch();
 			mpom1.buyerguide();
 			mpom1.scrolldown();
-			mpom1.attrtxtverify("EnterYear", "SearchTextAcesallEngine");
+			mpom1.attrtxtverify("EnterYear", "engine1");
 			//mpom1.Acesattverify("acesexpectedtext1", "engine1");
 			loginfo.pass("Product add and saves working..");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));

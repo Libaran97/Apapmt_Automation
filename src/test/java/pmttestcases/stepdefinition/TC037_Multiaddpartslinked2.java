@@ -21,7 +21,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 	public void user_will_choos_the_application_paged_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked2 edit-TC037").assignCategory("PIES MultiAdd")
+			test = extent.createTest(Feature.class, "Check the partslinked2 edit-TC037").assignCategory("PIES MultiAdd")
 					.pass("Part Linked Edit option is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -64,12 +64,13 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 	public void user_will_Click_the_Parts_Linked_popup() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will Click the Parts Linked popup");
-			// mpom2 = new MultiAddPom2();
-			mpom2.partslinked();
-			mpom2.windowhandler();
-			mpom2.viewedit();
-			mpom2.POPEdit("vehicletypename");
-			mpom2.acceptAlert();
+			//mpom2 = new MultiAddPom2();
+			mpom2.partslinked();			
+			mpom2.windowhandler();			
+			mpom2.viewedit();			
+			//mpom2.POPEdit("vehicletypename");
+			//mpom2.acceptAlert();
+			
 			// mpom2.verifyedit("vehicletypename");
 			System.out.println("Click the Parts linked and Edit is verification Passed");
 			loginfo.pass("Click the Parts linked and Edit is verification Passed");
@@ -92,7 +93,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 			loginfo.pass("Finally click the Parts linked Edit or delete verification");
 			System.out.println("Finally click the Parts linkedEdit or delete verification");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail",driver,loginfo,e);
 			 System.out.println(e);
@@ -106,7 +107,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 	public void user_will_choos_the_application_paged_and_multiadd_page() throws Throwable {
 		try {
 			// extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked2 Cancel-TC037").assignCategory("PIES MultiAdd")
+			test = extent.createTest(Feature.class, "Check the partslinked2 Cancel-TC037").assignCategory("PIES MultiAdd")
 					.pass("Part Linked Cancel is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -151,6 +152,8 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user check the Cancel button and Part linked");
 			// mpom2 = new MultiAddPom2();
 			mpom2.partslinked();
+			System.out.println("Purila");
+			Thread.sleep(5000);
 			mpom2.windowhandler();
 			mpom2.viewedit();
 			mpom2.vieweditcancel("vehicletypename");
@@ -191,7 +194,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 	public void user_will_choos_the_application_page_and_multiadd_pages() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked2 Delete-TC037").assignCategory("PIES MultiAdd")
+			test = extent.createTest(Feature.class, "Check the partslinked2 Delete-TC037").assignCategory("PIES MultiAdd")
 					.pass("Part Linked Delete is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -261,7 +264,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 			loginfo.pass("Finally click the Parts delete verification");
 			System.out.println("Finally click the Parts delete verification");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		//	extent.flush();
+			extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail",driver,loginfo,e);
 			 System.out.println(e);
@@ -276,7 +279,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 	public void user_will_choos_the_application_paged_and_multiadd() throws Throwable {
 		try {
 			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD Partlinked2 sorting-TC037").assignCategory("PIES MultiAdd").pass("Vehicle sorting is verified");
+			test = extent.createTest(Feature.class, "Check the sorting2 in partlinked-TC037").assignCategory("PIES MultiAdd").pass("Vehicle sorting is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will choos the application paged and multiadd");

@@ -36,7 +36,7 @@ public class ExtentReport {
 		//rreport.config().setAutoCreateRelativePathMedia(true);
 		report = new ExtentHtmlReporter(reportlocation);
 		report.config().setDocumentTitle("AUTOMATION TEST REPORT");
-		report.config().setReportName("AUTOZONE PMT TEST REPORT");
+		report.config().setReportName("PMT TEST REPORT");
 		report.config().setTheme(Theme.STANDARD);
 		System.out.println("Extent Report Initialized");
 		report.start();

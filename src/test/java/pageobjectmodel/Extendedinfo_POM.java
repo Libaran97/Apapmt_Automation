@@ -30,7 +30,7 @@ public class Extendedinfo_POM extends Baseclass {
 	@FindBy(xpath="//select[@id='MainContent_Drplanguage']")
 	private WebElement Drplanguage;
 	
-	@FindBy(xpath="//input[@id='MainContent_btnSave']")
+	@FindBy(xpath="//button[@id='MainContent_btnSave']")
 	private WebElement btnSave;
 	
 	

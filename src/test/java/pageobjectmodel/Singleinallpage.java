@@ -29,10 +29,12 @@ public class Singleinallpage extends Baseclass {
 	WebElement esingleSearch1;
 	
 
-	@FindBy(xpath = "(//input[@id='btn_part_details_quickview'])[1]")
+	//@FindBy(xpath = "(//input[@id='btn_part_details_quickview'])[1]")
+	@FindBy(xpath="//*[@id=\"divMenus_dashboard\"]/input[2]")
 	WebElement esearchbt;
 	
-	@FindBy(xpath = "(//input[@id='btn_part_details_quickview'])[2]")
+	//@FindBy(xpath = "(//input[@id='btn_part_details_quickview'])[2]")
+	@FindBy(xpath="(//input[@class='btn_part_details_quickview'])[1]")
 	WebElement esearchbt1;
 
 	@FindBy(xpath = "//*[@id='btnAddApp']")
@@ -65,16 +67,21 @@ public class Singleinallpage extends Baseclass {
 	@FindBy(xpath = "(//input[@class='glowing-border'])[13]")
 	WebElement eenginer;
 
-	@FindBy(xpath = "//label[@id='lbl_QW_year1']")
+	//@FindBy(xpath = "//label[@id='lbl_QW_year1']")	
+	//@FindBy(xpath="(//input[@placeholder='Year Range'])[1]")
+	@FindBy(xpath="//label[text()='2001-2001']")
 	WebElement eyere1;
+	
+	@FindBy(xpath="//label[text()='1999-1999']")
+	WebElement eyere2;
 
 	@FindBy(xpath = "//*[@id='1']/td[7]/div/img[1]")
 	WebElement eEdit;
 
-	@FindBy(xpath = "//*[@id='MainContent_GvApplications_txtapppartsnotes_2']")
+	@FindBy(xpath = "//*[@id='MainContent_GvApplications_txtapppartsnotes_1']")
 	WebElement enotes;
 
-	@FindBy(xpath = "//*[@id='MainContent_GvApplications_txtquantity_2']")
+	@FindBy(xpath = "//*[@id='MainContent_GvApplications_txtquantity_1']")
 	WebElement eqty;
 
 	@FindBy(xpath = "//*[@id='MainContent_btnUpdate']")
@@ -98,21 +105,26 @@ public class Singleinallpage extends Baseclass {
 	WebElement edesnotes;
 
 	@FindBy(xpath = "//*[@id='MainContent_txtDes']")
-	WebElement edessequence;
+	public WebElement edessequence;
 
 	@FindBy(xpath = "//*[@id='MainContent_txtNotes']")
 	WebElement edesdescription;
 
-	@FindBy(xpath = "//*[@id='MainContent_btnSave']")
+	
+	@FindBy(xpath="//*[@id='MainContent_btnSave']")
 	WebElement edessave;
 
-	@FindBy(xpath = "//*[@id='MainContent_gv']/tbody/tr[2]/td[2]")
+	//@FindBy(xpath = "//*[@id='MainContent_gv']/tbody/tr[2]/td[2]")
+	@FindBy(xpath="(//input[@placeholder='Code'])[2]")
 	WebElement everify1;
 
-	@FindBy(xpath = "//*[@id='MainContent_gv']/tbody/tr[2]/td[3]")
+	//@FindBy(xpath = "//*[@id='MainContent_gv']/tbody/tr[2]/td[3]")
+	@FindBy(xpath="(//*[@id=\"lbl_QW_description1\"])[1]")
 	WebElement everify2;
+	
 
-	@FindBy(xpath = "//*[@id='MainContent_gv']/tbody/tr[2]/td[4]")
+	//@FindBy(xpath = "//*[@id='MainContent_gv']/tbody/tr[2]/td[4]")
+	@FindBy(xpath="(//*[@id=\"lbl_QW_description1\"])[2]")
 	WebElement everify3;
 	
 	
@@ -128,7 +140,7 @@ public class Singleinallpage extends Baseclass {
 	WebElement eadd;
 
 	@FindBy(xpath = "//*[@id='drpPartDesc']")
-	WebElement epartdesc;
+	public WebElement epartdesc;
 
 	@FindBy(xpath = "//*[@id='drpProductLine']")
 	WebElement epartpro;
@@ -145,8 +157,11 @@ public class Singleinallpage extends Baseclass {
 	@FindBy(xpath = "//*[@id='tblPartDetail']/tbody/tr/td[1]")
 	WebElement epartfilter;
 	
+	
+	@FindBy(xpath="(//*[@id='close_img'])[2]")
+	public WebElement Closeup;
 
-	public void partadd(String subcategoryname1, String linecode, String adduom,String newpartno) throws Exception {
+	public void partadd(String newpartno,String subcategoryname1, String linecode1, String adduom) throws Exception {
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement elementclose = driver.findElement(By.xpath("(//*[@id='close_img'])[2]"));
@@ -219,13 +234,13 @@ public class Singleinallpage extends Baseclass {
 
 	public void searchbt() throws Exception {
 		esearchbt.click();
-		Thread.sleep(10000);
+		Thread.sleep(8000);
 	}
 
 	public void searchbt1() throws Exception {
 		//driver.switchTo().frame(0);
 		esearchbt1.click();
-		Thread.sleep(10000);
+		Thread.sleep(8000);
 	}
 
 	public void vehicleadd() throws Exception {
@@ -271,7 +286,7 @@ public class Singleinallpage extends Baseclass {
 
 					// Switching to Child window
 					driver.switchTo().window(ChildWindow);
-					Thread.sleep(3000);
+					Thread.sleep(5000);
 					// String price =
 					// driver.findElement(By.xpath("//span[@id=\"prcIsum\"]")).getText();
 
@@ -295,15 +310,18 @@ public class Singleinallpage extends Baseclass {
 
 		int j = 0;
 		int z=0;
+		int k=0;
 		for (int i = 1; i < list.size(); i++) {
 			j = i+1;	
 			z=i-1;
+			k=i+1;
 			String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications\"]/tbody/tr["+ j +"]/td[2]")).getText();
+		    String Engine = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications\"]/tbody/tr["+ k +"]/td[3]")).getText();
 			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications_lblacesnonaces_" + z + "\"]")).getText();
 			                                                                 
 			System.out.println("Year value is..." + Year);
 			System.out.println("Type value is..." + Type);
-			if ((Year.contains(pro.getProperty("EnterYear"))) && (Type.contains(pro.getProperty("Acesvalue")))) {				
+			if ((Year.equals(pro.getProperty("EnterYear"))) && (Type.equals(pro.getProperty("Acesvalue")))&&(Engine.equals(pro.getProperty("SearchTextAcesEngine")))) {				
 				
 				driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
 				
@@ -352,16 +370,20 @@ public class Singleinallpage extends Baseclass {
 		Thread.sleep(3000);
 	}
 
-	public void acceptAlert() throws InterruptedException {
+	public void acceptAlert() throws Exception {		
 		Alert alert = driver.switchTo().alert();
 		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Single in all page is..:" + alert.getText());
 		alert.accept();
-		driver.switchTo().window(MainWindow);
 		Thread.sleep(5000);
+		driver.switchTo().window(MainWindow);
+		Thread.sleep(8000);
 	}
 
 	public void verifydata(String EnterYear) throws Throwable {
+		//driver.switchTo().window(ChildWindow);
+		//Closeup.click();
+		
 		eyear.sendKeys(pro.getProperty("EnterYear"));
 		Thread.sleep(3000);
 		eenginer.sendKeys("");
@@ -382,7 +404,7 @@ public class Singleinallpage extends Baseclass {
 		Thread.sleep(5000);
 		//eenginer.sendKeys("");
 
-		String actualText = eyere1.getText();
+		String actualText = eyere2.getText();
 		System.out.println("Parts Linked value is.." + actualText);
 		if (actualText.contains(pro.getProperty("EnterInvalidYear"))) {
 			System.out.println("Both are same");
@@ -394,17 +416,52 @@ public class Singleinallpage extends Baseclass {
 
 	public void EdIT() throws Exception {
 		eEdit.click();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 
-	public void Notes(String textbox, String qtydata) throws Throwable {
-		enotes.clear();
-		enotes.sendKeys(pro.getProperty("textbox"));
-		eqty.clear();
-		eqty.sendKeys(pro.getProperty("qtydata"));
+	public void Notes(String textbox, String qtydata) throws Throwable {		
+		
+		List<WebElement> list = driver.findElements(By.xpath("//span[@class='chkBottomItem']"));
+		System.out.println("Checkbox values..." + list.size());
+		int j = 0;
+		int z=0;
+		int k=0;
+		int L=0;
+		int M=0;
+		for (int i = 1; i < list.size(); i++) {
+			j = i+1;	
+			z=i-1;
+			k=i+1;
+			L=i-1;
+			M=i-1;
+			String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications\"]/tbody/tr["+ j +"]/td[2]")).getText();
+		    String Engine = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications\"]/tbody/tr["+ k +"]/td[3]")).getText();
+			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications_lblacesnonaces_" + z + "\"]")).getText();
+			System.out.println("Type value is..." + Engine);                                                               
+			System.out.println("Year value is..." + Year);
+			System.out.println("Type value is..." + Type);
+			if ((Year.equals(pro.getProperty("EnterYear"))) && (Type.equals(pro.getProperty("Acesvalue")))&&(Engine.equals(pro.getProperty("SearchTextAcesEngine")))) {				
+				
+				driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications_txtapppartsnotes_"+ L +"\"]")).sendKeys(pro.getProperty("textbox"));
+								
+				
+				driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications_txtquantity_"+ M +"\"]")).sendKeys(pro.getProperty("qtydata"));
+				//enotes.clear();
+				//enotes.sendKeys(pro.getProperty("textbox"));
+				//eqty.clear();
+				//eqty.sendKeys(pro.getProperty("qtydata"));
+				
+				
+			} else {
+				continue;
+			}
+			
+			
+		
+		}
 		eupdate.click();
-		Thread.sleep(5000);
-	}
+		Thread.sleep(8000);
+		}
 
 	public void verifyNOTesandqty() {
 		String Actual = enotes.getAttribute("value");
@@ -464,7 +521,10 @@ public class Singleinallpage extends Baseclass {
 	}
 
 	// Description to start...........
-	public void descripitonadd() throws Exception {
+	public void descripitonadd() throws Exception {	
+		WebElement elementfilter1 = edescadd;
+		((JavascriptExecutor) driver).executeScript("arguments[0].click()", elementfilter1);		
+		Thread.sleep(5000);
 		edescadd.click();
 		Thread.sleep(5000);
 	}
@@ -484,13 +544,17 @@ public class Singleinallpage extends Baseclass {
 		System.out.println("Alertmessage is..:" + alert.getText());
 		alert.accept();
 		Thread.sleep(5000);
+		
+		 driver.switchTo().window(MainWindow);
+		 
+		
 
 	}
 
 	public void Verifydescriptionadd(String descriptionNotestype,String Region) throws Throwable {
 		Thread.sleep(3000);
 		String Actual1 = everify1.getText();
-		System.out.println("Notes type value is.. " + Actual1);
+		System.out.println("code notes type value is.. " + Actual1);
 		/*String Actual2 = everify2.getText();
 		System.out.println("Sequence value is.. " + Actual2);*/
 		String Actual3 = everify3.getText();
@@ -512,41 +576,52 @@ public class Singleinallpage extends Baseclass {
 	}
 
 	public void descedit() throws Exception {
-		edescedit.click();
-		Thread.sleep(20000);
+		
+		  JavascriptExecutor js = (JavascriptExecutor) driver; ((JavascriptExecutor)
+		  driver).executeScript("arguments[0].click()", edescedit); 
+		 
+		//edescedit.click();
+		Thread.sleep(10000);
 	}
 
-	public void descchange(String qtydata, String notesdata) throws Exception {
+	public void descchange(String qtydata, String notesdata) throws Throwable {			
+		Thread.sleep(5000);
 		edessequence.clear();
+		Thread.sleep(5000);
 		edessequence.sendKeys(pro.getProperty("qtydata"));
 		edesdescription.clear();
+		Thread.sleep(5000);
 		edesdescription.sendKeys(pro.getProperty("notesdata"));
-		edessave.click();
 		Thread.sleep(3000);
+		edessave.click();
+		Thread.sleep(5000);
 		Alert alert = driver.switchTo().alert();
 		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Alertmessage is..:" + alert.getText());
 		alert.accept();
 		Thread.sleep(5000);
+		
+		driver.switchTo().window(MainWindow);
+		
 	}
 
-	public void VerifyEditchange(String qtydata, String notesdata) throws Throwable {
+	public void VerifyEditchange(String notesdata) throws Throwable {
 
 		String Actual2 = everify2.getText();
 		System.out.println("Sequence Edited value is.. " + Actual2);
-		String Actual3 = everify3.getText();
-		System.out.println("Description Edited value is.. " + Actual3);
+		//String Actual3 = everify3.getText();
+		//System.out.println("Description Edited value is.. " + Actual3);
 		Thread.sleep(3000);
 		/*
 		 * if (Actual1.contains(pro.getProperty("descriptionNotestype"))) {
 		 * System.out.println("**Notestype is same**"); }
 		 */
-		if (Actual2.contains(pro.getProperty("qtydata"))) {
+		if (Actual2.contains(pro.getProperty("notesdata"))) {
 			System.out.println("**sequence value is. same**");
 		}
-		if (Actual3.equals(pro.getProperty("notesdata"))) {
-			System.out.println("**Description value same**");
-		} else {
+		//if (Actual3.equals(pro.getProperty("notesdata"))) {
+		//	System.out.println("**Description value same**");}
+		 else {
 			System.out.println("Not same Description Edited values once again**");
 		}
 

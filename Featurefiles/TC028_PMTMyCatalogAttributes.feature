@@ -1,3 +1,4 @@
+@Sanitycheck
 Feature: PMT [My Catalog - Attribute Search functionality] testcases
 
 @sanitytest9

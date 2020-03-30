@@ -25,7 +25,7 @@ public class AcesInvalid extends Baseclass {
 	}
 
 	
-	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_2']")
+	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_3']")
 	private WebElement partspageheaderclick;
 	
 	
@@ -203,17 +203,17 @@ public class AcesInvalid extends Baseclass {
 	}
 
 
-	public void SelectAttributes() throws InterruptedException{
+	public void SelectAttributes() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", showAttribute);	
-	showAttribute.click();
-	Thread.sleep(3000);
-	checkBase.click();
-	Thread.sleep(3000);
-	JavascriptExecutor jsk = (JavascriptExecutor) driver;
-	jsk.executeScript("arguments[0].scrollIntoView();", BodyNo2);
-	BodyNo2.click();
-	Thread.sleep(3000);
+		js.executeScript("arguments[0].scrollIntoView();", showAttribute);
+		showAttribute.click();
+		Thread.sleep(3000);
+		checkBase.click();
+		Thread.sleep(3000);
+		JavascriptExecutor jsk = (JavascriptExecutor) driver;
+		jsk.executeScript("arguments[0].scrollIntoView();", BodyNo2);
+		BodyNo2.click();
+		Thread.sleep(3000);
 
 	}
 

@@ -38,13 +38,13 @@
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
 		</ul>
 		<!-- report name -->
-		<span class='report-name'>AUTOZONE PMT TEST REPORT</span>
+		<span class='report-name'>PMT TEST REPORT</span>
 		<!-- report headline -->
 		<span class='report-headline'></span>
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Nov 7, 2019 04:42:35 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Mar 18, 2020 12:39:21 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -71,7 +71,7 @@
 				<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>DigitalAsset</a></li>
+					<li><a href='#'>PIESMultiAdd</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -112,7 +112,7 @@
                     <canvas id='parent-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> feature(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> feature(s) passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -126,7 +126,7 @@
                     <canvas id='child-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> scenario(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> scenario(s) passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -140,7 +140,7 @@
                     <canvas id='grandchild-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>6</span> step(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>15</span> step(s) passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -163,8 +163,8 @@
 			<ul id='test-collection' class='test-collection'>
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>PMT Digital Asset</span>
-						<span class='test-time'>Nov 7, 2019 04:42:35 PM</span>
+						<span class='test-name'>Check the partslinked2 edit-TC037</span>
+						<span class='test-time'>Mar 18, 2020 12:39:21 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
@@ -175,35 +175,47 @@
     <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
 <div class='scenario node' test-id='2' status='pass'>
-    <span class='duration right label'>0h 0m 0s+1ms</span>
+    <span class='duration right label'>0h 0m 0s+0ms</span>
     <div class="bdd-test">
-        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Adding Image</div>
+        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Multiadd part description and part no to check add or not</div>
     </div>
     <ul class='steps'>
         <li test-id='3' class='node given pass' status='pass'>
-            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will click on parts page and enter the part# and click on the digital asset tab</div>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>user will choos the application paged and multiadd pages</div>
             <ul class='screenshots right'>
-                <li><a data-featherlight="image" href="C:\Users\arunkumar\git\apapmt_automation/Reports/screenshots/11072019164247065.png"><i class='material-icons'>panorama</i></a></li>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020123942930.png"><i class='material-icons'>panorama</i></a></li>
             </ul>
+                <div class="node-step">Application and Multiadd page landed successfully</div>
         </li>
         <li test-id='4' class='node when pass' status='pass'>
-            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will add the image enter the sort by value and save</div>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>user will check the all chosed Vehicle,make,model along with click the search</div>
             <ul class='screenshots right'>
-                <li><a data-featherlight="image" href="C:\Users\arunkumar\git\apapmt_automation/Reports/screenshots/11072019164250102.png"><i class='material-icons'>panorama</i></a></li>
-                <li><a data-featherlight="image" href="C:\Users\arunkumar\git\apapmt_automation/Reports/screenshots/11072019164257056.png"><i class='material-icons'>panorama</i></a></li>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124013823.png"><i class='material-icons'>panorama</i></a></li>
             </ul>
+                <div class="node-step">Vehicle,Make,Model drop down values getting properly</div>
         </li>
-        <li test-id='5' class='node then pass' status='pass'>
-            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will add succesfully and verify</div>
+        <li test-id='5' class='node when pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>user will Click the Parts Linked popup</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124029036.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">Click the Parts linked and Edit is verification Passed</div>
+        </li>
+        <li test-id='6' class='node then pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Finally click the Parts linked and open the popup box and verification</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124029603.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">Finally click the Parts linked Edit or delete verification</div>
         </li>
     </ul>
 </div>
 					</div>
 				</li>
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='6'>
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='7'>
 					<div class='test-heading'>
-						<span class='test-name'>PMT Digital Asset</span>
-						<span class='test-time'>Nov 7, 2019 04:43:16 PM</span>
+						<span class='test-name'>Check the partslinked2 Cancel-TC037</span>
+						<span class='test-time'>Mar 18, 2020 12:40:52 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
@@ -213,26 +225,134 @@
     <a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
     <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
-<div class='scenario node' test-id='7' status='pass'>
+<div class='scenario node' test-id='8' status='pass'>
     <span class='duration right label'>0h 0m 0s+0ms</span>
     <div class="bdd-test">
-        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Deleting Image</div>
+        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Multiadd part description and part no to check add or not</div>
     </div>
     <ul class='steps'>
-        <li test-id='8' class='node given pass' status='pass'>
-            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will go to parts page and choose digital asset tab to delete an image</div>
+        <li test-id='9' class='node given pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>user will choos the application paged and multiadd pages</div>
             <ul class='screenshots right'>
-                <li><a data-featherlight="image" href="C:\Users\arunkumar\git\apapmt_automation/Reports/screenshots/11072019164326211.png"><i class='material-icons'>panorama</i></a></li>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124112947.png"><i class='material-icons'>panorama</i></a></li>
             </ul>
+                <div class="node-step">Application and Multiadd page landed successfully</div>
         </li>
-        <li test-id='9' class='node when pass' status='pass'>
-            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will click on delete icon</div>
+        <li test-id='10' class='node when pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>user will check the all chosed Vehicle make model along with click search</div>
             <ul class='screenshots right'>
-                <li><a data-featherlight="image" href="C:\Users\arunkumar\git\apapmt_automation/Reports/screenshots/11072019164330310.png"><i class='material-icons'>panorama</i></a></li>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124144041.png"><i class='material-icons'>panorama</i></a></li>
             </ul>
+                <div class="node-step">Vehicle,Make,Model drop down values getting properly</div>
         </li>
-        <li test-id='10' class='node then pass' status='pass'>
-            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will delete successfully and verify</div>
+        <li test-id='11' class='node when pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>user check the Cancel button and Part linked</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124213668.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">Click the Parts linked Cancel and verification Passed</div>
+        </li>
+        <li test-id='12' class='node then pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Finally click the Parts linked open the popup box and verification</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124214168.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">Finally click the Parts linked Cancel verification$</div>
+        </li>
+    </ul>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>Check the partslinked2 Delete-TC037</span>
+						<span class='test-time'>Mar 18, 2020 12:42:34 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class="sr-filters bdd-filters">
+    <a class="btn-floating waves-effect waves-light pass green" title="pass"><i class='material-icons'>check_circle</i></a>
+    <a class="btn-floating waves-effect waves-light fail red" title="fail"><i class='material-icons'>cancel</i></a>
+    <a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
+    <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
+</div>
+<div class='scenario node' test-id='14' status='pass'>
+    <span class='duration right label'>0h 0m 0s+0ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Multiadd part description and part no to check add or not</div>
+    </div>
+    <ul class='steps'>
+        <li test-id='15' class='node given pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>user will choos the application page and multiadd pages</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124255686.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">Application and Multiadd page landed successfully</div>
+        </li>
+        <li test-id='16' class='node when pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>user will check the all chosed Vehicle make model with click the search</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124326685.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">Vehicle,Make,Model drop down values getting properly</div>
+        </li>
+        <li test-id='17' class='node when pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>user check the Delete button and Part linked</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124348395.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">Click the Parts linked Delete and verification Passed</div>
+        </li>
+        <li test-id='18' class='node then pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Finally click the Parts linked</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124348921.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">Finally click the Parts delete verification</div>
+        </li>
+    </ul>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='19'>
+					<div class='test-heading'>
+						<span class='test-name'>Check the sorting2 in partlinked-TC037</span>
+						<span class='test-time'>Mar 18, 2020 12:44:10 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class="sr-filters bdd-filters">
+    <a class="btn-floating waves-effect waves-light pass green" title="pass"><i class='material-icons'>check_circle</i></a>
+    <a class="btn-floating waves-effect waves-light fail red" title="fail"><i class='material-icons'>cancel</i></a>
+    <a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
+    <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
+</div>
+<div class='scenario node' test-id='20' status='pass'>
+    <span class='duration right label'>0h 0m 0s+0ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Multiadd part description and part no to check add or not</div>
+    </div>
+    <ul class='steps'>
+        <li test-id='21' class='node given pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>user will choos the application paged and multiadd</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124433822.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">Application and Multiadd page landed successfully</div>
+        </li>
+        <li test-id='22' class='node and pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>user will check the sorting order TC037</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124505311.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">sorting order verification Passed</div>
+        </li>
+        <li test-id='23' class='node then pass' status='pass'>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Finally click the Parts linked and open the popup box</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="C:\Users\qctest\git\apapmt_automation/Reports/screenshots/03182020124505843.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">Finally click the Parts sorting verification Passed</div>
         </li>
     </ul>
 </div>
@@ -278,14 +398,14 @@
 			<ul id='category-collection' class='category-collection'>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>DigitalAsset</span>
+						<span class='category-name'>PIESMultiAdd</span>
 						<span class='category-status right'>
-						<span class='label pass'>2</span>
+						<span class='label pass'>4</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 2</span>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
 							
 							
 						</div>
@@ -300,13 +420,23 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Nov 7, 2019 04:42:35 PM</td>
-										<td class='linked' test-id='1'>PMT Digital Asset</td>
+										<td>Mar 18, 2020 12:39:21 PM</td>
+										<td class='linked' test-id='1'>Check the partslinked2 edit-TC037</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 									<tr>
-										<td>Nov 7, 2019 04:43:16 PM</td>
-										<td class='linked' test-id='6'>PMT Digital Asset</td>
+										<td>Mar 18, 2020 12:40:52 PM</td>
+										<td class='linked' test-id='7'>Check the partslinked2 Cancel-TC037</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 18, 2020 12:42:34 PM</td>
+										<td class='linked' test-id='13'>Check the partslinked2 Delete-TC037</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 18, 2020 12:44:10 PM</td>
+										<td class='linked' test-id='19'>Check the sorting2 in partlinked-TC037</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -331,37 +461,37 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Features
-					<div class='panel-lead'>2</div>
+					<div class='panel-lead'>4</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>2</div>
+					<div class='panel-lead'>4</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>6</div>
+					<div class='panel-lead'>15</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Nov 7, 2019 04:42:35 PM</div>
+					<div class='panel-lead'>Mar 18, 2020 12:39:21 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Nov 7, 2019 04:43:30 PM</div>
+			 		<div class='panel-lead'>Mar 18, 2020 12:45:05 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 54s+376ms</div>
+					<div class='panel-lead'>0h 5m 44s+374ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -383,7 +513,7 @@
 							</tr>
 							<tr>
 								<td>Username</td>
-								<td>arunkumar</td>
+								<td>qctest</td>
 							</tr>
 					</table>
 				</div>
@@ -401,8 +531,8 @@
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>DigitalAsset</td>
-							<td>2</td>
+							<td>PIESMultiAdd</td>
+							<td>4</td>
 							<td>0</td>
 							<td>0</td>
 							<td>
@@ -420,16 +550,16 @@
 		<!-- container -->
 		<script>
 			var statusGroup = {
-                parentCount: 2,
-				passParent: 2,
+                parentCount: 4,
+				passParent: 4,
 				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
 				exceptionsParent: 0,
-				childCount: 2,
-				passChild: 2,
+				childCount: 4,
+				passChild: 4,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
@@ -438,8 +568,8 @@
 				infoChild: 0,
 				debugChild: 0,
 				exceptionsChild: 0,
-				grandChildCount: 6,
-				passGrandChild: 6,
+				grandChildCount: 15,
+				passGrandChild: 15,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
@@ -452,7 +582,7 @@
 		</script>
 		<script>
 			var timeline = {
-			        "PMT Digital Asset":0,"PMT Digital Asset":0
+			        "Check the partslinked2 edit-TC037":0,"Check the partslinked2 Cancel-TC037":0,"Check the partslinked2 Delete-TC037":0,"Check the sorting2 in partlinked-TC037":0
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/c23457b/v3html/js/extent.js' type='text/javascript'></script>

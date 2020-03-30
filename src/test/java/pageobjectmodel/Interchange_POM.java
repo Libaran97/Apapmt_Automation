@@ -25,7 +25,7 @@ public class Interchange_POM extends Baseclass{
 		
 		
 		
-		@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_2']")
+		@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_3']")
 		private WebElement partspageheaderclick;
 		
 		
@@ -99,7 +99,8 @@ public class Interchange_POM extends Baseclass{
 			driver.switchTo().frame(0);
 			WebElement intnotesselect = drpCompetitorName ;
 			Select select = new Select(intnotesselect);
-			select.selectByValue("2");
+			select.selectByVisibleText("Test IntName 1");
+			//select.selectByValue("2");
 			Thread.sleep(2000);
 		}
 		

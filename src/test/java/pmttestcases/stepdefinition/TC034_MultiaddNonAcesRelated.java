@@ -20,8 +20,8 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 	public void user_will_create_the_application_pages() throws Throwable {
 
 		try {
-		//	extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD non aces-TC034").assignCategory("PIES MultiAdd ").pass("Non Aces values verified");
+			//extent = setup();
+			test = extent.createTest(Feature.class, "Check the Non Aces files in multi add for nonaces and veify the buyersguide-TC034").assignCategory("PIES MultiAdd ").pass("Non Aces values verified");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces save and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"), "user will create the application pages");			
 			mpom1.Application();
@@ -120,7 +120,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 	public void user_will_create_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
 		   // extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases MULTIADD non aces-TC034").assignCategory("PIES MultiAdd ").pass("Non Aces attributes values verified");
+			test = extent.createTest(Feature.class, "Check the Show attributes non ACES in MULTIADD non aces and verify the buyerguide-TC034").assignCategory("PIES MultiAdd ").pass("Non Aces attributes values verified");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces attributes values reflected to buyers guide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will create the application pages and multiadd pages");			

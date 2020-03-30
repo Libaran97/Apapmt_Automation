@@ -27,7 +27,7 @@ public class TC041_PMTMyCatalogApplications extends Baseclass {
 	public void click_the_My_Catalog_menulink_SP() throws Throwable {
 		
 		try {
-		// extent = setup();
+		 //extent = setup();
 		test = extent.createTest(Feature.class, "PMT My Catalog Application Related Testcases TC_SP_008").assignCategory("PMT MyCatalog Application TC_SP_008 >>>>> ").pass("PMT MyCatalog Application Test Scenarios Verification TC_SP_008 >>>>>>");
 		test = test.createNode(Scenario.class, "Check the [My Catalogs - Applications] Functionality [TC_SP_008]");
 		loginfo = test.createNode(new GherkinKeyword("Given"),

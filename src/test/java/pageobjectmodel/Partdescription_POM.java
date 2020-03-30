@@ -27,7 +27,7 @@ public class Partdescription_POM extends Baseclass {
 	
 	
 	
-	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_2']")
+	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_3']")
 	private WebElement partspageheaderclick;
 	
 	
@@ -102,6 +102,7 @@ public class Partdescription_POM extends Baseclass {
 	
 	
 	public void descriptionclick() throws InterruptedException {
+		Thread.sleep(3000);
 		partdescclick.click();
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(3000);
@@ -158,9 +159,7 @@ public class Partdescription_POM extends Baseclass {
 		System.out.println("Parts Related " + "Description Notes" + alert.getText());
 		alert.accept();
 		Thread.sleep(1000);
-		alert.accept();
-		Thread.sleep(3000);
-		
+				
 	}
 	
 	

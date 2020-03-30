@@ -33,7 +33,12 @@ When User will click on add and enter Custom Attribute Name_MUL
 And User will select Data Type, enter Min & MaxLength and select Parts Description_MUL
 Then User will Click save Accept Alert and Verify the record has come in the grid_MUL
 
-#partadd
+
+Scenario: Give User permission to user2
+Given User will chose the settings menu2 
+When User chose the appropiate part descripion2
+Then User will logout the this user2
+
 Scenario: Adding part# with created product category_MUL
 Given User will click on parts page and it will redirect to parts page_MUL
 When User will click on the add buton and choose product category, sub category,part desc, product line_MUL

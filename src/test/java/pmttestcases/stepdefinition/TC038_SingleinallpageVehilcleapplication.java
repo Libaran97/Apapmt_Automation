@@ -23,7 +23,7 @@
 		public void user_will_Click_the_Search_box() throws Throwable {
 			try {
 				//extent = setup();
-				test = extent.createTest(Feature.class, "PMT Product Related Testcases Aces-TC038")
+				test = extent.createTest(Feature.class, "Check the Vehcile aces add in all one page-TC038")
 						.assignCategory("PIES Single in All page").pass("Vehicle aces Application is verified");
 				test = test.createNode(Scenario.class, "User will click the add partnumber");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search box");
@@ -106,11 +106,13 @@
 			}
 		}
 	
+		
+		//2nd program
 		@Given("^: user will Click the Search boxs$")
 		public void user_will_Click_the_Search_boxs() throws Throwable {
 			try {
-				// extent = setup();
-				test = extent.createTest(Feature.class, "PMT Product Related Testcases aces Edit-TC038")
+				//extent = setup();
+				test = extent.createTest(Feature.class, "Check the Vehcile aces Edit in all one page-TC038")
 						.assignCategory("PIES Single in All page ").pass("Vehicle Application edit is verified");
 				test = test.createNode(Scenario.class, "user will Click the Search box check add or not");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search boxs");
@@ -173,7 +175,7 @@
 				System.out.println("**Finally working Vehicle added success**");
 				loginfo.pass("user will fill the vehicle info passed");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				// extent.flush();
+				//extent.flush();
 			} catch (Exception e) {
 				System.out.println("**Finally not working Vehicle added**");
 				TestStep("Fail",driver,loginfo,e);
@@ -183,11 +185,12 @@
 			}
 		}
 	
+		//3rd program
 		@Given("^: user will Click the Search boxes$")
 		public void user_will_Click_the_Search_boxes() throws Throwable {
 			try {
-				// extent = setup();
-				test = extent.createTest(Feature.class, "PMT Product Related Testcases Non-aces-TC038")
+				//extent = setup();
+				test = extent.createTest(Feature.class, "Check the Vehcile Nonaces add in single one page-TC038")
 						.assignCategory("PIES Single in All page ").pass("Vehicle Application Non aces is verified");
 				test = test.createNode(Scenario.class, "user will Click the Search box check add or not");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search box");
@@ -264,7 +267,7 @@
 		public void user_will_Click_the_Search_box_for_sorting() throws Throwable {
 			try {
 				// extent = setup();
-				test = extent.createTest(Feature.class, "PMT Product Related Testcases Sorting-TC038")
+				test = extent.createTest(Feature.class, "Check the sorting orderin dropdown in single in all page-TC038")
 						.assignCategory("PIES Single in All page ").pass("Vehicle sorting is verified");
 				test = test.createNode(Scenario.class, "user will Click the Search box for sorting or not");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search box for sorting");
@@ -322,7 +325,7 @@
 		public void user_will_Click_the_Part_Search_box() throws Throwable {
 			try {
 				// extent = setup();
-				test = extent.createTest(Feature.class, "PMT Product Related Testcases Delete-TC038")
+				test = extent.createTest(Feature.class, "Check the Delete the vehicle application in single in all page-TC038")
 						.assignCategory("PIES Single in All page").pass("Vehicle delete function is verified");
 				test = test.createNode(Scenario.class, "user will Click the delete function or not");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Part Search box");

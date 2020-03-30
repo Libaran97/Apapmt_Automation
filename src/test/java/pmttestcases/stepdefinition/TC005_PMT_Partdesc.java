@@ -85,7 +85,6 @@ public class TC005_PMT_Partdesc extends Baseclass {
 			TestStep("Fail",driver,loginfo,e);
 			System.out.println(e);
 			
-			
 		}
 	}
 
@@ -131,6 +130,7 @@ public class TC005_PMT_Partdesc extends Baseclass {
 		partdesc.acceptAlert();
 		loginfo.pass("Parts page landed successfully");
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		//extent.flush();
 	}catch ( Exception e) {
 		TestStep("Fail",driver,loginfo,e);
 		System.out.println(e);
@@ -177,8 +177,9 @@ public class TC005_PMT_Partdesc extends Baseclass {
 	   
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the part# thorugh part# search");
-		//partdesc.acceptAlert();
+		partdesc.acceptAlert();
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		//extent.flush();
 		}catch ( Exception e) {
 			TestStep("Fail",driver,loginfo,e);
 			System.out.println(e);

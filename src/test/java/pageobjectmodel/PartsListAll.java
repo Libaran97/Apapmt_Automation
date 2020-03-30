@@ -18,7 +18,7 @@ public class PartsListAll extends Baseclass{
 	}
 	
 
-	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_2']")
+	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_3']")
 	WebElement ePartsButton;
 	
 	@FindBy(xpath="//input[@name='ctl00$MainContent$btnPartsList']")
@@ -78,10 +78,10 @@ public class PartsListAll extends Baseclass{
 	@FindBy(xpath ="//input[@id='MainContent_btnsaveappparts']")
 	WebElement ecreateduplicatebtn;
 	
-	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_5']")
+	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_6']")
 	WebElement eReports;
 	
-	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_rptLevel2_5_rptLevel3_1_lnkLink3_1']")
+	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_rptLevel2_6_rptLevel3_1_lnkLink3_1']")
 	WebElement eDropedPart;
 	
 	@FindBy(xpath="//select[@id='MainContent_drpPartDescription']")
@@ -90,20 +90,20 @@ public class PartsListAll extends Baseclass{
 	@FindBy(xpath="//select[@id='MainContent_drpReason']")
 	WebElement eReason;
 	
-	@FindBy(xpath="//input[@id='MainContent_btnSearch']")
+	@FindBy(xpath="//button[@id='MainContent_btnSearch']")
 	WebElement eSearchbtn;
 	
 	@FindBy(xpath="//table[@id='MainContent_GVData']/tbody/tr[2]/td[1]")
 	WebElement eVerifyTable;
 	
 	public void clickonParts() throws InterruptedException {
-		Thread.sleep(3000);
+		
 		ePartsButton.click();
 		Thread.sleep(3000);
 		
 	}
 	public void clickonListAll() throws Throwable {
-		
+		Thread.sleep(3000);
 	
 		eListAll.click();
 		Thread.sleep(3000);

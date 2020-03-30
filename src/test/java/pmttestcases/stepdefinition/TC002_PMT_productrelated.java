@@ -4,13 +4,10 @@ package pmttestcases.stepdefinition;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-
-
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
 import com.aventstack.extentreports.gherkin.model.Scenario;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -22,8 +19,7 @@ import utility.Baseclass;
 public class TC002_PMT_productrelated extends Baseclass {
 
 	ExtentTest loginfo=null;
-	Masterproductrelated_POM mpom;
-  
+	Masterproductrelated_POM mpom;  
 	    
 	
 	@Given("^User will mouse hover and choose the product category page$")
@@ -381,7 +377,58 @@ public class TC002_PMT_productrelated extends Baseclass {
 	}
 	
 	
+
 	
+	//Give User permission User1
+
+	@Given("^User will chose the settings menu$")
+	public void user_will_chose_the_settings_menu() throws Throwable {			
+		try {
+			//extent=setup();	
+			test = extent.createTest(Feature.class, "PMT Product Related-User permission").assignCategory("Permission").pass("User permission added thanks");
+			test=test.createNode(Scenario.class, "Adding user permission");
+			loginfo=test.createNode(new GherkinKeyword("Given"),"User will chose the settings menu");
+			System.out.println("First");
+			mpom = new Masterproductrelated_POM();	
+			mpom.Logoutloginadmin();
+			loginfo.pass("Settings menu landed successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
+		}   catch (Exception e) {
+			TestStep("Fail",driver,loginfo,e);
+			System.out.println(e);
+			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+		}
+	}
+
+	@When("^User chose the appropiate part descripion$")
+	public void user_chose_the_appropiate_part_descripion() throws Throwable {
+		try {
+			loginfo=test.createNode(new GherkinKeyword("When"),"User chose the appropiate part descripion");				
+			mpom.Userpermission();
+			loginfo.pass("User permission added successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//Baseclass.updateTestLinkResult("PMT-3", null, TestLinkAPIResults.TEST_PASSED);
+		} 	catch ( Exception e) {
+			System.out.println(e);
+			TestStep("Fail",driver,loginfo,e);
+			//Baseclass.updateTestLinkResult("PMT-3", e.getMessage(), TestLinkAPIResults.TEST_FAILED);
+		}	
+	}
+
+	@Then("^User will logout the this user$")
+	public void user_will_logout_the_this_user() throws Throwable {
+		try {
+			loginfo=test.createNode(new GherkinKeyword("Then"),"User will logout the this user");					
+			System.out.println("User permission1 created successfully");
+			loginfo.pass("User permission1 created successfully");				
+			//extent.flush();
+		}catch ( Exception e) {
+			TestStep("Fail",driver,loginfo,e);
+			//extent.flush();
+		}	
+	}
+
 
 }
 

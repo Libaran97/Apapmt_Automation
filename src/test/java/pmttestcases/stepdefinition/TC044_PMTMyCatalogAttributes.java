@@ -218,7 +218,7 @@ public class TC044_PMTMyCatalogAttributes extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 		
-		// extent.flush();
+		extent.flush();
 	}
 	
 }

@@ -10,6 +10,7 @@ import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -32,10 +33,7 @@ public class MultiAddPom2 extends Baseclass {
 	@FindBy(xpath = "//table[@class='table table-striped table-bordered']//tr[2]/td[2]")
 	WebElement epartdesc;
 
-	@FindBy(xpath = "//table[@class='table table-striped table-bordered']//tr[2]/td[3]")
-	
-	
-	
+	@FindBy(xpath = "//table[@class='table table-striped table-bordered']//tr[2]/td[3]")	
 	WebElement epartno;
 
 	@FindBy(xpath = "//table[@class='table table-striped table-bordered']//tr[2]/td[4]")
@@ -47,7 +45,8 @@ public class MultiAddPom2 extends Baseclass {
 	@FindBy(xpath = "//table[@class='table table-striped table-bordered']//tr[2]/td[6]")
 	WebElement eposition;
 
-	@FindBy(xpath = "//*[@id='GridView1_Image1_0']")
+	//@FindBy(xpath = "//*[@id='GridView1_Image1_0']")
+	@FindBy(xpath="//*[@id='GridView1_EditButton_0']")
 	private WebElement eedit;
 
 	@FindBy(xpath = "//*[@id='GridView1_Image3_0']")
@@ -66,31 +65,41 @@ public class MultiAddPom2 extends Baseclass {
 	private WebElement everifyvieweditdelete;
 
 	public void partslinked() throws Exception {
-		List<WebElement> list = driver.findElements(By.xpath("//span[@class='chkBottomItem']"));
-		System.out.println("Checkbox values..." + list.size());
-
-		int j = 0;
-		for (int i = 1; i < list.size(); i++) {
-			j = i - 1;
-			String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]")).getText();
-			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + j + "\"]"))
-					.getText();
-			System.out.println("Year value is..." + Year);
-			System.out.println("Type value is..." + Type);
-			if ((Year.contains(pro.getProperty("EnterYear"))) && (Type.contains(pro.getProperty("Acesvalue")))) {
-				//driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
-				driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblPartsLinked_" + j + "\"]")).click();
-
-			} else {
-				continue;
-			}
-
-		}
-
 		
-		//ePartsLinked.click();
-		//Thread.sleep(5000);
-	}
+			List<WebElement> list = driver.findElements(By.xpath("//span[@class='chkBottomItem']"));
+			System.out.println("Checkbox values..." + list.size());
+
+			int j = 0;
+			for (int i = 1; i <= list.size(); i++) {
+				j = i - 1;
+				String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]")).getText();
+				String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + j + "\"]")).getText();
+				String Engine = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblEngineBase_" + j + "\"]")).getText();
+				System.out.println("Year value is..." + Year);
+				System.out.println("Type value is..." + Type);
+				System.out.println("Engine Value is..."+Engine);
+				
+				if ((Year.contains(pro.getProperty("EnterYear"))) && (Type.contains(pro.getProperty("Acesvalue"))) && (Engine.contains(pro.getProperty("SearchTextAcesEngine"))))
+				{
+					//driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
+					//driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblPartsLinked_" + j + "\"]")).click();
+					System.out.println("ELEMENT LOCATED******");
+					try {
+						System.out.println("Test1 pass******");
+						driver.findElement(By.xpath("//*[text()=' Testpart-1']")).click();
+					} catch (Exception e) {
+						System.out.println("Test1 FAIL******");
+					}
+				}
+				else 
+				{
+					continue;
+				}
+				}	
+			
+			//ePartsLinked.click();
+			Thread.sleep(5000);
+		}
 
 	String actual = "";
 
@@ -106,8 +115,11 @@ public class MultiAddPom2 extends Baseclass {
 	}
 
 	public void viewedit() throws Throwable {
-		eedit.click();
-		Thread.sleep(5000);
+		//WebElement element=driver.findElement(By.xpath(".//[@id='welcome-menu']/ul/li[2]/a"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		((JavascriptExecutor)driver).executeScript("arguments[0].click();", eedit);		
+		//eedit.click();
+		//Thread.sleep(5000);
 	}
 
 	public void windowhandler() {
@@ -124,7 +136,8 @@ public class MultiAddPom2 extends Baseclass {
 
 					// Switching to Child window
 					driver.switchTo().window(ChildWindow);
-					Thread.sleep(3000);
+					driver.manage().window().maximize();
+					Thread.sleep(5000);
 					// String price =
 					// driver.findElement(By.xpath("//span[@id=\"prcIsum\"]")).getText();
 

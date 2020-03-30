@@ -1,6 +1,7 @@
+@Sanitycheck
 Feature: PMT [My Catalog - Applications] functionality scenarios
 
-@sanitytest1	
+@sanitytest2
 Scenario:  Check the [My Catalogs - Applications] Functionality [TC041]
 	Given : Click the My Catalog menu link SP
 	When : Click the Application submenu link SP

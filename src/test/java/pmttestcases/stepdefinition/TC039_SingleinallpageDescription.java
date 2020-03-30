@@ -24,7 +24,7 @@ import utility.Baseclass;
 		public void user_will_Click_the_Search_button() throws Throwable {
 			try {
 				//extent = setup();
-				test = extent.createTest(Feature.class, "PMT Product Related Testcases DESC_TN039")
+				test = extent.createTest(Feature.class, "Check the Description add in singele in all page_TN039")
 						.assignCategory("PIES Single in All page ").pass("Description is add verified");
 				test = test.createNode(Scenario.class, "user will Click the add button");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search button");
@@ -64,6 +64,7 @@ import utility.Baseclass;
 				loginfo = test.createNode(new GherkinKeyword("When"),
 						"user will verify the Add product line,Notes and description");
 				spom1.descriptionaddoption("descriptionNotestype","Region");
+				spom1.searchbt();
 				spom1.Verifydescriptionadd("descriptionNotestype","Region");
 				loginfo.pass("user will verify the Add product line,Notes and description");
 				System.out.println("user will verify the Add product line,Notes and description added");
@@ -83,7 +84,7 @@ import utility.Baseclass;
 				System.out.println("**Finally click the Description added success**");
 				loginfo.pass("Finally click the Description added success");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//	 extent.flush();
+				// extent.flush();
 			} catch (Exception e) {
 				System.out.println("**Finally click the Description added failed**");
 				loginfo.fail("Finally click the Description added failed");
@@ -92,11 +93,12 @@ import utility.Baseclass;
 			}
 		}
 	
+		//2nd program
 		@Given("^: user will Click the Search box and partnum$")
 		public void user_will_Click_the_Search_box_and_partnum() throws Throwable {
 			try {
 				//extent = setup();
-				test = extent.createTest(Feature.class, "PMT Product Related Testcases DESC_TN039")
+				test = extent.createTest(Feature.class, "Check the Description Edit in single in all page_TN039")
 						.assignCategory("PIES Single in All page ").pass("Description is edit verified");
 				test = test.createNode(Scenario.class, "user will Click the Search box and partnum");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search box and partnum");
@@ -116,9 +118,9 @@ import utility.Baseclass;
 		public void user_will_edit_the_Description() throws Throwable {
 			try {
 				loginfo = test.createNode(new GherkinKeyword("When"), "user will edit the Description");
-				spom1.descedit();
-				spom1.windowhandler();
-				spom1.descchange("qtydata", "notesdata");
+				spom1.descedit();				
+				spom1.windowhandler();				
+				spom1.descchange("qtydata", "notesdata");				
 				loginfo.pass("user will Click the descripion Edit work");
 				System.out.println("user will Click the descripion Edit work");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -133,7 +135,8 @@ import utility.Baseclass;
 		public void user_will_verify_the_edited_description_value() throws Throwable {
 			try {
 				loginfo = test.createNode(new GherkinKeyword("When"), "user will verify the edited description value");
-				spom1.VerifyEditchange("qtydata", "notesdata");
+				spom1.searchbt();
+				spom1.VerifyEditchange("notesdata");
 				loginfo.pass("user will verify the Add product line,Notes and description");
 				System.out.println("user will verify the Add product line,Notes and description added");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -165,7 +168,7 @@ import utility.Baseclass;
 		public void user_will_Click_the_Search_boxes_and_partnumber() throws Throwable {
 			try {
 				//extent = setup();
-				test = extent.createTest(Feature.class, "PMT Product Related Testcases DESC_TN039")
+				test = extent.createTest(Feature.class, "Check the Description Delete in single in all page_TN039")
 						.assignCategory("PIES Single in All page ").pass("Description is delete verified");
 				test = test.createNode(Scenario.class, "user will Click the Search boxes and partnumber");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search boxes and partnumber");

@@ -19,7 +19,7 @@ public class Parts_KitInfo extends Baseclass {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_2']")
+	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_3']")
 	private WebElement partspageheaderclick;
 	
 	
@@ -35,7 +35,7 @@ public class Parts_KitInfo extends Baseclass {
 	@FindBy(xpath="//div[@id='kit_info']")
 	private WebElement eKitinfoclick;
 	
-	@FindBy(xpath="//input[@id='MainContent_txtCpartNumber']")
+	@FindBy(xpath="//input[@id='txtCpartNumber']")
 	private WebElement eCompPart;
 	
 	@FindBy(xpath="//select[@id='MainContent_drpDescCode']")
@@ -105,7 +105,7 @@ public class Parts_KitInfo extends Baseclass {
 	public void ComponentPart() throws InterruptedException {
 		
 		driver.switchTo().frame(0);
-		eCompPart.sendKeys("Testpart-3 | Ignition Test");
+		eCompPart.sendKeys("Testpart-3");
 		Thread.sleep(3000);
 	}
 	
