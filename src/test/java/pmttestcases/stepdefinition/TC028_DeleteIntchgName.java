@@ -80,12 +80,12 @@ public class TC028_DeleteIntchgName extends Baseclass {
 			
 			loginfo.pass("Deleted InterchangeName verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleted InterchangeName Not verify "+e.getMessage());
 			loginfo.fail("Deleted InterchangeName Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			extent.flush();
 		}
 	}
 

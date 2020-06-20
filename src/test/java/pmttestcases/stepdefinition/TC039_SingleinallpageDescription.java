@@ -28,7 +28,7 @@ import utility.Baseclass;
 						.assignCategory("PIES Single in All page ").pass("Description is add verified");
 				test = test.createNode(Scenario.class, "user will Click the add button");
 				loginfo = test.createNode(new GherkinKeyword("Given"), "user will Click the Search button");
-				spom1.Searchsingle("newpartno");
+				spom1.Searchsingle("Partnum");
 				spom1.searchbt();
 				loginfo.pass("user will Click the Search box");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));

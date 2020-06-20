@@ -3,6 +3,7 @@ package pageobjectmodel;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -127,8 +128,11 @@ public class ApplicationAddNonAces  extends Baseclass{
 		Thread.sleep(3000);
 	}
 	public void Clicksave() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eSaveButton);
 		eSaveButton.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+		
 		}
 	public void acceptAlert() throws InterruptedException{
 		Alert alert = driver.switchTo().alert();
@@ -184,11 +188,11 @@ public class ApplicationAddNonAces  extends Baseclass{
 		eSearchButton2.click();
 		Thread.sleep(3000);
 		}
-	public void verifytext1(String SearchText1)
+	public void verifytext1(String SearchText1) throws Exception
 	{
 		
 		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(5000);
 		String actualText= eAppverify.getText();
 		System.out.println("Text"+actualText);
 		if(actualText.equals(SearchText1))

@@ -9,6 +9,7 @@ import java.util.Set;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -58,7 +59,8 @@ public class Singleinallpage extends Baseclass {
 	@FindBy(xpath = "//*[@id='MainContent_GvApplications_chkActivee1_1']")
 	WebElement enonaceschkbox;
 
-	@FindBy(xpath = "//*[@id='MainContent_btnSave']")
+	//@FindBy(xpath = "//*[@id='MainContent_btnSave']")
+	@FindBy(xpath="//input[@id='btnSave_AddPopup']")
 	WebElement esave;
 
 	@FindBy(xpath = "(//input[@class='glowing-border'])[12]")
@@ -228,7 +230,7 @@ public class Singleinallpage extends Baseclass {
 	public void Searchsingle(String newpartno) throws Throwable {
 		esingleSearch.click();
 		esingleSearch.clear();
-		esingleSearch.sendKeys(pro.getProperty("newpartno"));
+		esingleSearch.sendKeys(pro.getProperty("Partnum"));
 		Thread.sleep(5000);
 	}
 
@@ -366,10 +368,20 @@ public class Singleinallpage extends Baseclass {
 	}
 
 	public void save() throws Throwable {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", esave);
 		esave.click();
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 	}
-
+	
+	public void zoomin() throws Exception {
+		Thread.sleep(5000);
+	 for(int i=0; i<4; i++)
+	 {   
+		  driver.findElement(By.tagName("/html")).sendKeys(Keys.chord(Keys.CONTROL, Keys.SUBTRACT));
+	 }
+	 Thread.sleep(5000);
+	}
 	public void acceptAlert() throws Exception {		
 		Alert alert = driver.switchTo().alert();
 		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());

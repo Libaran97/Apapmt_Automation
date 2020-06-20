@@ -1,4 +1,3 @@
-@Sanitycheck
 Feature: PMT Add Product List
 Description: User will add part#
 

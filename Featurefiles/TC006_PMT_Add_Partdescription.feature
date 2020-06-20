@@ -4,7 +4,7 @@ Description: User will add part description for that part#
 
 
 
-Scenario: Adding part description Test case
+Scenario: Adding pies description Test case
 Given User will go to parts page and search for the part#
 When User will click on the part description and landed in description page
 And Choose the notes type dropdown, enter the notes and click on save button

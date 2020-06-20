@@ -31,41 +31,67 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	@CacheLookup
 	private WebElement vehicletype;
 
-	@FindBy(xpath = "//button[@id='MainContent_btnAdd']")
+	//@FindBy(xpath = "//button[@id='MainContent_btnAdd']")
+	@FindBy(xpath="//div[@id='btnadd_new']")
 	private WebElement addbutton;
+	
+	@FindBy(xpath="//div[@id='btnAdd']")
+	private WebElement addbutton1;
+	
 
-	@FindBy(xpath = "//input[@id='MainContent_txtVehicleType']")
+	//@FindBy(xpath = "//input[@id='MainContent_txtVehicleType']")
+	@FindBy(xpath="//input[@id='txt_vehicle_type']")
 	private WebElement vehicleentertextbox;
 
 	// @FindBy(xpath="//*[@id=\"MainContent_checkACESList_0\"]")
-	@FindBy(xpath = "//td/label[(text()='Car')]")
+	@FindBy(xpath = "//label[(text()='Car')]")
 	private WebElement equivalentvehicle;
 
-	@FindBy(xpath = "//input[@id='MainContent_btnSave']")
+	//@FindBy(xpath = "//input[@id='MainContent_btnSave']")
+	@FindBy(xpath="//div[@id='save_btn_new_add']")
 	private WebElement savebutton;
+	@FindBy(xpath="//div[@id='btnSave']")
+	private WebElement savebutton1;
+	
 
 	@FindBy(xpath = "//*[text()='Make']")
 	private WebElement clickmake;
 
-	@FindBy(xpath = "//select[@id='MainContent_drpVehicleTypeAdd']")
+	//@FindBy(xpath = "//select[@id='MainContent_drpVehicleTypeAdd']")
+	@FindBy(xpath="//span[@id='select2-drpVehicleTypeAdd-container']")
+	
 	private WebElement vehicletypeselect;
+	
+	@FindBy(xpath="//li[text()='Car Test']")
+	private WebElement vehicletypesend;
+	
 
-	@FindBy(xpath = "//input[@id='MainContent_txtMake']")
+	//@FindBy(xpath = "//input[@id='MainContent_txtMake']")
+	@FindBy(xpath="//input[@id='txtMake']")
 	private WebElement maketextbox;
 
-	@FindBy(xpath = "//input[@id='MainContent_checkACESList_42']")
+	//@FindBy(xpath = "//input[@id='MainContent_checkACESList_42']")
+	@FindBy(xpath="//label[text()='Chevrolet']")
 	private WebElement eqmakeradibutton;
 
 	@FindBy(xpath = "//*[text()='Model']")
 	private WebElement modelselect;
 
-	@FindBy(xpath = "//select[@id='MainContent_drpMakeAdd']")
+	//@FindBy(xpath = "//select[@id='MainContent_drpMakeAdd']")
+	
+	@FindBy(xpath="//span[@id='select2-drpMakeAdd-container']")
 	private WebElement dropdownmakeselect;
+	
+	@FindBy(xpath="//li[text()='Test Chevrolet']")
+	private WebElement dropdownmakesend;
 
-	@FindBy(xpath = "//input[@id='MainContent_txtModel']")
+	//@FindBy(xpath = "//input[@id='MainContent_txtModel']")
+	@FindBy(xpath = "//input[@id='txtModel']")	
 	private WebElement modeltextbox;
 
-	@FindBy(xpath = "//input[@id='MainContent_checkACESList_1']")
+	//@FindBy(xpath = "//input[@id='MainContent_checkACESList_1']")
+	//@FindBy(xpath = "//label[text()='Astra']")	
+	@FindBy(xpath = "//label[@id='6641']")
 	private WebElement eqmodelradiobutton;
 
 	@FindBy(xpath = "//i[@class='fas fa-th-large theme_txt_clr sec_lv_menu']")
@@ -77,20 +103,29 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	@FindBy(xpath = "//table[@id='DataTableViewer']/tbody/tr/td[1]")
 	private WebElement eVryText;
 
-	@FindBy(xpath = "//select[@id='MainContent_drpVehicleType']")
+	//@FindBy(xpath = "//select[@id='MainContent_drpVehicleType']")
+	@FindBy(xpath="//span[@id='select2-drpVehicleType-container']")
 	private WebElement eselectddVehicle;
+	
+	
 
 	//Vehicle Type Group 
 	@FindBy(xpath="//*[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_1_lnkLink3_0']")
 	private WebElement VehicleTypeGroup;
 	
-	@FindBy(xpath="//*[@id='MainContent_txtVehicleType']")
+	//@FindBy(xpath="//*[@id='MainContent_txtVehicleType']")
+	@FindBy(xpath="//input[@id='txtVehicleTypegroup']")
 	private WebElement VehicleTypegroupname;
 	
-	@FindBy(xpath="//select[@id='MainContent_drpVehicleTypeACesgruop']")
+	//@FindBy(xpath="//select[@id='MainContent_drpVehicleTypeACesgruop']")
+	@FindBy(xpath="//span[@id='select2-drpVehicleTypeACesgruop1-container']")
 	private WebElement equavalentchose1;
 	
-	@FindBy(xpath = "//td/label[(text()='Car Test')]")
+	@FindBy(xpath="//li[text()='Light Duty']")
+	private WebElement equavalentchosesend;
+	
+	
+	@FindBy(xpath = "//label[(text()='Car Test')]")
 	private WebElement equivalentvehicle1;
 	
 	
@@ -110,13 +145,17 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	}
 	
 	public void vehicletypegroups(String vehicletypename,String Equchose) throws Exception {
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(5000);
 		VehicleTypegroupname.sendKeys(vehicletypename);
 		Thread.sleep(5000);
-		Select equavalentchose = new Select(equavalentchose1);
-		equavalentchose.selectByVisibleText(Equchose);
-		Thread.sleep(5000);		
 		
+		/*Select equavalentchose = new Select(equavalentchose1);
+		equavalentchose.selectByVisibleText(Equchose);
+		Thread.sleep(5000);	*/	
+		equavalentchose1.click();
+		Thread.sleep(5000);
+		equavalentchosesend.click();
+		Thread.sleep(5000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", equivalentvehicle1);
 		equivalentvehicle1.click();
@@ -130,7 +169,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	public void VerifyVehicletypegroup(String vehiclename) throws InterruptedException {
 		Thread.sleep(5000);
 		eSearchBox.sendKeys(vehiclename);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		String text = eVryText.getText();
 		if (text.equals(vehiclename)) {
 			System.out.println("Both are same vehicle type group verified");
@@ -152,7 +191,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		vehicletype.click();
 		Thread.sleep(5000);
 		addbutton.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(5000);
 	}
 
 	/*
@@ -169,18 +208,27 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 
 		js.executeScript("arguments[0].scrollIntoView();", savebutton);
 		savebutton.click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 
 	/*
 	 * alert accept & fetching text
 	 */
 	public void acceptAlert() throws InterruptedException {
-		Alert alert = driver.switchTo().alert();
+		/*Alert alert = driver.switchTo().alert();
 		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Application Related: " + pro.getProperty("vehicletypename") + alert.getText());
 		alert.accept();
-		Thread.sleep(2000);
+		Thread.sleep(2000);*/
+		
+		WebElement pop=driver.findElement(By.xpath("(//button[@type='button'])[2]"));
+		Thread.sleep(5000);
+		System.out.println("Record newly to be inserted");
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(10000);
 
 	}
 
@@ -212,11 +260,13 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		 */
 		Actions action = new Actions(driver);
 		action.moveToElement(master).build().perform();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+		
 		clickmake.click();
 		Thread.sleep(5000);
-		addbutton.click();
-		Thread.sleep(3000);
+		
+		addbutton1.click();
+		Thread.sleep(8000);
 	}
 
 	/*
@@ -225,12 +275,14 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	 */
 	public void addmakename() throws InterruptedException {
 
-		WebElement element = vehicletypeselect;
-		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Select select = new Select(element);
-		select.selectByVisibleText(pro.getProperty("vehicletypename"));
-		Thread.sleep(2000);
-
+		vehicletypeselect.click();
+		Thread.sleep(6000);
+		
+		vehicletypesend.click();
+		Thread.sleep(6000);
+		
+		vehicletypeselect.click();
+		Thread.sleep(6000);
 	}
 
 	/*
@@ -240,11 +292,15 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	public void newmakename(String makename) throws InterruptedException {
 
 		maketextbox.sendKeys(makename);
-		Thread.sleep(1000);
+		Thread.sleep(8000);
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
 		js.executeScript("arguments[0].scrollIntoView();", eqmakeradibutton);
 		eqmakeradibutton.click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
+		
+		js.executeScript("arguments[0].scrollIntoView();", savebutton);
 		savebutton.click();
 		Thread.sleep(2000);
 
@@ -262,15 +318,24 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 
 	}
 
-	public void VerifyMake(String vehiclename, String makename) throws InterruptedException {
+	public void VerifyMake(String makename) throws InterruptedException {
 
-		Select ddvehicle = new Select(eselectddVehicle);
+		eselectddVehicle.click();
+		Thread.sleep(5000);
+		
+		vehicletypesend.click();
+		Thread.sleep(5000);
+		
+		eselectddVehicle.click();
+		Thread.sleep(5000);
+		
+	/*	Select ddvehicle = new Select(eselectddVehicle);
 
 		ddvehicle.selectByVisibleText(vehiclename);
-		Thread.sleep(5000);
+		Thread.sleep(5000);*/
 
 		eSearchBox.sendKeys(makename);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		String text = eVryText.getText();
 		if (text.equals(makename)) {
 			System.out.println("Both are same Make verified");
@@ -289,11 +354,13 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 
 		Actions action = new Actions(driver);
 		action.moveToElement(master).build().perform();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+		
 		modelselect.click();
 		Thread.sleep(5000);
-		addbutton.click();
-		Thread.sleep(3000);
+		
+		addbutton1.click();
+		Thread.sleep(8000);
 	}
 
 	/*
@@ -302,17 +369,34 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	 */
 	public void addmodelname() throws InterruptedException {
 		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		WebElement element = vehicletypeselect;
+		/*WebElement element = vehicletypeselect;
 		Select select = new Select(element);
 		select.selectByVisibleText(pro.getProperty("vehicletypename"));
-		Thread.sleep(2000);
+		Thread.sleep(2000);*/
+		
+		vehicletypeselect.click();
+		Thread.sleep(6000);
+		
+		vehicletypesend.click();
+		Thread.sleep(5000);		
+
+		/*vehicletypeselect.click();
+		Thread.sleep(5000);	*/	
+		
 	}
 
 	public void addmodeldrp2() throws InterruptedException {
-		WebElement element1 = dropdownmakeselect;
+		/*WebElement element1 = dropdownmakeselect;
 		Select select1 = new Select(element1);
 		select1.selectByVisibleText(pro.getProperty("makename"));
-		Thread.sleep(2000);
+		Thread.sleep(2000);*/
+		
+		dropdownmakeselect.click();
+		Thread.sleep(5000);	
+		dropdownmakesend.click();
+		Thread.sleep(5000);	
+		/*dropdownmakeselect.click();
+		Thread.sleep(5000);	*/
 
 	}
 
@@ -322,11 +406,16 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	 */
 	public void modelnameadd(String modelname) throws InterruptedException {
 		modeltextbox.sendKeys(modelname);
+		Thread.sleep(8000);
+		
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;		
+		js1.executeScript("arguments[0].scrollIntoView();", eqmodelradiobutton);
 		eqmodelradiobutton.click();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", savebutton);
-		savebutton.click();
-		Thread.sleep(2000);
+		Thread.sleep(7000);
+	
+		js1.executeScript("arguments[0].scrollIntoView();", savebutton1);
+		savebutton1.click();
+		Thread.sleep(5000);
 	}
 
 	/*

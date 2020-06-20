@@ -28,29 +28,36 @@ public class PartsAdd_POM extends Baseclass {
 	private WebElement partspageheaderclick;
 	
 	
-	@FindBy(xpath="//button[@id='MainContent_btnAdd']")
+	//@FindBy(xpath="//button[@id='MainContent_btnAdd']")
+	@FindBy(xpath="//div[@id='btnAdd']")
 	private WebElement addbutton;
 	
 	
-	@FindBy(xpath="//select[@id='MainContent_drpProductCategoryAdd']")
+	//@FindBy(xpath="//select[@id='MainContent_drpProductCategoryAdd']")
+	@FindBy(xpath="//select[@id='drpProductCategoryAdd']")	
 	private WebElement selectproductcategory;
 	
 	
-	@FindBy(xpath="//select[@id='MainContent_drpProductSubCategoryAdd']")
+	//@FindBy(xpath="//select[@id='MainContent_drpProductSubCategoryAdd']")
+	@FindBy(xpath="//select[@id='drpProductSubCategoryAdd']")	
 	private WebElement selectsubcategorydropdown;
 	
 	
-	@FindBy(xpath="//select[@id='MainContent_drpPartDescriptionAdd']")
+	//@FindBy(xpath="//select[@id='MainContent_drpPartDescriptionAdd']")
+	@FindBy(xpath="//select[@id='drpPartDescriptionAdd']")	
 	private WebElement selectpartdescdropdown;
 	
 	
-	@FindBy(xpath="//select[@id='MainContent_drpproductline']")
+    //@FindBy(xpath="//select[@id='MainContent_drpproductline']")
+	@FindBy(xpath="//select[@id='drpproductline']")	
 	private WebElement drpproductline;
 	
 	
-	@FindBy(xpath="//*[@id='MainContent_txtPart']")
+	//@FindBy(xpath="//*[@id='MainContent_txtPart']")
+	@FindBy(xpath="//textarea[@id='MainContent_txtPart']")
 	private WebElement txtPart;
 	
+	//@FindBy(xpath="//textarea[@id='MainContent_txtPart']")
 	@FindBy(xpath="//textarea[@id='MainContent_txtPart']")
 	private WebElement txtPart1;
 	
@@ -59,11 +66,13 @@ public class PartsAdd_POM extends Baseclass {
 	private WebElement drpMinQtyUOM;
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_btnSave']")
+	//@FindBy(xpath="//input[@id='MainContent_btnSave']")
+	@FindBy(xpath="//input[@id='btnSave']")	
 	private WebElement btnSave;
 	
 	
-	@FindBy(xpath="//select[@id='MainContent_drpProductCategory']")
+	//@FindBy(xpath="//select[@id='MainContent_drpProductCategory']")
+	@FindBy(xpath="//select[@id='drpProductCategory']")
 	private WebElement drpProductCategory;
 	
 	
@@ -93,9 +102,9 @@ public class PartsAdd_POM extends Baseclass {
 	
 	public void partslandingpage() throws InterruptedException{
 		partspageheaderclick.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(7000);
 		addbutton.click();
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 	}
 	
 	
@@ -111,6 +120,7 @@ public class PartsAdd_POM extends Baseclass {
 		Select select = new Select(categoryselect);
 		select.selectByVisibleText(pro.getProperty("categoryname1"));
 		Thread.sleep(5000);
+				
 	}
 	
 	

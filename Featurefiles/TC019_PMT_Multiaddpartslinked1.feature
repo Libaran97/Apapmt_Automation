@@ -1,4 +1,3 @@
-@Sanitycheck
 Feature: PMT Part,Product and part description with part linked option TestCases 
 
 Scenario: Check the multiplepart part linked verfication in the grid [TC036] 

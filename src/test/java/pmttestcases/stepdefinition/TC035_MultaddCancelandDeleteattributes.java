@@ -699,9 +699,9 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			mpom1.Position();
 			mpom1.Notes(pro.getProperty("notesdata"));
 			// mpom1.qtyclear();
-			mpom1.scrolldown();
+			//mpom1.scrolldown();
 			mpom1.Addbutton();
-			mpom1.scrolldown();
+			//mpom1.scrolldown();
 			mpom1.Savebutton();
 			mpom1.acceptAlert();
 			mpom1.Part();

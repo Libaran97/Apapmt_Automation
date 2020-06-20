@@ -3,6 +3,7 @@ package pageobjectmodel;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -126,8 +127,11 @@ public class ApplicationAddAces extends Baseclass {
 		}
 	
 	public void Clicksave() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eSaveButton);
 		eSaveButton.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+		
 		}
 	public void acceptAlert() throws InterruptedException{
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -185,11 +189,11 @@ public class ApplicationAddAces extends Baseclass {
 		eSearchButton2.click();
 		Thread.sleep(3000);
 		}
-	public void verifytext1(String SearchTextVey)
+	public void verifytext1(String SearchTextVey) throws InterruptedException
 	{
 		
 		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(5000);
 		String actualText= eAppverify.getText();
 		System.out.println("Text"+actualText);
 		if(actualText.equals(SearchTextVey))
@@ -203,14 +207,14 @@ public class ApplicationAddAces extends Baseclass {
 		
 	}
 	
-	public void verifyyear(String EnterallYear)
+	public void verifyyear(String EnterInvalidYear) throws InterruptedException
 	{
 		
 		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(5000);
 		String actualText= eAppverifyYr.getText();
 		System.out.println("Text"+actualText);
-		if(actualText.equals(EnterallYear))
+		if(actualText.equals(EnterInvalidYear))
 		{
 			System.out.println("Both are same");
 		}

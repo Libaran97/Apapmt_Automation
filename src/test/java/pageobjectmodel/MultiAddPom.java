@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -22,35 +23,36 @@ public class MultiAddPom extends Baseclass {
 	public WebElement eApplication;
 
 	@FindBy(xpath = "//button[@id='MainContent_Button1']")
-	public WebElement eMultiaddbt;
+	private WebElement eMultiaddbt;
 
 	@FindBy(xpath = "//select[@id='MainContent_drpVehicleType']")
-	public WebElement eVehicle1;
+	private WebElement eVehicle1;
 
 	@FindBy(xpath = "//select[@id='MainContent_drpMake']")
-	public WebElement eMake1;
+	private WebElement eMake1;
 
 	@FindBy(xpath = "//select[@id='MainContent_drpModel']")
-	public WebElement eModel1;
+	private WebElement eModel1;
 
 	@FindBy(xpath = "//select[@id='MainContent_drpVehicleType']")
-	public WebElement eVehicle2;
+	private WebElement eVehicle2;
 
 	@FindBy(xpath = "//select[@id='MainContent_drpMake']")
-	public WebElement eMake2;
+	private WebElement eMake2;
 
 	@FindBy(xpath = "//select[@id='MainContent_drpModel']")
-	public WebElement eModel2;
+	private WebElement eModel2;
 
-	@FindBy(xpath = "//*[@id='MainContent_btnSearch']")
-	public WebElement eSearch;
+	//String esearchs="";
+	@FindBy(xpath = "//button[@id='MainContent_btnSearch']")
+	private WebElement eSearch;
 ////////////////////////////////////////////////////////////
 	@FindBy(id = "MainContent_GVData_chkActivee1_0")
-	public WebElement eChk1;
+	private WebElement eChk1;
 	@FindBy(id = "MainContent_GVData_chkActivee1_2")
-	public WebElement eChk2;
+	private WebElement eChk2;
 	@FindBy(id = "MainContent_GVData_checkAllrow1")
-	public WebElement eChkall;
+	private WebElement eChkall;
 
 ////////////////////////////////////////////////////////////
 
@@ -68,7 +70,7 @@ public class MultiAddPom extends Baseclass {
 	public WebElement eSelectaddbt;
 
 	//@FindBy(xpath = "//input[@id='MainContent_imgSave']")
-	@FindBy(xpath = "//button[@id='MainContent_imgSave']")
+	@FindBy(xpath = "//button[@id='MainContent_imgSave']")	
 	public WebElement eSelectsave;
 
 	@FindBy(xpath = "//button[@id= 'MainContent_imgCancel']")
@@ -79,7 +81,7 @@ public class MultiAddPom extends Baseclass {
 
 	// *****Attributes page *****//
 	//@FindBy(xpath = "//input[@id='MainContent_btnacesattibues']")
-	@FindBy(xpath="//*[@id='MainContent_btnacesattibues']")
+	@FindBy(xpath="//button[@id='MainContent_btnacesattibues']")
 	public WebElement eshowattribt;
 	// *****Attributes page start *****//
 	@FindBy(xpath = "//input[@id='MainContent_dlDisplayColumnList_chkselectAll1_0']")
@@ -107,13 +109,14 @@ public class MultiAddPom extends Baseclass {
 
 	// *****Attributes page Non-ACes End*****//`
 /////////////////////////////////////////////////////////
-	@FindBy(id = "ucMenu_rptLevel1_lnkLink1_3")
+	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_lnkLink1_3']")
 	WebElement ePart;
 
 	@FindBy(xpath = "//input[@id='MainContent_txtMelling']")
 	private WebElement epartsearch;
 
-	@FindBy(xpath = "//input[@id='MainContent_btnPsearch']")
+	//@FindBy(xpath = "//input[@id='MainContent_btnPsearch']")
+	@FindBy(xpath="//*[@id='MainContent_upAttribute']/div[2]/div[1]/div/span/div/input[8]")
 	private WebElement btnPsearch;
 
 	@FindBy(xpath = "//*[@id=\"BuyersGuid1\"]/img")
@@ -237,36 +240,150 @@ public class MultiAddPom extends Baseclass {
 	WebElement epartslinked;
 
 	public void Application() throws InterruptedException {
-		eApplication.click();
-		Thread.sleep(8000);
+		
+		Boolean staleElement = true; 
+
+		while(staleElement){
+
+		  try{
+
+			  eApplication.click();
+				Thread.sleep(8000);
+
+		     staleElement = false;
+
+
+		  } catch(StaleElementReferenceException e){
+
+		    staleElement = true;
+
+		  }
+
+		}
+		
 	}
 
 	public void Multiaddbt() throws InterruptedException {
-		eMultiaddbt.click();
-		Thread.sleep(10000);
+		
+		Boolean staleElement = true; 
+
+		while(staleElement){
+
+		  try{
+
+			  eMultiaddbt.click();
+				Thread.sleep(10000);
+
+		     staleElement = false;
+
+
+		  } catch(StaleElementReferenceException e){
+
+		    staleElement = true;
+
+		  }
+
+		}
+		
 	}
 
 	public void Vehicledata(String vehicletypename) throws Throwable {
-		Select evehicle = new Select(eVehicle1);
-		evehicle.selectByVisibleText(vehicletypename);
-		Thread.sleep(5000);
+		
+		Boolean staleElement = true; 
+
+		while(staleElement){
+
+		  try{
+
+			  Select evehicle = new Select(eVehicle1);
+				evehicle.selectByVisibleText(vehicletypename);
+				Thread.sleep(5000);
+
+		     staleElement = false;
+
+
+		  } catch(StaleElementReferenceException e){
+
+		    staleElement = true;
+
+		  }
+
+		}
+		
 	}
 
 	public void Makedata(String makename) throws Throwable {
-		Select emake = new Select(eMake1);
-		emake.selectByVisibleText(makename);
-		Thread.sleep(5000);
+		
+		Boolean staleElement = true; 
+
+		while(staleElement){
+
+		  try{
+
+			  Select emake = new Select(eMake1);
+				emake.selectByVisibleText(makename);
+				Thread.sleep(5000);
+
+		     staleElement = false;
+
+
+		  } catch(StaleElementReferenceException e){
+
+		    staleElement = true;
+
+		  }
+
+		}
+		
 	}
 
 	public void Modeldata(String modelname) throws Throwable {
-		Select emodel = new Select(eModel1);
-		emodel.selectByVisibleText(modelname);
-		Thread.sleep(5000);
+		
+		Boolean staleElement = true; 
+
+		while(staleElement){
+
+		  try{
+
+			  Select emodel = new Select(eModel1);
+				emodel.selectByVisibleText(modelname);
+				Thread.sleep(5000);
+
+		     staleElement = false;
+
+
+		  } catch(StaleElementReferenceException e){
+
+		    staleElement = true;
+
+		  }
+
+		}
+		
 	}
 
-	public void searchbt() throws Exception {
-		eSearch.click();
-		Thread.sleep(8000);
+	public void searchbt() throws Throwable {
+		
+		Boolean staleElement = true; 
+
+		while(staleElement){
+
+		  try{
+
+			  eSearch.click();
+				Thread.sleep(8000);
+
+		     staleElement = false;
+
+
+		  } catch(StaleElementReferenceException e){
+
+		    staleElement = true;
+
+		  }
+
+		}
+		
 	}
 
 	String acesexpectedtext = "";
@@ -398,21 +515,50 @@ public class MultiAddPom extends Baseclass {
 	
 
 	public void Addbutton() throws Throwable {
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;		
+		js.executeScript("arguments[0].scrollIntoView();", eSelectaddbt);		
+		
 		eSelectaddbt.click();
+		
+		
 		Thread.sleep(5000);
+		
 	}
 
 	public void Savebutton() throws Throwable {
-		eSelectsave.click();
-		Thread.sleep(5000);
+		Boolean staleElement = true; 
+
+		while(staleElement){
+
+		  try{
+
+			  JavascriptExecutor js = (JavascriptExecutor) driver;		
+				js.executeScript("arguments[0].scrollIntoView();", eSelectsave);			
+				eSelectsave.click();		
+				Thread.sleep(10000);
+
+		     staleElement = false;
+
+
+		  } catch(StaleElementReferenceException e){
+
+		    staleElement = true;
+
+		  }
+
+		}
+		
+		
 	}
 
-	public void acceptAlert() throws InterruptedException {
+	public void acceptAlert() throws Throwable {
 		Alert alert = driver.switchTo().alert();
 		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Multiadd is..:" + alert.getText());
+		Thread.sleep(3000);
 		alert.accept();
-		Thread.sleep(10000);
+		Thread.sleep(6000);
 	}
 
 	public void Cancel() throws Throwable {
@@ -436,8 +582,11 @@ public class MultiAddPom extends Baseclass {
 	String engine = "";
 
 	public void attributepage() throws Throwable {
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;		
+		js.executeScript("arguments[0].scrollIntoView();", eshowattribt);			
 		eshowattribt.click();
-		Thread.sleep(10000);
+		Thread.sleep(15000);
 		erregion = eregion.getText();
 		System.out.println("region value is.." + erregion);
 
@@ -467,7 +616,7 @@ public class MultiAddPom extends Baseclass {
 
 	////////////// Check the parts page///////////
 	public void Part() throws Throwable {
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		ePart.click();
 		Thread.sleep(5000);
 	}

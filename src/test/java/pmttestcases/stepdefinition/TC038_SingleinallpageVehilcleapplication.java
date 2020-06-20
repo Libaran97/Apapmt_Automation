@@ -50,7 +50,9 @@
 				loginfo = test.createNode(new GherkinKeyword("When"), "user will add the vehicle application");
 				spom1.vehicleadd();
 				spom1.windowhandler();
+				spom1.zoomin();
 				spom1.vehiclepop("vehicletypename", "makename", "modelname");
+				
 				spom1.aceschkbox();
 				spom1.save();
 				spom1.acceptAlert();

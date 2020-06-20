@@ -429,7 +429,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			System.out.println("Finally multiple Product verified success");
 			loginfo.pass("Finally multiple Product verified success");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		   // extent.flush();
+		    //extent.flush();
 		} catch (Exception e) {
 			System.out.println("Finally multiple Product not verified success");
 			TestStep("Fail",driver,loginfo,e);

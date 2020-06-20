@@ -119,7 +119,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 	@Given("^: user will create the application pages and multiadd pages$")
 	public void user_will_create_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
-		   // extent = setup();
+		    //extent = setup();
 			test = extent.createTest(Feature.class, "Check the Show attributes non ACES in MULTIADD non aces and verify the buyerguide-TC034").assignCategory("PIES MultiAdd ").pass("Non Aces attributes values verified");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces attributes values reflected to buyers guide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),

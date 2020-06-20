@@ -36,7 +36,7 @@ public class Partdescription_POM extends Baseclass {
 	private WebElement txtpartsearch;
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_btnPsearch']")
+	@FindBy(xpath="//*[@id=\"MainContent_upAttribute\"]/div[2]/div[1]/div/span/div/input[8]")
 	private WebElement btnPsearch;
 	
 	//div[@id='Description']
@@ -50,28 +50,28 @@ public class Partdescription_POM extends Baseclass {
 	
 	
 	
-	@FindBy(xpath="//select[@id='MainContent_drpNotesType']")
+	@FindBy(xpath="//select[@id='drpNotesType']")
 	private WebElement drpNotesType1;
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_txtNotes']")
+	@FindBy(xpath="//input[@id='txtNotes']")
 	private WebElement txtNotes;
 	
 	
 	@FindBy(xpath="//td[@class='pad_top_15']")
 	private WebElement clk;
 	
-	@FindBy(xpath="//input[@id='MainContent_btnSave']")
+	@FindBy(xpath="//input[@id='btnCancel']/following-sibling::input")
 	private WebElement btnSave;
 	
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_gv_imgEdit_0']")
+	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[5]/div/child::input[1]")
 	private WebElement imgEdit_0;
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_gv_imgDelete_0']")
-	private WebElement imgDelete_0;
+	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[5]/div/child::input[2]")
+	private WebElement imgDelete_0;//input[@id='MainContent_gv_imgEdit_0']
 	
 	
 	
@@ -119,7 +119,7 @@ public class Partdescription_POM extends Baseclass {
 	
 	
 	public void descriptiondrpdownnotes() throws InterruptedException {
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
 		WebElement descnote = drpNotesType1;
 		Select select = new Select(descnote);
 		select.selectByVisibleText(pro.getProperty("notestype"));
@@ -127,13 +127,15 @@ public class Partdescription_POM extends Baseclass {
 	}
 	
 	
-	public void descriptionadd(String notes) {
+	public void descriptionadd(String notes) throws InterruptedException {
 		txtNotes.sendKeys(notes);
+		Thread.sleep(3000);
 		
 	}
 	
 	
 	public void savebtn() throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		btnSave.click();
 		Thread.sleep(3000);
 	}
@@ -164,7 +166,9 @@ public class Partdescription_POM extends Baseclass {
 	
 	
 	public void editpartdesc(String editnotes) throws Exception {
-		driver.switchTo().frame(0);
+		//sdriver.switchTo().frame(0);
+		WebElement elementfilter1 = imgEdit_0;
+		((JavascriptExecutor) driver).executeScript("arguments[0].click()", elementfilter1);
 		imgEdit_0.click();
 		Thread.sleep(2000);
 		txtNotes.sendKeys(editnotes);
@@ -173,7 +177,9 @@ public class Partdescription_POM extends Baseclass {
 	
 	
 	public void deletepartdesc() throws Exception {
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
+		WebElement elementfilter1 = imgDelete_0;
+		((JavascriptExecutor) driver).executeScript("arguments[0].click()", elementfilter1);
 		imgDelete_0.click();
 		Thread.sleep(2000);
 	}

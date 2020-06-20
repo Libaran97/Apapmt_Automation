@@ -22,7 +22,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 	public void user_will_mouse_hover_on_Master_and_choose_the_vehicle_type_page() throws Throwable {
 
 		try {
-			//extent=setup();
+			// extent=setup();
 			test = extent.createTest(Feature.class, "PMT Add Application related-Add Vehicle")
 					.assignCategory("Master-Application Related vehicle").pass("category added thanks");
 			test = test.createNode(Scenario.class, "Adding Application Related vehicle type, Make & Model Test Cases");
@@ -77,10 +77,11 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 	@Given("^User will mouse hover on Master and choose the vehicle type group page$")
 	public void user_will_mouse_hover_on_Master_and_choose_the_vehicle_type_group_page() throws Throwable {
 		try {
-			//extent = setup();
+			// extent = setup();
 			test = extent.createTest(Feature.class, "PMT Add Application related-Add Vehicle")
 					.assignCategory("Master-Application Related vehicle").pass("category added thanks");
-			test = test.createNode(Scenario.class, "Adding Application Related vehicle type group, Make & Model Test Cases");
+			test = test.createNode(Scenario.class,
+					"Adding Application Related vehicle type group, Make & Model Test Cases");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover on Master and choose the vehicle type group page");
 			master = new Applicationrelated_vehicle_make_model();
@@ -154,7 +155,8 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 					"User will click on the add button and will choose the added vehicle type, enter the new make name and choose the equivalent ACES & save");
 			master.addmakename();
 			master.newmakename(pro.getProperty("makename"));
-			master.acceptAlertformake();
+			// master.acceptAlertformake();
+			master.acceptAlert();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println(e);
@@ -176,6 +178,8 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 			 * pro.getProperty("makename"));
 			 * loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			 */
+
+			master.VerifyMake("makename");
 			// extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -226,12 +230,12 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will successfully added and verify that the record has come");
-			master.acceptAlertformodel();
-			//extent.flush();
+			master.acceptAlert();
+			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
-			//extent.flush();
+			// extent.flush();
 
 		}
 

@@ -79,12 +79,12 @@ public class TC027_DeleteIntchgPartno extends Baseclass {
 			
 			loginfo.pass("Deleted IntchgPartno verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleted IntchgPartno Not verify "+e.getMessage());
 			loginfo.fail("Deleted IntchgPartno Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			extent.flush();
 		}
 
 }

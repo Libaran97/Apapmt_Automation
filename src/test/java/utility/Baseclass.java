@@ -17,7 +17,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.github.bonigarcia.wdm.PhantomJsDriverManager;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pmt.reports.ExtentReport;
 
@@ -25,7 +25,7 @@ public class Baseclass extends ExtentReport {
 
 	public static WebDriver driver;
 	public static Properties pro;
-	public static PhantomJsDriverManager drive;
+	//public static PhantomJsDriverManager driver;
 	/*public static String DEV_KEY = "bf719946efbcf835b6e9c6d00ea90d17"; //Your API 
 	public static String SERVER_URL = "https://www.apagreen.com/testlink/lib/api/xmlrpc/v1/xmlrpc.php"; //your testlink server url
 	public static String PROJECT_NAME = "PMT";
@@ -42,7 +42,7 @@ public class Baseclass extends ExtentReport {
 	public Baseclass() {
 		try {
 			pro = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\qctest\\git\\apapmt_automation\\Configuration\\pmtdetails.properties");
+			FileInputStream fis = new FileInputStream("C:\\Users\\mohamed\\git\\apapmt_automation\\Configuration\\pmtdetails.properties");
 			pro.load(fis);
 		} catch(IOException e) {
 			e.getMessage();
@@ -56,8 +56,9 @@ public class Baseclass extends ExtentReport {
 		String browsername = pro.getProperty("Browser");
 		
 		if(browsername.equals("chrome")) {
-			//System.setProperty("webdriver.chrome.driver", "F:\\Selenium test code\\pmt\\pmtincucumber\\Drivers\\chromedriver.exe");
-			WebDriverManager.chromedriver().setup();
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\mohamed\\git\\apapmt_automation\\Drivers\\chromedriver.exe");
+			
+			//WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();		
 		}else if(browsername.equals("firefox")) {
 			System.setProperty("webdriver.ie.driver", "C:\\Users\\qctest\\git\\apapmt_automation\\Drivers\\IEDriverServer.exe");
@@ -70,11 +71,11 @@ public class Baseclass extends ExtentReport {
 			System.setProperty("webdriver.edge.driver", "C:\\Users\\qctest\\git\\apapmt_automation\\Drivers\\MicrosoftWebDriver.exe");
 			//WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-		}else if(browsername.equals("headless")) {
+		}/*else if(browsername.equals("headless")) {
 			//System.setProperty("phantomjs.binary.path","");
 			WebDriverManager.phantomjs().setup();
-		    drive = new PhantomJsDriverManager();
-		}
+		    driver = new PhantomJsDriverManager();
+		}*/
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

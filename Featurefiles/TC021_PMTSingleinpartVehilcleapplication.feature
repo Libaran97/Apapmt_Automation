@@ -1,4 +1,3 @@
-#@Sanitycheck
 Feature: PMT Vehicle Applicationsingle in all page TestCases 
 
 Scenario: Check the Vehcile aces add[TC038] 

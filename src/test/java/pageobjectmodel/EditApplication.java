@@ -3,6 +3,7 @@ package pageobjectmodel;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -25,13 +26,16 @@ public class EditApplication extends Baseclass{
 	@FindBy(xpath ="//select[@id='MainContent_drpVehicleType']")
 	public WebElement eSelectVehicle;
 	
-	@FindBy(xpath ="//select[@id='MainContent_drpMake']")
+	//@FindBy(xpath ="//select[@id='MainContent_drpMake']")
+	@FindBy(xpath ="//select[@id='MainContent_drpMake1']")
 	public WebElement eSelectMake;
 	
-	@FindBy(xpath ="//select[@id='drpModel']")
+	//@FindBy(xpath ="//select[@id='drpModel']")
+	@FindBy(xpath ="//select[@id='drpModel1']")	
 	public WebElement eSelectModel;
 	
-	@FindBy(xpath ="//input[@id='MainContent_imgbtnsearch']")
+	//@FindBy(xpath ="//input[@id='MainContent_imgbtnsearch']")
+	@FindBy(xpath ="//button[@id='MainContent_imgbtnsearchnew']")	
 	public WebElement eSearchButton;
 	
 	@FindBy(xpath ="//select[@id='MainContent_ddlFilter']")
@@ -66,7 +70,7 @@ public class EditApplication extends Baseclass{
 	
 	public void ClickApplication() throws InterruptedException {
 		eApplication.click();
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 	}
 	
 
@@ -90,12 +94,12 @@ public class EditApplication extends Baseclass{
 		
 		Select model = new Select(eSelectModel);
 		model.selectByVisibleText(modelname);
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		
 		}
 	public void Clicksearch() throws InterruptedException {
 		eSearchButton.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		}
 
 	public void SelectFiterdropdown(String SelectFilterName) throws InterruptedException {
@@ -126,8 +130,12 @@ public class EditApplication extends Baseclass{
 		
 	}
 	public void ClickUpdate() throws InterruptedException {
+			
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eUpdateButton);
 		eUpdateButton.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+		
 		}
 	public void acceptAlert() throws InterruptedException{
 		Alert alert = driver.switchTo().alert();
@@ -145,11 +153,11 @@ public class EditApplication extends Baseclass{
 		}
 		
 		
-		public void verifytext1(String SearchText2)
+		public void verifytext1(String SearchText2) throws Exception
 		{
 			
 			
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Thread.sleep(5000);
 			String actualText= eAppverify.getText();
 			System.out.println("Text"+actualText);
 			if(actualText.equals(SearchText2))

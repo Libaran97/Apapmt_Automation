@@ -68,7 +68,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			mpom1.Partdesc(pro.getProperty("partdesc"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
-			mpom1.scrolldown();
+			//mpom1.scrolldown();
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 
@@ -122,7 +122,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	@Given("^: user will create the application pages and multiadd links pages$")
 	public void user_will_create_the_application_pages_and_multiadd_links_pages() throws Throwable {
 		try {
-			// extent = setup();
+			 //extent = setup();
 			test = extent.createTest(Feature.class, "Check the Show attributes aces and and verify to buyerguide-TC033").assignCategory("PIES MultiAdd ")
 					.pass("Aces attributes values verified");
 			test = test.createNode(Scenario.class, "Multiadd Aces attributes values reflected to buyers guide");
@@ -166,7 +166,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will click the checkbox and use show attributes option");
 			mpom1.Checkbox2("EnterYear", "Acesvalue");
-			mpom1.scrolldown();
+			//mpom1.scrolldown();
 			mpom1.attributepage();
 			mpom1.scrolldown();
 			mpom1.attributepagebt();
@@ -350,7 +350,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			System.out.println("**Show Aces attributes text box succussfully added**");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Show Aces attributes text box succussfully added..");
-			// extent.flush();
+			 //extent.flush();
 		} catch (Exception e) {
 			// extent.flush();
 			loginfo.fail("Show Aces attributes text box succussfully not added....");
