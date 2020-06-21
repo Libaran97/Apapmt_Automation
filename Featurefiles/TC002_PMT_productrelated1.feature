@@ -17,6 +17,16 @@ Given User will mouse hover and choose the Brand Master page
 When User will click on the Search button and check the valid invalid empty search
 Then User will successfully verify that the record has come 
 
+Scenario: Adding Sub product line master 
+Given User will mouse hover and choose the Sub product line master page again
+When User will click on the add Sub product line master given code and value
+Then User will successfully added and verify that the record has come in sub product line master
+
+Scenario: Editing Sub product line master 
+Given User will mouse hover and choose the Sub product line master page reagain
+When User will click on the edit Sub product line master change code and value with option
+Then User will successfully edited and verify that the record has come in sub product line master
+
 Scenario: search system (CK31)
 Given User will mouse hover and choose the system (CK31) page
 When User will search CK31 name and description

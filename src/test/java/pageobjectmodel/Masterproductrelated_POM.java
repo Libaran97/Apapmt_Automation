@@ -269,7 +269,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	@FindBy(xpath = "//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
 	public WebElement esearchbox;
 	
-	@FindBy(xpath = "//div[@id=\"diveditbutton_'128'\"]")
+	@FindBy(xpath = "(//div[@class='edit_icon_ver'])[1]")
 	public WebElement ecustomeditbt;
 	
 

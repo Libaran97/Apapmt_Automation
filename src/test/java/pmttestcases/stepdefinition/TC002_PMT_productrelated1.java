@@ -182,6 +182,114 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 		}
 	}
 
+         //sub product line
+	@Given("^User will mouse hover and choose the Sub product line master page again$")
+	public void user_will_mouse_hover_and_choose_the_Sub_product_line_master_page_again() throws Throwable {
+		try {
+			// extent=setup();
+			test = extent.createTest(Feature.class, "PMT Sub product line master Related-add master")
+					.assignCategory("master").pass("Sub product line master thanks");
+			test = test.createNode(Scenario.class, "Sub product line master");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will mouse hover and choose the Sub product line master page again");
+			mpom2.clcikonSubmaster();
+			loginfo.pass("Sub product line master landed successfully");
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@When("^User will click on the add Sub product line master given code and value$")
+	public void user_will_click_on_the_add_Sub_product_line_master_given_code_and_value() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will click on the add Sub product line master given code and value");
+			mpom2.addsubproductline(pro.getProperty("partnoenter"));
+			loginfo.pass("Value Entered Successfully");
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@Then("^User will successfully added and verify that the record has come in sub product line master$")
+	public void user_will_successfully_added_and_verify_that_the_record_has_come_in_sub_product_line_master()
+			throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"User will successfully added and verify that the record has come in sub product line master");
+			mpom2.acceptAlert();
+			mpom2.validsubmaster(pro.getProperty("partnoenter"));
+			System.out.println("sub product line master successfully");
+			loginfo.pass("sub product line master");
+			// extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// extent.flush();
+		}
+	}
+
+	// subproduct line master edit
+	@Given("^User will mouse hover and choose the Sub product line master page reagain$")
+	public void user_will_mouse_hover_and_choose_the_Sub_product_line_master_page_reagain() throws Throwable {
+		try {
+			// extent=setup();
+			test = extent.createTest(Feature.class, "PMT Sub product line master Related-edit master")
+					.assignCategory("master").pass("Sub product line master thanks");
+			test = test.createNode(Scenario.class, "Sub product line master");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will mouse hover and choose the Sub product line master page reagain");
+			mpom2.clcikonSubmaster();
+			loginfo.pass("Sub product line master landed successfully");
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@When("^User will click on the edit Sub product line master change code and value with option$")
+	public void user_will_click_on_the_edit_Sub_product_line_master_change_code_and_value_with_option()
+			throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will click on the edit Sub product line master change code and value with option");
+			mpom2.editsubproductline(pro.getProperty("partnoenter"), pro.getProperty("partdesc"));
+			loginfo.pass("Value Entered Successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@Then("^User will successfully edited and verify that the record has come in sub product line master$")
+	public void user_will_successfully_edited_and_verify_that_the_record_has_come_in_sub_product_line_master()
+			throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"User will successfully edited and verify that the record has come in sub product line master");
+			mpom2.acceptAlert();
+			mpom2.valideditsubmaster(pro.getProperty("partdesc"));
+			System.out.println("sub product line edit master successfully");
+			loginfo.pass("sub product line edit master");
+			// extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// extent.flush();
+		}
+	}
+
 	// System ck31
 	@Given("^User will mouse hover and choose the system \\(CK(\\d+)\\) page$")
 	public void user_will_mouse_hover_and_choose_the_system_CK_page(int arg1) throws Throwable {
