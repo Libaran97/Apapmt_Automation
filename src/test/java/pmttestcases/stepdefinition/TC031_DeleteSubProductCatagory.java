@@ -24,8 +24,7 @@ public class TC031_DeleteSubProductCatagory extends Baseclass {
 			test = extent.createTest(Feature.class, " PMT ProductRelated Delete ").assignCategory(" Delete SubProductCatagory ").pass(" SubProductCatagory Deleted ");
 			test=test.createNode(Scenario.class, " Deleting SubProductCatagory ");
 			loginfo=test.createNode(new GherkinKeyword("Given")," User will mousehover and choose the Sub product category page ");
-			spdpom = new DeleteSubProductCatagory();
-			    
+			spdpom = new DeleteSubProductCatagory();			    
 			spdpom.clickonSubproductcategory();
 			loginfo.pass(" Sub product category page Successfully ");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -41,8 +40,12 @@ public class TC031_DeleteSubProductCatagory extends Baseclass {
 	public void user_will_select_Category_in_drop_down_and_Enter_product_catagory_name_in_search_box() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When")," User will select Category in drop down and Enter product catagory name in search box ");
-			spdpom.SelectCategory(pro.getProperty("categoryname"));
+			spdpom.SelectCategory();
 			spdpom.SelectsearchTextbox(pro.getProperty("subcategoryname"));
+			spdpom.ClickDelete();
+			spdpom.acceptAlert();
+			spdpom.acceptAlert();
+			spdpom.verifytext1(pro.getProperty("subcategoryname"), pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Category selected in drop down and product catagory name Entered Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -57,7 +60,10 @@ public class TC031_DeleteSubProductCatagory extends Baseclass {
 	public void user_will_click_Delete_Sub_product_category_and_accept_alert() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click Delete Sub product category and accept alert");
+			spdpom.SelectCategory1();
+			spdpom.SelectsearchTextbox1(pro.getProperty("subcategoryname1"));
 			spdpom.ClickDelete();
+			spdpom.acceptAlert();
 			spdpom.acceptAlert();
 			loginfo.pass("Sub product catagory Deleted and Alert Accepted Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -71,13 +77,11 @@ public class TC031_DeleteSubProductCatagory extends Baseclass {
 	@Then("^User will Verify Sub product category is deleted or not$")
 	public void user_will_Verify_Sub_product_category_is_deleted_or_not() throws Throwable {
 		try {
-			loginfo=test.createNode(new GherkinKeyword("When"),"User will Verify Sub product category is deleted or not");
-			spdpom.verifytext1(pro.getProperty("categoryname"), pro.getProperty("subcategoryname"), pro.getProperty("DeleteProducttxt"));
-			
+			loginfo=test.createNode(new GherkinKeyword("When"),"User will Verify Sub product category is deleted or not");			
+			spdpom.verifytext2(pro.getProperty("subcategoryname1"), pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Deleteded Sub product category verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			//extent.flush();
-
 		} catch (Exception e) {
 			System.out.println("Deleteded Sub product category Not verify "+e.getMessage());
 			loginfo.fail("Deleteded Sub product category Not verify");

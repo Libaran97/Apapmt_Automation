@@ -3,6 +3,8 @@ package pageobjectmodel;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -11,70 +13,115 @@ import org.openqa.selenium.support.PageFactory;
 
 import utility.Baseclass;
 
-
-
-public class DeleteProductCatagory extends Baseclass{
+public class DeleteProductCatagory extends Baseclass {
 	public DeleteProductCatagory() {
-		PageFactory.initElements(driver, this);	
+		PageFactory.initElements(driver, this);
 	}
-	
+
 	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_lnkLink1_0']")
 	@CacheLookup
 	private WebElement emaster;
-	
-	@FindBy(xpath ="//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_0']")
+
+	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_0']")
 	private WebElement emastercategory;
-	
-	@FindBy(xpath ="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
+
+	@FindBy(xpath = "//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
 	public WebElement esearchbox;
-	
-	@FindBy(xpath ="//input[@id='MainContent_ImageButton2']")
+
+	@FindBy(xpath = "(//div[@class='edit_icon_ver'])[2]")
 	public WebElement eDeleteButton;
-	
-	@FindBy(xpath ="//*[@id='DataTableViewer']/tbody/tr/td")
+
+	@FindBy(xpath = "//*[@id='DataTableViewer']/tbody/tr/td")
 	public WebElement ePcverify;
-	
-	
+
 	public void clickonproductcategory() throws Throwable {
-		
+
 		Actions action = new Actions(driver);
 		action.moveToElement(emaster).build().perform();
 		Thread.sleep(3000);
 		emastercategory.click();
 		Thread.sleep(3000);
 	}
-	
+
 	public void SelectsearchTextbox(String categoryname) throws InterruptedException {
 		esearchbox.sendKeys(categoryname);
 		Thread.sleep(3000);
 	}
+
+	public void SelectsearchTextbox1(String categoryname1) throws InterruptedException {
+		esearchbox.clear();
+		Thread.sleep(3000);
+		esearchbox.sendKeys(categoryname1);
+		Thread.sleep(3000);
+	}
+
 	public void ClickDelete() throws InterruptedException {
 		eDeleteButton.click();
 		Thread.sleep(3000);
+	}
+
+	public void acceptAlert() throws InterruptedException {
+		/*
+		 * Alert alert = driver.switchTo().alert(); System.out.println("Acess: " +
+		 * alert.getText()); alert.accept(); Thread.sleep(3000);
+		 */
+		WebElement pop = driver.findElement(By.xpath("(//button[@type='button'])[2]"));
+		Thread.sleep(5000);
+		System.out.println("Record newly to be deleted");
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(5000);
+
+	}
+
+	public void verifytext1(String categoryname, String DeleteProducttxt) throws Exception {
+		try {
+			/*
+			 * esearchbox.click(); Thread.sleep(3000);
+			 */
+			esearchbox.sendKeys(categoryname);
+			Thread.sleep(3000);
+
+			String actualText = ePcverify.getText();
+			System.out.println("Text" + actualText);
+			actualText.equals(DeleteProducttxt);
+
+			/*
+			 * esearchbox.sendKeys(categoryname); Thread.sleep(3000);
+			 */
+
+			System.out.println("Both are same" + actualText);
+
+		} catch (Exception e) {
+			System.out.println("Category not available in dropdown  part description deleted successfully");
 		}
-	public void acceptAlert() throws InterruptedException{
-		Alert alert = driver.switchTo().alert();
-		System.out.println("Acess: " + alert.getText());
-		alert.accept();
-		Thread.sleep(3000);
-			
+
 	}
-   
-	public void verifytext1(String DeleteProducttxt){
-	
-	
-	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	String actualText= ePcverify.getText();
-	System.out.println("Text"+actualText);
-	if(actualText.equals(DeleteProducttxt))
-	{
-		System.out.println("Both are same");
+
+	public void verifytext2(String categoryname1, String DeleteProducttxt) throws Exception {
+		try {
+			/*
+			 * esearchbox.click(); Thread.sleep(3000);
+			 */
+			esearchbox.sendKeys(categoryname1);
+			Thread.sleep(3000);
+
+			String actualText = ePcverify.getText();
+			System.out.println("Text" + actualText);
+			actualText.equals(DeleteProducttxt);
+			/*
+			 * esearchbox.sendKeys(categoryname1); Thread.sleep(3000);
+			 */
+
+			System.out.println("Both are same" + actualText);
+
+		} catch (Exception e) {
+
+			System.out.println("Category not available in dropdown  part description deleted successfully");
+		}
+
 	}
-	else
-	{
-		System.out.println("Both are not same");
-	}
-	
-}
 
 }

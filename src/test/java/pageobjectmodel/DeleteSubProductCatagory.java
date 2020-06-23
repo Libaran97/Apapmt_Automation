@@ -3,6 +3,8 @@ package pageobjectmodel;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -25,13 +27,19 @@ public class DeleteSubProductCatagory extends Baseclass{
 	@FindBy(xpath ="//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_1']")
 	private WebElement emastersubcategory;
 	
-	@FindBy(xpath="//select[@id='MainContent_drpProductCategory']")
+	@FindBy(xpath="//span[@id='select2-drpProductCategory1-container']")
 	WebElement eCategoryDDBox;
+	
+	@FindBy(xpath="//li[text()='Steering Test']")
+	WebElement ecategorysteer;
+	
+	@FindBy(xpath="//li[text()='Engine Coils test']")
+	WebElement ecategorysteer1;	
 	
 	@FindBy(xpath ="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
 	public WebElement esearchbox;
 	
-	@FindBy(xpath ="//input[@id='MainContent_ImageButton2']")
+	@FindBy(xpath ="(//div[@class='edit_icon_ver'])[2]")
 	public WebElement eDeleteButton;
 	
 	@FindBy(xpath ="//*[@id='DataTableViewer']/tbody/tr/td")
@@ -46,9 +54,20 @@ public class DeleteSubProductCatagory extends Baseclass{
 		emastersubcategory.click();
 		Thread.sleep(3000);
 	}
-	public void SelectCategory(String categoryname) throws InterruptedException {
-		Select Category = new Select(eCategoryDDBox);
+	public void SelectCategory() throws Throwable {
+		/*Select Category = new Select(eCategoryDDBox);
 		Category.selectByVisibleText(categoryname);
+		Thread.sleep(5000);*/
+		eCategoryDDBox.click();
+		Thread.sleep(5000);
+		ecategorysteer.click();
+		Thread.sleep(5000);
+	}
+	
+	public void SelectCategory1() throws Throwable {	
+		eCategoryDDBox.click();
+		Thread.sleep(5000);
+		ecategorysteer1.click();
 		Thread.sleep(5000);
 	}
 	
@@ -56,30 +75,76 @@ public class DeleteSubProductCatagory extends Baseclass{
 		esearchbox.sendKeys(subcategoryname);
 		Thread.sleep(3000);
 	}
+	public void SelectsearchTextbox1(String subcategoryname1) throws InterruptedException {
+		esearchbox.sendKeys(subcategoryname1);
+		Thread.sleep(3000);
+	}
 	public void ClickDelete() throws InterruptedException {
 		eDeleteButton.click();
 		Thread.sleep(3000);
 		}
 	public void acceptAlert() throws InterruptedException{
-		Alert alert = driver.switchTo().alert();
+		/*Alert alert = driver.switchTo().alert();
 		System.out.println("Acess: " + alert.getText());
 		alert.accept();
-		Thread.sleep(3000);
+		Thread.sleep(3000);*/
+		
+		WebElement pop=driver.findElement(By.xpath("(//button[@type='button'])[2]"));
+		Thread.sleep(5000);
+		System.out.println("Record newly to be deleted");
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(5000);
 		}
-	public void verifytext1(String categoryname, String subcategoryname, String DeleteProducttxt)
+	public void verifytext1(String subcategoryname, String DeleteProducttxt)
 	{
 		
 		try {
-			Select Category = new Select(eCategoryDDBox);
+			/*Select Category = new Select(eCategoryDDBox);
 			Category.selectByVisibleText(categoryname);
+			Thread.sleep(5000);*/
+			eCategoryDDBox.click();
+			Thread.sleep(5000);
+			ecategorysteer.click();
 			Thread.sleep(5000);
 			
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 		String actualText= ePscverify.getText();
 		System.out.println("Text"+actualText);
 		actualText.equals(DeleteProducttxt);
 		
 		esearchbox.sendKeys(subcategoryname);
+		Thread.sleep(3000);
+		
+			System.out.println("Both are same"+ actualText);
+			
+		} catch (Exception e) {
+			
+			System.out.println("Category not available in droipdown  part description deleted successfully");
+		}
+		
+	}
+	
+	public void verifytext2(String subcategoryname1, String DeleteProducttxt)
+	{
+		
+		try {
+			/*Select Category = new Select(eCategoryDDBox);
+			Category.selectByVisibleText(categoryname);
+			Thread.sleep(5000);*/
+			eCategoryDDBox.click();
+			Thread.sleep(5000);
+			ecategorysteer1.click();
+			Thread.sleep(5000);
+			
+		
+		String actualText= ePscverify.getText();
+		System.out.println("Text"+actualText);
+		actualText.equals(DeleteProducttxt);
+		
+		esearchbox.sendKeys(subcategoryname1);
 		Thread.sleep(3000);
 		
 			System.out.println("Both are same"+ actualText);

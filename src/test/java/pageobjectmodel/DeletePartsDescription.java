@@ -27,6 +27,7 @@ public class DeletePartsDescription extends Baseclass{
 	
 	@FindBy(xpath="//select[@id='MainContent_drpProductCategory']")
 	WebElement eCategoryDDBox;
+	
 	@FindBy(xpath="//select[@id='MainContent_drpProductSubCategory']")
 	WebElement eSubCategoryDDBox;
 	
@@ -76,7 +77,7 @@ public class DeletePartsDescription extends Baseclass{
 		alert.accept();
 		Thread.sleep(3000);
 		}
-	public void verifytext1(String DeleteProducttxt, String categoryname, String subcategoryname, String partdesc)
+	public void verifytext1(String DeleteProducttxt, String categoryname, String subcategoryname, String partdesc) throws Exception
 	{
 		
 		try {
@@ -89,6 +90,39 @@ public class DeletePartsDescription extends Baseclass{
 			Thread.sleep(3000);
 			
 			esearchbox.sendKeys(partdesc);
+			Thread.sleep(3000);
+			
+			
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		String actualText= ePDverify.getText();
+		System.out.println("Text"+actualText);
+		actualText.equals(DeleteProducttxt);
+		
+			System.out.println("Both are same"+ actualText );
+		}
+		catch(Exception e)
+		{
+			System.out.println("Category or sub category not selected part description deleted successfully");
+		}
+		
+		Thread.sleep(3000);
+		
+		
+	}
+	
+	public void verifytext2(String DeleteProducttxt, String categoryname1, String subcategoryname1)
+	{
+		
+		try {
+			Select Category = new Select(eCategoryDDBox);
+			Category.selectByVisibleText(categoryname1);
+			Thread.sleep(3000);
+			
+			Select SubCategory = new Select(eSubCategoryDDBox);
+			SubCategory.selectByVisibleText(subcategoryname1);
+			Thread.sleep(3000);
+			
+			esearchbox.sendKeys(subcategoryname1);
 			Thread.sleep(3000);
 			
 			

@@ -26,8 +26,7 @@ public class TC032_DeleteProductCatagory extends Baseclass {
 			test = extent.createTest(Feature.class, "PMT ProductRelated Delete").assignCategory(" Delete ProductCatagory ").pass(" ProductCatagory Deleted ");
 			test=test.createNode(Scenario.class, "Delete ProductCatagory");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mousehover and choose the product category page");
-			pdpom = new DeleteProductCatagory();
-			    
+			pdpom = new DeleteProductCatagory();			    
 			pdpom.clickonproductcategory();
 			loginfo.pass("Product category page Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -45,6 +44,10 @@ public class TC032_DeleteProductCatagory extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Enter product catagory name in search box");
 			pdpom.SelectsearchTextbox(pro.getProperty("categoryname"));
+			pdpom.ClickDelete();
+			pdpom.acceptAlert();
+			pdpom.acceptAlert();
+			pdpom.verifytext1(pro.getProperty("categoryname"),pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Product catagory name Entered Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -60,7 +63,9 @@ public class TC032_DeleteProductCatagory extends Baseclass {
 	public void user_will_click_Delete_product_category_and_accept_alert() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click Delete product category and accept alert");
+			pdpom.SelectsearchTextbox1(pro.getProperty("categoryname1"));
 			pdpom.ClickDelete();
+			pdpom.acceptAlert();
 			pdpom.acceptAlert();
 			loginfo.pass("Product catagory Deleted and Alert Accepted Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -76,8 +81,8 @@ public class TC032_DeleteProductCatagory extends Baseclass {
 	public void user_will_Verify_Sub_product_category_is_deleted_or_not() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Verify product category is deleted or not");
-			pdpom.SelectsearchTextbox(pro.getProperty("categoryname"));
-			pdpom.verifytext1(pro.getProperty("DeleteProducttxt"));
+			//pdpom.SelectsearchTextbox(pro.getProperty("categoryname"));			
+			pdpom.verifytext2(pro.getProperty("categoryname1"),pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Deleteded Sub product category verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			//extent.flush();
