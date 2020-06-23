@@ -399,7 +399,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@Given("^User will mouse hover and choose the component \\(CK(\\d+)\\) page$")
 	public void user_will_mouse_hover_and_choose_the_component_CK_page(int arg1) throws Throwable {
 		try {
-			 extent=setup();
+			 //extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product group Related-component master")
 					.assignCategory("master").pass("master component thanks");
 			test = test.createNode(Scenario.class, "editing product group master");
