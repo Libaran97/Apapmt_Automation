@@ -240,7 +240,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@Given("^User will mouse hover and choose the Sub product line master page reagain$")
 	public void user_will_mouse_hover_and_choose_the_Sub_product_line_master_page_reagain() throws Throwable {
 		try {
-			// extent=setup();
+			 //extent=setup();
 			test = extent.createTest(Feature.class, "PMT Sub product line master Related-edit master")
 					.assignCategory("master").pass("Sub product line master thanks");
 			test = test.createNode(Scenario.class, "Sub product line master");
@@ -399,7 +399,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@Given("^User will mouse hover and choose the component \\(CK(\\d+)\\) page$")
 	public void user_will_mouse_hover_and_choose_the_component_CK_page(int arg1) throws Throwable {
 		try {
-			// extent=setup();
+			 extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product group Related-component master")
 					.assignCategory("master").pass("master component thanks");
 			test = test.createNode(Scenario.class, "editing product group master");
@@ -442,7 +442,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			System.out.println("Product CK33 again successfully");
 			mpom2.Editagain();
 			mpom2.acceptAlert();
-			mpom2.verifyEditagain(pro.getProperty("subcategoryname1"));
+			mpom2.verifyEditagain(pro.getProperty("Partype1"));
 			loginfo.pass("Product component search");
 			System.out.println("CK33 Verified");
 			// extent.flush();

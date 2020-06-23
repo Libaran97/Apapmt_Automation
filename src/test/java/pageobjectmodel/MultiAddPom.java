@@ -43,7 +43,7 @@ public class MultiAddPom extends Baseclass {
 	@FindBy(xpath = "//select[@id='MainContent_drpModel']")
 	private WebElement eModel2;
 
-	//String esearchs="";
+	// String esearchs="";
 	@FindBy(xpath = "//button[@id='MainContent_btnSearch']")
 	private WebElement eSearch;
 ////////////////////////////////////////////////////////////
@@ -65,12 +65,12 @@ public class MultiAddPom extends Baseclass {
 	@FindBy(xpath = "//select[@id='MainContent_ddlpartno']")
 	public WebElement eSelectPartno;
 
-	//@FindBy(xpath = "//input[@id='MainContent_btnPadd']")
-	@FindBy(xpath="// button[@id='MainContent_btnAdd']")
+	// @FindBy(xpath = "//input[@id='MainContent_btnPadd']")
+	@FindBy(xpath = "// button[@id='MainContent_btnAdd']")
 	public WebElement eSelectaddbt;
 
-	//@FindBy(xpath = "//input[@id='MainContent_imgSave']")
-	@FindBy(xpath = "//button[@id='MainContent_imgSave']")	
+	// @FindBy(xpath = "//input[@id='MainContent_imgSave']")
+	@FindBy(xpath = "//button[@id='MainContent_imgSave']")
 	public WebElement eSelectsave;
 
 	@FindBy(xpath = "//button[@id= 'MainContent_imgCancel']")
@@ -80,8 +80,8 @@ public class MultiAddPom extends Baseclass {
 	public WebElement eSelectDelete;
 
 	// *****Attributes page *****//
-	//@FindBy(xpath = "//input[@id='MainContent_btnacesattibues']")
-	@FindBy(xpath="//button[@id='MainContent_btnacesattibues']")
+	// @FindBy(xpath = "//input[@id='MainContent_btnacesattibues']")
+	@FindBy(xpath = "//button[@id='MainContent_btnacesattibues']")
 	public WebElement eshowattribt;
 	// *****Attributes page start *****//
 	@FindBy(xpath = "//input[@id='MainContent_dlDisplayColumnList_chkselectAll1_0']")
@@ -115,8 +115,8 @@ public class MultiAddPom extends Baseclass {
 	@FindBy(xpath = "//input[@id='MainContent_txtMelling']")
 	private WebElement epartsearch;
 
-	//@FindBy(xpath = "//input[@id='MainContent_btnPsearch']")
-	@FindBy(xpath="//*[@id='MainContent_upAttribute']/div[2]/div[1]/div/span/div/input[8]")
+	// @FindBy(xpath = "//input[@id='MainContent_btnPsearch']")
+	@FindBy(xpath = "//*[@id='MainContent_upAttribute']/div[2]/div[1]/div/span/div/input[8]")
 	private WebElement btnPsearch;
 
 	@FindBy(xpath = "//*[@id=\"BuyersGuid1\"]/img")
@@ -240,184 +240,198 @@ public class MultiAddPom extends Baseclass {
 	WebElement epartslinked;
 
 	public void Application() throws InterruptedException {
-		
-		Boolean staleElement = true; 
 
-		while(staleElement){
+		Boolean staleElement = true;
 
-		  try{
+		while (staleElement) {
 
-			  eApplication.click();
+			try {
+
+				eApplication.click();
 				Thread.sleep(8000);
 
-		     staleElement = false;
+				staleElement = false;
 
+			} catch (StaleElementReferenceException e) {
 
-		  } catch(StaleElementReferenceException e){
+				staleElement = true;
 
-		    staleElement = true;
-
-		  }
+			}
 
 		}
-		
+
 	}
 
 	public void Multiaddbt() throws InterruptedException {
-		
-		Boolean staleElement = true; 
 
-		while(staleElement){
+		Boolean staleElement = true;
 
-		  try{
+		while (staleElement) {
 
-			  eMultiaddbt.click();
+			try {
+
+				eMultiaddbt.click();
 				Thread.sleep(10000);
 
-		     staleElement = false;
+				staleElement = false;
 
+			} catch (StaleElementReferenceException e) {
 
-		  } catch(StaleElementReferenceException e){
+				staleElement = true;
 
-		    staleElement = true;
-
-		  }
+			}
 
 		}
-		
+
 	}
 
 	public void Vehicledata(String vehicletypename) throws Throwable {
-		
-		Boolean staleElement = true; 
 
-		while(staleElement){
+		Boolean staleElement = true;
 
-		  try{
+		while (staleElement) {
 
-			  Select evehicle = new Select(eVehicle1);
+			try {
+
+				Select evehicle = new Select(eVehicle1);
 				evehicle.selectByVisibleText(vehicletypename);
 				Thread.sleep(5000);
 
-		     staleElement = false;
+				staleElement = false;
 
+			} catch (StaleElementReferenceException e) {
 
-		  } catch(StaleElementReferenceException e){
+				staleElement = true;
 
-		    staleElement = true;
-
-		  }
+			}
 
 		}
-		
+
 	}
 
 	public void Makedata(String makename) throws Throwable {
-		
-		Boolean staleElement = true; 
 
-		while(staleElement){
+		Boolean staleElement = true;
 
-		  try{
+		while (staleElement) {
 
-			  Select emake = new Select(eMake1);
+			try {
+
+				Select emake = new Select(eMake1);
 				emake.selectByVisibleText(makename);
 				Thread.sleep(5000);
 
-		     staleElement = false;
+				staleElement = false;
 
+			} catch (StaleElementReferenceException e) {
 
-		  } catch(StaleElementReferenceException e){
+				staleElement = true;
 
-		    staleElement = true;
-
-		  }
+			}
 
 		}
-		
+
 	}
 
 	public void Modeldata(String modelname) throws Throwable {
-		
-		Boolean staleElement = true; 
 
-		while(staleElement){
+		Boolean staleElement = true;
 
-		  try{
+		while (staleElement) {
 
-			  Select emodel = new Select(eModel1);
+			try {
+
+				Select emodel = new Select(eModel1);
 				emodel.selectByVisibleText(modelname);
 				Thread.sleep(5000);
 
-		     staleElement = false;
+				staleElement = false;
 
+			} catch (StaleElementReferenceException e) {
 
-		  } catch(StaleElementReferenceException e){
+				staleElement = true;
 
-		    staleElement = true;
-
-		  }
+			}
 
 		}
-		
+
 	}
 
 	public void searchbt() throws Throwable {
-		
-		Boolean staleElement = true; 
 
-		while(staleElement){
+		Boolean staleElement = true;
 
-		  try{
+		while (staleElement) {
 
-			  eSearch.click();
+			try {
+
+				eSearch.click();
 				Thread.sleep(8000);
 
-		     staleElement = false;
+				staleElement = false;
 
+			} catch (StaleElementReferenceException e) {
 
-		  } catch(StaleElementReferenceException e){
+				staleElement = true;
 
-		    staleElement = true;
-
-		  }
+			}
 
 		}
-		
+
 	}
 
 	String acesexpectedtext = "";
 
-/*	public void Checkbox1() throws Throwable {
-		eChk1.click();
-		String acesexpectedtext = efirst1.getText();
-		// String engine= eengine.getText();
-		// System.out.println("Engine value is...."+engine);
-		System.out.println("Year value is..." + acesexpectedtext);
-	}*/
+	/*
+	 * public void Checkbox1() throws Throwable { eChk1.click(); String
+	 * acesexpectedtext = efirst1.getText(); // String engine= eengine.getText(); //
+	 * System.out.println("Engine value is...."+engine);
+	 * System.out.println("Year value is..." + acesexpectedtext); }
+	 */
 
-	public void Checkbox2(String EnterYear, String Acesvalue) {
-		List<WebElement> list = driver.findElements(By.xpath("//span[@class='chkBottomItem']"));
-		System.out.println("Checkbox values..." + list.size());
+	public void Checkbox2(String EnterYear, String Acesvalue) throws Throwable {
+		Boolean staleElement = true;
+		while (staleElement) {
 
-		int j = 0;
-		for (int i = 1; i < list.size(); i++) {
-			j = i - 1;
-			
-			String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]")).getText();
-			
-			//String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications_lblacesnonaces_" + j + "\"]")).getText();		
-			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + j + "\"]")).getText();
-			System.out.println("Year value is..." + Year);
-			System.out.println("Type value is..." + Type);
-			if ((Year.equals(pro.getProperty("EnterYear"))) && (Type.equals(pro.getProperty("Acesvalue")))) {
-				driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
+			try {
 
-			} else {
-				continue;
+				List<WebElement> list = driver.findElements(By.xpath("//span[@class='chkBottomItem']"));
+				System.out.println("Checkbox values..." + list.size());
+
+				int j = 0;
+				for (int i = 1; i < list.size(); i++) {
+					j = i - 1;
+
+					String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]"))
+							.getText();
+
+					// String Type =
+					// driver.findElement(By.xpath("//*[@id=\"MainContent_GvApplications_lblacesnonaces_"
+					// + j + "\"]")).getText();
+					String Type = driver
+							.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + j + "\"]"))
+							.getText();
+					System.out.println("Year value is..." + Year);
+					System.out.println("Type value is..." + Type);
+					if ((Year.equals(pro.getProperty("EnterYear"))) && (Type.equals(pro.getProperty("Acesvalue")))) {
+						driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
+
+					} else {
+						continue;
+					}
+
+				}
+
+				staleElement = false;
+
+			} catch (StaleElementReferenceException e) {
+
+				staleElement = true;
+
 			}
 
 		}
+		Thread.sleep(5000);
 
 		// eChk2.click();
 	}
@@ -430,10 +444,12 @@ public class MultiAddPom extends Baseclass {
 		for (int i = 1; i < list.size(); i++) {
 			j = i - 1;
 			String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]")).getText();
-			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + j + "\"]")).getText();
+			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + j + "\"]"))
+					.getText();
 			System.out.println("Year value is..." + Year);
 			System.out.println("Type value is..." + Type);
-			if ((Year.contains(pro.getProperty("EnterInvalidYear")))&& (Type.contains(pro.getProperty("NonAcesvalue")))) {
+			if ((Year.contains(pro.getProperty("EnterInvalidYear")))
+					&& (Type.contains(pro.getProperty("NonAcesvalue")))) {
 				driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
 
 			} else {
@@ -450,29 +466,29 @@ public class MultiAddPom extends Baseclass {
 		for (int i = 1; i < list.size(); i++) {
 			j = i - 1;
 			String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]")).getText();
-			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + j + "\"]")).getText();
+			String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + j + "\"]"))
+					.getText();
 			System.out.println("Year value is..." + Year);
 			System.out.println("Type value is..." + Type);
-			if ((Year.contains(pro.getProperty("EnterInvalidYear")))&& (Type.contains(pro.getProperty("Acesvalue")))) {				
-				String Text= driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblPartsLinked_"+j+"\"]")).getText();
-				System.out.println("Partlinked value is.."+Text);
-				String Text1= pro.getProperty("partno");
-				System.out.println("Partno values is..."+Text1);
-				if(Text.contains(Text1)) {
+			if ((Year.contains(pro.getProperty("EnterInvalidYear"))) && (Type.contains(pro.getProperty("Acesvalue")))) {
+				String Text = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblPartsLinked_" + j + "\"]"))
+						.getText();
+				System.out.println("Partlinked value is.." + Text);
+				String Text1 = pro.getProperty("partno");
+				System.out.println("Partno values is..." + Text1);
+				if (Text.contains(Text1)) {
 					System.out.println("Part number same");
-				}else
-				{
+				} else {
 					System.out.println("Part number not same");
 				}
-				//driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
+				// driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i +
+				// "]")).click();
 
 			} else {
 				continue;
 			}
 		}
 	}
-
-	
 
 	public void Productline(String linecode) throws Throwable {
 		Select EProduct = new Select(eSelectProduct);
@@ -504,7 +520,7 @@ public class MultiAddPom extends Baseclass {
 		epartno.selectByVisibleText(partno);
 		Thread.sleep(5000);
 	}
-	
+
 	public void Partnum1(String Enterpartpart) throws Throwable {
 		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Select epartno = new Select(eSelectPartno);
@@ -512,44 +528,39 @@ public class MultiAddPom extends Baseclass {
 		Thread.sleep(5000);
 	}
 
-	
-
 	public void Addbutton() throws Throwable {
-		
-		JavascriptExecutor js = (JavascriptExecutor) driver;		
-		js.executeScript("arguments[0].scrollIntoView();", eSelectaddbt);		
-		
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eSelectaddbt);
+
 		eSelectaddbt.click();
-		
-		
+
 		Thread.sleep(5000);
-		
+
 	}
 
 	public void Savebutton() throws Throwable {
-		Boolean staleElement = true; 
+		Boolean staleElement = true;
 
-		while(staleElement){
+		while (staleElement) {
 
-		  try{
+			try {
 
-			  JavascriptExecutor js = (JavascriptExecutor) driver;		
-				js.executeScript("arguments[0].scrollIntoView();", eSelectsave);			
-				eSelectsave.click();		
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView();", eSelectsave);
+				eSelectsave.click();
 				Thread.sleep(10000);
 
-		     staleElement = false;
+				staleElement = false;
 
+			} catch (StaleElementReferenceException e) {
 
-		  } catch(StaleElementReferenceException e){
+				staleElement = true;
 
-		    staleElement = true;
-
-		  }
+			}
 
 		}
-		
-		
+
 	}
 
 	public void acceptAlert() throws Throwable {
@@ -571,10 +582,10 @@ public class MultiAddPom extends Baseclass {
 		Thread.sleep(10000);
 	}
 
-	public void scrolldown()  {
+	public void scrolldown() {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,350)");
-		//Thread.sleep(3000);
+		// Thread.sleep(3000);
 
 	}
 
@@ -582,9 +593,9 @@ public class MultiAddPom extends Baseclass {
 	String engine = "";
 
 	public void attributepage() throws Throwable {
-		
-		JavascriptExecutor js = (JavascriptExecutor) driver;		
-		js.executeScript("arguments[0].scrollIntoView();", eshowattribt);			
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eshowattribt);
 		eshowattribt.click();
 		Thread.sleep(15000);
 		erregion = eregion.getText();
@@ -616,7 +627,7 @@ public class MultiAddPom extends Baseclass {
 
 	////////////// Check the parts page///////////
 	public void Part() throws Throwable {
-		//Thread.sleep(5000);
+		// Thread.sleep(5000);
 		ePart.click();
 		Thread.sleep(5000);
 	}
@@ -808,8 +819,6 @@ public class MultiAddPom extends Baseclass {
 			System.out.println("Both are not same");
 		}
 	}
-
-	
 
 	// **start multipart with description**//
 	public void multidesc(String Partdesc1) throws InterruptedException {

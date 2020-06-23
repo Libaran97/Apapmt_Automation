@@ -117,21 +117,15 @@
 		private WebElement searchfilter6;
 		
 		@FindBy(xpath = "//input[@placeholder='Sub-Product Line Code']")
-		private WebElement efilter;
-		
-		@FindBy(xpath = "//div[@id=\"diveditbutton_'14'\"]")
-		private WebElement eeditsubbt;
-		
+		private WebElement efilter;			
 		
 		@FindBy(xpath = "//*[@id='DataTableViewer']/tbody/tr/td[1]")
-		private WebElement esubcode;		
-	
-		@FindBy(xpath = "//div[@id=\"diveditbutton_'3'\"]")
-		private WebElement compedit;
+		private WebElement esubcode;
 	
 		@FindBy(xpath = "//label[text()='Alternator']")
 		private WebElement ePartype;
-		@FindBy(xpath = "//label[text()='Engine oil test']")
+		
+		@FindBy(xpath = "//label[text()='Starter Motor']")
 		private WebElement ePartypeagain;
 	
 		@FindBy(xpath = "//div[@id='save_btn_new_edit']")
@@ -220,8 +214,8 @@
 		}
 		public void editsubproductline(String partnoenter,String partdesc) throws Throwable {
 			efilter.sendKeys(partnoenter);
-			Thread.sleep(5000);
-			eeditsubbt.click();
+			Thread.sleep(5000);			
+			eeditproductorder.click();
 			WebDriverWait wait2 = new WebDriverWait(driver, 60);
 			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='save_btn_new_edit']")));
 			esubproductlinecode.clear();
@@ -264,8 +258,8 @@
 			eselectedsystemSEL.click();
 			Thread.sleep(5000);
 			searchfilter5.sendKeys(Compnenentvalue);
-			Thread.sleep(5000);
-			compedit.click();
+			Thread.sleep(5000);			
+			eeditproductorder.click();
 			WebDriverWait wait2 = new WebDriverWait(driver, 120);
 			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='save_btn_new_edit']")));
 			ePartype.click();
@@ -452,25 +446,27 @@
 			eeditproductorder.click();
 			WebDriverWait wait2 = new WebDriverWait(driver, 60);
 			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='save_btn_new_edit']")));
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", ePartypeagain);
 			ePartypeagain.click();
 			Thread.sleep(5000);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
+			//JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView();", esaveedit);
 			esaveedit.click();
 			Thread.sleep(5000);
 		}
 	
-		public void verifyEditagain(String subcategoryname1) throws Exception {
+		public void verifyEditagain(String Partype1) throws Exception {
 			eselectsystems.click();
 			Thread.sleep(5000);
 			eselectedsystemSEL.click();
 			Thread.sleep(5000);
-			searchfilter6.sendKeys(subcategoryname1);
+			searchfilter6.sendKeys(Partype1);
 			Thread.sleep(5000);
 	
 			String actualtext = verifytextsec.getText();
 			System.out.println("Text present as " + actualtext);
-			if (actualtext.contains(pro.getProperty("subcategoryname1"))) {
+			if (actualtext.contains(pro.getProperty("Partype1"))) {
 				System.out.println("Both are same");
 			} else {
 				System.out.println("Both are not same");

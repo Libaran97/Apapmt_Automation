@@ -26,10 +26,10 @@ public class TC030_DeletePartsDescription extends Baseclass {
 			test=test.createNode(Scenario.class, "Deleting PartsDescription");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will mousehover and choose the Parts Description page");
 			dpdpom = new DeletePartsDescription();
+            dpdpom.clickonPartsDescription();
 			loginfo.pass("PartsDescription page clicked successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			    
-			dpdpom.clickonPartsDescription();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));	    
+			
 		} catch (Exception e) {
 			System.out.println(" PartsDescription page Not Clicked "+e.getMessage());
 			loginfo.fail("PartsDescription page Not Clicked");
