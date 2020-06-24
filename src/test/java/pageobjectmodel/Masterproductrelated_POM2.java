@@ -270,6 +270,28 @@
 			Thread.sleep(5000);
 	
 		}
+		
+		public void clickcomponentck33searchdel(String Compnenentvalue) throws Throwable {
+			eselectsystems.click();
+			Thread.sleep(5000);
+			eselectedsystemSEL.click();
+			Thread.sleep(5000);
+			searchfilter5.sendKeys(Compnenentvalue);
+			Thread.sleep(5000);			
+			eeditproductorder.click();
+			WebDriverWait wait2 = new WebDriverWait(driver, 120);
+			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='save_btn_new_edit']")));
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", ePartype);
+			ePartype.click();
+			Thread.sleep(8000);
+			js.executeScript("arguments[0].scrollIntoView();", ePartypeagain);
+			ePartypeagain.click();
+			Thread.sleep(8000);			
+			js.executeScript("arguments[0].scrollIntoView();", esaveedit);
+			esaveedit.click();
+			Thread.sleep(5000);	
+		}
 	
 		public void addproductgroup(String Productcategory, String qtydata) throws Throwable {
 			eaddproductgroup.click();
@@ -437,6 +459,28 @@
 				System.out.println("Both are same");
 			} else {
 				System.out.println("Both are not same");
+			}
+			Thread.sleep(5000);
+		}
+		
+		public void verifyingck33del(String Partype) throws Exception {
+			try {
+				eselectsystems.click();
+				Thread.sleep(5000);
+				eselectedsystemSEL.click();
+				Thread.sleep(5000);
+				searchfilter6.sendKeys(Partype);
+				Thread.sleep(5000);
+
+				String actualtext = verifytextsec.getText();
+				System.out.println("Text present as " + actualtext);
+				if (actualtext.equals(pro.getProperty("Partype"))) {
+					System.out.println("Both are same");
+				} else {
+					System.out.println("Both are not same");
+				}
+			} catch (Exception e) {
+				System.out.println("Uncheck the parttype successfully");
 			}
 			Thread.sleep(5000);
 		}
