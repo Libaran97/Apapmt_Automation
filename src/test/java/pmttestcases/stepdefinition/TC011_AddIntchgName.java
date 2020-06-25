@@ -46,7 +46,7 @@ public class TC011_AddIntchgName extends Baseclass {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click Add Button and Enter Interchange name");
 			ipom.clickAdd();
 			
-			ipom.EnterIntName(pro.getProperty("InterchangeNameValue"));
+			ipom.EnterIntName(pro.getProperty("InterchangeName"));
 			loginfo.pass("Add button and Interchange Name Entereded Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -77,7 +77,7 @@ public class TC011_AddIntchgName extends Baseclass {
 	@Then("^User will click save and accept the alert$")
 	public void user_will_click_save_and_accept_the_alert() throws Throwable {
 		try {
-			loginfo=test.createNode(new GherkinKeyword("When"),"User will click save and accept the alert");
+			loginfo=test.createNode(new GherkinKeyword("Then"),"User will click save and accept the alert");
 			ipom.Clicksave();
 			
 			ipom.acceptAlert();
@@ -95,9 +95,9 @@ public class TC011_AddIntchgName extends Baseclass {
 	@Then("^User will verify InterchangeName is add or not$")
 	public void user_will_verify_InterchangeName_is_add_or_not() throws Throwable {
 		try {
-			loginfo=test.createNode(new GherkinKeyword("When"),"User will verify InterchangeName is add or not");
-			ipom.SearchInterchangeName(pro.getProperty("InterchangeNameValue"));
-			ipom.verifytext1(pro.getProperty("DeleteProducttxt"));
+			loginfo=test.createNode(new GherkinKeyword("Then"),"User will verify InterchangeName is add or not");
+			ipom.SearchInterchangeName(pro.getProperty("InterchangeName"));
+			ipom.verifytext1(pro.getProperty("InterchangeName"));
 			loginfo.pass(" InterchangeName verify  Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			//extent.flush();
@@ -112,4 +112,80 @@ public class TC011_AddIntchgName extends Baseclass {
 	}
 	
 
+	//Edit Interchange name
+	@Given("^User will select master and click Interchange Name$")
+	public void user_will_select_master_and_click_Interchange_Name() throws Throwable {
+		try {
+			//extent=setup();	
+			test = extent.createTest(Feature.class, "PMT Interchange Related").assignCategory("Interchange Name Edit").pass("Interchange Name Edited");
+			test=test.createNode(Scenario.class, "Edit InterchangeName");
+			loginfo=test.createNode(new GherkinKeyword("Given"),"^User will select master and click Interchange Name$");
+			ipom = new AddIntchgName_POM();
+			ipom.clickonInterchangeName();
+			loginfo.pass("Interchange Name Button clicked successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(" Interchange Name Button Not Clicked "+e.getMessage());
+			loginfo.fail(" Interchange Name Button Not Clicked ");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	    
+	}
+
+	@When("^User will select interchange, Click edit and edit name and code")
+	public void user_will_select_interchange_and_Click_edit() throws Throwable {
+		try {
+			loginfo=test.createNode(new GherkinKeyword("When"),"User will verify InterchangeName is add or not");
+			ipom.SearchInterchangeName(pro.getProperty("InterchangeName"));
+			ipom.ClickEditInt(pro.getProperty("InterchangeNameValue"));
+			ipom.Editcode();
+			loginfo.pass(" Click Edit  Successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+
+		} catch (Exception e) {
+			System.out.println("Edit Button not clicked "+e.getMessage());
+			loginfo.fail(" Edit Button not clicked ");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+
+	    
+	}
+
+	@When("^User will save and conform$")
+	public void user_will_edit_name_save_and_conform() throws Throwable {
+		try {
+			loginfo=test.createNode(new GherkinKeyword("When"),"^User will save and conform$");
+			ipom.ClickEditsave();
+			
+			ipom.acceptEditAlert();
+			
+			loginfo.pass(" Interchange Name Edited  Successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println("Interchange Name Not Edited"+e.getMessage());
+			loginfo.fail(" Interchange Name Not Edited ");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	    
+	}
+
+	@Then("^User will verify edit intchancename$")
+	public void user_will_verify_edit_intchancename() throws Throwable {
+		try {
+			loginfo=test.createNode(new GherkinKeyword("Then"),"^User will verify edit intchancename$");
+			ipom.SearchInterchangeName(pro.getProperty("InterchangeNameValue"));
+			ipom.verifytext1(pro.getProperty("InterchangeNameValue"));
+			ipom.verifyIntcodetext();
+			loginfo.pass(" InterchangeName Edit verify  Successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+
+		} catch (Exception e) {
+			System.out.println("InterchangeName Edit Not verify "+e.getMessage());
+			loginfo.fail(" InterchangeName Edit Not verify ");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		}
+	    
+	}
 }

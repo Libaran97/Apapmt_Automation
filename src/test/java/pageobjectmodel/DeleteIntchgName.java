@@ -3,6 +3,8 @@ package pageobjectmodel;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -25,13 +27,13 @@ public class DeleteIntchgName extends Baseclass{
 	@FindBy(xpath ="//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_2_lnkLink3_0']")
 	public WebElement eInterchangeName;
 	
-	@FindBy(xpath="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
+	@FindBy(xpath="(//input[@Class='glowing-border'])[1]")
 	WebElement eIntnameSTbox;
 	
-	@FindBy(xpath ="//input[@id='MainContent_ImageButton2']")
+	@FindBy(xpath ="(//div[@Class='edit_icon_ver'])[2]")
 	WebElement eDeleteButton;
 	
-	@FindBy(xpath ="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
+	@FindBy(xpath ="(//input[@Class='glowing-border'])[1]")
 	public WebElement esearchbox;
 	
 	@FindBy(xpath ="//*[@id='DataTableViewer']/tbody/tr/td")
@@ -55,9 +57,14 @@ public class DeleteIntchgName extends Baseclass{
 		Thread.sleep(3000);
 		}
 	public void acceptAlert() throws InterruptedException{
-		Alert alert = driver.switchTo().alert();
-		System.out.println("Acess: " + alert.getText());
-		alert.accept();
+		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
+		Thread.sleep(5000);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(10000);
+	
 		}
 public void verifytext1(String InterchangeNameValue, String DeleteProducttxt) throws InterruptedException{
 		

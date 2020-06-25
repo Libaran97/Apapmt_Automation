@@ -15,9 +15,9 @@ import org.openqa.selenium.support.ui.Select;
 
 import utility.Baseclass;
 
-public class Applicationrelated_vehicle_make_model extends Baseclass {
+public class Applicationrelated_vehicle_make_model2 extends Baseclass {
 
-	public Applicationrelated_vehicle_make_model() {
+	public Applicationrelated_vehicle_make_model2() {
 
 		PageFactory.initElements(driver, this);
 	}
@@ -26,69 +26,62 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	@CacheLookup
 	private WebElement master;
 
-	// @FindBy(xpath="(//*[text()='Vehicle Type'])[1]")
 	@FindBy(xpath = "//*[@id=\"ucMenu_rptLevel1_rptLevel2_0_rptLevel3_1_lnkLink3_1\"]")
 	@CacheLookup
 	private WebElement vehicletype;
 
-	// @FindBy(xpath = "//button[@id='MainContent_btnAdd']")
 	@FindBy(xpath = "//div[@id='btnadd_new']")
 	private WebElement addbutton;
 
 	@FindBy(xpath = "//div[@id='btnAdd']")
 	private WebElement addbutton1;
 
-	// @FindBy(xpath = "//input[@id='MainContent_txtVehicleType']")
 	@FindBy(xpath = "//input[@id='txt_vehicle_type']")
 	private WebElement vehicleentertextbox;
 
-	// @FindBy(xpath="//*[@id=\"MainContent_checkACESList_0\"]")
-	@FindBy(xpath = "//label[(text()='Car')]")
+	@FindBy(xpath = "//span[@id='select2-drpVehicleGroup1-container']")
+	private WebElement eGroup;
+
+	@FindBy(xpath = "//li[text()='Equipment']")
+	private WebElement egroupoption;
+
+	@FindBy(xpath = "//label[(text()='2-Wheel Drive Tractor')]")
 	private WebElement equivalentvehicle;
 
-	// @FindBy(xpath = "//input[@id='MainContent_btnSave']")
 	@FindBy(xpath = "//div[@id='save_btn_new_add']")
 	private WebElement savebutton;
+
 	@FindBy(xpath = "//div[@id='btnSave']")
 	private WebElement savebutton1;
 
 	@FindBy(xpath = "//*[text()='Make']")
 	private WebElement clickmake;
 
-	// @FindBy(xpath = "//select[@id='MainContent_drpVehicleTypeAdd']")
 	@FindBy(xpath = "//span[@id='select2-drpVehicleTypeAdd-container']")
-
 	private WebElement vehicletypeselect;
 
-	@FindBy(xpath = "//li[text()='Car Test']")
+	@FindBy(xpath = "//li[text()='Car equipment']")
 	private WebElement vehicletypesend;
 
-	// @FindBy(xpath = "//input[@id='MainContent_txtMake']")
 	@FindBy(xpath = "//input[@id='txtMake']")
 	private WebElement maketextbox;
 
-	// @FindBy(xpath = "//input[@id='MainContent_checkACESList_42']")
-	@FindBy(xpath = "//label[text()='Chevrolet']")
+	@FindBy(xpath = "//label[text()='John Deere']")
 	private WebElement eqmakeradibutton;
 
 	@FindBy(xpath = "//*[text()='Model']")
 	private WebElement modelselect;
 
-	// @FindBy(xpath = "//select[@id='MainContent_drpMakeAdd']")
-
 	@FindBy(xpath = "//span[@id='select2-drpMakeAdd-container']")
 	private WebElement dropdownmakeselect;
 
-	@FindBy(xpath = "//li[text()='Test Chevrolet']")
+	@FindBy(xpath = "//li[text()='make equipment']")
 	private WebElement dropdownmakesend;
 
-	// @FindBy(xpath = "//input[@id='MainContent_txtModel']")
 	@FindBy(xpath = "//input[@id='txtModel']")
 	private WebElement modeltextbox;
 
-	// @FindBy(xpath = "//input[@id='MainContent_checkACESList_1']")
-	// @FindBy(xpath = "//label[text()='Astra']")
-	@FindBy(xpath = "//label[@id='6641']")
+	@FindBy(xpath = "//label[@id='1707']")
 	private WebElement eqmodelradiobutton;
 
 	@FindBy(xpath = "//i[@class='fas fa-th-large theme_txt_clr sec_lv_menu']")
@@ -100,7 +93,6 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	@FindBy(xpath = "//table[@id='DataTableViewer']/tbody/tr/td[1]")
 	private WebElement eVryText;
 
-	// @FindBy(xpath = "//select[@id='MainContent_drpVehicleType']")
 	@FindBy(xpath = "//span[@id='select2-drpVehicleType-container']")
 	private WebElement eselectddVehicle;
 
@@ -108,19 +100,27 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	@FindBy(xpath = "//*[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_1_lnkLink3_0']")
 	private WebElement VehicleTypeGroup;
 
-	// @FindBy(xpath="//*[@id='MainContent_txtVehicleType']")
 	@FindBy(xpath = "//input[@id='txtVehicleTypegroup']")
 	private WebElement VehicleTypegroupname;
 
-	// @FindBy(xpath="//select[@id='MainContent_drpVehicleTypeACesgruop']")
+	@FindBy(xpath = "//span[@id='select2-drpVehicleGroup1-container']")
+	private WebElement equivehigroup;
+
 	@FindBy(xpath = "//span[@id='select2-drpVehicleTypeACesgruop1-container']")
 	private WebElement equavalentchose1;
 
-	@FindBy(xpath = "//li[text()='Light Duty']")
+	@FindBy(xpath = "//li[text()='Marine']")
 	private WebElement equavalentchosesend;
 
-	@FindBy(xpath = "//label[(text()='Car Test')]")
+	@FindBy(xpath = "//label[(text()='Car equipment')]")
 	private WebElement equivalentvehicle1;
+	
+	@FindBy(xpath = "//span[@id='select2-drpVehicleType-container']")
+	private WebElement eequimentmodelvehcile;
+	
+	
+	
+	//span[@id="select2-drpVehicleType-container"]
 
 	/*
 	 * choosing vehicle type group & add button click
@@ -136,19 +136,21 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
-	public void vehicletypegroups(String vehicletypename, String Equchose) throws Exception {
+	public void vehicletypegroups(String vehicletypenameeq) throws Exception {
 		Thread.sleep(5000);
-		VehicleTypegroupname.sendKeys(vehicletypename);
+		VehicleTypegroupname.sendKeys(vehicletypenameeq);
 		Thread.sleep(5000);
 
-		/*
-		 * Select equavalentchose = new Select(equavalentchose1);
-		 * equavalentchose.selectByVisibleText(Equchose); Thread.sleep(5000);
-		 */
+		equivehigroup.click();
+		Thread.sleep(5000);
+		egroupoption.click();
+		Thread.sleep(5000);
+
 		equavalentchose1.click();
 		Thread.sleep(5000);
 		equavalentchosesend.click();
 		Thread.sleep(5000);
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", equivalentvehicle1);
 		equivalentvehicle1.click();
@@ -158,16 +160,16 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		Thread.sleep(5000);
 	}
 
-	public void VerifyVehicletypegroup(String vehicletypename) throws InterruptedException {
+	public void VerifyequVehicletypegroup(String vehicletypenameeq) throws InterruptedException {
 		Thread.sleep(5000);
-		eSearchBox.sendKeys(vehicletypename);
+		eSearchBox.sendKeys(vehicletypenameeq);
 		Thread.sleep(5000);
 		String text = eVryText.getText();
-		if (text.equals(vehicletypename)) {
-			System.out.println("Both are same vehicle type group verified");
+		if (text.equals(vehicletypenameeq)) {
+			System.out.println("Both are same equipment vehicle type group verified");
 
 		} else {
-			System.out.println("Both are not same vehicle type group verified");
+			System.out.println("Both are not same equipment vehicle type group verified");
 		}
 
 	}
@@ -189,9 +191,14 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	/*
 	 * entering new vehicle type name, equivalent vehicle & save
 	 */
-	public void vehicletypename(String vehicletypename) throws Exception {
+	public void vehicletypename(String vehicletypenameeq) throws Exception {
 		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		vehicleentertextbox.sendKeys(vehicletypename);
+		vehicleentertextbox.sendKeys(vehicletypenameeq);
+		Thread.sleep(5000);
+		eGroup.click();
+		Thread.sleep(5000);
+		egroupoption.click();
+		Thread.sleep(5000);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", equivalentvehicle);
@@ -225,12 +232,12 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 
 	}
 
-	public void VerifyVehicle(String vehicletypename) throws InterruptedException {
+	public void VerifyEquipment(String vehicletypenameeq) throws InterruptedException {
 		Thread.sleep(5000);
-		eSearchBox.sendKeys(vehicletypename);
+		eSearchBox.sendKeys(vehicletypenameeq);
 		Thread.sleep(3000);
 		String text = eVryText.getText();
-		if (text.equals(vehicletypename)) {
+		if (text.equals(vehicletypenameeq)) {
 			System.out.println("Both are same vehicle verified");
 
 		} else {
@@ -282,9 +289,9 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	 * 
 	 * enter make name,choose equivalent aces make & save
 	 */
-	public void newmakename(String makename) throws InterruptedException {
+	public void newmakename(String makenameeq) throws InterruptedException {
 
-		maketextbox.sendKeys(makename);
+		maketextbox.sendKeys(makenameeq);
 		Thread.sleep(8000);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -311,7 +318,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 
 	}
 
-	public void VerifyMake(String makename) throws InterruptedException {
+	public void VerifyMake(String makenameeq) throws InterruptedException {
 
 		eselectddVehicle.click();
 		Thread.sleep(5000);
@@ -328,10 +335,10 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		 * ddvehicle.selectByVisibleText(vehiclename); Thread.sleep(5000);
 		 */
 
-		eSearchBox.sendKeys(makename);
+		eSearchBox.sendKeys(makenameeq);
 		Thread.sleep(5000);
 		String text = eVryText.getText();
-		if (text.equals(makename)) {
+		if (text.equals(makenameeq)) {
 			System.out.println("Both are same Make verified");
 
 		} else {
@@ -362,39 +369,20 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	 * vehicle type choose, make choose, model name add & equivalent model choose
 	 */
 	public void addmodelname() throws InterruptedException {
-		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		/*
-		 * WebElement element = vehicletypeselect; Select select = new Select(element);
-		 * select.selectByVisibleText(pro.getProperty("vehicletypename"));
-		 * Thread.sleep(2000);
-		 */
 
 		vehicletypeselect.click();
 		Thread.sleep(6000);
 
 		vehicletypesend.click();
 		Thread.sleep(5000);
-
-		/*
-		 * vehicletypeselect.click(); Thread.sleep(5000);
-		 */
-
 	}
 
 	public void addmodeldrp2() throws InterruptedException {
-		/*
-		 * WebElement element1 = dropdownmakeselect; Select select1 = new
-		 * Select(element1); select1.selectByVisibleText(pro.getProperty("makename"));
-		 * Thread.sleep(2000);
-		 */
 
 		dropdownmakeselect.click();
 		Thread.sleep(5000);
 		dropdownmakesend.click();
 		Thread.sleep(5000);
-		/*
-		 * dropdownmakeselect.click(); Thread.sleep(5000);
-		 */
 
 	}
 
@@ -402,8 +390,8 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	 * 
 	 * model name add,equivalent model choose & save
 	 */
-	public void modelnameadd(String modelname) throws InterruptedException {
-		modeltextbox.sendKeys(modelname);
+	public void modelnameadd(String modelnameeq) throws InterruptedException {
+		modeltextbox.sendKeys(modelnameeq);
 		Thread.sleep(8000);
 
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
@@ -428,23 +416,22 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		Thread.sleep(3000);
 	}
 
-	public void Verifymodeleq(String modelname) throws InterruptedException {
+	public void Verifymodeleq(String modelnameeq) throws InterruptedException {
 
-		vehicletypeselect.click();
+		eequimentmodelvehcile.click();
 		Thread.sleep(6000);
 
 		vehicletypesend.click();
 		Thread.sleep(5000);
-
-		Thread.sleep(5000);
-		eSearchBox.sendKeys(modelname);
+		
+		eSearchBox.sendKeys(modelnameeq);
 		Thread.sleep(5000);
 		String text = eVryText.getText();
-		if (text.equals(modelname)) {
-			System.out.println("Both are same equipment model verified");
+		if (text.equals(modelnameeq)) {
+			System.out.println("Both are same equipment vehicle type group verified");
 
 		} else {
-			System.out.println("Both are not same equipment model verified");
+			System.out.println("Both are not same equipment vehicle type group verified");
 		}
 
 	}

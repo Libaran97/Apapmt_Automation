@@ -61,7 +61,7 @@ public class TC028_DeleteIntchgName extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click delete and accept alert");
 			indpom.ClickDelete();
-			
+			indpom.acceptAlert();
 			indpom.acceptAlert();
 			loginfo.pass(" Interchange Name Deleted Succesfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -80,12 +80,12 @@ public class TC028_DeleteIntchgName extends Baseclass {
 			
 			loginfo.pass("Deleted InterchangeName verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleted InterchangeName Not verify "+e.getMessage());
 			loginfo.fail("Deleted InterchangeName Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		}
 	}
 

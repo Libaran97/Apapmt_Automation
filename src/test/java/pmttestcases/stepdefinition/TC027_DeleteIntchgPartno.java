@@ -42,7 +42,7 @@ public class TC027_DeleteIntchgPartno extends Baseclass {
 	public void user_will_Select_Interchange_Name_and_search_Interchange_Partno() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Select Interchange Name and search Interchange Partno");
-			idpom.SelectIntName(pro.getProperty("IntchgNameValue4DBox"));
+			idpom.SelectIntName(pro.getProperty("InterchangeNameValue"));
 			
 			idpom.SearchIntchgpartValue(pro.getProperty("interchangepartno"));
 			loginfo.pass(" Interchange Name selected & Interchange Part# Entered  successfully");
@@ -62,6 +62,8 @@ public class TC027_DeleteIntchgPartno extends Baseclass {
 			idpom.ClickDelete();
 			
 			idpom.acceptAlert();
+			
+			idpom.acceptAlert();
 			loginfo.pass(" Interchange Part# Deleted Succesfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -75,16 +77,16 @@ public class TC027_DeleteIntchgPartno extends Baseclass {
 	public void user_will_verify_Interchange_Partno_is_deleted_or_not() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will verify Interchange Partno is deleted or not");
-			idpom.verifytext1(pro.getProperty("IntchgNameValue4DBox"), pro.getProperty("interchangepartno"), pro.getProperty("DeleteProducttxt"));
+			idpom.verifytext1(pro.getProperty("InterchangeNameValue"), pro.getProperty("interchangepartno"), pro.getProperty("DeleteProducttxt"));
 			
 			loginfo.pass("Deleted IntchgPartno verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleted IntchgPartno Not verify "+e.getMessage());
 			loginfo.fail("Deleted IntchgPartno Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		}
 
 }

@@ -3,6 +3,8 @@ package pageobjectmodel;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -26,13 +28,19 @@ public class DeleteIntchgPartno extends Baseclass{
 	@FindBy(xpath ="//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_2_lnkLink3_1']")
 	WebElement eInterchangepart;
 	
-	@FindBy(xpath="//select[@id='MainContent_drpCompetitor']")
+	@FindBy(xpath="//span[@Class='select2-selection__rendered']")
 	WebElement eIntnameDDBox;
 	
-	@FindBy(xpath="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
+	@FindBy(xpath="//input[@Class='select2-search__field']")
+	WebElement eIntnamesearchBox;
+	
+	@FindBy(xpath="//li[@Class='select2-results__option select2-results__option--highlighted']")
+	WebElement eIntnamesearchresult;
+	
+	@FindBy(xpath="(//input[@class='glowing-border'])[1]")
 	WebElement eIntPartSTbox;
 	
-	@FindBy(xpath ="//input[@id='MainContent_ImageButton2']")
+	@FindBy(xpath ="(//div[@Class='edit_icon_ver'])[2]")
 	WebElement eDeleteButton;
 	
 	
@@ -42,7 +50,7 @@ public class DeleteIntchgPartno extends Baseclass{
 	@FindBy(xpath ="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
 	public WebElement esearchbox;
 	
-	@FindBy(xpath ="//*[@id='DataTableViewer']/tbody/tr/td")
+	@FindBy(xpath ="//li[@Class='select2-results__option select2-results__message']")
 	public WebElement ePDverify;
 	
    
@@ -56,10 +64,16 @@ public class DeleteIntchgPartno extends Baseclass{
 	}
 	
 	
-	public void SelectIntName(String IntchgNameValue4DBox) throws InterruptedException {
-		Select intName = new Select(eIntnameDDBox);
-		intName.selectByVisibleText(IntchgNameValue4DBox);
-		Thread.sleep(3000);
+	public void SelectIntName(String InterchangeNameValue) throws InterruptedException {
+
+		eIntnameDDBox.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		eIntnamesearchBox.sendKeys(InterchangeNameValue);
+		
+		Thread.sleep(6000);
+		eIntnamesearchresult.click();	
+		Thread.sleep(5000);
 	}
 	public void SearchIntchgpartValue(String interchangepartno) throws InterruptedException {
 		eIntPartSTbox.sendKeys(interchangepartno);
@@ -70,23 +84,29 @@ public class DeleteIntchgPartno extends Baseclass{
 		Thread.sleep(3000);
 		}
 	public void acceptAlert() throws InterruptedException{
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Alert alert = driver.switchTo().alert();
-		System.out.println("Acess: " + alert.getText());
-		alert.accept();
+		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
+		Thread.sleep(5000);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(10000);
 		}
 	
 
-	public void verifytext1(String IntchgNameValue4DBox,String interchangepartno, String DeleteProducttxt) throws InterruptedException{
+	public void verifytext1(String InterchangeNameValue,String interchangepartno, String DeleteProducttxt) throws InterruptedException{
 		
 		
 		
 		try
 		{
-			Select InterchangeN = new Select(eInterchangeDDbox);
-			InterchangeN.selectByVisibleText(IntchgNameValue4DBox);
+			eIntnameDDBox.click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			esearchbox.sendKeys(interchangepartno);
+			
+			eIntnamesearchBox.sendKeys(InterchangeNameValue);
+			
+			Thread.sleep(6000);
+			
 			
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String actualText= ePDverify.getText();
@@ -97,7 +117,7 @@ public class DeleteIntchgPartno extends Baseclass{
 		}
 		catch (Exception e)
 		{
-			System.out.println("Deleted Successfully");
+			System.out.println("Not Deleted Successfully");
 		}
 		
 	}

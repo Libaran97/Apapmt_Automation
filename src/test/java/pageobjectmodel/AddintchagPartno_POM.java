@@ -2,9 +2,12 @@ package pageobjectmodel;
 
 
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -30,31 +33,43 @@ public class AddintchagPartno_POM extends Baseclass{
 	@FindBy(xpath ="//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_2_lnkLink3_1']")
 	public WebElement eInterchangepart;
 	
-	@FindBy(xpath="//button[@id='MainContent_btnAdd']")
+	@FindBy(xpath="//div[@Class='add_button_icon']")
 	WebElement eAddintpartBtn;
 	
-	@FindBy(xpath="//select[@id='MainContent_drpCompetitorAdd']")
+	@FindBy(xpath="(//span[@Class='select2-selection__rendered'])[2]")
 	WebElement eIntnameDDBox;
 	
-	@FindBy(xpath="//input[@id='MainContent_txtCompetitorPartno']")
+	
+	@FindBy(xpath="//input[@Class='select2-search__field']")
+	WebElement eIntnamesearchBox;
+	
+	@FindBy(xpath="//li[@Class='select2-results__option select2-results__option--highlighted']")
+	WebElement eIntnamesearchresult;
+	
+	
+	@FindBy(xpath="//input[@id='txt_CompetitorPartno']")
 	WebElement eIntnamePartTbox;
 	
-	@FindBy(xpath="//select[@id='MainContent_drpQualityGradeLevel']")
+	@FindBy(xpath="//span[@id='select2-drp_QualityGradeLevel-container']")
 	WebElement eGradeLevelDDBox;
 	
-	@FindBy(xpath="//select[@id='MainContent_drpInterchangeTypeCode']")
-	WebElement eTypeCodeDDBox;
+
+	@FindBy(xpath="//div[@Class='edit_icon_ver']")
+	WebElement eEditBtn;
 	
-	@FindBy(xpath="//input[@id='MainContent_txtInternalNotes']")
+	@FindBy(xpath="//input[@id='txt_InternalNotes']")
 	WebElement eInternalNotes;
 	
-	@FindBy(xpath="//input[@id='MainContent_txtInterchangeNotes']")
+	@FindBy(xpath="//input[@id='txt_InterchangeNotes']")
 	WebElement eInterchangeNotes;
 	
-	@FindBy(xpath ="//input[@id='MainContent_btnSave']")
+	@FindBy(xpath ="//div[@id='save_btn_new_add']")
 	public WebElement eSaveButton;
 	
-	@FindBy(xpath="//*[@id='MainContent_drpCompetitor']")
+	@FindBy(xpath ="//div[@id='save_btn_new_edit']")
+	public WebElement eEditSaveButton;
+	
+	@FindBy(xpath="//*[@id='select2-drpCompetitor1-container']")
 	WebElement eInterchangeDDbox;
 	
 	@FindBy(xpath ="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
@@ -78,27 +93,38 @@ public class AddintchagPartno_POM extends Baseclass{
 		
 	}
 	public void EnterIntName(String InterchangeNameValue) throws InterruptedException {
+	
+		
+		eIntnameDDBox.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		eIntnamesearchBox.sendKeys(InterchangeNameValue);
+		
+		Thread.sleep(6000);
+		eIntnamesearchresult.click();	
 		Thread.sleep(5000);
-		Select intName = new Select(eIntnameDDBox);
-		intName.selectByVisibleText(InterchangeNameValue);
-		Thread.sleep(5000);
+		
 	}
 	public void EnterIntchgpartValue(String interchangepartno) throws InterruptedException {
 		eIntnamePartTbox.sendKeys(interchangepartno);
 		Thread.sleep(3000);
 	}
 	public void SelectGradeLevel(String GradeLevelValue) throws InterruptedException {
+		eGradeLevelDDBox.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		List<WebElement> list = driver.findElements(By.xpath("//li[@Class='select2-results__option']"));
+		System.out.println("total number of Grade -->" + list.size());
+		Thread.sleep(3000);
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i).getText());
+			if(list.get(i).getText().contains(GradeLevelValue)) {
+				list.get(i).click();
+				break;
+			}
+		}
+	}
 
-		Select GradeLevel = new Select(eGradeLevelDDBox);
-		GradeLevel.selectByVisibleText(GradeLevelValue);
-		Thread.sleep(3000);
-	}
-	public void SelectTypeCode(String TypeCodeValue) throws InterruptedException {
-		eTypeCodeDDBox.sendKeys(TypeCodeValue);
-		Select TypeCode = new Select(eTypeCodeDDBox);
-		TypeCode.selectByVisibleText(TypeCodeValue);
-		Thread.sleep(3000);
-	}
 	public void EnterInternalNotes(String InternalNotesValue) {
 		eInternalNotes.sendKeys(InternalNotesValue);
 	}
@@ -106,25 +132,91 @@ public class AddintchagPartno_POM extends Baseclass{
 		eInterchangeNotes.sendKeys(InterchangeNotesValue);
 	}
 	
+	public void SelectPartno(String InterchangeNameValue, String interchangepart) throws InterruptedException{
+		
+		eInterchangeDDbox.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		List<WebElement> list = driver.findElements(By.xpath("//li[@Class='select2-results__option']"));
+		Thread.sleep(3000);
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i).getText());
+			if(list.get(i).getText().contains(InterchangeNameValue)) {
+				list.get(i).click();
+				break;
+			}
+		}
+
+		
+		esearchbox.sendKeys(interchangepart);
+		Thread.sleep(3000);
+		eEditBtn.click();
+		Thread.sleep(3000);
+
+	}
+	
+	public void Editpartno(String interchangepartno) throws InterruptedException {
+		
+		eIntnamePartTbox.clear();
+		Thread.sleep(3000);
+		eIntnamePartTbox.sendKeys(interchangepartno);
+
+		Thread.sleep(3000);
+		
+	}
+	
 	public void Clicksave() throws InterruptedException {
 		eSaveButton.click();
 		Thread.sleep(3000);
 		}
-	public void acceptAlert() throws InterruptedException{
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Alert alert = driver.switchTo().alert();
-		System.out.println("Acess: " + alert.getText());
-		alert.accept();
+	public void ClickEditsave() throws InterruptedException {
+		eEditSaveButton.click();
+		Thread.sleep(3000);
 		}
-	public void verifytext1(String IntchgNameValue4DBox,String interchangepartno) throws InterruptedException{
+	public void acceptAlert() throws InterruptedException{
+		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
+		Thread.sleep(5000);
+		System.out.println("Record newly to be inserted");
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(10000);
+		}
+	public void acceptEditAlert() throws InterruptedException{
+		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
+		Thread.sleep(5000);
+		System.out.println("Record newly to be inserted");
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(10000);
+		
+	}
+	public void verifytext1(String InterchangeNameValue,String interchangepartno) throws InterruptedException{
 		
 		
 		
 		try
 		{
-			Select InterchangeN = new Select(eInterchangeDDbox);
-			InterchangeN.selectByVisibleText(IntchgNameValue4DBox);
+			
+			
+			eInterchangeDDbox.click();
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			
+			List<WebElement> list = driver.findElements(By.xpath("//li[@Class='select2-results__option']"));
+			System.out.println("total number of code -->" + list.size());
 			Thread.sleep(3000);
+			for(int i=0; i<list.size(); i++) {
+				System.out.println(list.get(i).getText());
+				if(list.get(i).getText().contains(InterchangeNameValue)) {
+					list.get(i).click();
+					break;
+				}
+			}
+
+			
 			esearchbox.sendKeys(interchangepartno);
 			
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
