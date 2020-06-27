@@ -89,6 +89,9 @@ public class Applicationrelated_vehicle_make_model2 extends Baseclass {
 
 	@FindBy(xpath = "//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
 	private WebElement eSearchBox;
+	
+	@FindBy(xpath = "(//div[@class='edit_icon_ver'])[1]")
+	private WebElement eequipeditbt;	
 
 	@FindBy(xpath = "//table[@id='DataTableViewer']/tbody/tr/td[1]")
 	private WebElement eVryText;
@@ -193,6 +196,31 @@ public class Applicationrelated_vehicle_make_model2 extends Baseclass {
 	 */
 	public void vehicletypename(String vehicletypenameeq) throws Exception {
 		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		vehicleentertextbox.sendKeys(vehicletypenameeq);
+		Thread.sleep(5000);
+		eGroup.click();
+		Thread.sleep(5000);
+		egroupoption.click();
+		Thread.sleep(5000);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", equivalentvehicle);
+		equivalentvehicle.click();
+
+		js.executeScript("arguments[0].scrollIntoView();", savebutton);
+		savebutton.click();
+		Thread.sleep(5000);
+	}
+	
+	public void vehicletypenameedit(String vehicletypenameeq) throws Exception {
+		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		eSearchBox.sendKeys(vehicletypenameeq);
+		Thread.sleep(3000);
+		
+		eequipeditbt.click();		
+		Thread.sleep(4000);
+		
 		vehicleentertextbox.sendKeys(vehicletypenameeq);
 		Thread.sleep(5000);
 		eGroup.click();

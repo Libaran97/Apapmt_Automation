@@ -28,7 +28,7 @@ public class TC029_DeleteProductLine extends Baseclass {
 			dplpom = new DeleteProductLine();
 			dplpom.clickonproductLine();
 			loginfo.pass("ProductLine clicked successfully");
-			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println(" Product Line page Not Clicked " + e.getMessage());
 			loginfo.fail("Product Line page is not click");
@@ -43,7 +43,7 @@ public class TC029_DeleteProductLine extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"), "User will Enter product Line name in search box");
 			dplpom.SelectsearchTextbox(pro.getProperty("linecode"));
 			loginfo.pass("Product Line name Entered in search box Successfully");
-			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Product Line name Not Entered in search box" + e.getMessage());
 			loginfo.fail("Product Line name Not Entered in search box");
@@ -62,7 +62,7 @@ public class TC029_DeleteProductLine extends Baseclass {
 			dplpom.SelectsearchTextbox(pro.getProperty("linecode"));
 			dplpom.verifytext1(pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Product Line Deleted Successfully");
-			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 
 		} catch (Exception e) {
 			System.out.println(" Product Line Not Deleted or Alert Not Accepted" + e.getMessage());
@@ -83,7 +83,7 @@ public class TC029_DeleteProductLine extends Baseclass {
 			dplpom.SelectsearchTextbox1(pro.getProperty("linecode1"));
 			dplpom.verifytext1(pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Product Line Deleted Successfully");
-			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 
 		} catch (Exception e) {
 			System.out.println(" Product Line Not Deleted or Alert Not Accepted" + e.getMessage());
@@ -95,18 +95,93 @@ public class TC029_DeleteProductLine extends Baseclass {
 	@Then("^User will Verify product Line is deleted or not$")
 	public void user_will_Verify_product_Line_is_deleted_or_not() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("When"), "User will Verify product Line is deleted or not");
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify product Line is deleted or not");
 			dplpom.verifytext1(pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Deleteded product Line verify Successfully");
 			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleteded product Line Not verify " + e.getMessage());
 			loginfo.fail("Deleteded product Line Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		}
 
+	}
+
+	// custom attribute name delete case
+	@Given("^User will mousehover and choose the custome attribute page$")
+	public void user_will_mousehover_and_choose_the_custome_attribute_page() throws Throwable {
+		try {
+			// extent = setup();
+			test = extent.createTest(Feature.class, "PMT ProductRelated Delete")
+					.assignCategory("Delete custome attribute").pass("custom attribute Deleted");
+			test = test.createNode(Scenario.class, "Deleting custome attribute");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will mousehover and choose the custome attribute page");
+			dplpom = new DeleteProductLine();
+			dplpom.clickoncustomattribute();
+			loginfo.pass("custome attribute clicked successfully");
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println("custom attribute page Not Clicked " + e.getMessage());
+			loginfo.fail("custom attribute page is not click");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@When("^User will Enter cust attribute name in search box and delete the attibute with part desc$")
+	public void user_will_Enter_cust_attribute_name_in_search_box_and_delete_the_attibute_with_part_desc()
+			throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will Enter cust attribute name in search box and delete the attibute with part desc");
+			dplpom.SelectsearchTextboxcus2(pro.getProperty("editattrvalue"));
+			dplpom.ClickDelete();
+			dplpom.acceptAlert();
+			dplpom.verifytextcusdel(pro.getProperty("editattrvalue"), pro.getProperty("DeleteProducttxt"));
+			loginfo.pass("Product Line Deleted Successfully");
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+
+		} catch (Exception e) {
+			System.out.println("cust attribute Not Deleted or Alert Not Accepted" + e.getMessage());
+			loginfo.fail("cust attribute Not Deleted or Alert Not Accepted");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@When("^User will click accept alert in custom attribute page twice$")
+	public void user_will_click_accept_alert_in_custom_attribute_page_twice() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will Enter cust attribute name in search box and delete the attibute with part desc");
+			dplpom.SelectsearchTextboxcus3(pro.getProperty("AttributeName1"));
+			dplpom.ClickDelete();
+			dplpom.acceptAlert();
+			loginfo.pass("cust attribute Deleted Successfully");
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+
+		} catch (Exception e) {
+			System.out.println("cust attribute Not Deleted or Alert Not Accepted" + e.getMessage());
+			loginfo.fail("cust attribute Not Deleted or Alert Not Accepted");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@Then("^User will Verify custom attribute is deleted$")
+	public void user_will_Verify_custom_attribute_is_deleted() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify custom attribute is deleted");
+			dplpom.verifytextcusdelanother(pro.getProperty("AttributeName1"), pro.getProperty("DeleteProducttxt"));
+			loginfo.pass("Deleteded custom attribute verify Successfully");
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// extent.flush();
+		} catch (Exception e) {
+			System.out.println("Deleteded custom attribute Not verify " + e.getMessage());
+			loginfo.fail("Deleteded custom attribute Not verify");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// extent.flush();
+		}
 	}
 
 }

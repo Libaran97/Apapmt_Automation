@@ -1,12 +1,17 @@
 Feature: PMT delete Product Related
 
-
 Scenario: deleting product Line
 Given User will mousehover and choose the product Line page
 When User will Enter product Line name in search box
 And User will click Delete product Line and accept alert
 And User will another delet product line and accept alert
 Then User will Verify product Line is deleted or not
+
+Scenario: deleting custom attribute
+Given User will mousehover and choose the custome attribute page
+When User will Enter cust attribute name in search box and delete the attibute with part desc
+And User will click accept alert in custom attribute page twice
+Then User will Verify custom attribute is deleted
 
 Scenario: deleting Parts Description
 Given User will mousehover and choose the Parts Description page

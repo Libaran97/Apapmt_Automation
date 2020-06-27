@@ -69,6 +69,56 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 			// extent.flush();
 		}
 	}
+	//Equipment edit 
+	@Given("^User will mouse hover on Master page and edit the Equipment vehicle type page$")
+	public void user_will_mouse_hover_on_Master_page_and_edit_the_Equipment_vehicle_type_page() throws Throwable {
+		try {
+			extent=setup();
+			test = extent.createTest(Feature.class, "PMT edit Equipment related-Add Vehicle")
+					.assignCategory("Master-Equipment Related vehicle").pass("category edited thanks");
+			test = test.createNode(Scenario.class, "editing Adding Equipment Related vehicle type, Make & Model Test Cases");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will mouse hover on Master page and edit the Equipment vehicle type page");
+			master = new Applicationrelated_vehicle_make_model2();
+			master.clickonvehicletype();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Equipment type page landed successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will click on the Edit button and will enter the new Equipment vehicle type and choose the equivalent ACES & save$")
+	public void user_will_click_on_the_Edit_button_and_will_enter_the_new_Equipment_vehicle_type_and_choose_the_equivalent_ACES_save() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will click on the Edit button and will enter the new Equipment vehicle type and choose the equivalent ACES & save");
+			master.vehicletypenameedit(pro.getProperty("vehicletypenameeq"));
+			master.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type edited successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will verify the edited record should be shown in Equipment vehicle grid$")
+	public void user_will_verify_the_edited_record_should_be_shown_in_Equipment_vehicle_grid() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"User will verify the edited record should be shown in Equipment vehicle grid");
+			master.VerifyEquipment(pro.getProperty("vehicletypenameeq"));
+			 extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			// extent.flush();
+		}
+	}
 
 	// equipment vehicle type group
 	@Given("^User will mouse hover on Master and choose the Equipment vehicle type group page$")

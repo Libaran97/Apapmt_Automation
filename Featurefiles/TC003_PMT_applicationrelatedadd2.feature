@@ -6,6 +6,11 @@ Given User will mouse hover on Master and choose the Equipment vehicle type page
 When User will click on the add button and will enter the new Equipment vehicle type and choose the equivalent ACES & save
 Then User will verify the added record should be shown in Equipment vehicle grid
 
+Scenario: Editing Equipment Related vehicle
+Given User will mouse hover on Master page and edit the Equipment vehicle type page
+When User will click on the Edit button and will enter the new Equipment vehicle type and choose the equivalent ACES & save
+Then User will verify the edited record should be shown in Equipment vehicle grid
+
 Scenario: Adding Equipment Related vehicle type group
 Given User will mouse hover on Master and choose the Equipment vehicle type group page
 When User will click on the add button and will enter the Equipment vehicle type group and choose the equivalent ACES & save
