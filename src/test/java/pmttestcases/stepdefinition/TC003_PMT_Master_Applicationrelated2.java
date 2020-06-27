@@ -70,6 +70,59 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 		}
 	}
 
+	// equipment edit program
+	@Given("^User will mouse hover on Master page and edit the Equipment vehicle type page$")
+	public void user_will_mouse_hover_on_Master_page_and_edit_the_Equipment_vehicle_type_page() throws Throwable {
+		try {
+			// extent=setup();
+			test = extent.createTest(Feature.class, "PMT Edd Equipment related-Add Vehicle")
+					.assignCategory("Master-Equipment Related vehicle").pass("category edited thanks");
+			test = test.createNode(Scenario.class, "Editing Equipment Related vehicle type, Make & Model Test Cases");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will mouse hover on Master page and edit the Equipment vehicle type page");
+			master = new Applicationrelated_vehicle_make_model2();
+			master.clickonvehicletypeedit();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Equipment type page landed successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will click on the Edit button and will enter the new Equipment vehicle type and choose the equivalent ACES & save$")
+	public void user_will_click_on_the_Edit_button_and_will_enter_the_new_Equipment_vehicle_type_and_choose_the_equivalent_ACES_save()
+			throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will click on the Edit button and will enter the new Equipment vehicle type and choose the equivalent ACES & save");
+			// master.vehicletypename(pro.getProperty("vehicletypenameeq"));
+			master.vehcileediticon(pro.getProperty("vehicletypenameeq"), pro.getProperty("vehicletypenameeqedit"));
+			master.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type Added successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will verify the edited record should be shown in Equipment vehicle grid$")
+	public void user_will_verify_the_edited_record_should_be_shown_in_Equipment_vehicle_grid() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"User will verify the edited record should be shown in Equipment vehicle grid");
+			master.VerifyEquipmentedit(pro.getProperty("vehicletypenameeqedit"));
+			// extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			// extent.flush();
+		}
+	}
+
 	// equipment vehicle type group
 	@Given("^User will mouse hover on Master and choose the Equipment vehicle type group page$")
 	public void user_will_mouse_hover_on_Master_and_choose_the_Equipment_vehicle_type_group_page() throws Throwable {
@@ -98,7 +151,7 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click on the add button and will enter the Equipment vehicle type group and choose the equivalent ACES & save");
-			master.vehicletypegroups(pro.getProperty("vehicletypenameeq"));
+			master.vehicletypegroups(pro.getProperty("vehicletypenameeqedit"));
 			master.acceptAlert();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Equipement type group Added successfully");
@@ -115,7 +168,62 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the added record should be shown in Equipment vehicle type group grid");
-			master.VerifyequVehicletypegroup(pro.getProperty("vehicletypenameeq"));
+			master.VerifyequVehicletypegroup(pro.getProperty("vehicletypenameeqedit"));
+			// extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			// extent.flush();
+		}
+	}
+
+	// Equipment edit vehicle type group
+	@Given("^User will mouse hover on Master and edit the Equipment vehicle type group page$")
+	public void user_will_mouse_hover_on_Master_and_edit_the_Equipment_vehicle_type_group_page() throws Throwable {
+		try {
+			// extent = setup();
+			test = extent.createTest(Feature.class, "PMT edit Application related-Add Vehicle")
+					.assignCategory("Master-Application Related vehicle").pass("category edited thanks");
+			test = test.createNode(Scenario.class,
+					"editing Application Related vehicle type group, Make & Model Test Cases");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will mouse hover on Master and edit the Equipment vehicle type group page");
+			master = new Applicationrelated_vehicle_make_model2();
+			master.clickonvehicletypgroupedit();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Equipement type group page landed successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will click on the edit button and will enter the Equipment vehicle type group and choose the equivalent ACES & save$")
+	public void user_will_click_on_the_edit_button_and_will_enter_the_Equipment_vehicle_type_group_and_choose_the_equivalent_ACES_save()
+			throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will click on the edit button and will enter the Equipment vehicle type group and choose the equivalent ACES & save");
+			master.vehicletypegroupsedit(pro.getProperty("vehicletypenameeqedit"),
+					pro.getProperty("vehicletypenameeq"));
+			master.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Equipement type group Added successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will verify the edited record should be shown in Equipment vehicle type group grid$")
+	public void user_will_verify_the_edited_record_should_be_shown_in_Equipment_vehicle_type_group_grid()
+			throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"User will verify the edited record should be shown in Equipment vehicle type group grid");
+			master.VerifyequVehicletypegroupedit(pro.getProperty("vehicletypenameeq"));
 			// extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -176,6 +284,58 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 		}
 	}
 
+	// edit equipment make
+	@Given("^User will mouse hover on master and edit the make for equipment$")
+	public void user_will_mouse_hover_on_master_and_edit_the_make_for_equipment() throws Throwable {
+		try {
+			// extent=setup();
+			test = extent.createTest(Feature.class, "PMT edit equipment related-Add Make")
+					.assignCategory("Master-equipment Related Make").pass("category edited thanks");
+			test = test.createNode(Scenario.class, "editing equipment Related Make");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will mouse hover on master and edit the make for equipment");
+			master = new Applicationrelated_vehicle_make_model2();
+			master.clickonmakeedit();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will click on the edit button and will enter Equipment vehicle type, enter the new make name and choose the equivalent ACES & save$")
+	public void user_will_click_on_the_edit_button_and_will_enter_Equipment_vehicle_type_enter_the_new_make_name_and_choose_the_equivalent_ACES_save()
+			throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will click on the edit button and will enter Equipment vehicle type, enter the new make name and choose the equivalent ACES & save");
+			master.addmakenameedit(pro.getProperty("makenameeqedit"));
+			master.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will verify the edited Equipment record should be shown in make grid$")
+	public void user_will_verify_the_edited_Equipment_record_should_be_shown_in_make_grid() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"User will verify the edited Equipment record should be shown in make grid");
+			master.VerifyMake(pro.getProperty("makenameeqedit"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			// extent.flush();
+		}
+	}
+
+	// Equipment Model add
 	@Given("^User will mouse hover on master and choose the model for equipment$")
 	public void user_will_mouse_hover_on_master_and_choose_the_model_for_equipment() throws Throwable {
 		try {
@@ -187,6 +347,7 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 					"User will mouse hover on master and choose the model for equipment");
 			master = new Applicationrelated_vehicle_make_model2();
 			master.clickonmodel();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
@@ -203,6 +364,7 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 			master.addmodelname();
 			master.addmodeldrp2();
 			master.modelnameadd(pro.getProperty("modelnameeq"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
@@ -217,6 +379,59 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 					"User will successfully Equipment added and verify that the record has come");
 			master.acceptAlert();
 			master.Verifymodeleq(pro.getProperty("modelnameeq"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// extent.flush();
+		} catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			// extent.flush();
+
+		}
+	}
+
+	// edit equipment model
+	@Given("^User will mouse hover on master and edit the model for equipment$")
+	public void user_will_mouse_hover_on_master_and_edit_the_model_for_equipment() throws Throwable {
+		try {
+			// extent = setup();
+			test = extent.createTest(Feature.class, "PMT edit Application related-edit Model")
+					.assignCategory("Master-Application Related Model").pass("category edited thanks");
+			test = test.createNode(Scenario.class, "editing Application Related Model");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will mouse hover on master and edit the model for equipment");
+			master = new Applicationrelated_vehicle_make_model2();
+			master.clickonmodeledit();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will mouse hover on master and edit the model click on the add button and will choose the added for equipment type, make & enter the new model name and choose the equivalent ACES & save$")
+	public void user_will_mouse_hover_on_master_and_edit_the_model_click_on_the_add_button_and_will_choose_the_added_for_equipment_type_make_enter_the_new_model_name_and_choose_the_equivalent_ACES_save()
+			throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will mouse hover on master and edit the model click on the add button and will choose the added for equipment type, make & enter the new model name and choose the equivalent ACES & save");
+			master.addmodelnameedit(pro.getProperty("modelnameeqedit"));
+			master.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will successfully Equipment edited and verify that the record has come$")
+	public void user_will_successfully_Equipment_edited_and_verify_that_the_record_has_come() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"User will successfully Equipment edited and verify that the record has come");
+			master.Verifymodeleq(pro.getProperty("modelnameeqedit"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
