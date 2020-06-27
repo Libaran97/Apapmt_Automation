@@ -20,7 +20,8 @@ public class TC032_DeleteProductCatawithall extends Baseclass {
 	Masterproductrelated_POM2 mpom2 = new Masterproductrelated_POM2();
 
 	ExtentTest loginfo = null;
-    //Product category -dele
+
+	// Product category -dele
 	@Given("^User will mousehover and choose the product category page$")
 	public void user_will_mousehover_and_choose_the_product_category_page() throws Throwable {
 
@@ -212,11 +213,12 @@ public class TC032_DeleteProductCatawithall extends Baseclass {
 			// extent.flush();
 		}
 	}
-      //Component page uncheck
+
+	// Component page uncheck
 	@Given("^User will mousehover and choose the Component page$")
 	public void user_will_mousehover_and_choose_the_Component_page() throws Throwable {
 		try {
-			//extent = setup();
+			// extent = setup();
 			test = extent.createTest(Feature.class, "PMT ProductRelated update")
 					.assignCategory("update Component master").pass("update Component master");
 			test = test.createNode(Scenario.class, "update Component master");
@@ -257,7 +259,7 @@ public class TC032_DeleteProductCatawithall extends Baseclass {
 			mpom2.verifyingck33del(pro.getProperty("Partype"));
 			loginfo.pass("Product component search");
 			System.out.println("CK33 Verified");
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);

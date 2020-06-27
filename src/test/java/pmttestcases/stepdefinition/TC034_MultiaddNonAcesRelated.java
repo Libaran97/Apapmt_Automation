@@ -1,6 +1,5 @@
 package pmttestcases.stepdefinition;
 
-
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
@@ -20,10 +19,13 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 	public void user_will_create_the_application_pages() throws Throwable {
 
 		try {
-			//extent = setup();
-			test = extent.createTest(Feature.class, "Check the Non Aces files in multi add for nonaces and veify the buyersguide-TC034").assignCategory("PIES MultiAdd ").pass("Non Aces values verified");
+			// extent = setup();
+			test = extent
+					.createTest(Feature.class,
+							"Check the Non Aces files in multi add for nonaces and veify the buyersguide-TC034")
+					.assignCategory("PIES MultiAdd ").pass("Non Aces values verified");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces save and reflected to buyersguide");
-			loginfo = test.createNode(new GherkinKeyword("Given"), "user will create the application pages");			
+			loginfo = test.createNode(new GherkinKeyword("Given"), "user will create the application pages");
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
@@ -63,7 +65,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 			mpom1.scrolldown();
 			mpom1.Productline(pro.getProperty("linecode"));
 			mpom1.Partdesc(pro.getProperty("partdesc"));
-			mpom1.Partnum(pro.getProperty("partno"));			
+			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
 			mpom1.scrolldown();
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
@@ -82,15 +84,15 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 			throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
-			
-					"User will successfully saved particular non aces product line and verify that the record has come");			
+
+					"User will successfully saved particular non aces product line and verify that the record has come");
 			mpom1.Savebutton();
 			mpom1.acceptAlert();
 			mpom1.Part();
 			mpom1.partsearch();
 			mpom1.buyerguide();
 			mpom1.scrolldown();
-			mpom1.NonACesverify("EnterInvalidYear", "SearchTextAcesallEngine");			
+			mpom1.NonACesverify("EnterInvalidYear", "SearchTextAcesallEngine");
 			loginfo.pass("Save or Pop up aleat was working");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 
@@ -105,25 +107,27 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 	public void finally_Non_Aces_matched_successfully() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Non Aces matched successfully");
-			//extent.flush();
+			// extent.flush();
 			loginfo.pass("Non Aces is successfully working");
 			System.out.println("**Non Aces is successfully working**");
 		} catch (Exception e) {
 			loginfo.fail("Finally Non Aces matched not success");
 			System.out.println("**Non Aces is not working**");
-			//extent.flush();
+			// extent.flush();
 		}
 	}
-	
-	
+
 	@Given("^: user will create the application pages and multiadd pages$")
 	public void user_will_create_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
-		    //extent = setup();
-			test = extent.createTest(Feature.class, "Check the Show attributes non ACES in MULTIADD non aces and verify the buyerguide-TC034").assignCategory("PIES MultiAdd ").pass("Non Aces attributes values verified");
+			// extent = setup();
+			test = extent
+					.createTest(Feature.class,
+							"Check the Show attributes non ACES in MULTIADD non aces and verify the buyerguide-TC034")
+					.assignCategory("PIES MultiAdd ").pass("Non Aces attributes values verified");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces attributes values reflected to buyers guide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
-					"user will create the application pages and multiadd pages");			
+					"user will create the application pages and multiadd pages");
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
@@ -181,9 +185,9 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 					"user will select the product, description, part number");
 			mpom1.Productline(pro.getProperty("linecode"));
 			mpom1.Partdesc(pro.getProperty("partdesc"));
-			mpom1.Partnum(pro.getProperty("partno"));	
+			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.scrolldown();
-			mpom1.Addbutton();	
+			mpom1.Addbutton();
 			mpom1.scrolldown();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product,desc,part...is working");
@@ -200,14 +204,14 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will do save option and alert popup to accept or not");
 			mpom1.Savebutton();
-			mpom1.acceptAlert();		
+			mpom1.acceptAlert();
 			mpom1.Part();
 			mpom1.partsearch();
 			mpom1.buyerguide();
-			mpom1.scrolldown();			
-			mpom1.NonAcesattverify("EnterInvalidYear","SearchTextAcesallEngine");
+			mpom1.scrolldown();
+			mpom1.NonAcesattverify("EnterInvalidYear", "SearchTextAcesallEngine");
 			loginfo.pass("Product,desc,part...is working");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));			
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("**Product add and saves not working...**" + e.getMessage());
 			loginfo.fail("Product,desc,part...is not working");
@@ -218,17 +222,16 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 	@Then("^: Finally Show non aces attributes is finished$")
 	public void finally_Show_non_aces_attributes_is_finished() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"),
-					"Finally Show non aces attributes is finished");			
+			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Show non aces attributes is finished");
 			System.out.println("**Show non-aces attributes succussfully added**");
 			loginfo.pass("Show non-aces attributes succussfully added");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.fail("Show non-aces attributes succussfully not added");
 			System.out.println("**Show non-aces attributes succussfully not added**");
-			//extent.flush();
+			// extent.flush();
 		}
 	}
 }

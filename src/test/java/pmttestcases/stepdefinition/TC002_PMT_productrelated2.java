@@ -408,58 +408,6 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// Give User permission User2
-	@Given("^User will chose the settings menu(\\d+)$")
-	public void user_will_chose_the_settings_menu(int arg1) throws Throwable {
-		try {
-			// extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product Related-User permission").assignCategory("Permission")
-					.pass("User permission added thanks");
-			test = test.createNode(Scenario.class, "Adding user permission");
-			loginfo = test.createNode(new GherkinKeyword("Given"), "User will chose the settings menu2");
-			mpom = new Masterproductrelated_POM();
-			mpom.Logoutloginadmin();
-			loginfo.pass("Settings menu landed successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// Baseclass.updateTestLinkResult("PMT-3", null,
-			// TestLinkAPIResults.TEST_PASSED);
-		} catch (Exception e) {
-			TestStep("Fail", driver, loginfo, e);
-			System.out.println(e);
-			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
-			// TestLinkAPIResults.TEST_FAILED);
-		}
-	}
-
-	@When("^User chose the appropiate part descripion(\\d+)$")
-	public void user_chose_the_appropiate_part_descripion(int arg1) throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("When"), "User chose the appropiate part descripion2");
-			mpom.Userpermission2();
-			loginfo.pass("User permission added successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// Baseclass.updateTestLinkResult("PMT-3", null,
-			// TestLinkAPIResults.TEST_PASSED);
-		} catch (Exception e) {
-			System.out.println(e);
-			TestStep("Fail", driver, loginfo, e);
-			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
-			// TestLinkAPIResults.TEST_FAILED);
-		}
-	}
-
-	@Then("^User will logout the this user(\\d+)$")
-	public void user_will_logout_the_this_user(int arg1) throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"), "User will logout the this user");
-			System.out.println("User permission1 created successfully");
-			loginfo.pass("User permission2 created successfully");
-			// extent.flush();
-		} catch (Exception e) {
-			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
-		}
-	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

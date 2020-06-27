@@ -13,29 +13,30 @@ import utility.Baseclass;
 
 public class TC036_Multiaddpartslinked1 extends Baseclass {
 	MultiAddPom mpom1 = new MultiAddPom();
-	ExtentTest loginfo = null;	
-
+	ExtentTest loginfo = null;
 
 	@Given("^: user will select the Multiadd page with application$")
 	public void user_will_select_the_Multiadd_page_with_application() throws Throwable {
 		try {
-			//extent = setup();
-			test = extent.createTest(Feature.class, "Check the multiplepart part linked verfication in the grid -first-TC036").assignCategory("PIES MultiAdd ")
-					.pass("Partlinked is verified");
+			// extent = setup();
+			test = extent
+					.createTest(Feature.class,
+							"Check the multiplepart part linked verfication in the grid -first-TC036")
+					.assignCategory("PIES MultiAdd ").pass("Partlinked is verified");
 			test = test.createNode(Scenario.class, "user will select the Multiadd page with application");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will select the Multiadd page with application");
-			//mpom1 = new MultiAddPom();
+			// mpom1 = new MultiAddPom();
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Application and Multiadd page is not click" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			
+
 		}
 	}
 
@@ -52,8 +53,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -70,8 +71,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		} catch (Exception e) {
 			System.out
 					.println("Product line,Partdesc,Partnum.. drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -90,8 +91,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		} catch (Exception e) {
 			System.out
 					.println("Product line,Partdesc,Partnum.. drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -113,8 +114,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("qty is not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -132,8 +133,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Re-Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -150,8 +151,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			System.out.println("Partlinked matched with part number");
 		} catch (Exception e) {
 			System.out.println("Partlinked not matched with part number");
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -163,13 +164,13 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			System.out.println("Finally multiple parts Linked verified success");
 			loginfo.pass("Finally multiple parts Linked verified success");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			System.out.println("Finally multiple parts  not Linked verified success");
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		}
 	}
 
@@ -177,20 +178,20 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 	@Given("^: user will chosed the application paged and multiadd pages$")
 	public void user_will_chosed_the_application_paged_and_multiadd_pages() throws Throwable {
 		try {
-			//extent = setup();
-			test = extent.createTest(Feature.class, "Check the multiple part description and partno-second-TC036").assignCategory("PIES MultiAdd ")
-					.pass("Multiple part # is verified");
+			// extent = setup();
+			test = extent.createTest(Feature.class, "Check the multiple part description and partno-second-TC036")
+					.assignCategory("PIES MultiAdd ").pass("Multiple part # is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
-					"user will chosed the application paged and multiadd pages");			
+					"user will chosed the application paged and multiadd pages");
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Application and Multiadd page is not click" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			TestStep("Fail", driver, loginfo, e);
 		}
@@ -209,8 +210,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -226,8 +227,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Check box is not working" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -248,8 +249,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		} catch (Exception e) {
 			System.out
 					.println("Product line,Partdesc,Partnum.. drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -279,8 +280,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("qty is not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -293,36 +294,37 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			System.out.println("** 2 parts added for different part description and but single product line**");
 			loginfo.pass("2 parts added for different part description and but single product line");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			System.out.println(
 					"** 2 parts added for different part description and but single product line not working**");
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Given("^: user will chosed the application paged and multiadd page$")
 	public void user_will_chosed_the_application_paged_and_multiadd_page() throws Throwable {
 		try {
-			//extent = setup();
-			test = extent.createTest(Feature.class, "Check the multiple Productline,description and part no-third-TC036").assignCategory("PIES MultiAdd ")
-					.pass("Multiple Product line is verified");
+			// extent = setup();
+			test = extent
+					.createTest(Feature.class, "Check the multiple Productline,description and part no-third-TC036")
+					.assignCategory("PIES MultiAdd ").pass("Multiple Product line is verified");
 			test = test.createNode(Scenario.class, "user will chosed the application paged and multiadd page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will select the Multiadd page with application");
-			//mpom1 = new MultiAddPom();
+			// mpom1 = new MultiAddPom();
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Application and Multiadd page is not click" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			TestStep("Fail", driver, loginfo, e);
 		}
@@ -340,8 +342,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -357,8 +359,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Check box is not working" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -379,8 +381,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		} catch (Exception e) {
 			System.out
 					.println("Product line,Partdesc,Partnum.. drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -400,8 +402,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		} catch (Exception e) {
 			System.out
 					.println("Product line,Partdesc,Partnum.. drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -415,8 +417,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			System.out.println("user will verify the both product lines");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			System.out.println("user will not verify the both product lines");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
@@ -429,11 +431,11 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			System.out.println("Finally multiple Product verified success");
 			loginfo.pass("Finally multiple Product verified success");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		    //extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			System.out.println("Finally multiple Product not verified success");
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		}
@@ -444,21 +446,21 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 	@Given("^: user will chosed the application pag and multiadd page$")
 	public void user_will_chosed_the_application_pag_and_multiadd_page() throws Throwable {
 		try {
-			//extent = setup();
-			test = extent.createTest(Feature.class, "Check the multiplepartdesc,product line and part-Fourth-TC036").assignCategory("PIES MultiAdd ")
-					.pass("Multiple Product line is verified");
+			// extent = setup();
+			test = extent.createTest(Feature.class, "Check the multiplepartdesc,product line and part-Fourth-TC036")
+					.assignCategory("PIES MultiAdd ").pass("Multiple Product line is verified");
 			test = test.createNode(Scenario.class, "user will chosed the application paged and multiadd page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will select the Multiadd page with application");
-		//	mpom1 = new MultiAddPom();
+			// mpom1 = new MultiAddPom();
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Application and Multiadd page is not click" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			TestStep("Fail", driver, loginfo, e);
 		}
@@ -476,8 +478,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -493,8 +495,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Check box is not working" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -514,8 +516,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		} catch (Exception e) {
 			System.out
 					.println("Product line,Partdesc,Partnum.. drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -535,8 +537,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		} catch (Exception e) {
 			System.out
 					.println("Product line,Partdesc,Partnum.. drop down values not getting properly" + e.getMessage());
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
@@ -551,8 +553,8 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			System.out.println("user will verify the both part description lines");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			System.out.println("user will not verify the both part description lines");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
@@ -566,13 +568,13 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			System.out.println("Finally multiple desc verified success");
 			loginfo.pass("Finally multiple desc verified success");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			System.out.println("Finally multiple desc not verified success");
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		}
 	}
 }

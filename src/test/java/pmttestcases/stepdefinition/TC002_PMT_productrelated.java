@@ -24,7 +24,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	public void user_will_mouse_hover_and_choose_the_product_category_page() throws Throwable {
 
 		try {
-			// extent=setup();
+			extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related-Add Category").assignCategory("Cateory")
 					.pass("category added thanks");
 			test = test.createNode(Scenario.class, "Adding product category");
@@ -159,7 +159,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	@When("^User will doesnot change the category name and change the equivalent PIES category$")
 	public void user_will_doesnot_change_the_category_name_and_change_the_equivalent_PIES_category() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("And"),
+			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will enter the category name and choose the equivalent PIES category");
 			// mpom.entrycategory(pro.getProperty("categoryname"));
 			mpom.editequalcase(pro.getProperty("categoryname"));
@@ -327,7 +327,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	public void user_will_enter_the_sub_category_name_and_change_the_equivalent_and_save_button_is_clicked()
 			throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("And"),
+			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will enter the sub category name  and choose the equivalent and save button is clicked");
 			// mpom.entrysubcategory(pro.getProperty("subcategorynameprevious"));
 			mpom.entrysubcategoryedit(pro.getProperty("subcategoryname"));
@@ -573,7 +573,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	}
 
 	// 8th program product line edit
-	@Given("^User will go to master and choose product line again$")
+
 	public void user_will_go_to_master_and_choose_product_line_again() throws Throwable {
 		try {
 			// extent=setup();
@@ -627,7 +627,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	@Given("^User will goto master and choose Custom Attributes$")
 	public void user_will_goto_master_and_choose_Custom_Attributes() throws Throwable {
 		try {
-			// extent = setup();
+			// extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product Related-Add Attribute").assignCategory("Cateory")
 					.pass("Custom Attributes added");
 			test = test.createNode(Scenario.class, "Adding Custom Attributes");
@@ -698,6 +698,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 		}
 	}
 
+
 	// check the edit custom attribute
 	@Given("^User will goto master and choose Custom Attributes agin$")
 	public void user_will_goto_master_and_choose_Custom_Attributes_agin() throws Throwable {
@@ -760,10 +761,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("custom edited successfully & shown in grid");
 			System.out.println("custom edited Added in the grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 

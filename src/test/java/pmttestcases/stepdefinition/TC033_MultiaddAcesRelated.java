@@ -18,12 +18,12 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	@Given("^User will Click the Application page and multiadd page$")
 	public void user_will_Click_the_Application_page_and_multiadd_page() throws Throwable {
 		try {
-			//extent = setup();
-			test = extent.createTest(Feature.class, "Check the ACES in multi add page and verify to buyerguide-TC033").assignCategory("PIES MultiAdd ")
-					.pass("Aces values verified");
+			// extent = setup();
+			test = extent.createTest(Feature.class, "Check the ACES in multi add page and verify to buyerguide-TC033")
+					.assignCategory("PIES MultiAdd ").pass("Aces values verified");
 			test = test.createNode(Scenario.class, "Multiadd aces save and reflected to buyersguide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
-					"User will Click the Application page and multiadd page");			
+					"User will Click the Application page and multiadd page");
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
@@ -39,7 +39,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 
 	@When("^User will select vehicle,make,model and will click the search option$")
 	public void user_will_select_vehicle_make_model_and_will_click_the_search_option() throws Throwable {
-		try {			
+		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will select vehicle,make,model and will click the search option");
 			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
@@ -68,7 +68,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			mpom1.Partdesc(pro.getProperty("partdesc"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
-			//mpom1.scrolldown();
+			// mpom1.scrolldown();
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 
@@ -106,7 +106,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	public void finally_macthed_successfully() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally macthed successfully");
-			//extent.flush();
+			// extent.flush();
 			loginfo.pass("Aces is successfully working");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println("**Aces is successfully working**");
@@ -114,7 +114,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			loginfo.fail("Aces is not working");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println("**Aces is not working**");
-			//extent.flush();
+			// extent.flush();
 		}
 	}
 
@@ -122,12 +122,12 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	@Given("^: user will create the application pages and multiadd links pages$")
 	public void user_will_create_the_application_pages_and_multiadd_links_pages() throws Throwable {
 		try {
-			 //extent = setup();
-			test = extent.createTest(Feature.class, "Check the Show attributes aces and and verify to buyerguide-TC033").assignCategory("PIES MultiAdd ")
-					.pass("Aces attributes values verified");
+			// extent = setup();
+			test = extent.createTest(Feature.class, "Check the Show attributes aces and and verify to buyerguide-TC033")
+					.assignCategory("PIES MultiAdd ").pass("Aces attributes values verified");
 			test = test.createNode(Scenario.class, "Multiadd Aces attributes values reflected to buyers guide");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
-					"user will create the application pages and multiadd links pages");			
+					"user will create the application pages and multiadd links pages");
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
@@ -166,7 +166,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will click the checkbox and use show attributes option");
 			mpom1.Checkbox2("EnterYear", "Acesvalue");
-			//mpom1.scrolldown();
+			// mpom1.scrolldown();
 			mpom1.attributepage();
 			mpom1.scrolldown();
 			mpom1.attributepagebt();
@@ -224,32 +224,34 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	@Then("^: Finally Show attributes is finished$")
 	public void finally_Show_attributes_is_finished() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("When"), "Finally Show attributes is finished");
+			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Show attributes is finished");
 			System.out.println("**Show Aces attributes succussfully added**");
 			loginfo.pass("Show Aces attributes succussfully added..");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
-			// extent.flush();			
+			// extent.flush();
 			loginfo.fail("Show Aces attributes succussfully not added....");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println("**Show Aces attributes succussfully not added**");
 		}
 	}
 
-	//3rd
+	// 3rd
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	@Given("^: user will create the application and multiadd pages$")
 	public void user_will_create_the_application_and_multiadd_pages() throws Throwable {
 		try {
-			//extent = setup();
-			test = extent.createTest(Feature.class, "Check the Show attributes ACES and textbox with and verify to buyerguide-TC033").assignCategory("PIES MultiAdd ")
-					.pass("Aces attributes textbox values verified");
+			// extent = setup();
+			test = extent
+					.createTest(Feature.class,
+							"Check the Show attributes ACES and textbox with and verify to buyerguide-TC033")
+					.assignCategory("PIES MultiAdd ").pass("Aces attributes textbox values verified");
 			test = test.createNode(Scenario.class, "user will create the application and multiadd pages");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will create the application pages and multiadd links pages");
-			
+
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
@@ -284,8 +286,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	@When("^: user will click the checkbox box$")
 	public void user_will_click_the_checkbox_box() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("When"),
-					"user will click the checkbox box");
+			loginfo = test.createNode(new GherkinKeyword("When"), "user will click the checkbox box");
 			mpom1.Checkbox2("EnterYear", "Acesvalue");
 			mpom1.scrolldown();
 			mpom1.attributepage();
@@ -333,7 +334,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			mpom1.buyerguide();
 			mpom1.scrolldown();
 			mpom1.attrtxtverify("EnterYear", "engine1");
-						
+
 			loginfo.pass("Product add and saves working..");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -346,11 +347,11 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	@Then("^: Finally Show attributes textbox is success$")
 	public void finally_Show_attributes_textbox_is_success() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("When"), "Finally Show attributes textbox is success");
+			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Show attributes textbox is success");
 			System.out.println("**Show Aces attributes text box succussfully added**");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Show Aces attributes text box succussfully added..");
-			 //extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			// extent.flush();
 			loginfo.fail("Show Aces attributes text box succussfully not added....");
@@ -358,16 +359,17 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			System.out.println("**Show Aces attributes text box succussfully not added**");
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Given("^: user will create the application and multiadd$")
 	public void user_will_create_the_application_and_multiadd() throws Throwable {
 		try {
-			//extent = setup();
-			test = extent.createTest(Feature.class, "Check the Show textbox and dropdown values attributes ACES with and verify to buyerguide-TC033").assignCategory("PIES MultiAdd")
-					.pass("PIES MultiAdd textbox and dropdown verified");
+			// extent = setup();
+			test = extent.createTest(Feature.class,
+					"Check the Show textbox and dropdown values attributes ACES with and verify to buyerguide-TC033")
+					.assignCategory("PIES MultiAdd").pass("PIES MultiAdd textbox and dropdown verified");
 			test = test.createNode(Scenario.class, "user will create the application and multiadd");
-			loginfo = test.createNode(new GherkinKeyword("Given"),"user will create the application and multiadd");		
+			loginfo = test.createNode(new GherkinKeyword("Given"), "user will create the application and multiadd");
 			mpom1.Application();
 			mpom1.Multiaddbt();
 			loginfo.pass("Application and Multiadd page landed successfully");
@@ -402,8 +404,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	@When("^: user will click the checkbox button$")
 	public void user_will_click_the_checkbox_button() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("When"),
-					"user will click the checkbox button");
+			loginfo = test.createNode(new GherkinKeyword("When"), "user will click the checkbox button");
 			mpom1.Checkbox2("EnterYear", "Acesvalue");
 			mpom1.scrolldown();
 			mpom1.attributepage();
@@ -452,31 +453,32 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			mpom1.buyerguide();
 			mpom1.scrolldown();
 			mpom1.attrtxtverify("EnterYear", "engine1");
-			//mpom1.Acesattverify("acesexpectedtext1", "engine1");
+			// mpom1.Acesattverify("acesexpectedtext1", "engine1");
 			loginfo.pass("Product add and saves working..");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("**Product add and saves not working...**" + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.fail("Product add and saves not working....");
-		} 
+		}
 	}
 
 	@Then("^: Finally Show attributes textbox and dropdown values is success$")
 	public void finally_Show_attributes_textbox_and_dropdown_values_is_success() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("When"), "Finally Show attributes textbox and dropdown values is success");
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"Finally Show attributes textbox and dropdown values is success");
 			System.out.println("**Show Aces attributes text box succussfully added**");
 			loginfo.pass("Show Aces attributes text box succussfully added..");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
-			
+
 			loginfo.fail("Show Aces attributes text box succussfully not added....");
 			System.out.println("**Show Aces attributes text box succussfully not added**");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		}
 	}
-	
+
 }

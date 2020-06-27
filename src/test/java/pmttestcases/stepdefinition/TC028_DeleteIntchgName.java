@@ -75,7 +75,7 @@ public class TC028_DeleteIntchgName extends Baseclass {
 	@Then("^User will verify InterchangeName is deleted or not$")
 	public void user_will_verify_InterchangeName_is_deleted_or_not() throws Throwable {
 		try {
-			loginfo=test.createNode(new GherkinKeyword("When"),"User will verify InterchangeName is deleted or not");
+			loginfo=test.createNode(new GherkinKeyword("Then"),"User will verify InterchangeName is deleted or not");
 			indpom.verifytext1(pro.getProperty("InterchangeNameValue"), pro.getProperty("DeleteProducttxt"));
 			
 			loginfo.pass("Deleted InterchangeName verify Successfully");
