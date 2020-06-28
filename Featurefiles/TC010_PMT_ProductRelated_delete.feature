@@ -1,5 +1,25 @@
 Feature: PMT delete Product Related
 
+Scenario: deleting Equipment Related Model 
+Given User will mousehover and choose the model page
+When User will Enter modelname in search box and accept alert
+Then User will Verify model is deleted
+
+Scenario: deleting Equipment Related Make 
+Given User will mousehover and choose the Make page
+When User will Enter Makename in search box and accept alert
+Then User will Verify Make is deleted
+
+Scenario: deleting Equipment Related vehicle type group 
+Given User will mousehover and choose the equipment vehicle type group
+When User will Enter equipment vehicle type group in search box and accept alert
+Then User will Verify equipment vehicle type group is deleted
+
+Scenario: deleting Equipment Related vehicle
+Given User will mousehover and choose the equipment vehicle
+When User will Enter equipment vehicle in search box and accept alert
+Then User will Verify equipment vehicle is deleted
+
 Scenario: deleting product Line
 Given User will mousehover and choose the product Line page
 When User will Enter product Line name in search box
