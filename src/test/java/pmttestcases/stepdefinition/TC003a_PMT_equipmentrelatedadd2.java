@@ -10,25 +10,25 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageobjectmodel.Applicationrelated_vehicle_make_model;
-import pageobjectmodel.Applicationrelated_vehicle_make_model2;
+import pageobjectmodel.Equipmentrelated_vehicle_make_model2;
 import utility.Baseclass;
 
-public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
+public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 
 	// Pageobjectclass pom;
-	Applicationrelated_vehicle_make_model2 master;
+	Equipmentrelated_vehicle_make_model2 master;
 	ExtentTest loginfo = null;
 
 	@Given("^User will mouse hover on Master and choose the Equipment vehicle type page$")
 	public void user_will_mouse_hover_on_Master_and_choose_the_Equipment_vehicle_type_page() throws Throwable {
 		try {
-			// extent=setup();
+			 //extent=setup();
 			test = extent.createTest(Feature.class, "PMT Add Equipment related-Add Vehicle")
 					.assignCategory("Master-Equipment Related vehicle").pass("category added thanks");
 			test = test.createNode(Scenario.class, "Adding Equipment Related vehicle type, Make & Model Test Cases");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover on Master and choose the Equipment vehicle type page");
-			master = new Applicationrelated_vehicle_make_model2();
+			master = new Equipmentrelated_vehicle_make_model2();
 			master.clickonvehicletype();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Equipment type page landed successfully");
@@ -62,7 +62,7 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the added record should be shown in Equipment vehicle grid");
 			master.VerifyEquipment(pro.getProperty("vehicletypenameeq"));
-			// extent.flush();
+			 //extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
@@ -80,7 +80,7 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 			test = test.createNode(Scenario.class, "Editing Equipment Related vehicle type, Make & Model Test Cases");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover on Master page and edit the Equipment vehicle type page");
-			master = new Applicationrelated_vehicle_make_model2();
+			master = new Equipmentrelated_vehicle_make_model2();
 			master.clickonvehicletypeedit();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Equipment type page landed successfully");
@@ -134,7 +134,7 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 					"Adding Application Related vehicle type group, Make & Model Test Cases");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover on Master and choose the Equipment vehicle type group page");
-			master = new Applicationrelated_vehicle_make_model2();
+			master = new Equipmentrelated_vehicle_make_model2();
 			master.clickonvehicletypgroup();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Equipement type group page landed successfully");
@@ -188,7 +188,7 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 					"editing Application Related vehicle type group, Make & Model Test Cases");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover on Master and edit the Equipment vehicle type group page");
-			master = new Applicationrelated_vehicle_make_model2();
+			master = new Equipmentrelated_vehicle_make_model2();
 			master.clickonvehicletypgroupedit();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Equipement type group page landed successfully");
@@ -242,7 +242,7 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 			test = test.createNode(Scenario.class, "Adding equipment Related Make");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover on master and choose the make for equipment");
-			master = new Applicationrelated_vehicle_make_model2();
+			master = new Equipmentrelated_vehicle_make_model2();
 			master.clickonmake();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -294,7 +294,7 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 			test = test.createNode(Scenario.class, "editing equipment Related Make");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover on master and edit the make for equipment");
-			master = new Applicationrelated_vehicle_make_model2();
+			master = new Equipmentrelated_vehicle_make_model2();
 			master.clickonmakeedit();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -345,7 +345,7 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 			test = test.createNode(Scenario.class, "Adding Application Related Model");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover on master and choose the model for equipment");
-			master = new Applicationrelated_vehicle_make_model2();
+			master = new Equipmentrelated_vehicle_make_model2();
 			master.clickonmodel();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -399,7 +399,7 @@ public class TC003_PMT_Master_Applicationrelated2 extends Baseclass {
 			test = test.createNode(Scenario.class, "editing Application Related Model");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover on master and edit the model for equipment");
-			master = new Applicationrelated_vehicle_make_model2();
+			master = new Equipmentrelated_vehicle_make_model2();
 			master.clickonmodeledit();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {

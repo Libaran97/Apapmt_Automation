@@ -4,6 +4,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
 import com.aventstack.extentreports.gherkin.model.Scenario;
+
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -20,8 +22,8 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 	public void user_will_mouse_hover_on_Master_and_choose_the_vehicle_type_page() throws Throwable {
 
 		try {
-			// extent=setup();
-			test = extent.createTest(Feature.class, "PMT Add Application related-Add Vehicle")
+			//extent=setup();
+			test = extent.createTest(Feature.class, "PMT MasterApplication related List-Add Vehicle")
 					.assignCategory("Master-Application Related vehicle").pass("category added thanks");
 			test = test.createNode(Scenario.class, "Adding Application Related vehicle type, Make & Model Test Cases");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -44,7 +46,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click on the add button and will enter the new vehicle type and choose the equivalent ACES & save");
-			master.vehicletypename(pro.getProperty("vehicletypename"));
+			master.vehicletypename(pro.getProperty("vehicletypename0"));
 			master.acceptAlert();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("vehicle type Added successfully");
@@ -62,7 +64,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will successfully added and verify the added record should be shown in vehicle grid");
-			master.VerifyVehicle(pro.getProperty("vehicletypename"));
+			master.VerifyVehicle(pro.getProperty("vehicletypename0"));
 			// extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -75,8 +77,8 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 	@Given("^User will mouse hover on Master and choose the vehicle type group page$")
 	public void user_will_mouse_hover_on_Master_and_choose_the_vehicle_type_group_page() throws Throwable {
 		try {
-			// extent = setup();
-			test = extent.createTest(Feature.class, "PMT Add Application related-Add Vehicle")
+			//extent = setup();
+			test = extent.createTest(Feature.class, "PMT MasterApplication related List-Add Vehicle")
 					.assignCategory("Master-Application Related vehicle").pass("category added thanks");
 			test = test.createNode(Scenario.class,
 					"Adding Application Related vehicle type group, Make & Model Test Cases");
@@ -99,7 +101,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click on the add button and will enter the new vehicle type group,group and choose the equivalent ACES & save");
-			master.vehicletypegroups(pro.getProperty("vehicletypename"), pro.getProperty("Equchose"));
+			master.vehicletypegroups(pro.getProperty("vehicletypename0"), pro.getProperty("Equchose"));
 			master.acceptAlert();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("vehicle type group Added successfully");
@@ -115,12 +117,14 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the added record should be shown in vehicle type group grid");
-			master.VerifyVehicletypegroup(pro.getProperty("vehicletypename"));
-			// extent.flush();
+			master.VerifyVehicletypegroup(pro.getProperty("vehicletypename0"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type group verify successfully");
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -128,8 +132,8 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 	public void user_will_mouse_hover_on_master_and_choose_the_make() throws Throwable {
 
 		try {
-			// extent=setup();
-			test = extent.createTest(Feature.class, "PMT Add Application related-Add Make")
+			//extent=setup();
+			test = extent.createTest(Feature.class, "PMT MasterApplication related List-Add Make")
 					.assignCategory("Master-Application Related Make").pass("category added thanks");
 			test = test.createNode(Scenario.class, "Adding Application Related Make");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -137,6 +141,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 			master = new Applicationrelated_vehicle_make_model();
 			master.clickonmake();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Make selected successfully");
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
@@ -152,9 +157,8 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click on the add button and will choose the added vehicle type, enter the new make name and choose the equivalent ACES & save");
 			master.addmakename();
-			master.newmakename(pro.getProperty("makename"));
-			// master.acceptAlertformake();
-			master.acceptAlert();
+			master.newmakename(pro.getProperty("makename0"));
+			master.acceptAlertformake();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println(e);
@@ -177,7 +181,8 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 			 * loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			 */
 
-			master.VerifyMake("makename");
+			master.VerifyMake(pro.getProperty("makename0"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -185,19 +190,22 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 			// extent.flush();
 		}
 	}
+	
+
 
 	@Given("^User will mouse hover on master and choose the model$")
 	public void user_will_mouse_hover_on_master_and_choose_the_model() throws Throwable {
 
 		try {
-			// extent=setup();
-			test = extent.createTest(Feature.class, "PMT Add Application related-Add Model")
+			//extent=setup();
+			test = extent.createTest(Feature.class, "PMT MasterApplication related List-Add Model")
 					.assignCategory("Master-Application Related Model").pass("category added thanks");
 			test = test.createNode(Scenario.class, "Adding Application Related Model");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will go to parts page and search for the part#");
 			master = new Applicationrelated_vehicle_make_model();
 			master.clickonmodel();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
@@ -214,7 +222,8 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 					"User will mouse hover on master and choose the model,click on the add button and will choose the added vehicle type, make & enter the new model name and choose the equivalent ACES & save");
 			master.addmodelname();
 			master.addmodeldrp2();
-			master.modelnameadd(pro.getProperty("modelname"));
+			master.modelnameadd(pro.getProperty("modelname0"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
@@ -229,14 +238,241 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will successfully added and verify that the record has come");
 			master.acceptAlert();
-			// extent.flush();
+			master.VerifyModel(pro.getProperty("modelname0"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
-			// extent.flush();
+			//extent.flush();
 
 		}
 
+	}
+	
+	//Edit Vehical related
+	@Given("^User Will Mouse over on master and choose model$")
+	public void user_Will_Mouse_over_on_master_and_choose_Vehicle() throws Throwable {
+		try {
+			//extent=setup();
+			test = extent.createTest(Feature.class, "PMT MasterApplication related List-Edit Model")
+					.assignCategory("Master-Application Related Edit Model").pass("category Edited thanks");
+			test = test.createNode(Scenario.class, "Editing Application Related Model");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"^User Will Mouse over on master and choose model$");
+			master = new Applicationrelated_vehicle_make_model();
+			master.clickonmodel3();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	   
+	}
+
+	@When("^User will search Model and click edit$")
+	public void user_will_search_Model_and_click_edit() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),"User will search Model and click edit");
+			master.SeletModel(pro.getProperty("modelname0"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will edit model name and click save and accept alert$")
+	public void user_will_edit_model_name_and_click_save_and_accept_alert() throws Throwable {
+	    try {
+	    	loginfo = test.createNode(new GherkinKeyword("When"),"^User will edit model name and click save and accept alert$");
+	    	master.Editmodelname(pro.getProperty("modelname"));
+	    	master.acceptAlertformodel();
+	    	loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+	    } catch (Exception e) {
+	    	System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+	    }
+	}
+
+	@Then("^User will Verify the Model is edited$")
+	public void user_will_Verify_the_Model_is_edited() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),"^User will Verify the Model is edited$");
+			master.VerifyModel(pro.getProperty("modelname"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		} catch (Exception e) {
+	    	System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
+	    }
+	}
+	
+	@Given("^User will mouse over on master and choose the make$")
+	public void user_will_mouse_over_on_master_and_choose_the_make() throws Throwable {
+		try {
+			//extent=setup();
+			test = extent.createTest(Feature.class, "PMT MasterApplication related List-Edit Make")
+					.assignCategory("Master-Application Related Make").pass("category Edited thanks");
+			test = test.createNode(Scenario.class, "Editing Application Related Make");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"^User will mouse over on master and choose the make$");
+			master = new Applicationrelated_vehicle_make_model();
+			master.clickonmake();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Make selected successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will select make, Edit make name & save$")
+	public void user_will_select_make_Edit_make_name_save() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"^User will select make, Edit make name & save$");
+			master.SearchMake(pro.getProperty("makename0"));
+			master.Editmakename(pro.getProperty("makename"));
+			master.acceptAlertformake();
+		
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will verify the Edited record should be shown in make grid$")
+	public void user_will_verify_the_Edited_record_should_be_shown_in_make_grid() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"^User will verify the Edited record should be shown in make grid$");
+
+			master.VerifyMake(pro.getProperty("makename"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
+		}
+	}
+	
+	
+	
+	//Delete Application vehicle related
+	@Given("^User Will Mouse over on master and choose Model for delete$")
+	public void user_Will_Mouse_over_on_master_and_choose_Model_for_delete() throws Throwable {
+		try {
+			//extent=setup();
+			test = extent.createTest(Feature.class, "PMT MasterApplication related List-Delete Model")
+					.assignCategory("Master-Application Related Delete Model").pass("category Deleted thanks");
+			test = test.createNode(Scenario.class, "Delete Application Related Model");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"^User Will Mouse over on master and choose Model for delete$");
+			master = new Applicationrelated_vehicle_make_model();
+			master.clickonmodel3();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will search Model, click delete and accept alert$")
+	public void user_will_search_Model_click_delete_and_accept_alert() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),"^User will search Model, click delete and accept alert$");
+			master.SeletModel(pro.getProperty("modelname"));
+			master.DeleteModel();
+			master.acceptAlertformodel();
+			master.acceptAlertformodel();
+			
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	   
+	}
+
+	@Then("^User will Verify the Model is deleted or not$")
+	public void user_will_Verify_the_Model_is_deleted_or_not() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),"^User will Verify the Model is deleted or not$");
+			master.VerifyModelDeleted(pro.getProperty("modelname"), pro.getProperty("DeleteProducttxt"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		} catch (Exception e) {
+	    	System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
+	    }
+	}
+	
+	@Given("^User will mouse over on master and choose the make for delete$")
+	public void user_will_mouse_over_on_master_and_choose_the_make_for_delete() throws Throwable {
+		try {
+			//extent=setup();
+			test = extent.createTest(Feature.class, "PMT MasterApplication related List-Delete Make")
+					.assignCategory("Master-Application Related Make").pass("category Deleted thanks");
+			test = test.createNode(Scenario.class, "Delete Application Related Make");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"^User will mouse over on master and choose the make for delete$");
+			master = new Applicationrelated_vehicle_make_model();
+			master.clickonmake();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Make selected successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will select make, delete make name & save$")
+	public void user_will_select_make_delete_make_name_save() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"^User will select make, delete make name & save$");
+			master.SearchMake(pro.getProperty("makename"));
+			master.Deletemakename();
+			master.acceptAlertformake();
+			master.acceptAlertformake();
+		
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will verify the make is deleted or not$")
+	public void user_will_verify_the_make_is_deleted_or_not() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"^User will verify the make is deleted or not$");
+
+			master.VerifyDeleteMake(pro.getProperty("makename"),pro.getProperty("DeleteProducttxt"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
+		}
 	}
 
 }

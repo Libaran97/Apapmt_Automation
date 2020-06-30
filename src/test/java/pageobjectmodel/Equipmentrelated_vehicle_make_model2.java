@@ -1,6 +1,6 @@
 package pageobjectmodel;
 
-import java.util.List;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -12,14 +12,14 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
+
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utility.Baseclass;
 
-public class Applicationrelated_vehicle_make_model2 extends Baseclass {
+public class Equipmentrelated_vehicle_make_model2 extends Baseclass {
 
-	public Applicationrelated_vehicle_make_model2() {
+	public Equipmentrelated_vehicle_make_model2() {
 
 		PageFactory.initElements(driver, this);
 	}

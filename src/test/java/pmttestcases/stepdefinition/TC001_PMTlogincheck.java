@@ -2,6 +2,10 @@ package pmttestcases.stepdefinition;
 
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
@@ -22,7 +26,7 @@ public class TC001_PMTlogincheck extends Baseclass {
 	Logincheck_POM log;
 	
 	@Before()
-	public void login_initialize() throws InterruptedException {
+	public void login_initialize() throws InterruptedException, SQLException {
 	
 		//try {
 			//extent=setup();
@@ -32,6 +36,8 @@ public class TC001_PMTlogincheck extends Baseclass {
 			Baseclass.browserlaunch();
 			Baseclass.logindetails();
 			Thread.sleep(5000);
+			//Connection con= DriverManager.getConnection("jdbc:sqlserver://DATATEAM-01","sa","Welcome7*");
+			
 			//loginfo.pass("Browser Launched and Entered URL succesully");
 			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			
