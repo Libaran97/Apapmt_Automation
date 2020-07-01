@@ -149,8 +149,9 @@ public class Equipmentrelated_vehicle_make_model2 extends Baseclass {
 
 	@FindBy(xpath = "//label[(text()='Car equi')]")
 	private WebElement equivalentvehicle1;
-	@FindBy(xpath = "//label[(text()='BreakTime')]")
-	private WebElement equivalentvehicle2;
+	
+	/*@FindBy(xpath = "//label[(text()='BreakTime')]")
+	private WebElement equivalentvehicle2;*/
 
 	@FindBy(xpath = "//span[@id='select2-drpVehicleType-container']")
 	private WebElement eequimentmodelvehcile;
@@ -219,9 +220,9 @@ public class Equipmentrelated_vehicle_make_model2 extends Baseclass {
 		Thread.sleep(5000);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", equivalentvehicle2);
+		/*js.executeScript("arguments[0].scrollIntoView();", equivalentvehicle2);
 		equivalentvehicle2.click();
-
+         */
 		js.executeScript("arguments[0].scrollIntoView();", savebuttonedit);
 		savebuttonedit.click();
 		Thread.sleep(5000);

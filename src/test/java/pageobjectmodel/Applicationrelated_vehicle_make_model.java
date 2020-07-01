@@ -53,6 +53,9 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	@FindBy(xpath="//div[@id='btnSave']")
 	private WebElement savebutton1;
 	
+	
+	@FindBy(xpath="//div[@id='save_btn_new_edit']")
+	private WebElement savebutton2;
 
 	@FindBy(xpath = "//*[text()='Make']")
 	private WebElement clickmake;
@@ -135,12 +138,19 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[4]/div/input[1]")
 	WebElement eEditMakeBtn; 
 	
+	@FindBy(xpath="(//div[@Class='edit_icon_ver'])[1]")
+	WebElement eEditVgroupBtn; 
+	
 	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[3]/div/input[2]")
 	WebElement eDeleteBtn; //Model
 	
 	
 	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[4]/div/input[2]")
 	WebElement eDeleteMakeBtn;
+	
+	@FindBy(xpath="(//div[@Class='edit_icon_ver'])[2]")
+	WebElement eDeleteVgrouBtn;
+	
 	/*
 	 * choosing vehicle type group & add button click
 	 */
@@ -152,12 +162,13 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		Thread.sleep(3000);
 		VehicleTypeGroup.click();
 		Thread.sleep(5000);
-		addbutton.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 	}
 	
 	public void vehicletypegroups(String vehicletypename,String Equchose) throws Exception {
-		Thread.sleep(5000);
+		addbutton.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 		VehicleTypegroupname.sendKeys(vehicletypename);
 		Thread.sleep(5000);
 		
@@ -192,6 +203,53 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 
 	}
 	
+	public void SelectVehicletypegroup(String vehiclename) throws InterruptedException {
+		Thread.sleep(5000);
+		eSearchBox.sendKeys(vehiclename);
+		Thread.sleep(5000);
+		
+	}	
+	
+	public void Editvehicletypegroups(String vehicletypename) throws Exception {
+		eEditVgroupBtn.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		VehicleTypegroupname.clear();
+		Thread.sleep(3000);
+		
+		VehicleTypegroupname.sendKeys(vehicletypename);
+		Thread.sleep(5000);
+		
+
+	
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+
+		js.executeScript("arguments[0].scrollIntoView();", savebutton2);
+		savebutton2.click();
+		Thread.sleep(5000);
+	}
+	
+	public void DeleteVehicleTypegroup() throws InterruptedException {
+		eDeleteVgrouBtn.click();
+		Thread.sleep(5000);
+		
+	}
+	
+	public void VerifyDeleteVehicletypegroup(String vehiclename, String DeleteProducttxt) throws InterruptedException {
+		Thread.sleep(5000);
+		eSearchBox.sendKeys(vehiclename);
+		Thread.sleep(5000);
+		String text = eVryText.getText();
+		if (text.equals(DeleteProducttxt)) {
+			System.out.println("Vehicletypegroup Deleted succesfully");
+
+		} else {
+			System.out.println("Vehicletypegroup Not Deleted succesfully");
+		}
+
+	}
+	
 	/*
 	 * choosing vehicle type & add button click
 	 */
@@ -202,14 +260,15 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		Thread.sleep(3000);
 		vehicletype.click();
 		Thread.sleep(5000);
-		addbutton.click();
-		Thread.sleep(5000);
+		
 	}
 
 	/*
 	 * entering new vehicle type name, equivalent vehicle & save
 	 */
 	public void vehicletypename(String vehicletypename) throws Exception {
+		addbutton.click();
+		Thread.sleep(5000);
 		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		vehicleentertextbox.sendKeys(vehicletypename);
 
@@ -244,18 +303,44 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 
 	}
 
-	public void VerifyVehicle(String vehiclename) throws InterruptedException {
+	public void VerifyVehicle(String vehicletypename) throws InterruptedException {
 		Thread.sleep(5000);
-		eSearchBox.sendKeys(vehiclename);
+		eSearchBox.sendKeys(vehicletypename);
 		Thread.sleep(3000);
 		String text = eVryText.getText();
-		if (text.equals(vehiclename)) {
+		if (text.equals(vehicletypename)) {
 			System.out.println("Both are same vehicle verified");
 
 		} else {
 			System.out.println("Both are not same vehicle verified");
 		}
 
+	}
+	
+	
+	public void SelectVehicle(String vehicletypename) throws InterruptedException {
+		Thread.sleep(5000);
+		eSearchBox.sendKeys(vehicletypename);
+		Thread.sleep(3000);
+		
+	}
+	
+	public void Editvehicletypename(String vehicletypename) throws Exception {
+		
+		eEditVgroupBtn.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		vehicleentertextbox.clear();
+		Thread.sleep(3000);
+		vehicleentertextbox.sendKeys(vehicletypename);
+
+		Thread.sleep(3000);
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		js.executeScript("arguments[0].scrollIntoView();", savebutton2);
+		savebutton2.click();
+		Thread.sleep(5000);
 	}
 
 	/*
@@ -397,12 +482,13 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		Thread.sleep(2000);
 
 	}
-public void Deletemakename() throws InterruptedException {
+    public void Deletemakename() throws InterruptedException {
 		
 
 		eDeleteMakeBtn.click();
 		Thread.sleep(3000);
-}
+    }
+    
 
 
 	/*

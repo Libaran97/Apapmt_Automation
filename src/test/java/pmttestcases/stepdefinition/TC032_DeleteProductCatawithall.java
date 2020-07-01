@@ -259,12 +259,12 @@ public class TC032_DeleteProductCatawithall extends Baseclass {
 			mpom2.verifyingck33del(pro.getProperty("Partype"));
 			loginfo.pass("Product component search");
 			System.out.println("CK33 Verified");
-			// extent.flush();
+			extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			extent.flush();
 		}
 	}
 

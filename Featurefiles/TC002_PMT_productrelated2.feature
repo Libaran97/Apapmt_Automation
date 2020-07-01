@@ -1,6 +1,6 @@
+@jim
 Feature: PMT Add Product List_MUL
 Description: User will add product category,sub category & part description_MUL
-
 
 Scenario: Adding product category_MUL
 Given User will mouse hover and choose the product category page_MUL
@@ -25,18 +25,11 @@ Given User will go to master and choose product line_MUL
 When User will click on add button and enter the line code and line name_MUL
 Then User will see successfully alert and verify the record has come in the grid_MUL
 
-
 Scenario: Adding Custom Attributes_MUL
 Given User will goto master and choose Custom Attributes_MUL
 When User will click on add and enter Custom Attribute Name_MUL
 And User will select Data Type, enter Min & MaxLength and select Parts Description_MUL
 Then User will Click save Accept Alert and Verify the record has come in the grid_MUL
-
-
-Scenario: Give User permission to user2
-Given User will chose the settings menu2 
-When User chose the appropiate part descripion2
-Then User will logout the this user2
 
 Scenario: Adding part# with created product category_MUL
 Given User will click on parts page and it will redirect to parts page_MUL

@@ -261,10 +261,13 @@
 			Thread.sleep(5000);			
 			eeditproductorder.click();
 			WebDriverWait wait2 = new WebDriverWait(driver, 120);
-			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='save_btn_new_edit']")));
+			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='btnBack_new']")));
+			
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", ePartype);
 			ePartype.click();
 			Thread.sleep(8000);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
+			
 			js.executeScript("arguments[0].scrollIntoView();", esaveedit);
 			esaveedit.click();
 			Thread.sleep(5000);

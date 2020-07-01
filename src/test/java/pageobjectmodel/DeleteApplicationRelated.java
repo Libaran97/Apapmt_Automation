@@ -1,5 +1,8 @@
 package pageobjectmodel;
 
+import java.util.List;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -38,6 +41,10 @@ public class DeleteApplicationRelated extends Baseclass {
 	@CacheLookup
 	public WebElement eeqvehcile;
 
+	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_lnkLink1_3']")
+	@CacheLookup
+	public WebElement eeqparts;
+
 	@FindBy(xpath = "//span[@id='select2-drpVehicleType-container']")
 	public WebElement echoosemodel;
 
@@ -74,6 +81,15 @@ public class DeleteApplicationRelated extends Baseclass {
 	@FindBy(xpath = "(//button[@type='button'])[2]")
 	private WebElement eAcceptalert;
 
+	@FindBy(xpath = "//input[@id='MainContent_txtMelling']")
+	private WebElement epartsearch;
+
+	@FindBy(xpath = "//*[@id='MainContent_upAttribute']/div[2]/div[1]/div/span/div/input[8]")
+	private WebElement btnPsearch;
+
+	@FindBy(xpath = "//div[@id='btnDelete']/input")
+	private WebElement epartdelete;
+
 	public void Clickmodel() throws InterruptedException {
 		Actions action = new Actions(driver);
 		action.moveToElement(master).build().perform();
@@ -108,6 +124,12 @@ public class DeleteApplicationRelated extends Baseclass {
 		eeqvehcile.click();
 		WebDriverWait wait2 = new WebDriverWait(driver, 120);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='btnadd_new']")));
+	}
+
+	public void Clickpartspage() throws InterruptedException {
+		eeqparts.click();
+		WebDriverWait wait2 = new WebDriverWait(driver, 60);
+		wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"MainContent_txtMelling\"]")));
 	}
 
 	public void eDeletemodel(String modelnameeqedit) throws Throwable {
@@ -146,6 +168,28 @@ public class DeleteApplicationRelated extends Baseclass {
 		Thread.sleep(3000);
 	}
 
+	public void partsearch() throws InterruptedException {
+		epartsearch.sendKeys(pro.getProperty("partno"));
+		Thread.sleep(5000);
+		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ACBehavior_completionListElem']//li"));
+		System.out.println("total number of parts-->" + list.size());
+
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i).getText());
+			if (list.get(i).getText().contains(pro.getProperty("partvalue1"))) {
+				list.get(i).click();
+				break;
+			}
+		}
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", btnPsearch);	
+		btnPsearch.click();
+		Thread.sleep(6000);
+		js.executeScript("arguments[0].scrollIntoView();", epartdelete);	
+		epartdelete.click();
+		Thread.sleep(6000);
+	}
+
 	public void acceptAlert() throws Exception {
 		String Popup = driver.findElement(By.xpath("//h2[@id='swal2-title']")).getText();
 		System.out.println("Popup text is..." + Popup);
@@ -153,6 +197,14 @@ public class DeleteApplicationRelated extends Baseclass {
 		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
 		eAcceptalert.click();
 		Thread.sleep(8000);
+	}
+
+	public void acceptAlertbrowser() throws Exception {
+		Alert alert = driver.switchTo().alert();
+		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
+		System.out.println("Browser text " + alert.getText());
+		alert.accept();
+		Thread.sleep(2000);
 	}
 
 	public void Verifymodeldel(String modelnameeqedit) throws Exception {
@@ -224,6 +276,37 @@ public class DeleteApplicationRelated extends Baseclass {
 
 		} else {
 			System.out.println("Both are Equipment vehicle  name still available but not correct");
+		}
+	}
+
+	public void Verifypartdel() throws Exception {
+		try {
+			epartsearch.sendKeys(pro.getProperty("partno"));
+			Thread.sleep(5000);
+			List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ACBehavior_completionListElem']//li"));
+			System.out.println("total number of parts-->" + list.size());
+
+			for (int i = 0; i < list.size(); i++) {
+				System.out.println(list.get(i).getText());
+				if (list.get(i).getText().contains(pro.getProperty("partvalue1"))) {
+					list.get(i).click();
+					break;
+				}
+			}
+			btnPsearch.click();
+			Thread.sleep(6000);
+
+			Alert alert = driver.switchTo().alert();
+			// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
+			System.out.println("Part no text " + alert.getText());
+			alert.accept();
+			Thread.sleep(2000);			
+			if (alert.equals(pro.getProperty("Delete"))) {
+				System.out.println("error check once again this testcases");
+
+			} 
+		} catch (Exception e) {
+			System.out.println("Part not found and deleted successfully");
 		}
 	}
 

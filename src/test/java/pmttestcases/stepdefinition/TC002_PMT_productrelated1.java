@@ -399,9 +399,9 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	public void user_will_mouse_hover_and_choose_the_component_CK_page(int arg1) throws Throwable {
 		try {
 			// extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product group Related-component master")
+			test = extent.createTest(Feature.class, "PMT Product group Related-component ck33 master")
 					.assignCategory("master").pass("master component thanks");
-			test = test.createNode(Scenario.class, "editing product group master");
+			test = test.createNode(Scenario.class, "editing cK33 component");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover and choose the Component (CK33) page");
 			mpom2.clickonassembly33();
@@ -443,12 +443,12 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			mpom2.verifyEditagain(pro.getProperty("Partype1"));
 			loginfo.pass("Product component search");
 			System.out.println("CK33 Verified");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 

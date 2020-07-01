@@ -573,7 +573,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	}
 
 	// 8th program product line edit
-
+	@Given("^User will go to master and choose product line again$")
 	public void user_will_go_to_master_and_choose_product_line_again() throws Throwable {
 		try {
 			// extent=setup();
@@ -698,7 +698,6 @@ public class TC002_PMT_productrelated extends Baseclass {
 		}
 	}
 
-
 	// check the edit custom attribute
 	@Given("^User will goto master and choose Custom Attributes agin$")
 	public void user_will_goto_master_and_choose_Custom_Attributes_agin() throws Throwable {
@@ -761,10 +760,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("custom edited successfully & shown in grid");
 			System.out.println("custom edited Added in the grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
-			//extent.flush();
+			// extent.flush();
 		}
 	}
 

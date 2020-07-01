@@ -16,7 +16,56 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 	DeleteApplicationRelated mode = new DeleteApplicationRelated();
 	ExtentTest loginfo = null;
 
-	// Euipment Model del
+	
+	@Given("^User will mousehover and choose the partno page$")
+	public void user_will_mousehover_and_choose_the_partno_page() throws Throwable {
+		try {
+			//extent = setup();
+			test = extent.createTest(Feature.class, "PMT del related-del partno")
+					.assignCategory("Master-deleted Related part-1").pass("partno deleted thanks");
+			test = test.createNode(Scenario.class, "deleting Related partno Test Cases");
+			loginfo = test.createNode(new GherkinKeyword("Given"), "User will mousehover and choose the partno page");
+			mode.Clickpartspage();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Equipment model type page landed successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will search the partno in search box and delete with accept alert$")
+	public void user_will_search_the_partno_in_search_box_and_delete_with_accept_alert() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will search the partno in search box and delete with accept alert");
+			 mode.partsearch();	
+			 mode.acceptAlertbrowser();
+			 mode.acceptAlertbrowser();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("model deleted successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will Verify partno is deleted$")
+	public void user_will_Verify_partno_is_deleted() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify partno is deleted");
+			mode.Verifypartdel();
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			// extent.flush();
+		}
+	}
+
+	// Equipment Model del
 	@Given("^User will mousehover and choose the model page$")
 	public void user_will_mousehover_and_choose_the_model_page() throws Throwable {
 		try {

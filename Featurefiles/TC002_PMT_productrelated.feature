@@ -1,6 +1,6 @@
+@jim
 Feature: PMT Add and Edit Product List
 Description: User will add product category,sub category & part description
-
 
 Scenario: Adding product category
 Given User will mouse hover and choose the product category page

@@ -73,6 +73,8 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 		}
 
 	}
+	
+	
 
 	@Given("^User will mouse hover on Master and choose the vehicle type group page$")
 	public void user_will_mouse_hover_on_Master_and_choose_the_vehicle_type_group_page() throws Throwable {
@@ -128,6 +130,15 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 		}
 	}
 
+	
+
+
+	
+
+	
+	
+	
+	
 	@Given("^User will mouse hover on master and choose the make$")
 	public void user_will_mouse_hover_on_master_and_choose_the_make() throws Throwable {
 
@@ -364,8 +375,114 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 			//extent.flush();
 		}
 	}
+
+	@Given("^User will mouse over on Master and choose the vehicle type group page$")
+	public void user_will_mouse_over_on_Master_and_choose_the_vehicle_type_group_page() throws Throwable {
+		try {
+			//extent = setup();
+			test = extent.createTest(Feature.class, "PMT MasterApplication related List-Edit Vehicle Group")
+					.assignCategory("Master-Application Related vehicle").pass("category Edited thanks");
+			test = test.createNode(Scenario.class,
+					"Editing Application Related vehicle type group");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"^User will mouse over on Master and choose the vehicle type group page$");
+			master = new Applicationrelated_vehicle_make_model();
+			master.clickonvehicletypgroup();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type group page landed successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will select vehicle group, click edit and will edit vehicle type group name & save$")
+	public void user_will_select_vehicle_group_click_edit_and_will_edit_vehicle_type_group_name_save() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"^User will select vehicle group, click edit and will edit vehicle type group name & save$");
+			master.SelectVehicletypegroup(pro.getProperty("vehicletypename0"));
+			
+			master.Editvehicletypegroups(pro.getProperty("vehicletypename"));
+			master.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type group Edited successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will verify the Edited record should be shown in vehicle type group grid$")
+	public void user_will_verify_the_Edited_record_should_be_shown_in_vehicle_type_group_grid() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"^User will verify the Edited record should be shown in vehicle type group grid$");
+			master.VerifyVehicletypegroup(pro.getProperty("vehicletypename"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type group verify successfully");
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
+		}
+	}
 	
-	
+	@Given("^User will mouse over on Master and choose the vehicle type page$")
+	public void user_will_mouse_over_on_Master_and_choose_the_vehicle_type_page() throws Throwable {
+		try {
+			//extent=setup();
+			test = extent.createTest(Feature.class, "PMT MasterApplication related List-Edit Vehicle")
+					.assignCategory("Master-Application Related vehicle").pass("Vehicle Edited thanks");
+			test = test.createNode(Scenario.class, "Editing Application Related vehicle type");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"^User will mouse over on Master and choose the vehicle type page$");
+			master = new Applicationrelated_vehicle_make_model();
+			master.clickonvehicletype();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type page landed successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will Select vehicle type, Click edit and will Edit vehicle type and save$")
+	public void user_will_Select_vehicle_type_Click_edit_and_will_Edit_vehicle_type_and_save() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"^User will Select vehicle type, Click edit and will Edit vehicle type and save$");
+			master.SelectVehicle(pro.getProperty("vehicletypename0"));
+			master.Editvehicletypename(pro.getProperty("vehicletypename"));
+			master.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type Edited successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will verify the Edited record should be shown in vehicle grid$")
+	public void user_will_verify_the_Edited_record_should_be_shown_in_vehicle_grid() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"^User will verify the Edited record should be shown in vehicle grid$");
+			master.VerifyVehicle(pro.getProperty("vehicletypename"));
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
+		}
+	}
+
+
 	
 	//Delete Application vehicle related
 	@Given("^User Will Mouse over on master and choose Model for delete$")
@@ -467,6 +584,113 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 
 			master.VerifyDeleteMake(pro.getProperty("makename"),pro.getProperty("DeleteProducttxt"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
+		}
+	}
+	
+	@Given("^User will mouse over on Master and choose the vehicle type group for delete$")
+	public void user_will_mouse_over_on_Master_and_choose_the_vehicle_type_group_for_delete() throws Throwable {
+		try {
+		//extent = setup();
+		test = extent.createTest(Feature.class, "PMT MasterApplication related List-Delete Vehicle Group")
+				.assignCategory("Master-Application Related vehicle").pass("Vehicle Group Deleted thanks");
+		test = test.createNode(Scenario.class,
+				"Delete Application Related vehicle type group");
+		loginfo = test.createNode(new GherkinKeyword("Given"),
+				"^User will mouse over on Master and choose the vehicle type group for delete$");
+		master = new Applicationrelated_vehicle_make_model();
+		master.clickonvehicletypgroup();
+		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		loginfo.pass("vehicle type group page landed successfully");
+	} catch (Exception e) {
+		System.out.println(e);
+		TestStep("Fail", driver, loginfo, e);
+
+	}
+	}
+
+	@When("^User will select vehicle group, click Delete and accept alert$")
+	public void user_will_select_vehicle_group_click_Delete_and_accept_alert() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"^User will select vehicle group, click Delete and accept alert$");
+			master.SelectVehicletypegroup(pro.getProperty("vehicletypename"));
+			master.DeleteVehicleTypegroup();
+			master.acceptAlert();
+			master.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type group Edited successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will verify the vehicle type group deleted or not$")
+	public void user_will_verify_the_vehicle_type_group_deleted_or_not() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"^User will verify the Edited record should be shown in vehicle type group grid$");
+			master.VerifyDeleteVehicletypegroup(pro.getProperty("vehicletypename"), pro.getProperty("DeleteProducttxt"));
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type group delete verify successfully");
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
+		} 
+	}
+	
+	@Given("^User will mouse over on Master and choose the vehicle type page for delete$")
+	public void user_will_mouse_over_on_Master_and_choose_the_vehicle_type_page_for_delete() throws Throwable {
+		try {
+			//extent=setup();
+			test = extent.createTest(Feature.class, "PMT MasterApplication related List-Delete Vehicle")
+					.assignCategory("Master-Application Related vehicle").pass("Vehicle Delete thanks");
+			test = test.createNode(Scenario.class, "Delete Application Related vehicle type");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"^User will mouse over on Master and choose the vehicle type page for delete$");
+			master = new Applicationrelated_vehicle_make_model();
+			master.clickonvehicletype();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type page landed successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will Select vehicle type, Click Delete and Accept Alert$")
+	public void user_will_Select_vehicle_type_Click_Delete_and_Accept_Alert() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"^User will Select vehicle type, Click Delete and Accept Alert$");
+			master.SelectVehicle(pro.getProperty("vehicletypename"));
+			master.DeleteVehicleTypegroup();
+			master.acceptAlert();
+			master.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("vehicle type Deleted successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will verify the vehicle type deleted or not$")
+	public void user_will_verify_the_vehicle_type_deleted_or_not() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"^User will verify the vehicle type deleted or not$");
+			master.VerifyDeleteVehicletypegroup(pro.getProperty("vehicletypename"), pro.getProperty("DeleteProducttxt"));
 			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);

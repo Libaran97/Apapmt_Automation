@@ -1,4 +1,10 @@
+@jim
 Feature: PMT delete Product Related
+
+Scenario: deleting Related partno[Engine oil oriented]
+Given User will mousehover and choose the partno page
+When User will search the partno in search box and delete with accept alert
+Then User will Verify partno is deleted
 
 Scenario: deleting Equipment Related Model 
 Given User will mousehover and choose the model page
