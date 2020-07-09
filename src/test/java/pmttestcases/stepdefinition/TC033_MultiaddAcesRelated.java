@@ -18,7 +18,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	@Given("^User will Click the Application page and multiadd page$")
 	public void user_will_Click_the_Application_page_and_multiadd_page() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "Check the ACES in multi add page and verify to buyerguide-TC033")
 					.assignCategory("PIES MultiAdd ").pass("Aces values verified");
 			test = test.createNode(Scenario.class, "Multiadd aces save and reflected to buyersguide");
@@ -42,7 +42,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will select vehicle,make,model and will click the search option");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -106,7 +106,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	public void finally_macthed_successfully() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally macthed successfully");
-			// extent.flush();
+			//extent.flush();
 			loginfo.pass("Aces is successfully working");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println("**Aces is successfully working**");
@@ -147,7 +147,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all Vehicle and make and model and click the search");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -270,7 +270,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all Vehicle,make and model click the search");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -388,7 +388,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all Vehicle,make and model click");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -471,7 +471,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			System.out.println("**Show Aces attributes text box succussfully added**");
 			loginfo.pass("Show Aces attributes text box succussfully added..");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 
 			loginfo.fail("Show Aces attributes text box succussfully not added....");

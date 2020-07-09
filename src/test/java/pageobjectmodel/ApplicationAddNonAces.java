@@ -89,15 +89,15 @@ public class ApplicationAddNonAces  extends Baseclass{
 		eAddApplication.click();
 		Thread.sleep(3000);
 	}
-	public void ChooseVehicle(String vehicletypename) throws InterruptedException {
+	public void ChooseVehicle(String vehicletypename0) throws InterruptedException {
 		
 		Select vehicle = new Select(eSelectVehicle);
-		vehicle.selectByVisibleText(vehicletypename);
+		vehicle.selectByVisibleText(vehicletypename0);
 		Thread.sleep(5000);
 	
 		}
 
-	public void ChooseMake(String makename ) throws InterruptedException {
+	public void ChooseMake(String makename) throws InterruptedException {
 	 
 		Select make = new Select(eSelectMake);
 		make.selectByVisibleText(makename);
@@ -144,10 +144,10 @@ public class ApplicationAddNonAces  extends Baseclass{
 		Thread.sleep(3000);
 	}
 	
-   public void ChooseVehiclevry(String vehicletypename) throws InterruptedException {
+   public void ChooseVehiclevry(String vehicletypename0) throws InterruptedException {
 		
 		Select Vvehicle = new Select(eVSelectVehicle);
-		Vvehicle.selectByVisibleText(vehicletypename);
+		Vvehicle.selectByVisibleText(vehicletypename0);
 		Thread.sleep(5000);
 	
 		}

@@ -36,7 +36,7 @@ public class Partdescription_POM extends Baseclass {
 	private WebElement txtpartsearch;
 	
 	
-	@FindBy(xpath="//*[@id=\"MainContent_upAttribute\"]/div[2]/div[1]/div/span/div/input[8]")
+	@FindBy(xpath="//*[@id='MainContent_upAttribute']/div[2]/div[1]/div/span/div/input[8]")
 	private WebElement btnPsearch;
 	
 	//div[@id='Description']
@@ -66,15 +66,21 @@ public class Partdescription_POM extends Baseclass {
 	
 	
 	
-	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[5]/div/child::input[1]")
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[5]/div/child::input[1]")
 	private WebElement imgEdit_0;
 	
 	
-	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[5]/div/child::input[2]")
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[5]/div/child::input[2]")
 	private WebElement imgDelete_0;//input[@id='MainContent_gv_imgEdit_0']
 	
+	@FindBy(xpath="//*[@id='DataTableViewer']/tfoot/tr/th[4]/input")
+	private WebElement eDescriptionfilter;
 	
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[4]")
+	private WebElement	ePDverify;
 	
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td")
+	private WebElement eDeleteVryText;
 	
 	public void partslanding() {
 		partspageheaderclick.click();
@@ -92,6 +98,7 @@ public class Partdescription_POM extends Baseclass {
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
 			if(list.get(i).getText().contains("Testpart-1 | Ignition Test | Autoapa")) {
+			//if(list.get(i).getText().contains("Testpart-1 | description1 | AAA1")) {
 				list.get(i).click();
 				break;
 			}
@@ -147,50 +154,88 @@ public class Partdescription_POM extends Baseclass {
 	 * alert accept & fetching text
 	 */
 	public void acceptAlert() throws InterruptedException{
-		Alert alert = driver.switchTo().alert();
-		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
-		System.out.println("Parts Related " + "Description Notes" + alert.getText());
-		alert.accept();
-		Thread.sleep(3000);
+		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
+		Thread.sleep(5000);
+		System.out.println("Record newly to be inserted");
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(10000);
 		
 	}
-	
-	public void acceptAlertdelete() throws InterruptedException{
-		Alert alert = driver.switchTo().alert();
-		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
-		System.out.println("Parts Related " + "Description Notes" + alert.getText());
-		alert.accept();
-		Thread.sleep(1000);
-				
+	public void Verifydescription(String descnotes) throws InterruptedException{
+		try
+		{
+			
+			
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			
+			eDescriptionfilter.sendKeys(descnotes);
+			
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String actualText= ePDverify.getText();
+			System.out.println("Text"+actualText);
+			actualText.equals(descnotes);
+			System.out.println("Both are same");
+			
+		}
+		catch (Exception e)
+		{
+			System.out.println("Both are not same");
+		}
 	}
 	
 	
-	public void editpartdesc(String editnotes) throws Exception {
+	
+	
+	public void editpartdesc(String editnotes, String notes) throws Exception {
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		eDescriptionfilter.sendKeys(notes);
 		//sdriver.switchTo().frame(0);
-		WebElement elementfilter1 = imgEdit_0;
-		((JavascriptExecutor) driver).executeScript("arguments[0].click()", elementfilter1);
+		Thread.sleep(10000);
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", imgEdit_0);
 		imgEdit_0.click();
+		Thread.sleep(5000);
+		
+		js.executeScript("arguments[0].scrollIntoView();", txtNotes);
+		txtNotes.clear();
 		Thread.sleep(2000);
 		txtNotes.sendKeys(editnotes);
+		Thread.sleep(2000);
 		
 	}
 	
 	
-	public void deletepartdesc() throws Exception {
+	public void deletepartdesc(String editdescnotes) throws Exception {
 		//driver.switchTo().frame(0);
-		WebElement elementfilter1 = imgDelete_0;
-		((JavascriptExecutor) driver).executeScript("arguments[0].click()", elementfilter1);
+
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		eDescriptionfilter.sendKeys(editdescnotes);
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", imgDelete_0);
 		imgDelete_0.click();
 		Thread.sleep(2000);
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
+	public void VerifyDeletedescription(String descnotes, String DeleteProducttxt) throws InterruptedException{
+		Thread.sleep(5000);
+		eDescriptionfilter.sendKeys(descnotes);
+		Thread.sleep(5000);
+		String text = eDeleteVryText.getText();
+		if (text.equals(DeleteProducttxt)) {
+			System.out.println("Partdescription Deleted succesfully");
+
+		} else {
+			System.out.println("Partdescription Not Deleted succesfully");
+		}
+
+	}
 	
 }

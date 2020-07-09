@@ -29,14 +29,4 @@ When User will select&search interchange, Click edit and edit Intpart
 And User will save and conform edit intpart
 Then User will verify edit intchancepart
 
-Scenario: Deleting Interchange Partno
-Given User will mouse over master and click Interchange Partno
-When User will Select Interchange Name and search Interchange Partno
-And User will click delete and accept the alert 
-Then User will verify Interchange Partno is deleted or not
 
-Scenario: Deleting InterchangeName
-Given User will mouse over emaster and click Interchange Name
-When User search InterchangeName in searchBox
-And User will click delete and accept alert 
-Then User will verify InterchangeName is deleted or not

@@ -46,7 +46,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all chosed Vehicle,make,model along with click the search");
 			Thread.sleep(5000);
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -68,10 +68,10 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 			mpom2.partslinked();			
 			mpom2.windowhandler();			
 			mpom2.viewedit();			
-			//mpom2.POPEdit("vehicletypename");
+			//mpom2.POPEdit("vehicletypename0");
 			//mpom2.acceptAlert();
 			
-			// mpom2.verifyedit("vehicletypename");
+			// mpom2.verifyedit("vehicletypename0");
 			System.out.println("Click the Parts linked and Edit is verification Passed");
 			loginfo.pass("Click the Parts linked and Edit is verification Passed");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -132,7 +132,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all chosed Vehicle make model along with click search");
 			Thread.sleep(5000);
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -156,9 +156,9 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 			Thread.sleep(5000);
 			mpom2.windowhandler();
 			mpom2.viewedit();
-			mpom2.vieweditcancel("vehicletypename");
+			mpom2.vieweditcancel("vehicletypename0");
 			// mpom2.acceptAlert();
-			// mpom2.verifyedit("vehicletypename");
+			// mpom2.verifyedit("vehicletypename0");
 			System.out.println("Click the Parts linked Cancel and verification Passed");
 			loginfo.pass("Click the Parts linked Cancel and verification Passed");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -218,7 +218,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all chosed Vehicle make model with click the search");
 			Thread.sleep(5000);
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();

@@ -26,6 +26,7 @@ public class ApplicationAddAces extends Baseclass {
 	public WebElement eAddApplication;
 	
 	@FindBy(xpath ="//select[@id='MainContent_drpVehicleTypeAdd']")
+	
 	public WebElement eSelectVehicle;
 	
 	@FindBy(xpath ="//select[@id='MainContent_drpMakeAdd']")
@@ -87,17 +88,17 @@ public class ApplicationAddAces extends Baseclass {
 
 	public void ClickAddApplication() throws InterruptedException {
 		eAddApplication.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	}
-	public void ChooseVehicle(String vehicletypename) throws InterruptedException {
+	public void ChooseVehicle(String vehicletypename0) throws InterruptedException {
 		
-		Select vehicle = new Select(eSelectVehicle);
-		vehicle.selectByVisibleText(vehicletypename);
+		Select vehicles = new Select(eSelectVehicle);
+		vehicles.selectByVisibleText(vehicletypename0);
 		Thread.sleep(3000);
 	
 		}
 
-	public void ChooseMake(String makename ) throws InterruptedException {
+	public void ChooseMake(String makename) throws InterruptedException {
 	 
 		Select make = new Select(eSelectMake);
 		make.selectByVisibleText(makename);
@@ -105,7 +106,7 @@ public class ApplicationAddAces extends Baseclass {
 		
 		}
  
-	public void ChooseModel(String modelname ) throws InterruptedException {
+	public void ChooseModel(String modelname) throws InterruptedException {
 		
 		Select model = new Select(eSelectModel);
 		model.selectByVisibleText(modelname);
@@ -153,7 +154,7 @@ public class ApplicationAddAces extends Baseclass {
 //	
 //		}
 
-	public void ChooseMakevry(String makename ) throws InterruptedException {
+	public void ChooseMakevry(String makename) throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Select Vmake = new Select(eVSelectMake);
 		Vmake.selectByVisibleText(makename);
@@ -161,7 +162,7 @@ public class ApplicationAddAces extends Baseclass {
 		
 		}
  
-	public void ChooseModelvry(String modelname ) throws InterruptedException {
+	public void ChooseModelvry(String modelname) throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Select Vmodel = new Select(eVSelectModel);
 		Vmodel.selectByVisibleText(modelname);

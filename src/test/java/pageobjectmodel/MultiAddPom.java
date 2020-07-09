@@ -285,7 +285,7 @@ public class MultiAddPom extends Baseclass {
 
 	}
 
-	public void Vehicledata(String vehicletypename) throws Throwable {
+	public void Vehicledata(String vehicletypename0) throws Throwable {
 
 		Boolean staleElement = true;
 
@@ -294,7 +294,7 @@ public class MultiAddPom extends Baseclass {
 			try {
 
 				Select evehicle = new Select(eVehicle1);
-				evehicle.selectByVisibleText(vehicletypename);
+				evehicle.selectByVisibleText(vehicletypename0);
 				Thread.sleep(5000);
 
 				staleElement = false;

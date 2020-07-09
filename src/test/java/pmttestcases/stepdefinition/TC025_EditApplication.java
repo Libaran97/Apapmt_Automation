@@ -40,7 +40,7 @@ public class TC025_EditApplication extends Baseclass {
 	public void user_will_select_dropdown_to_Choose_Vehicle_Make_Model_and_Click_search() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will select dropdown to Choose Vehicle, Make & Model and Click search");
-			//eapom.ChooseVehicle(pro.getProperty("vehicletypename"));
+			//eapom.ChooseVehicle(pro.getProperty("vehicletypename0"));
 			
 			eapom.ChooseMake(pro.getProperty("makename"));
 			
@@ -120,7 +120,7 @@ public class TC025_EditApplication extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will verify that Edited record has come");
 			eapom.ClickApplication2();
-			//eapom.ChooseVehicle(pro.getProperty("vehicletypename"));
+			//eapom.ChooseVehicle(pro.getProperty("vehicletypename0"));
 			eapom.ChooseMake(pro.getProperty("makename"));
 			eapom.ChooseModel(pro.getProperty("modelname"));
 			eapom.Clicksearch();

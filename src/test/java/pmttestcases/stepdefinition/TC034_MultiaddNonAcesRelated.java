@@ -44,7 +44,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check the all");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -145,7 +145,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all Vehicle,make and model and click the search");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();

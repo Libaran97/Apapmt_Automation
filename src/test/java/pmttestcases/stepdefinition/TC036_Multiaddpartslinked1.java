@@ -45,7 +45,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("when"),
 					"user will chose the all chosed Vehicle,make,model along with click the");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -125,7 +125,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("when"),
 					"user will again click the Vehicle,make,model in the drop down");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -202,7 +202,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all chosed Vehicle,make,model along with click the search");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -271,7 +271,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			mpom1.scrolldown();
 			mpom1.Savebutton();
 			mpom1.acceptAlert();
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -334,7 +334,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 	public void user_will_check_the_all_chosed_Vehicle_make_model() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check the all chosed Vehicle,make,model");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -470,7 +470,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 	public void user_will_check_the_all_chosed_Vehicle_make_models() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check the all chosed Vehicle,make,model");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();

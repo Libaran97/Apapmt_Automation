@@ -74,10 +74,10 @@ public class EditApplication extends Baseclass{
 	}
 	
 
-	public void ChooseVehicle(String vehicletypename) throws InterruptedException {
+	public void ChooseVehicle(String vehicletypename0) throws InterruptedException {
 		
 		Select vehicle = new Select(eSelectVehicle);
-		vehicle.selectByVisibleText(vehicletypename);
+		vehicle.selectByVisibleText(vehicletypename0);
 		Thread.sleep(5000);
 	
 		}
@@ -90,7 +90,7 @@ public class EditApplication extends Baseclass{
 		
 		}
  
-	public void ChooseModel(String modelname ) throws InterruptedException {
+	public void ChooseModel(String modelname) throws InterruptedException {
 		
 		Select model = new Select(eSelectModel);
 		model.selectByVisibleText(modelname);

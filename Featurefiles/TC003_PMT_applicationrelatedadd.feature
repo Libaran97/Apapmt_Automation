@@ -42,23 +42,3 @@ Scenario: Editing Application Related vehicle
 Given User will mouse over on Master and choose the vehicle type page
 When User will Select vehicle type, Click edit and will Edit vehicle type and save
 Then User will verify the Edited record should be shown in vehicle grid
-
-Scenario: Delete Application Related Model
-Given User Will Mouse over on master and choose Model for delete
-When User will search Model, click delete and accept alert
-Then User will Verify the Model is deleted or not
-
-Scenario: DeleteApplication Related Make
-Given User will mouse over on master and choose the make for delete
-When User will select make, delete make name & save   
-Then User will verify the make is deleted or not
-
-Scenario: Delete Application Related vehicle group
-Given User will mouse over on Master and choose the vehicle type group for delete
-When User will select vehicle group, click Delete and accept alert
-Then User will verify the vehicle type group deleted or not
-
-Scenario: Delete Application Related vehicle
-Given User will mouse over on Master and choose the vehicle type page for delete
-When User will Select vehicle type, Click Delete and Accept Alert
-Then User will verify the vehicle type deleted or not

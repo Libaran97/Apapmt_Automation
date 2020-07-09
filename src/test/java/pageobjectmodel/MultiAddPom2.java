@@ -103,9 +103,9 @@ public class MultiAddPom2 extends Baseclass {
 
 	String actual = "";
 
-	public void POPEdit(String vehicletypename) throws InterruptedException {
+	public void POPEdit(String vehicletypename0) throws InterruptedException {
 		eeditverifynotes.clear();
-		eeditverifynotes.sendKeys(pro.getProperty("vehicletypename"));
+		eeditverifynotes.sendKeys(pro.getProperty("vehicletypename0"));
 		Thread.sleep(5000);
 		actual = eeditverifynotes.getText();
 		System.out.println("actual");
@@ -158,21 +158,21 @@ public class MultiAddPom2 extends Baseclass {
 	public void acceptAlert() throws InterruptedException {
 		Alert alert = driver.switchTo().alert();
 		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
-		System.out.println("Application Related: " + pro.getProperty("vehicletypename") + alert.getText());
+		System.out.println("Application Related: " + pro.getProperty("vehicletypename0") + alert.getText());
 		alert.accept();
 		Thread.sleep(2000);
 	}
 
-	public void verifyedit(String vehicletypename) {
-		String expect = pro.getProperty("vehicletypename");
+	public void verifyedit(String vehicletypename0) {
+		String expect = pro.getProperty("vehicletypename0");
 		// actual = eeditverifynotes.getText();
 		assertEquals(expect, actual);
 		System.out.println("NOtes is matched");
 	}
 
-	public void vieweditcancel(String vehicletypename) throws Throwable {
+	public void vieweditcancel(String vehicletypename0) throws Throwable {
 		eeditverifynotes.clear();
-		eeditverifynotes.sendKeys(pro.getProperty("vehicletypename"));
+		eeditverifynotes.sendKeys(pro.getProperty("vehicletypename0"));
 		Thread.sleep(2000);
 		evieweditCancel.click();
 		Thread.sleep(5000);

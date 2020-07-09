@@ -107,12 +107,19 @@ public class PartsAdd_POM extends Baseclass {
 		Thread.sleep(7000);
 	}
 	
+	public void scrolldown() {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("window.scrollBy(0,350)");
+		// Thread.sleep(3000);
+
+	}
 	
 	public void partsadd() throws InterruptedException {
 		WebElement categoryselect = selectproductcategory;
 		Select select = new Select(categoryselect);
 		select.selectByVisibleText(pro.getProperty("categoryname"));
-		Thread.sleep(2000);
+		Thread.sleep(3000);
+		
 	}
 	
 	public void partsadd1() throws InterruptedException {
@@ -128,22 +135,22 @@ public class PartsAdd_POM extends Baseclass {
 		WebElement subcategoryselect = selectsubcategorydropdown;
 		Select select = new Select(subcategoryselect);
 		select.selectByVisibleText(pro.getProperty("subcategoryname"));
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 	}
 	
 	public void partsadddrp21() throws InterruptedException {
 		WebElement subcategoryselect = selectsubcategorydropdown;
 		Select select = new Select(subcategoryselect);
 		select.selectByVisibleText(pro.getProperty("subcategoryname1"));
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 	}
 	
 	
 	public void partsadddrp3() throws InterruptedException {
 		WebElement partdescselect = selectpartdescdropdown;
 		Select select = new Select(partdescselect);
-		select.selectByVisibleText(pro.getProperty("partdesc"));
-		Thread.sleep(2000);
+		select.selectByVisibleText(pro.getProperty("subcategoryname"));
+		Thread.sleep(3000);
 	}
 	
 	public void partsadddrp31() throws InterruptedException {
@@ -159,7 +166,7 @@ public class PartsAdd_POM extends Baseclass {
 		WebElement prdctlnselect = drpproductline;
 		Select select = new Select(prdctlnselect);
 		select.selectByVisibleText(pro.getProperty("linecode"));
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 	}
 	
 	public void partsadddrp41() throws InterruptedException {

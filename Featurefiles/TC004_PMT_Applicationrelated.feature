@@ -1,6 +1,5 @@
 Feature: PMT Application Page
 
-
 Scenario: Adding Aces Applicarion
 Given User will click on the Application and Click add button
 When User will select the dropdown and Choose Vehicle, Make & Model

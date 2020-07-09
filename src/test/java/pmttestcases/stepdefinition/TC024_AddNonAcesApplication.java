@@ -47,7 +47,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will select dropdown and Choose Vehicle, Make & Model");
 
-			anpom.ChooseVehicle(pro.getProperty("vehicletypename"));
+			anpom.ChooseVehicle(pro.getProperty("vehicletypename0"));
 
 			anpom.ChooseMake(pro.getProperty("makename"));
 
@@ -131,7 +131,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will verify that NonAces record has come");
 			anpom.ClickApplication2();
-			// anpom.ChooseVehiclevry(pro.getProperty("vehicletypename"));
+			// anpom.ChooseVehiclevry(pro.getProperty("vehicletypename0"));
 			anpom.ChooseMakevry(pro.getProperty("makename"));
 			anpom.ChooseModelvry(pro.getProperty("modelname"));
 			anpom.Clicksearch();
@@ -179,7 +179,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will select dropdown & Choose Vehicle, Make and Model");
-			apom.ChooseVehicle(pro.getProperty("vehicletypename"));
+			apom.ChooseVehicle(pro.getProperty("vehicletypename0"));
 
 			apom.ChooseMake(pro.getProperty("makename"));
 
@@ -250,7 +250,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will verify that the record has come");
 			apom.ClickApplication2();
-			// apom.ChooseVehiclevry(pro.getProperty("vehicletypename"));
+			// apom.ChooseVehiclevry(pro.getProperty("vehicletypename0"));
 			apom.ChooseMakevry(pro.getProperty("makename"));
 			apom.ChooseModelvry(pro.getProperty("modelname"));
 			apom.Clicksearch();
@@ -301,7 +301,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will Choose Vehicle, Make and Model in dropdown");
-			apom.ChooseVehicle(pro.getProperty("vehicletypename"));
+			apom.ChooseVehicle(pro.getProperty("vehicletypename0"));
 
 			apom.ChooseMake(pro.getProperty("makename"));
 
@@ -376,7 +376,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will verify that the record has come");
 			apom.ClickApplication2();
-			// apom.ChooseVehiclevry(pro.getProperty("vehicletypename"));
+			// apom.ChooseVehiclevry(pro.getProperty("vehicletypename0"));
 			apom.ChooseMakevry(pro.getProperty("makename"));
 			apom.ChooseModelvry(pro.getProperty("modelname"));
 			apom.Clicksearch();
@@ -387,7 +387,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 			apom.verifyyear(pro.getProperty("EnterInvalidYear"));
 			loginfo.pass("NonAces Application added successfully & shown in grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println("Aces Application Not verify " + e.getMessage());

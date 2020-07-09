@@ -19,7 +19,7 @@ public class TC023_AddAcesApplication extends Baseclass {
 	public void user_will_click_on_the_Application_and_Click_add_button() throws Throwable {
 
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Application Page").assignCategory("Aces Applicarion")
 					.pass("Aces Applicarion added");
 			test = test.createNode(Scenario.class, "Adding Aces Applicarion");
@@ -46,7 +46,7 @@ public class TC023_AddAcesApplication extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will select the dropdown and Choose Vehicle, Make & Model");
-			apom.ChooseVehicle(pro.getProperty("vehicletypename"));
+			apom.ChooseVehicle(pro.getProperty("vehicletypname0"));
 
 			apom.ChooseMake(pro.getProperty("makename"));
 
@@ -132,7 +132,7 @@ public class TC023_AddAcesApplication extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will verify that the record has come");
 			apom.ClickApplication2();
-			// apom.ChooseVehiclevry(pro.getProperty("vehicletypename"));
+			// apom.ChooseVehiclevry(pro.getProperty("vehicletypename0"));
 			apom.ChooseMakevry(pro.getProperty("makename"));
 			apom.ChooseModelvry(pro.getProperty("modelname"));
 			apom.Clicksearch();
@@ -180,7 +180,7 @@ public class TC023_AddAcesApplication extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will select dropdown and Choose Vehicle, Make and Model");
-			apom.ChooseVehicle(pro.getProperty("vehicletypename"));
+			apom.ChooseVehicle(pro.getProperty("vehicletypname0"));
 
 			apom.ChooseMake(pro.getProperty("makename"));
 
@@ -254,7 +254,7 @@ public class TC023_AddAcesApplication extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will verify that the record has come");
 			apom.ClickApplication2();
-			// apom.ChooseVehiclevry(pro.getProperty("vehicletypename"));
+			// apom.ChooseVehiclevry(pro.getProperty("vehicletypename0"));
 			apom.ChooseMakevry(pro.getProperty("makename"));
 			apom.ChooseModelvry(pro.getProperty("modelname"));
 			apom.Clicksearch();

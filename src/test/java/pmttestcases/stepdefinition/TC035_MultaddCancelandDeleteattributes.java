@@ -40,7 +40,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will create the application pages and multiadd links");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -134,7 +134,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	public void user_will_check_the_all_Vehicle_make_and_model() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check the all Vehicle,make and model");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -232,7 +232,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all Vehicle,make model and click the search");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -369,7 +369,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all Vehicle,make,model and click the search");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -504,7 +504,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all chose Vehicle,make,model  with click the search");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
@@ -644,7 +644,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all chose Vehicle,make,model  with click the search");
-			mpom1.Vehicledata(pro.getProperty("vehicletypename"));
+			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();

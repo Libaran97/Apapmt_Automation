@@ -79,11 +79,14 @@ public class TC005_PMT_Partdesc extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the part# thorugh part# search");
 			partdesc.acceptAlert();
+			partdesc.Verifydescription(pro.getProperty("descnotes"));
 			loginfo.pass("Parts page landed successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}catch ( Exception e) {
 			TestStep("Fail",driver,loginfo,e);
 			System.out.println(e);
+			//extent.flush();
 			
 		}
 	}
@@ -115,7 +118,7 @@ public class TC005_PMT_Partdesc extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on part description frame and will edit the notes & saved");
 			partdesc.descriptionclick();
-			partdesc.editpartdesc(pro.getProperty("editdescnotes"));
+			partdesc.editpartdesc(pro.getProperty("editdescnotes"),pro.getProperty("descnotes"));
 			partdesc.savebtn();
 		}catch ( Exception e) {
 			System.out.println(e);
@@ -128,6 +131,7 @@ public class TC005_PMT_Partdesc extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the record should be edited");
 		partdesc.acceptAlert();
+		partdesc.Verifydescription(pro.getProperty("editdescnotes"));
 		loginfo.pass("Parts page landed successfully");
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		//extent.flush();
@@ -162,8 +166,8 @@ public class TC005_PMT_Partdesc extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on part description frame and will delete the added or available record");
 		partdesc.descriptionclick();
-		partdesc.deletepartdesc();
-		partdesc.acceptAlertdelete();
+		partdesc.deletepartdesc(pro.getProperty("editdescnotes"));
+		
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} 	catch ( Exception e) {
 			System.out.println(e);
@@ -178,12 +182,14 @@ public class TC005_PMT_Partdesc extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the part# thorugh part# search");
 		partdesc.acceptAlert();
+		partdesc.acceptAlert();
+		partdesc.VerifyDeletedescription(pro.getProperty("editdescnotes"), pro.getProperty("Deleteverifytext"));
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		//extent.flush();
 		}catch ( Exception e) {
 			TestStep("Fail",driver,loginfo,e);
 			System.out.println(e);
-			//extent.flush();
+		//extent.flush();
 			
 		}
 	}
