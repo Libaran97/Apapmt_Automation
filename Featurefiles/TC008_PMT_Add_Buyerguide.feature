@@ -1,4 +1,3 @@
-@Sanitycheck
 Feature: PMT parts buyers guide
 Description: User will add application for a part# through buyersguide
 
@@ -7,7 +6,6 @@ Given User will go to parts page and search for a part# and will tie-up the appl
 When User will click on buyersguide frame and choose the vehicle, make, model & search
 And User will choose an enginebase and click on save
 Then User will see successfull alert and verify the reocrd has shown in the below grid
-
 
 Scenario: Edit Application through buyers guide
 Given User will go to parts page and search for a part# will edit notes

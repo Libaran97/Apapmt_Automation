@@ -45,7 +45,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Jul 9, 2020 07:36:19 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Jul 10, 2020 06:05:18 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -72,7 +72,7 @@
 				<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>PartsAdd</a></li>
+					<li><a href='#'>PartsBuyersguideDelete</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -141,7 +141,7 @@
                     <canvas id='grandchild-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> step(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> step(s) passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -164,8 +164,8 @@
 			<ul id='test-collection' class='test-collection'>
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>PMT Add Product List</span>
-						<span class='test-time'>Jul 9, 2020 07:36:19 PM</span>
+						<span class='test-name'>PMT parts buyers guide</span>
+						<span class='test-time'>Jul 10, 2020 06:05:18 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
@@ -176,38 +176,19 @@
     <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
 <div class='scenario node' test-id='2' status='pass'>
-    <span class='duration right label'>0h 0m 37s+861ms</span>
+    <span class='duration right label'>0h 0m 9s+847ms</span>
     <div class="bdd-test">
-        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Adding part# with created product category</div>
+        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Delete Application through buyers guide</div>
     </div>
     <ul class='steps'>
         <li test-id='3' class='node given pass' status='pass'>
-            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will click on parts page and it will redirect to parts page</div>
-            <ul class='screenshots right'>
-                <li><a data-featherlight="image" href="C:\Users\mohamed\git\apapmt_automation/Reports/screenshots/07092020193635083.png"><i class='material-icons'>panorama</i></a></li>
-            </ul>
-                <div class="node-step">Parts page landed successfully</div>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will go to parts page and search for a part# to delete the application</div>
         </li>
         <li test-id='4' class='node when pass' status='pass'>
-            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will click on the add buton and choose product category, sub category,part desc, product line</div>
-            <ul class='screenshots right'>
-                <li><a data-featherlight="image" href="C:\Users\mohamed\git\apapmt_automation/Reports/screenshots/07092020193648894.png"><i class='material-icons'>panorama</i></a></li>
-            </ul>
-                <div class="node-step">Parts page landed successfully</div>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will click on buyers guide frame, choose the application and click on delete</div>
         </li>
-        <li test-id='5' class='node and pass' status='pass'>
-            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will enter the part# and click on save</div>
-            <ul class='screenshots right'>
-                <li><a data-featherlight="image" href="C:\Users\mohamed\git\apapmt_automation/Reports/screenshots/07092020193657566.png"><i class='material-icons'>panorama</i></a></li>
-            </ul>
-                <div class="node-step">Parts page landed successfully</div>
-        </li>
-        <li test-id='6' class='node then pass' status='pass'>
-            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will see successfull alert and verify the part# thorugh part# search</div>
-            <ul class='screenshots right'>
-                <li><a data-featherlight="image" href="C:\Users\mohamed\git\apapmt_automation/Reports/screenshots/07092020193657887.png"><i class='material-icons'>panorama</i></a></li>
-            </ul>
-                <div class="node-step">Parts page landed successfully</div>
+        <li test-id='5' class='node then pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>User will see succesfull alert and verify the application is deleted from the show grid</div>
         </li>
     </ul>
 </div>
@@ -253,7 +234,7 @@
 			<ul id='category-collection' class='category-collection'>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>PartsAdd</span>
+						<span class='category-name'>PartsBuyersguideDelete</span>
 						<span class='category-status right'>
 						<span class='label pass'>1</span>
 						</span>
@@ -275,8 +256,8 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jul 9, 2020 07:36:19 PM</td>
-										<td class='linked' test-id='1'>PMT Add Product List</td>
+										<td>Jul 10, 2020 06:05:18 PM</td>
+										<td class='linked' test-id='1'>PMT parts buyers guide</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -313,25 +294,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>4</div>
+					<div class='panel-lead'>3</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jul 9, 2020 07:36:19 PM</div>
+					<div class='panel-lead'>Jul 10, 2020 06:05:18 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jul 9, 2020 07:36:57 PM</div>
+			 		<div class='panel-lead'>Jul 10, 2020 06:05:33 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 38s+253ms</div>
+					<div class='panel-lead'>0h 0m 14s+705ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -371,7 +352,7 @@
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>PartsAdd</td>
+							<td>PartsBuyersguideDelete</td>
 							<td>1</td>
 							<td>0</td>
 							<td>0</td>
@@ -408,8 +389,8 @@
 				infoChild: 0,
 				debugChild: 0,
 				exceptionsChild: 0,
-				grandChildCount: 4,
-				passGrandChild: 4,
+				grandChildCount: 3,
+				passGrandChild: 3,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
@@ -422,7 +403,7 @@
 		</script>
 		<script>
 			var timeline = {
-			        "PMT Add Product List":37.861
+			        "PMT parts buyers guide":9.847
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>
