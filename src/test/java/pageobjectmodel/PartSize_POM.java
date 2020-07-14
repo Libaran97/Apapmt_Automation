@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -23,13 +24,17 @@ public class PartSize_POM extends Baseclass{
 	
 	//input[@id='MainContent_chklstsizes_0']//following::label
 	//input[@type='checkbox']//following::label
-	@FindBy(xpath="//input[@id='MainContent_chklstsizes_0']/following::label[2]")
+	
+	//@FindBy(xpath="//input[@id='MainContent_chklstsizes_0']/following::label[2]")
+	@FindBy(xpath="(//input[@type='checkbox'and@name='chklstsizes'] /following:: input)[1]")
 	private WebElement chklstsize;
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_btnSave']")
+	@FindBy(xpath="(//input[@id='btnSave'])[2]")
 	private WebElement btnSave;
 	
+	@FindBy(xpath = "(//button[@type='button'])[2]")
+	private WebElement eAcceptalert;
 	
 	
 	
@@ -43,14 +48,17 @@ public class PartSize_POM extends Baseclass{
 	}
 	
 	
-	public void addsize() {
-		driver.switchTo().frame(0);
-		List<WebElement> sizes = driver.findElements(By.xpath("//input[@id='MainContent_chklstsizes_0']/following::label"));
+	public void addsize() throws InterruptedException {
+		//driver.switchTo().frame(0);
+		//List<WebElement> sizes = driver.findElements(By.xpath("//input[@id='MainContent_chklstsizes_0']/following::label"));
+		/*List<WebElement> sizes = driver.findElements(By.xpath("//input[@type='checkbox'and@name='chklstsizes'] /following::label"));
 		//String sizes =
 		System.out.println("Available size are ---->" + sizes.size());
-		for(int i=0; i<sizes.size(); i++) {
-			System.out.println("List of sizes are----->"+sizes.get(i).getText());
-		if(sizes.get(i).getText().contains(pro.getProperty("partsize")))
+		int i=0;
+		int k=i+1;
+		for(k=1; i<sizes.size(); i++) {
+			//System.out.println("List of sizes are----->"+sizes.get(i).getText());
+		if(sizes.get(i).getText().equals(pro.getProperty("partsize")))
 		{
 			chklstsize.click();
 			System.out.println("Part Size are checked");
@@ -59,11 +67,17 @@ public class PartSize_POM extends Baseclass{
 		{
 			System.out.println("Size is not available");
 		}
-	}
+	}*/
+		
+		driver.findElement(By.xpath("//*[@id=\"chkSelect\"]")).click();
+		System.out.println("Part Size are checked");
+		Thread.sleep(3000);
 	}
 	
 	public void savesize() throws InterruptedException {
-		btnSave.click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", btnSave);
+		btnSave.click();		
 		Thread.sleep(3000);
 	}
 	
@@ -75,13 +89,18 @@ public class PartSize_POM extends Baseclass{
 		alert.accept();
 		Thread.sleep(3000);
 	}
+	public void acceptAlert1() throws Exception {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
+		eAcceptalert.click();
+		Thread.sleep(8000);
+	}
 	
 	
-	
-	public void unchecksize() {
+	public void unchecksize() throws Exception {
 		//String size = chklstsize.getText();
 		//System.out.println("Available size are ---->" +size);
-			driver.switchTo().frame(0);
+			/*driver.switchTo().frame(0);
 			boolean ischecked = false;
 			ischecked = chklstsize.isSelected();
 			if(ischecked = true) {
@@ -89,12 +108,15 @@ public class PartSize_POM extends Baseclass{
 				System.out.println("Size is Unchecked");
 			}else {
 				System.out.println("Size is not unchecked");
-			}
+			}*/
+		driver.findElement(By.xpath("//*[@id=\"chkDeselect\"]")).click();
+		System.out.println("Part Size are unchecked");
+		Thread.sleep(3000);
 			
 	}
 	
 	
-	public void verifysize(String givensize) {
+	public void verifysize() {
 		//driver.switchTo().frame(0);
 		//List<WebElement> sizes = driver.findElements(By.xpath("//input[@id='MainContent_chklstsizes_0']/following::label"));
 		//System.out.println("Available size are ---->" + sizes.size());

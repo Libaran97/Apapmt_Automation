@@ -55,7 +55,7 @@ public class TC009_PMT_Partextendedinfo extends Baseclass {
 			ext.selectlanguage();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			ext.btsave1();
-			ext.acceptAlert();
+			ext.acceptAlert1();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}catch ( Exception e) {
 			System.out.println(e);
@@ -69,7 +69,9 @@ public class TC009_PMT_Partextendedinfo extends Baseclass {
 	   
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will added successfully the info and verify");
-			
+			ext.extverification();
+			//extent.flush();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
@@ -104,7 +106,8 @@ public class TC009_PMT_Partextendedinfo extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will landed in extended info page and will delete a record");
 			ext.deleteinfo();
-			ext.acceptAlert();
+			ext.acceptAlert1();
+			ext.acceptAlert1();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}catch ( Exception e) {
 			System.out.println(e);
@@ -118,6 +121,7 @@ public class TC009_PMT_Partextendedinfo extends Baseclass {
 	   
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will delete successfully and verify whether the record is deleted");
+			ext.extverificationdel();
 			//extent.flush();
 		}catch ( Exception e) {
 			System.out.println(e);

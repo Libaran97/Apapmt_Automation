@@ -1,11 +1,10 @@
-@Sanitycheck
 Feature: PMT Parts Package Add, Edit and Delete
 
 Scenario: Adding Package in old parts page
 Given User will go to parts page and search for a partno
 When User will click on Package and select Package UOM dropdown
 And User will Enter Quantity, height, width and Length
-Then User will click save and Accept the alert
+And User will click save and Accept the alert
 Then User will verify the reocrd has shown in the below grid 
 
 Scenario: Editing Package in old parts page

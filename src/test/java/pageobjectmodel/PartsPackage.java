@@ -31,37 +31,47 @@ public class PartsPackage extends Baseclass {
 	private WebElement txtpartsearch;
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_btnPsearch']")
+	@FindBy(xpath="(//input[@class='button_search'])[1]")
 	private WebElement btnPsearch;
 	
 	@FindBy(xpath="//div[@id='Package']")
 	private WebElement ePackageclick;
 	
-	@FindBy(xpath="//select[@id='MainContent_drpPackageUom']")
+	@FindBy(xpath="//select[@id='drpPackageUom']")
 	private WebElement ePackageUom;
 	
-	@FindBy(xpath="//input[@id='MainContent_txtQtyPackage']")
+	@FindBy(xpath="//input[@id='txtQtyPackage']")
 	private WebElement eUomQty;
 	
-	@FindBy(xpath="//input[@id='MainContent_txtShippingHeight']")
+	@FindBy(xpath="//input[@id=\"txtHeight\"]")
 	private WebElement eHeight;
 	
-	@FindBy(xpath="//input[@id='MainContent_txtShippingWidth']")
+	@FindBy(xpath="//input[@id=\"txtWidth\"]")
 	private WebElement eWidth;
 	
-	@FindBy(xpath="//input[@id='MainContent_txtShippingLength']")
+	@FindBy(xpath="//input[@id='txtLength']")
 	private WebElement eLength;
 	
-	@FindBy(xpath="//input[@id='MainContent_btnSave']")
+	@FindBy(xpath="(//input[@id=\"btnSave\"])[2]")
 	private WebElement btnSave;
 	
-	@FindBy(xpath="//table[@id='MainContent_GVPackageData']/tbody/tr[2]/td[12]")
-	private WebElement Vrfy;
+	@FindBy(xpath = "(//button[@type='button'])[2]")
+	private WebElement eAcceptalert;
 	
-	@FindBy(xpath="//input[@id='MainContent_GVPackageData_imgEdit_0']")
+	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[12]")
+	private WebElement Vrfy;
+	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td")
+	private WebElement Vrfy1;
+	
+
+	@FindBy(xpath="//input[@placeholder='Package Qty / UOM']")
+	private WebElement searchuom;
+	
+	
+	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[16]/div/input[1]")
 	private WebElement ebtnEdit;
 	
-	@FindBy(xpath="//input[@id='MainContent_GVPackageData_imgDelete_0']")
+	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[16]/div/input[2]")
 	private WebElement ebtnDelete;
 	
 	
@@ -77,7 +87,7 @@ public class PartsPackage extends Baseclass {
 		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().contains("Testpart-3 | Ignition Test | Autoapa")) {
+			if(list.get(i).getText().contains("Testpart-1 | Ignition Coil Test | Autoapa3")) {
 				list.get(i).click();
 				break;
 			}
@@ -92,7 +102,7 @@ public class PartsPackage extends Baseclass {
 		}
 	
 	public void SelectPackageUom() throws InterruptedException {
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
 		Select uom = new Select(ePackageUom);
 		uom.selectByIndex(1);
 		Thread.sleep(2000);	
@@ -109,27 +119,65 @@ public class PartsPackage extends Baseclass {
 		eWidth.sendKeys(pro.getProperty("Width"));
 		Thread.sleep(2000);
 		eLength.sendKeys(pro.getProperty("Length"));
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 	}
 	public void SaveAcceptAlert() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;		
+		js.executeScript("arguments[0].scrollIntoView();",btnSave);
 		btnSave.click();
 		Thread.sleep(3000);
-		Alert alert=driver.switchTo().alert();
+		/*Alert alert=driver.switchTo().alert();
 		System.out.println(alert.getText());
 		alert.accept();
-		Thread.sleep(3000);
+		Thread.sleep(3000);*/
+	
+		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
+		eAcceptalert.click();
+		Thread.sleep(6000);
 	}
 	
 	@SuppressWarnings("deprecation")
-	public void Verify(String Vryuom1) throws InterruptedException {
+	public void Verify() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", Vrfy);
+		js.executeScript("arguments[0].scrollIntoView();", searchuom);
+		searchuom.sendKeys("2 - CA");
 		
+		js.executeScript("arguments[0].scrollIntoView();", Vrfy);
 		String Text=Vrfy.getText();
 		
 		System.out.println(Text);
 		
-		Assert.assertEquals(Vryuom1, Text);
+		if (Text.contains("2 - CA"))
+		{
+			System.out.println("Both are same");
+		}
+		else
+		{
+			System.out.println("Both are not same");
+		}
+	
+		
+	}
+	
+	public void Verifyedit() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", searchuom);
+		searchuom.sendKeys("4 - CA");
+		
+		js.executeScript("arguments[0].scrollIntoView();", Vrfy);
+		String Text=Vrfy.getText();
+		
+		System.out.println(Text);
+		
+		if (Text.contains("4 - CA"))
+		{
+			System.out.println("Both are same");
+		}
+		else
+		{
+			System.out.println("Both are not same");
+		}
+	
 		
 	}
 	
@@ -140,7 +188,7 @@ public class PartsPackage extends Baseclass {
 		Thread.sleep(2000);	
 	}
 	public void ClickEditButton() throws InterruptedException {
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ebtnEdit);
 		ebtnEdit.click();
@@ -148,23 +196,51 @@ public class PartsPackage extends Baseclass {
 	}
 	
 	public void ClickDeleteButton() throws InterruptedException {
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ebtnDelete);
 		ebtnDelete.click();
 		Thread.sleep(3000);
-		Alert alert=driver.switchTo().alert();
+		/*Alert alert=driver.switchTo().alert();
 		Thread.sleep(3000);
 		System.out.println(alert.getText());
 		alert.accept();
+		Thread.sleep(3000);*/
+
+		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
+		eAcceptalert.click();
+		Thread.sleep(3000);
+
+		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
+		eAcceptalert.click();
 		Thread.sleep(3000);
 	}
 		
 	@SuppressWarnings("deprecation")
-	public void DeleteVerify() throws InterruptedException {
+	public void DeleteVerify(String DeleteProducttxt,String DeleteProducttxt2) throws InterruptedException {
 		
-		Thread.sleep(3000);
-		Assert.assertNotNull(Vrfy);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", searchuom);
+		searchuom.sendKeys("4 - CA");
+		
+		js.executeScript("arguments[0].scrollIntoView();", Vrfy1);
+		String Text=Vrfy1.getText();
+		
+		System.out.println(Text);
+		
+		if (Text.contains(pro.getProperty("DeleteProducttxt")))
+		{
+			System.out.println("Package deleted success");
+		}
+		if (Text.contains(pro.getProperty("DeleteProducttxt2")))
+				{
+					System.out.println("Package deleted successs");
+				}
+		else
+		{
+			System.out.println("Both are not same");
+		}
+	
 	}
 	
 	
