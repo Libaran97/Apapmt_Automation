@@ -1,4 +1,4 @@
-Feature: PMT Part Size
+Feature: PMT Product attribute
 Description: User will add and delete the part size for the partno
 
 Scenario: Adding the Product attribute data

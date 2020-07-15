@@ -30,8 +30,7 @@ public class TC013PartsListAll extends Baseclass {
 			parts = new PartsAdd_POM();
 			parts.partslandingpage();
 			loginfo.pass("Parts page landed successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));			
 		 }   catch (Exception e) {
 			 System.out.println(e);
 			 TestStep("Fail",driver,loginfo,e);
@@ -411,7 +410,7 @@ public class TC013PartsListAll extends Baseclass {
 			
 			eppom.EnterSearchText(pro.getProperty("partno"));
 			eppom.DuplicateAppprtsButton();
-			eppom.createAppartsDuplicate(pro.getProperty("partdesc"), pro.getProperty("linecode"), pro.getProperty("Asearchpart"), pro.getProperty("partno3"));
+			eppom.createAppartsDuplicate(pro.getProperty("subcategoryname"), pro.getProperty("linecode"), pro.getProperty("Asearchpart"), pro.getProperty("partno3"));
 			
 			loginfo.pass("Part number Entered and Duplicate the apparts Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));

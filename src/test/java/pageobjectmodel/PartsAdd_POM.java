@@ -99,6 +99,10 @@ public class PartsAdd_POM extends Baseclass {
 	@FindBy(xpath="//input[@id='MainContent_txtPart']")
 	private WebElement txtPartverify;
 	
+	@FindBy(xpath="//input[@id=\"MainContent_chkIsUnit\"]")
+	private WebElement unitparts;
+	
+	
 	
 	public void partslandingpage() throws InterruptedException{
 		partspageheaderclick.click();
@@ -178,14 +182,19 @@ public class PartsAdd_POM extends Baseclass {
 	
 	
 	
-	public void savenewpart(String partname) throws InterruptedException {
-		txtPart.sendKeys(partname);
+	public void savenewpart(String partno3) throws InterruptedException {
+		txtPart.sendKeys(partno3);
 		/*
 		 * WebElement minqtyselect = drpMinQtyUOM; Select select = new
 		 * Select(minqtyselect); select.selectByVisibleText(pro.getProperty("minqty"));
 		 */
-		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].scrollIntoView();", unitparts);
+		unitparts.click();
+		//driver.findElement(By.xpath("//input[@id=\"MainContent_chkIsUnit\"]")).click();
+		Thread.sleep(2000);
+	
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
 		btnSave.click();
 		Thread.sleep(2000);
@@ -218,7 +227,7 @@ public class PartsAdd_POM extends Baseclass {
 	public void acceptAlert() throws InterruptedException{
 		Alert alert = driver.switchTo().alert();
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
-		System.out.println("Parts Related " +pro.getProperty("partname") + alert.getText());
+		System.out.println("Parts Related " + alert.getText());
 		alert.accept();
 		Thread.sleep(4000);
 		

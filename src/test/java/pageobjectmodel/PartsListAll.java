@@ -41,7 +41,7 @@ public class PartsListAll extends Baseclass{
 	@FindBy(xpath ="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
 	public WebElement esearchTbox;
 	
-	@FindBy(xpath="//input[@id='MainContent_ImageButton1']")
+	@FindBy(xpath="//*[@id=\"MainContent_ImageButton1\"]")
 	public WebElement eEditButton;
 	
 	@FindBy(xpath="//*[@id='parttitle_desc_heading']")
@@ -154,11 +154,11 @@ public class PartsListAll extends Baseclass{
 	public void VerifyEdit(String Allinone) throws InterruptedException {
 		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		String title = driver.getTitle();
-		System.out.println(title);
+		/*String title = driver.getTitle();
+		System.out.println("First"+title);*/
 		String title2 =eTitle.getText();
 		System.out.println(title2);
-		if(title2.equals(Allinone)){
+		if(title2.contains("Testpart-1 |  Ignition Coil Test | Autoapa3")){
 			System.out.println("Both are same");
 		}else
 		{
@@ -280,13 +280,13 @@ public class PartsListAll extends Baseclass{
 		Thread.sleep(3000);
 		
 	}
-	public void createAppartsDuplicate(String partdesc, String linecode, String Asearchpart, String partno3) throws InterruptedException {
+	public void createAppartsDuplicate(String subcategoryname, String linecode, String Asearchpart, String partno3) throws InterruptedException {
 		
 		
 		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    Select Prodes1 = new Select(eCPartsDescription);
-		Prodes1.selectByVisibleText(partdesc);
+		Prodes1.selectByVisibleText(subcategoryname);
 		Thread.sleep(3000);
 		
 		Select ProdLine1 = new Select(eCProductLine);

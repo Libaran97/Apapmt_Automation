@@ -1,4 +1,3 @@
-@Sanitycheck
 Feature: PMT Parts ListAll and Dropped Part#
 
 Scenario: Create part no for copy appparts
@@ -18,7 +17,7 @@ When User will Select Category, sub category, part description, Product line and
 And User will Search for part number and click edit
 Then User will Verify page redirect to Allinone page or not
 
-Scenario: Delete parts in List all page
+#Scenario: Delete parts in List all page
 #Given User will click parts button and click listall button
 #When User will Select Category, sub category, part description, Product line and Click search for Delete
 #And User will Search for part number and click delete
