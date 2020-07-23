@@ -1,4 +1,3 @@
-@jim
 Feature: PMT Add and Edit Product List
 Description: User will add product category,sub category & part description
 

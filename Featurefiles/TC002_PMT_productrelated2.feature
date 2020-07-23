@@ -1,4 +1,3 @@
-@jim
 Feature: PMT Add Product List_MUL
 Description: User will add product category,sub category & part description_MUL
 

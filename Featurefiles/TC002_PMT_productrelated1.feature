@@ -1,4 +1,3 @@
-@jim
 Feature: PMT Add and Edit Product group List
 Description: User will add product groupmaster category & Ck one two three
 

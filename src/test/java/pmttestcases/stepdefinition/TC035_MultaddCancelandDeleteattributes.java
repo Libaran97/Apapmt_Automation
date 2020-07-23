@@ -62,7 +62,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
 			mpom1.scrolldown();
@@ -156,7 +156,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			mpom1.Checkbox2("EnterYear", "Acesvalue");
 			mpom1.scrolldown();
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
 			mpom1.scrolldown();
@@ -268,7 +268,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part number as well");
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -406,7 +406,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part number in the dropdown");
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -544,7 +544,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part no in the dropdown");
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
@@ -681,7 +681,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part num in the dropdown");
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));

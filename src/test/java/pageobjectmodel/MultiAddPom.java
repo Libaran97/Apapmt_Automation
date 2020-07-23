@@ -104,7 +104,7 @@ public class MultiAddPom extends Baseclass {
 
 	// *****Attributes page Non-ACes Start*****//
 
-	@FindBy(xpath = "//input[@id='MainContent_dlNonACESattribute_txtNonACES_0']")
+	@FindBy(xpath = "//input[@id=\"MainContent_dlNonACESattribute_txtNonACES_0\"]")
 	WebElement eshowattribt11;
 
 	// *****Attributes page Non-ACes End*****//`
@@ -177,10 +177,10 @@ public class MultiAddPom extends Baseclass {
 	@FindBy(xpath = "//tr[@role='row'] //td[6]")
 	WebElement Everifyattr1;
 
-	@FindBy(xpath = "//*[@id='MainContent_dlDisplayColumnList_txtattr_0']")
+	@FindBy(xpath = "//input[@id=\"MainContent_dlDisplayColumnList_txtattr_0\"]")
 	WebElement eatrtxtbox;
 
-	@FindBy(xpath = "//label[@for='MainContent_dlDisplayColumnList_chkList_0_0_0']")
+	@FindBy(xpath = "//input[@id=\"MainContent_dlDisplayColumnList_chkselectAll1_0\"]")
 	WebElement eregion;
 
 ////////////////////////////////////////////////////////////
@@ -502,9 +502,9 @@ public class MultiAddPom extends Baseclass {
 		Thread.sleep(5000);
 	}
 
-	public void Partdesc(String Partdesc) throws Throwable {
+	public void Partdesc(String subcategoryname) throws Throwable {
 		Select epart = new Select(eSelectdesc);
-		epart.selectByVisibleText(Partdesc);
+		epart.selectByVisibleText(subcategoryname);
 		Thread.sleep(5000);
 	}
 
@@ -549,7 +549,7 @@ public class MultiAddPom extends Baseclass {
 				JavascriptExecutor js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView();", eSelectsave);
 				eSelectsave.click();
-				Thread.sleep(10000);
+				Thread.sleep(8000);
 
 				staleElement = false;
 
@@ -560,6 +560,10 @@ public class MultiAddPom extends Baseclass {
 			}
 
 		}
+		/*JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eSelectsave);
+		eSelectsave.click();
+		Thread.sleep(8000);*/
 
 	}
 

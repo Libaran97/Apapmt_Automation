@@ -1,4 +1,3 @@
-@jim
 Feature: PMT delete Product Related
 
 Scenario: deleting Related partno[Engine oil oriented]

@@ -64,7 +64,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
 			mpom1.scrolldown();
@@ -184,7 +184,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part number");
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.scrolldown();
 			mpom1.Addbutton();

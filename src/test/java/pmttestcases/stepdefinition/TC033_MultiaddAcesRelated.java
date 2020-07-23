@@ -65,7 +65,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			mpom1.Checkbox2("EnterYear", "Acesvalue");
 			mpom1.scrolldown();
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
 			// mpom1.scrolldown();
@@ -186,7 +186,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part number");
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
 			mpom1.scrolldown();
@@ -243,7 +243,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 	@Given("^: user will create the application and multiadd pages$")
 	public void user_will_create_the_application_and_multiadd_pages() throws Throwable {
 		try {
-			// extent = setup();
+			 //extent = setup();
 			test = extent
 					.createTest(Feature.class,
 							"Check the Show attributes ACES and textbox with and verify to buyerguide-TC033")
@@ -308,7 +308,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part numbers");
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
 			mpom1.scrolldown();
@@ -351,7 +351,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			System.out.println("**Show Aces attributes text box succussfully added**");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Show Aces attributes text box succussfully added..");
-			// extent.flush();
+			 //extent.flush();
 		} catch (Exception e) {
 			// extent.flush();
 			loginfo.fail("Show Aces attributes text box succussfully not added....");
@@ -427,7 +427,7 @@ public class TC033_MultiaddAcesRelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part num");
 			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
 			mpom1.scrolldown();

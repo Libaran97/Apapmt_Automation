@@ -34,7 +34,7 @@ public class Productattribute_POM extends Baseclass{
 	@FindBy(xpath = "(//button[@type='button'])[2]")
 	private WebElement eAcceptalert;
 	
-	@FindBy(xpath = "//input[@id='txtattrdata10162_1_0']")
+	@FindBy(xpath = "//table[@id=\"Tbl_Attribute\"]/tbody/tr/td[3] //input[@type='text']")
 	private WebElement attrvalue;
 	
 	@FindBy(xpath = "//*[@id='img_delete']/img")

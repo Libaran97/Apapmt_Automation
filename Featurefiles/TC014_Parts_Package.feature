@@ -16,6 +16,6 @@ Then User will verify the Edit reocrd has shown in the below grid
 Scenario: Deleting  Package in old parts page
 Given User will go to parts page and search for the partno
 When User will click on Package and Click Delete Button Accept Alert
-And User will verify the reocrd has not shown in the below grid
+Then User will verify the reocrd has not shown in the below grid
 
 

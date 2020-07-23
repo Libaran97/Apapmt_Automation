@@ -94,7 +94,7 @@ public class TC016_Packageold extends Baseclass {
 	@Then("^User will verify the reocrd has shown in the below grid$")
 	public void user_will_verify_the_reocrd_has_shown_in_the_below_grid() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("When"),
+			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the reocrd has shown in the below grid");
 			ppckg.Verify();
 			loginfo.pass("Package Verified Succesfully");
@@ -164,7 +164,7 @@ public class TC016_Packageold extends Baseclass {
 	}
 
 	@Then("^User will verify the Edit reocrd has shown in the below grid$")
-	public void user_will_verify_the_Edit_reocrd_has_shown_in_the_below_grid() throws Throwable {
+	public void user_will_verify_the_Edit_has_shown_in_the_below_grid() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the reocrd has shown in the below grid");
@@ -221,10 +221,10 @@ public class TC016_Packageold extends Baseclass {
 		}
 	}
 
-	@And("^User will verify the reocrd has not shown in the below grid$")
+	@Then("^User will verify the reocrd has not shown in the below grid$")
 	public void user_will_verify_the_reocrd_has_not_shown_in_the_below_grid() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("And"),
+			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the reocrd has not shown in the below grid");
 			ppckg.DeleteVerify("DeleteProducttxt", "DeleteProducttxt2");
 			loginfo.pass("Delete Package Verified Succesfully");

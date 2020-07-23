@@ -25,7 +25,7 @@ public class TC010_PMT_ProductAttributes extends Baseclass {
 	@Given("^User will go to parts page and search for partno to add product attribute$")
 	public void user_will_go_to_parts_page_and_search_for_partno_to_add_product_attribute() throws Throwable {
 		try {
-			// extent=setup();
+			 //extent=setup();
 			test = extent.createTest(Feature.class, "PMT product attribute").assignCategory("product attribute")
 					.pass("Part Size added");
 			test = test.createNode(Scenario.class, "Checking on the product attribute");
@@ -80,7 +80,7 @@ public class TC010_PMT_ProductAttributes extends Baseclass {
 	public void user_will_go_to_parts_page_and_search_for_partno_to_unchecking_the_product_attribute()
 			throws Throwable {
 		try {
-			 //extent = setup();
+			// extent = setup();
 			test = extent.createTest(Feature.class, "PMT product attribute").assignCategory("product attribute")
 					.pass("product attribute deleted");
 			test = test.createNode(Scenario.class, "deleted the given product attribute");

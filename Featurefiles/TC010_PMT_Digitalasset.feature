@@ -1,4 +1,3 @@
-@sanity122
 Feature: PMT Digital Asset
 Description: User will add the part image in digital asset tab
 

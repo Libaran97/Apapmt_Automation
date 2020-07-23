@@ -82,7 +82,7 @@
 		@FindBy(xpath = "//input[@id='txtbrandmaster']")
 		private WebElement brandsearchbox;
 	
-		@FindBy(xpath = "//li[text()='Daimler']")
+		@FindBy(xpath = "//li[@class='ui-menu-item'] //div[text()='Daimler']")
 		private WebElement brandsearchboxdrop;
 	
 		@FindBy(xpath = "//input[@id='btnsearch_html']")

@@ -1,4 +1,3 @@
-@jim
 Feature: PMT Add Equipment related List
 Description: User will add Equipment related like equipment make & model
 
