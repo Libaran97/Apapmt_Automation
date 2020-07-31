@@ -214,7 +214,7 @@ public class TC016_Bom_units extends Baseclass {
 	@Given("^User will go to parts page and search for a partno unit$")
 	public void user_will_go_to_parts_page_and_search_for_a_partno_unit() throws Throwable {
 		try {
-			extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Parts unit Add, Edit and Delete")
 					.assignCategory("Parts unit").pass("unit add");
 			test = test.createNode(Scenario.class, "Adding unit in  parts page");
@@ -271,7 +271,7 @@ public class TC016_Bom_units extends Baseclass {
 			ppbom.Verifyunit();
 			loginfo.pass("Unit Verified Succesfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println("Unit Not Verified" + e.getMessage());

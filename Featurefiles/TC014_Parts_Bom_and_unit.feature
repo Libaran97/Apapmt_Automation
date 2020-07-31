@@ -16,7 +16,7 @@ Scenario: Deleting Bom in old parts page
 Given User will go to parts page and search for the partno bom del
 When User will click on bom and Click Delete Button Accept Alert
 Then User will verify the record del has not shown in the below grid
-@jim1
+
 Scenario: Adding unit in parts page
 Given User will go to parts page and search for a partno unit
 When User will click on unit
