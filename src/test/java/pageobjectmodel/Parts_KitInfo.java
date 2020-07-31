@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -28,7 +29,7 @@ public class Parts_KitInfo extends Baseclass {
 	private WebElement txtpartsearch;
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_btnPsearch']")
+	@FindBy(xpath="//*[@id='MainContent_upAttribute']/div[2]/div[1]/div/span/div/input[8]")
 	private WebElement btnPsearch;
 	
 	
@@ -38,40 +39,40 @@ public class Parts_KitInfo extends Baseclass {
 	@FindBy(xpath="//input[@id='txtCpartNumber']")
 	private WebElement eCompPart;
 	
-	@FindBy(xpath="//select[@id='MainContent_drpDescCode']")
+	@FindBy(xpath="//*[@id='drpDescCode']")
 	private WebElement eDescode;
 	
-	@FindBy(xpath="//input[@id='MainContent_TxtMaintenance']")
+	@FindBy(xpath="//*[@id='TxtMaintenance']")
 	private WebElement eMType;
 	
-	@FindBy(xpath="//input[@id='MainContent_txtqtykit']")
+	@FindBy(xpath="//*[@id='txtqtykit']")
 	private WebElement eQtyinkit;
 	
-	@FindBy(xpath="//select[@id='MainContent_drpLanguageCode']")
+	@FindBy(xpath="//*[@id='drpLanguageCode']")
 	private WebElement eLangcode;
 	
-	@FindBy(xpath="//select[@id='MainContent_drpQtyuom']")
+	@FindBy(xpath="//*[@id='drpQtyuom']")
 	private WebElement eQtyUOM;
 	
-	@FindBy(xpath="//input[@id='MainContent_txtdescription']")
+	@FindBy(xpath="//*[@id='txtdescription']")
 	private WebElement eDes;
 	
-	@FindBy(xpath="//select[@id='MainContent_drpSoldSeperately']")
+	@FindBy(xpath="//*[@id='drpSoldSeperately']")
 	private WebElement eSold;
 	
-	@FindBy(xpath="//input[@id='MainContent_btnSave']")
+	@FindBy(xpath="//*[@id='btnSaveKit']")
 	private WebElement ebtnSave;
 	
-	@FindBy(xpath="//table[@id='MainContent_GVKitinfo']/tbody/tr[2]/td[1]")
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[1]")
 	private WebElement eVry;
 	
-	@FindBy(xpath="//input[@id='MainContent_GVKitinfo_imgEdit_0']")
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[7]/div/input[1]")
 	private WebElement eEdit;
 	
-	@FindBy(xpath="//table[@id='MainContent_GVKitinfo']/tbody/tr[2]/td[5]")
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[5]")
 	private WebElement eVryEdit;
 	
-	@FindBy(xpath="//input[@id='MainContent_GVKitinfo_imgDelete_0']")
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[7]/div/input[2]")
 	private WebElement eDelete;
 	
 	
@@ -88,7 +89,9 @@ public class Parts_KitInfo extends Baseclass {
 		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().contains("Testpart-3 | Ignition Test | Autoapa")) {
+			if(list.get(i).getText().contains("Testpart-1 | Ignition Test | Autoapa")) {
+				
+				//if(list.get(i).getText().contains("Testpart-3 | Ignition Coil Test | Autoapa3")) {
 				list.get(i).click();
 				break;
 			}
@@ -104,7 +107,7 @@ public class Parts_KitInfo extends Baseclass {
 		}
 	public void ComponentPart() throws InterruptedException {
 		
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
 		eCompPart.sendKeys("Testpart-3");
 		Thread.sleep(3000);
 	}
@@ -152,17 +155,36 @@ public class Parts_KitInfo extends Baseclass {
 		ebtnSave.click();
 		Thread.sleep(3000);
 		
-		Alert alert= driver.switchTo().alert();
-		System.out.println(alert.getText());
-		alert.accept();
+		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
+		Thread.sleep(5000);
+		
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(10000);
+	}
+	public void saveAcceptAlert2() throws InterruptedException {
+		ebtnSave.click();
 		Thread.sleep(3000);
+		
+		WebElement pop=driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/button[1]"));
+		Thread.sleep(5000);
+		
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(10000);
 	}
 	
 	public void Verifykit() throws InterruptedException {
 	
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eVry);
 		String Text=eVry.getText();
 		Thread.sleep(3000);
-		if (Text.equals("Testpart-3 | Ignition Test")) {
+		if (Text.equals("Testpart-3")) {
 			System.out.println("Both are same");
 		} 
 		else {
@@ -172,7 +194,9 @@ public class Parts_KitInfo extends Baseclass {
 	}
 	
 	public void ClickEdit() throws InterruptedException {
-		driver.switchTo().frame(0);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eEdit);
+		//driver.switchTo().frame(0);
 		eEdit.click();
 		Thread.sleep(3000);
 		}
@@ -185,6 +209,8 @@ public class Parts_KitInfo extends Baseclass {
 	}
 	
 	public void VryEdit() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eVryEdit);
 		String Text1=eVryEdit.getText();
 		Thread.sleep(3000);
 		if (Text1.equals("4")) {
@@ -197,14 +223,33 @@ public class Parts_KitInfo extends Baseclass {
 	}
 	
 	public void ClickDelete() throws InterruptedException {
-		driver.switchTo().frame(0);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eDelete);
+		//driver.switchTo().frame(0);
 		eDelete.click();
 		Thread.sleep(3000);
-		Alert alert= driver.switchTo().alert();
-		System.out.println(alert.getText());
-		alert.accept();
-		Thread.sleep(3000);
+
 		}
+	public void acceptAlert1() throws InterruptedException{
+		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
+		Thread.sleep(5000);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(5000);
+		
+	}
+	public void acceptAlert2() throws InterruptedException{
+		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
+		Thread.sleep(5000);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", pop);
+		pop.click();
+		Thread.sleep(5000);
+		
+	}
 	@SuppressWarnings("deprecation")
 	public void VryDelete() throws InterruptedException {
 		

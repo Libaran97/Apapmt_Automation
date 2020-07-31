@@ -31,14 +31,37 @@ public class PartsBom extends Baseclass {
 	@FindBy(xpath="(//input[@class='button_search'])[1]")
 	private WebElement btnPsearch;
 	
+	@FindBy(xpath="//*[@id=\"btnEdit\"]/input")
+	private WebElement eeditsave;
+	@FindBy(xpath="//*[@id=\"MainContent_chkIsUnit\"]")
+	private WebElement eunitbtcheck;
+	@FindBy(xpath="//*[@id=\"btnSave\"]")
+	private WebElement eunitsaves;
+	
+	
 	@FindBy(xpath="//div[@id='BOM']")
 	private WebElement ebomclick;
 	
+	@FindBy(xpath="//div[@id='Units']")
+	private WebElement eunitclick;
+	
+	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[4]/div/input[1]")
+	private WebElement euniteditclick;
+	
+	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[4]/div/input[2]")
+	private WebElement eunitdelclick;
+	
+	
 	@FindBy(xpath="//input[@id='txtBomPartno']")
 	private WebElement ebompart;
+	@FindBy(xpath="//input[@id=\"txtunitpartno\"]")
+	private WebElement eunitpart;
+	
 	
 	@FindBy(xpath="//input[@id=\"txtqty\"]")
 	private WebElement ebomqty;
+	
+	
 	
 	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[8]/div/input[2]")
 	private WebElement ebomdel;
@@ -54,6 +77,10 @@ public class PartsBom extends Baseclass {
 	
 	@FindBy(xpath = "//input[@placeholder='BOM-Part']")
 	private WebElement searchbompart;
+	
+	@FindBy(xpath = "//input[@placeholder='Units']")
+	private WebElement searcunitpart;
+	
 	@FindBy(xpath = "//input[@placeholder='Qty']")
 	private WebElement searchbomqtytedit;
 	
@@ -98,11 +125,65 @@ public class PartsBom extends Baseclass {
 		btnPsearch.click();
 		Thread.sleep(3000);
 	}
-
+	public void partsearchunit(String partnoenter) throws InterruptedException {
+		txtpartsearch.sendKeys(partnoenter);
+		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ACBehavior_completionListElem']//li"));
+		System.out.println("total number of parts-->" + list.size());
+		
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i).getText());
+			if(list.get(i).getText().contains("Testpart-2 | Ignition Coil Test | Autoapa3")) {
+				list.get(i).click();
+				break;
+			}
+		}
+		btnPsearch.click();
+		Thread.sleep(3000);
+	}
+	
+	public void parteditsave() throws Exception
+	{
+		JavascriptExecutor js = (JavascriptExecutor) driver;		
+		js.executeScript("arguments[0].scrollIntoView();",eeditsave);
+		eeditsave.click();
+		Thread.sleep(3000);
+		eunitbtcheck.click();
+		Thread.sleep(3000);
+		js.executeScript("arguments[0].scrollIntoView();",eunitsaves);
+		eunitsaves.click();
+		Thread.sleep(3000);
+		
+		Alert alert = driver.switchTo().alert();
+		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
+		System.out.println("parts is..:" + alert.getText());
+		Thread.sleep(3000);
+		alert.accept();
+		Thread.sleep(5000);
+		
+	}
 	public void bomclick() throws InterruptedException {
 		ebomclick.click();
 		Thread.sleep(3000);
 		}
+	
+	public void unitclick() throws InterruptedException {
+		eunitclick.click();
+		Thread.sleep(3000);
+		}
+	public void uniteditclick() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;		
+		js.executeScript("arguments[0].scrollIntoView();",euniteditclick);
+		euniteditclick.click();
+		Thread.sleep(3000);
+		}
+	
+	public void unitdelclick() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;		
+		js.executeScript("arguments[0].scrollIntoView();",eunitdelclick);
+		eunitdelclick.click();
+		Thread.sleep(3000);
+		}
+	
 	public void BOMEditbt() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;		
 		js.executeScript("arguments[0].scrollIntoView();",eBOMEditbt);
@@ -130,6 +211,57 @@ public class PartsBom extends Baseclass {
 		Thread.sleep(3000);*/
 		ebomqty.sendKeys(pro.getProperty("qtydata"));
 		Thread.sleep(3000);
+	}
+	
+	public void unitpartandqty(String partnoenter,String Enterpartpart) throws Exception
+	{
+		/*
+		ebomqty.clear();
+		Thread.sleep(2000);
+		ebomqty.sendKeys(pro.getProperty("qtydata"));
+		Thread.sleep(2000);*/
+		eunitpart.sendKeys(partnoenter);
+		Thread.sleep(2000);
+		
+		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ui-id-1']//li"));
+		System.out.println("total number of parts-->" + list.size());
+		
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i).getText());
+			if(list.get(i).getText().equals(Enterpartpart)) {
+				list.get(i).click();
+				break;
+			}
+		}
+		Thread.sleep(3000);
+		/*ebompart.sendKeys(pro.getProperty("bompart"));
+		Thread.sleep(3000);*/
+		
+	}
+	
+	public void unitpartandqtyedit(String partnoenter,String Enterpartpart) throws Exception
+	{
+		ebomqty.clear();
+		Thread.sleep(2000);
+		ebomqty.sendKeys(pro.getProperty("qtydata"));
+		Thread.sleep(2000);
+		/*eunitpart.sendKeys(partnoenter);
+		Thread.sleep(2000);
+		
+		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ui-id-1']//li"));
+		System.out.println("total number of parts-->" + list.size());
+		
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i).getText());
+			if(list.get(i).getText().equals(Enterpartpart)) {
+				list.get(i).click();
+				break;
+			}
+		}*/
+		Thread.sleep(3000);
+		/*ebompart.sendKeys(pro.getProperty("bompart"));
+		Thread.sleep(3000);*/
+		
 	}
 	public void bompartandqtyedit() throws Exception{
 		ebomqty.clear();
@@ -196,6 +328,49 @@ public class PartsBom extends Baseclass {
 	
 		
 	}
+	public void Verifyunit() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", searcunitpart);
+		searcunitpart.sendKeys(pro.getProperty("Enterpartpart"));
+		
+		js.executeScript("arguments[0].scrollIntoView();", Vrfy);
+		String Text=Vrfy.getText();
+		
+		System.out.println(Text);
+		
+		if (Text.contains(pro.getProperty("Enterpartpart")))
+		{
+			System.out.println("Both are same");
+		}
+		else
+		{
+			System.out.println("Both are not same");
+		}
+	
+		
+	}
+	public void Verifyunitedit() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", searchbomqtytedit);
+		searchbomqtytedit.sendKeys(pro.getProperty("qtydata"));
+		
+		js.executeScript("arguments[0].scrollIntoView();", Vrfy);
+		String Text=Vrfy.getText();
+		
+		System.out.println(Text);
+		
+		if (Text.contains(pro.getProperty("qtydata")))
+		{
+			System.out.println("Both are same");
+		}
+		else
+		{
+			System.out.println("Both are not same");
+		}
+	
+		
+	}
+	
 	
 	public void Verifyedit() throws InterruptedException {
 		
@@ -261,5 +436,33 @@ public class PartsBom extends Baseclass {
 	
 	}
 	
+public void DeleteVerifyunit() throws InterruptedException {
+		
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", searchbomqtytedit);
+			searchbomqtytedit.sendKeys(pro.getProperty("qtydata"));
+			
+			js.executeScript("arguments[0].scrollIntoView();", eVrfydel);
+			String Text=eVrfydel.getText();
+			
+			System.out.println(Text);
+			
+			if (Text.contains(pro.getProperty("DeleteProducttxt")))
+			{
+				System.out.println("unit deleted success");
+			}
+			if (Text.contains(pro.getProperty("DeleteProducttxt2")))
+					{
+						System.out.println("unit deleted successs");
+					}
+			else
+			{
+				System.out.println("Both are not same");
+			}
+		} catch (Exception e) {
+			System.out.println("bom deleted success");
+		}
 	
+	}
 }

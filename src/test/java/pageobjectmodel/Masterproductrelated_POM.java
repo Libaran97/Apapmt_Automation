@@ -108,7 +108,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	@FindBy(xpath="//li[text()='Steering Test']")
 	private WebElement selectcategory1;
 
-	@FindBy(xpath="//li[text()='Engine Coils test']")
+	@FindBy(xpath="//li[text()='Engine oil test']")
 	private WebElement selectcategory2;
 
 	//@FindBy(xpath = "//input[@id='MainContent_txtProductSubCategory']")

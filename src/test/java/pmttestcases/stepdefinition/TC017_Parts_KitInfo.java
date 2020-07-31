@@ -91,7 +91,7 @@ public class TC017_Parts_KitInfo extends Baseclass{
 	public void user_will_save_data_and_Accept_the_alert() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("And"),"User will save data and Accept the alert");
-			pkinfo.saveAcceptAlert();
+			pkinfo.saveAcceptAlert2();
 			loginfo.pass("save data and Accept the alert Succesfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			
@@ -230,6 +230,8 @@ public class TC017_Parts_KitInfo extends Baseclass{
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on KitInfo and click Delete & Accept the alert");
 			pkinfo.Kitinfoclick();
 			pkinfo.ClickDelete();
+			pkinfo.acceptAlert1();
+			pkinfo.acceptAlert2();
 			loginfo.pass("Kitinfo page and Delete Button clicked Succesfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			
