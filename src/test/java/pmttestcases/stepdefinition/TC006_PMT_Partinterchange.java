@@ -47,7 +47,7 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on the interchange frame, choose interchange name dropdown, enter interchange part# and click save");
 		inter.interchangesclick();
 		inter.interchangedrpdownnotes();
-		inter.interchangenoteenter(pro.getProperty("interchangepartno"));
+		inter.Competitorpartno(pro.getProperty("Enterpartpart"));
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		inter.savebtn();
 		inter.acceptAlert();
@@ -64,10 +64,12 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the record to be shown in the grid below");
 			//inter.acceptAlert();
+			inter.VerifyInterchange(pro.getProperty("Enterpartpart"));
+			//extent.flush();
 		} 	catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
-			
+			//extent.flush();
 		}
 	}
 
@@ -95,7 +97,7 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on interchange frame and will edit the notes & saved");
 		inter.interchangesclick();
-		inter.editinterchange(pro.getProperty("interditpart"),pro.getProperty("editinternotes"));
+		inter.editinterchange(pro.getProperty("partno3"));
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		inter.savebtn();
 		inter.acceptAlert();
@@ -112,10 +114,12 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the record should be edited successfully");
 		//inter.acceptAlert();
+			inter.VerifyInterchange(pro.getProperty("partno3"));
+			//extent.flush();
 		} 	catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
-			
+			//extent.flush();
 		}
 	}
 
@@ -144,6 +148,8 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will click on interchange frame and will delete the added or available record");
 		inter.interchangesclick();
 		inter.deletepartinter();
+		inter.acceptDeleteAlert();
+		inter.acceptDeleteAlert2();
 		} 	catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
@@ -156,7 +162,8 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 	 
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will see successfull alert and verify the record has been deleted or not");
-		inter.acceptAlert();
+		
+		inter.VerifyDeleteIntchange(pro.getProperty("partno3"), pro.getProperty("DeleteProducttxt"));
 		//extent.flush();
 	} 	catch (Exception e) {
 		System.out.println(e);
