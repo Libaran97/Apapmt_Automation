@@ -14,4 +14,5 @@ Given User will go to parts page and search for partno to unchecking the partsiz
 When User will goto partsize page and unceck the size for that part and save
 Then User will verify the changes done in partsize
 
+
  
