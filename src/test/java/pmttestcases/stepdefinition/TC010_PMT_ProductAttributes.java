@@ -25,9 +25,9 @@ public class TC010_PMT_ProductAttributes extends Baseclass {
 	@Given("^User will go to parts page and search for partno to add product attribute$")
 	public void user_will_go_to_parts_page_and_search_for_partno_to_add_product_attribute() throws Throwable {
 		try {
-			 //extent=setup();
+			// extent=setup();
 			test = extent.createTest(Feature.class, "PMT product attribute").assignCategory("product attribute")
-					.pass("Part Size added");
+					.pass("Part attribute added");
 			test = test.createNode(Scenario.class, "Checking on the product attribute");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will go to parts page and search for partno to add product attribute");			
@@ -66,6 +66,59 @@ public class TC010_PMT_ProductAttributes extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will check the product attribute is checked and verify");
 			attr.verifyattr();
 			loginfo.pass("product attr Verified");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			// extent.flush();
+
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			// extent.flush();
+		}
+	}
+	//edit the attribute
+	@Given("^User will go to parts page and search for partno to edit product attribute$")
+	public void user_will_go_to_parts_page_and_search_for_partno_to_edit_product_attribute() throws Throwable {
+		try {
+			 //extent=setup();
+			test = extent.createTest(Feature.class, "PMT product attribute").assignCategory("product attribute")
+					.pass("Part attribute edited");
+			test = test.createNode(Scenario.class, "Checking on the product attribute");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will go to parts page and search for partno to edit product attribute");			
+			partdesc.partslanding();
+			partdesc.partsearch(pro.getProperty("partnoenter"));			
+			attr.partattrlanding();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will go to product attribute page and check the attibute data for edit that partno and save$")
+	public void user_will_go_to_product_attribute_page_and_check_the_attibute_data_for_edit_that_partno_and_save() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will go to product attribute page and check the attibute data for edit that partno and save");
+			attr.attrbutedit();
+			attr.saveattr();
+			attr.acceptAlert1();
+			loginfo.pass("Size Added");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will check the product attribute edit is checked and verify$")
+	public void user_will_check_the_product_attribute_edit_is_checked_and_verify() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will check the product attribute edit is checked and verify");
+			attr.verifyattr();
+			loginfo.pass("product attr edit Verified");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 

@@ -59,7 +59,13 @@ public class Productattribute_POM extends Baseclass{
 		Thread.sleep(3000);
 		
 	}
-	
+	public void attrbutedit() throws InterruptedException {			
+		driver.findElement(By.xpath("//input[@id='chkSelectAll']")).click();		
+		Thread.sleep(3000);
+		attrvalue.sendKeys(pro.getProperty("newpartno"));
+		Thread.sleep(3000);
+		
+	}
 	public void saveattr() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
