@@ -28,6 +28,12 @@
 		@CacheLookup
 		private WebElement master;
 	
+		@FindBy(xpath= "//*[@id=\"feedbacknew\"]/i")
+		private WebElement Feedbackbt;
+		
+		@FindBy(xpath= "//*[@id=\"hylLogout\"]/i")
+		private WebElement elogout;		
+		
 		@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_7']")
 		private WebElement mastercategory;
 	
@@ -252,6 +258,16 @@
 			Thread.sleep(5000);
 		}
 	
+		public void eFeedbackbt() throws Exception
+		{
+			Feedbackbt.click();
+			Thread.sleep(5000);
+		}
+		public void Logout() throws Exception
+		{
+			elogout.click();
+			Thread.sleep(5000);
+		}
 		public void clickcomponentck33search(String Compnenentvalue) throws Throwable {
 			eselectsystems.click();
 			Thread.sleep(5000);
@@ -521,6 +537,7 @@
 	
 		}
 	
+		
 		public void verifyingtextedit(String Equchose) throws Exception {
 			Thread.sleep(8000);
 			searchfilter1.sendKeys(Equchose);

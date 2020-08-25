@@ -440,7 +440,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			System.out.println("Product CK33 again successfully");
 			mpom2.Editagain();
 			mpom2.acceptAlert();
-			mpom2.verifyEditagain(pro.getProperty("Partype1"));
+			mpom2.verifyEditagain(pro.getProperty("Partype1"));			
 			loginfo.pass("Product component search");
 			System.out.println("CK33 Verified");
 			//extent.flush();

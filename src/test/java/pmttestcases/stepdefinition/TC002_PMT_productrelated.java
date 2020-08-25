@@ -293,7 +293,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	@Given("^User will go to master and choose product sub category again page$")
 	public void user_will_go_to_master_and_choose_product_sub_category_again_page() throws Throwable {
 		try {
-			// extent=setup();
+			 //extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product Related-Add SubCategory")
 					.assignCategory("Sub Category").pass("sub category added thanks");
 			test = test.createNode(Scenario.class, "Adding product sub category");
@@ -355,7 +355,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.verifysubcategoryedit(pro.getProperty("subcategoryname"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product sub category verified");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			/*
 			 * JavascriptExecutor js = (JavascriptExecutor)driver; String text = js.
@@ -378,7 +378,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	public void user_will_go_to_master_and_choose_part_description() throws Throwable {
 
 		try {
-			// extent=setup();
+			 //extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product Related-Add Description")
 					.assignCategory("Part Description Tag");
 			test = test.createNode(Scenario.class, "Adding part description");
@@ -511,7 +511,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			System.out.println("Part Description Added in the grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product part description submit button clicked & saved in the grid successfully");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			// extent.flush();
@@ -702,7 +702,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	@Given("^User will goto master and choose Custom Attributes agin$")
 	public void user_will_goto_master_and_choose_Custom_Attributes_agin() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related-edited Attribute").assignCategory("Cateory")
 					.pass("Custom Attributes edited");
 			test = test.createNode(Scenario.class, "editing Custom Attributes");
@@ -760,7 +760,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("custom edited successfully & shown in grid");
 			System.out.println("custom edited Added in the grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			 //extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			// extent.flush();

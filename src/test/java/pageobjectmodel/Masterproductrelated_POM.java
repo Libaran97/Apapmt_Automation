@@ -474,9 +474,9 @@ public class Masterproductrelated_POM extends Baseclass {
 		selectcategoryeditprodu.click();		
 		Thread.sleep(8000);		
 		selectcategory1.click();
-		Thread.sleep(8000);
+		Thread.sleep(13000);
 		filtercategory.sendKeys(pro.getProperty("subcategorynameprevious"));
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 		subeditbutton.click();		
 		Thread.sleep(5000);
 	}
@@ -872,9 +872,9 @@ public class Masterproductrelated_POM extends Baseclass {
 		eMaxLength.sendKeys("8");		
 		Thread.sleep(3000);	
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", esecpartdesc);
+		/*js.executeScript("arguments[0].scrollIntoView();", esecpartdesc);
 	    esecpartdesc.click();
-	    Thread.sleep(6000);	
+	    Thread.sleep(6000);	*/
 	    js.executeScript("arguments[0].scrollIntoView();", ecustomsaveedit);
 	    ecustomsaveedit.click();
 	    Thread.sleep(6000);		    

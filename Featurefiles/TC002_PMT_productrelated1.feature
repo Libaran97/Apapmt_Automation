@@ -41,3 +41,8 @@ Scenario: search Component (CK33)
 Given User will mouse hover and choose the component (CK33) page
 When User will choose CK31 ck32 and search ck33 name and description
 Then User will successfully verified Component CK33
+
+
+
+
+
