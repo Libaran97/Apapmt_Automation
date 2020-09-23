@@ -212,6 +212,7 @@ public class TC044_PMTMyCatalogAttributes extends Baseclass {
 		Thread.sleep(5000);
 		loginfo.pass("The Logout button is clicked successfully >>>>>>>>");
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		extent.flush();
 		} catch(Exception e) {
 			System.out.println("The Logout button is NOT clicked successfully >>>>>>>>" + e.getMessage());
 			loginfo.fail("The logout button is NOT clicked successfully >>>>>>>>");

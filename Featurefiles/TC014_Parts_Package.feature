@@ -1,3 +1,4 @@
+@sanity
 Feature: PMT Parts Package Add, Edit and Delete
 
 Scenario: Adding Package in old parts page

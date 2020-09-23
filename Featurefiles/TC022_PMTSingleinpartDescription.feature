@@ -1,4 +1,4 @@
-@Sanitycheck
+@sanity
 Feature: PMT Description Single in all page TestCases 
 
 Scenario: Check the Description add[TC038] 

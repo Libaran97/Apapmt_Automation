@@ -1,7 +1,7 @@
-@Sanitycheck
+@sanity
 Feature: PMT [My Catalog - Buyers Guide] functionality test scenarios
 
-@Sanitycheck
+
 Scenario:  Check the [My Catalogs - Buyers Guide Functionality] [TC042]
 	Given : Click the MyCatalog menu link SP BG
 	When : Click the Buyers Guide submenu link SP BG
@@ -14,7 +14,6 @@ Scenario:  Check the [My Catalogs - Buyers Guide Functionality] [TC042]
 	And : Click the Back Button SP BG
 	Then : Finally Click The Logout button SP BG
 
-@Sanitycheck
 Scenario:  Check the [My Catalogs - Buyers Guide Functionality] [TC042]
 	Given : Click the MyCatalog menu link SP BG
 	When : Click the Buyers Guide submenu link SP BG

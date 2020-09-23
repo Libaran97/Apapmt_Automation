@@ -1,4 +1,4 @@
-@Sanitycheck
+@sanity
 Feature: PMT PartLinked option TestCases 
 
 Scenario: Check the partslinked Edit[TC037] 

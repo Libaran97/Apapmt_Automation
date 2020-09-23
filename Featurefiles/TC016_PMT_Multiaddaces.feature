@@ -1,3 +1,4 @@
+@sanity
 Feature: PMT ACES option TestCases 
 
 Scenario: Check the ACES in multi add [TC033] 

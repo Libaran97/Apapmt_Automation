@@ -1,3 +1,4 @@
+@sanity
 Feature: PMT Application Page
 
 Scenario: Adding Aces Applicarion

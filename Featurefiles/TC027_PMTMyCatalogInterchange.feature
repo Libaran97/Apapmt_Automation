@@ -1,7 +1,7 @@
-@Sanitycheck
+@sanity
 Feature: PMT [My Catalog - Interchange] functionality testcases
 
-@sanitytest5
+
 Scenario:  Check the [My Catalogs - Interchange Functionality [TC043]
 	Given : Click the My Catalog menu link SP INT
 	When : Click the Interchange submenu link SP INT
@@ -12,7 +12,7 @@ Scenario:  Check the [My Catalogs - Interchange Functionality [TC043]
 	And : Click the Back Navigation button SP INT
 	Then : Finally Click The Logout button SP INT
 	
-@sanitytest6
+
 Scenario:  Check the [My Catalogs - Interchange Functionality [TC043]
 	Given : Click the My Catalog menu link SP INT
 	When : Click the Interchange submenu link SP INT
@@ -25,7 +25,7 @@ Scenario:  Check the [My Catalogs - Interchange Functionality [TC043]
 	And : Verify the Interchange Number SP INT
 	Then : Finally Click The Logout button SP INT
 	
-@sanitytest7
+
 Scenario:  Check the [My Catalogs - Interchange Functionality [TC043]
 	Given : Click the My Catalog menu link SP INT
 	When : Click the Interchange submenu link SP INT
@@ -38,7 +38,7 @@ Scenario:  Check the [My Catalogs - Interchange Functionality [TC043]
 	And : Verify the Interchange Number SP INT
 	Then : Finally Click The Logout button SP INT
 	
-@sanitytest8
+
 Scenario:  Check the [My Catalogs - Interchange Functionality [TC043]
 	Given : Click the My Catalog menu link SP INT
 	When : Click the Interchange submenu link SP INT

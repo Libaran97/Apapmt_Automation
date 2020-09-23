@@ -1,3 +1,4 @@
+@sanity
 Feature: PMT PIES Interchange
 Description: User will add Interchange
 

@@ -1,3 +1,4 @@
+@sanity
 Feature: PMT Delete,Cancel and attributes option TestCases 
 
 

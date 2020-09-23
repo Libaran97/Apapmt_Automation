@@ -1,4 +1,4 @@
-@Sanitycheck
+@sanity
 Feature: PMT parts kit info add, edit and delete
 
 Scenario: Adding Parts Kit Info

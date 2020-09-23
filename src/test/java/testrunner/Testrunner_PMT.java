@@ -20,10 +20,9 @@ import cucumber.api.junit.Cucumber;
 			//	plugin = {"com.cucumber.listener.ExtentCucumx`berFormatter:target/html/ExtentReport.html"},
 				//plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 		strict = false,
-				//tags = {"@productrelated2,@productrelated1,@productrelated3"}
+				
 			
-				//tags = {"@Sanitycheck3534546"}
-				tags = {"@jim1"}
+				tags = {"@sanity"}
 		
 	
 		)

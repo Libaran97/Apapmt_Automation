@@ -1,3 +1,4 @@
+@sanity
 Feature: PMT PIES Description
 Description: User will add part description for that part#
 

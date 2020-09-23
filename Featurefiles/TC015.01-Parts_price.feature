@@ -1,4 +1,4 @@
-@Sanitycheck
+@sanity
 Feature: PMT Parts Price Add, Edit and Delete
 
 Scenario: Adding Parts Price

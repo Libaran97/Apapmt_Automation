@@ -1,3 +1,4 @@
+@sanity
 Feature: PMT db 
 
 Scenario: check db 

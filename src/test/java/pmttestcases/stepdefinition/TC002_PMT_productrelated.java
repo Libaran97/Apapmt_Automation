@@ -102,7 +102,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("Product category Saved Successfully & shown in grid");
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
-			// extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -110,7 +110,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			// loginfo.fail("Already exists");
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -118,7 +118,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	@Given("^User will mouse hover and choose the product category again page$")
 	public void user_will_mouse_hover_and_choose_the_product_category_again_page() throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product Related-Edit Category").assignCategory("Cateory")
 					.pass("category added thanks");
 			test = test.createNode(Scenario.class, "Adding product category");
@@ -193,7 +193,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("Product category Saved Successfully & shown in grid");
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
-			// extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -201,7 +201,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			// loginfo.fail("Already exists");
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -210,7 +210,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	public void user_will_go_to_master_and_choose_product_sub_category() throws Throwable {
 
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product Related-Add SubCategory")
 					.assignCategory("Sub Category").pass("sub category added thanks");
 			test = test.createNode(Scenario.class, "Adding product sub category");
@@ -272,7 +272,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.verifysubcategory(pro.getProperty("subcategorynameprevious"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product sub category verified");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			String text = js.executeScript("return document.getElementById('MainContent_lblError').innerHTML")
@@ -285,7 +285,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			// loginfo.fail("Insert Failed");
 			TestStep("Fail", driver, loginfo, e);
 			// loginfo.fail("Already exists");
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -369,7 +369,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			// loginfo.fail("Insert Failed");
 			TestStep("Fail", driver, loginfo, e);
 			// loginfo.fail("Already exists");
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -616,10 +616,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			System.out.println("Product Line  Added in the grid");
 			loginfo.pass("Product line added successfully & shown in grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -627,7 +627,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	@Given("^User will goto master and choose Custom Attributes$")
 	public void user_will_goto_master_and_choose_Custom_Attributes() throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product Related-Add Attribute").assignCategory("Cateory")
 					.pass("Custom Attributes added");
 			test = test.createNode(Scenario.class, "Adding Custom Attributes");
@@ -763,7 +763,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			 //extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 

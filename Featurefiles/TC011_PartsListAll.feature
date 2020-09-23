@@ -1,3 +1,4 @@
+@sanity
 Feature: PMT Parts ListAll and Dropped Part#
 
 Scenario: Create part no for copy appparts

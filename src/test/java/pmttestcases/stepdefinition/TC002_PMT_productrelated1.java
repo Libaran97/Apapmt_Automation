@@ -21,7 +21,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@Given("^User will mouse hover and choose the product group master page$")
 	public void user_will_mouse_hover_and_choose_the_product_group_master_page() throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product group Related-Add master").assignCategory("master")
 					.pass("master added thanks");
 			test = test.createNode(Scenario.class, "Adding product group master");
@@ -64,12 +64,12 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			loginfo.pass("Product category saved");
 			System.out.println("Category Verified");
 			loginfo.pass("Product category Saved Successfully & shown in grid");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -120,12 +120,12 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			loginfo.pass("Product category saved");
 			System.out.println("Category Verified");
 			loginfo.pass("Product category Saved Successfully & shown in grid");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -133,7 +133,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@Given("^User will mouse hover and choose the Brand Master page$")
 	public void user_will_mouse_hover_and_choose_the_Brand_Master_page() throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Brand master Related-edit master").assignCategory("master")
 					.pass("Brand master thanks");
 			test = test.createNode(Scenario.class, "search Brand master");
@@ -173,19 +173,19 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			mpom2.validbrandsearchmaster(pro.getProperty("brandvalue"), pro.getProperty("Brandid"));
 			System.out.println("Brand master valid successfully");
 			loginfo.pass("Brand master valid");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
 	@Given("^User will mouse hover and choose the Sub product line master page again$")
 	public void user_will_mouse_hover_and_choose_the_Sub_product_line_master_page_again() throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Sub product line master Related-add master")
 					.assignCategory("master").pass("Sub product line master thanks");
 			test = test.createNode(Scenario.class, "Sub product line master");
@@ -226,12 +226,12 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			mpom2.validsubmaster(pro.getProperty("partnoenter"));
 			System.out.println("sub product line master successfully");
 			loginfo.pass("sub product line master");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -239,7 +239,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@Given("^User will mouse hover and choose the Sub product line master page reagain$")
 	public void user_will_mouse_hover_and_choose_the_Sub_product_line_master_page_reagain() throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Sub product line master Related-edit master")
 					.assignCategory("master").pass("Sub product line master thanks");
 			test = test.createNode(Scenario.class, "Sub product line master");
@@ -280,12 +280,12 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			mpom2.valideditsubmaster(pro.getProperty("partdesc"));
 			System.out.println("sub product line edit master successfully");
 			loginfo.pass("sub product line edit master");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -293,7 +293,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@Given("^User will mouse hover and choose the system \\(CK(\\d+)\\) page$")
 	public void user_will_mouse_hover_and_choose_the_system_CK_page(int arg1) throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product group Related-edit master").assignCategory("master")
 					.pass("master edited thanks");
 			test = test.createNode(Scenario.class, "editing product group master");
@@ -332,12 +332,12 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			mpom2.verifyingck31("ck31");
 			loginfo.pass("Product category search");
 			System.out.println("CK31 Verified");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -345,7 +345,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@Given("^User will mouse hover and choose the Assembly \\(CK(\\d+)\\) page$")
 	public void user_will_mouse_hover_and_choose_the_Assembly_CK_page(int arg1) throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product group Related-assembly master")
 					.assignCategory("master").pass("master assembly thanks");
 			test = test.createNode(Scenario.class, "editing product group master");
@@ -385,12 +385,12 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			mpom2.verifyingck32("systemvalue");
 			loginfo.pass("Product Assembly search");
 			System.out.println("CK32 Verified");
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 

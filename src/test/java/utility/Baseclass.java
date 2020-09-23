@@ -42,7 +42,7 @@ public class Baseclass extends ExtentReport {
 	public Baseclass() {
 		try {
 			pro = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\mohamed\\git\\apapmt_automation\\Configuration\\pmtdetails.properties");
+			FileInputStream fis = new FileInputStream("E:\\apapmt_automation\\Configuration\\pmtdetails.properties");
 			pro.load(fis);
 		} catch(IOException e) {
 			e.getMessage();
@@ -56,19 +56,19 @@ public class Baseclass extends ExtentReport {
 		String browsername = pro.getProperty("Browser");
 		
 		if(browsername.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\mohamed\\git\\apapmt_automation\\Drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "E:\\apapmt_automation\\Drivers\\chromedriver.exe");
 			
 			//WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();		
 		}else if(browsername.equals("firefox")) {
-			System.setProperty("webdriver.ie.driver", "C:\\Users\\qctest\\git\\apapmt_automation\\Drivers\\IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", "E:\\apapmt_automation\\Drivers\\IEDriverServer.exe");
 			//WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();			
 		}else if(browsername.equals("IE")) {
 			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();
 		}else if(browsername.equals("edge")) {
-			System.setProperty("webdriver.edge.driver", "C:\\Users\\qctest\\git\\apapmt_automation\\Drivers\\MicrosoftWebDriver.exe");
+			System.setProperty("webdriver.edge.driver", "E:\\apapmt_automation\\Drivers\\MicrosoftWebDriver.exe");
 			//WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		}/*else if(browsername.equals("headless")) {

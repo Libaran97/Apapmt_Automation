@@ -26,7 +26,7 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 	public void user_will_mouse_hover_and_choose_the_product_category_page() throws Throwable {
 
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Cateory")
 					.pass("category added thanks");
 			test = test.createNode(Scenario.class, "Adding product category");
@@ -105,7 +105,7 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			loginfo.pass("Product category Saved Successfully & shown in grid");
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
-			// extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			/*
@@ -122,7 +122,7 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			// loginfo.fail("Already exists");
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -211,7 +211,7 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 	public void user_will_go_to_master_and_choose_part_description() throws Throwable {
 
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases")
 					.assignCategory("Part Description Tag");
 			test = test.createNode(Scenario.class, "Adding part description");
@@ -234,7 +234,7 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click on the add button and choose the category & sub category drop down list_MUL");
 			mpom.addcategory2();
-			// mpom.addsubcategory1(); // category choose
+			//mpom.addsubcategory1(); // category choose
 			mpom.categoryselect1(); // subcategory select
 			mpom.entrypartdesc1(pro.getProperty("subcategoryname1"));
 			mpom.equivalentpartdesc1();
@@ -479,11 +479,11 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 
 			loginfo.pass("Parts page landed successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
-			// extent.flush();
+			//extent.flush();
 
 		}
 	}

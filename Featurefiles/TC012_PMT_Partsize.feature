@@ -1,3 +1,4 @@
+@sanity
 Feature: PMT Part Size
 Description: User will add the part size for the partno
 

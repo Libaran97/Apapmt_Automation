@@ -146,7 +146,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	private WebElement selectsubcategorysaut1;	
 	
 
-	@FindBy(xpath="//select[@id='MainContent_drpProductCategoryAdd']//option[text()='Engine Coils test']")
+	@FindBy(xpath="//select[@id='MainContent_drpProductCategoryAdd']//option[text()='Engine oil test']")
 	private WebElement selectsubcategoryss;	
 
 	@FindBy(xpath = "//input[@id='MainContent_txtPartDescription']")

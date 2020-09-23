@@ -1,4 +1,4 @@
-@Sanitycheck
+@sanity
 Feature: PMT Reports Aces Invalid check
 
 Scenario: Adding AcesInvalid application through buyers guide

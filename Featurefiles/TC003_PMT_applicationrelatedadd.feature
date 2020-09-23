@@ -1,3 +1,4 @@
+@sanity
 Feature: PMT MasterApplication related List
 Description: User will add Application related like vehicle, make & model
 

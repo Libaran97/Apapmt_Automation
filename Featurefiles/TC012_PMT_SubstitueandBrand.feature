@@ -1,3 +1,4 @@
+@sanity
 Feature: PMT Part substitute and brand
 Description: User will add and del the substitute for the partno
 
