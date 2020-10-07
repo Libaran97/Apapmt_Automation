@@ -761,15 +761,15 @@ public class Masterproductrelated_POM extends Baseclass {
 		Thread.sleep(5000);
 
 	}
-	public void editproduct(String linecode1,String linecode,String linename) throws Exception {
+	public void editproduct(String linecode1,String linename) throws Exception {
 		linefilter.sendKeys(linecode1);	
 		Thread.sleep(5000);
-        linefilteredit.click();
+		 /*linefilteredit.click();
         Thread.sleep(4000);    
-        txtlinecode.clear();
+         txtlinecode.clear();
         Thread.sleep(2000);  
         txtlinecode.sendKeys(linecode);
-        Thread.sleep(2000);
+        Thread.sleep(2000);*/
         txtlinename.clear();
         Thread.sleep(2000);
         txtlinename.sendKeys(linename);
@@ -818,12 +818,12 @@ public class Masterproductrelated_POM extends Baseclass {
 
 	}
 	
-	public void verifyproductlineedit(String linecode) {
+	public void verifyproductlineedit(String linecode1) {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		linefilter.sendKeys(pro.getProperty("linecode"));
+		linefilter.sendKeys(pro.getProperty("linecode1"));
 		String actualtext = verifytext.getText();
 		System.out.println("Text present as " + actualtext);
-		if (actualtext.equals(linecode)) {
+		if (actualtext.equals(linecode1)) {
 			System.out.println("Both are same");
 		} else {
 			System.out.println("Both are not same");

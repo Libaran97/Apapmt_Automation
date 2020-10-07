@@ -576,10 +576,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 	@Given("^User will go to master and choose product line again$")
 	public void user_will_go_to_master_and_choose_product_line_again() throws Throwable {
 		try {
-			// extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product Related-Add prodLine")
+			 //extent=setup();
+			test = extent.createTest(Feature.class, "PMT Product Related-Edit prodLine")
 					.assignCategory("Product Line Tag");
-			test = test.createNode(Scenario.class, "Adding product Line");
+			test = test.createNode(Scenario.class, "Editing product Line");
 			loginfo = test.createNode(new GherkinKeyword("Given"), "User will go to master and choose product line");
 			mpom = new Masterproductrelated_POM();
 			mpom.clickonproductlinecode();
@@ -595,7 +595,8 @@ public class TC002_PMT_productrelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click on add button and enter the line code and line name");
-			mpom.editproduct(pro.getProperty("linecode1"), pro.getProperty("linecode"), pro.getProperty("linename"));
+			mpom.editproduct(pro.getProperty("linecode1"),pro.getProperty("linename"));	
+			//mpom.editproduct(pro.getProperty("linecode1"), pro.getProperty("linecode"), pro.getProperty("linename"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// mpom.savebtn();
 			mpom.acceptAlert();
@@ -612,7 +613,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will see successfully alert and verify the record has come in the grid");
-			mpom.verifyproductlineedit(pro.getProperty("linecode"));
+			mpom.verifyproductlineedit(pro.getProperty("linecode1"));
 			System.out.println("Product Line  Added in the grid");
 			loginfo.pass("Product line added successfully & shown in grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -760,7 +761,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("custom edited successfully & shown in grid");
 			System.out.println("custom edited Added in the grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			 //extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			//extent.flush();

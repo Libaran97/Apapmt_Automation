@@ -285,7 +285,7 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 	public void user_will_go_to_master_and_choose_product_line() throws Throwable {
 
 		try {
-			// extent=setup();
+			 //extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Product Line Tag");
 			test = test.createNode(Scenario.class, "Adding product Line");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -327,7 +327,7 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			System.out.println("Product Line  Added in the grid");
 			loginfo.pass("Product line added successfully & shown in grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			// extent.flush();

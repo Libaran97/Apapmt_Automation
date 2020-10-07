@@ -312,7 +312,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@When("^User will search CK(\\d+) name and description$")
 	public void user_will_search_CK_name_and_description(int arg1) throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("When"), "User will search CK(\\\\d+) name and description");
+			loginfo = test.createNode(new GherkinKeyword("When"), "User will search CK(\\d+) name and description");
 			mpom2.clicksystemck31search(pro.getProperty("ck31"), pro.getProperty("ck31description"));
 			loginfo.pass("Value Entered Successfully");
 			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -365,7 +365,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	public void user_will_choose_CK_and_search_ck_name_and_description(int arg1, int arg2) throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
-					"User will choose CK(\\\\d+)and search ck(\\\\d+) name and description");
+					"User will choose CK(\\d+)and search ck(\\d+) name and description");
 			mpom2.clickassemblyck32search(pro.getProperty("systemvalue"), pro.getProperty("ck31"));
 			loginfo.pass("Value Entered Successfully");
 			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -380,7 +380,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	public void user_will_successfully_verified_assembly_CK(int arg1) throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
-					"User will successfully verified assembly CK(\\\\d+)$");
+					"User will successfully verified assembly CK(\\d+)$");
 			System.out.println("Product CK32 successfully");
 			mpom2.verifyingck32("systemvalue");
 			loginfo.pass("Product Assembly search");
@@ -398,7 +398,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@Given("^User will mouse hover and choose the component \\(CK(\\d+)\\) page$")
 	public void user_will_mouse_hover_and_choose_the_component_CK_page(int arg1) throws Throwable {
 		try {
-			// extent=setup();
+			 //extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product group Related-component ck33 master")
 					.assignCategory("master").pass("master component thanks");
 			test = test.createNode(Scenario.class, "editing cK33 component");
@@ -419,7 +419,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
-					"User will choose CK(\\\\d+)and search ck(\\\\d+) name and description");
+					"User will choose CK(\\d+)and search ck(\\d+) name and description");
 			mpom2.clickcomponentck33search(pro.getProperty("Compnenentvalue"));
 			mpom2.acceptAlert();
 			mpom2.verifyingck33(pro.getProperty("Partype"));
@@ -436,7 +436,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	public void user_will_successfully_verified_Component_CK(int arg1) throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
-					"User will successfully verified component CK(\\\\d+)$");
+					"User will successfully verified component CK(\\d+)$");
 			System.out.println("Product CK33 again successfully");
 			mpom2.Editagain();
 			mpom2.acceptAlert();

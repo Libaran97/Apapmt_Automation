@@ -131,7 +131,7 @@
 		@FindBy(xpath = "//label[text()='Alternator']")
 		private WebElement ePartype;
 		
-		@FindBy(xpath = "//label[text()='Starter Motor']")
+		@FindBy(xpath = "//label[text()='Fuel Injector']")
 		private WebElement ePartypeagain;
 	
 		@FindBy(xpath = "//div[@id='save_btn_new_edit']")
@@ -529,7 +529,7 @@
 	
 			String actualtext = verifytextsec.getText();
 			System.out.println("Text present as " + actualtext);
-			if (actualtext.contains(pro.getProperty("Partype1"))) {
+			if (actualtext.contains(pro.getProperty("Partype"))) {
 				System.out.println("Both are same");
 			} else {
 				System.out.println("Both are not same");
