@@ -65,7 +65,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	
 	private WebElement vehicletypeselect;
 	
-	@FindBy(xpath="//li[text()='Car Test01']")
+	@FindBy(xpath="//li[text()='Car Test02']")
 	private WebElement vehicletypesend;
 	
 
@@ -85,7 +85,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	@FindBy(xpath="//span[@id='select2-drpMakeAdd-container']")
 	private WebElement dropdownmakeselect;
 	
-	@FindBy(xpath="//li[text()='Test Chevrolet01']")
+	@FindBy(xpath="//li[text()='Test Chevrolet02']")
 	private WebElement dropdownmakesend;
 
 	//@FindBy(xpath = "//input[@id='MainContent_txtModel']")
@@ -128,7 +128,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	private WebElement equavalentchosesend;
 	
 	
-	@FindBy(xpath = "//label[(text()='Car Test01')]")
+	@FindBy(xpath = "//label[(text()='Car Test02')]")
 	private WebElement equivalentvehicle1;
 	
 	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[3]/div/input[1]")

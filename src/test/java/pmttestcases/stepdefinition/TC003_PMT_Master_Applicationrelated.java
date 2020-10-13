@@ -65,7 +65,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will successfully added and verify the added record should be shown in vehicle grid");
 			master.VerifyVehicle(pro.getProperty("vehicletypename0"));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
@@ -194,7 +194,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 
 			master.VerifyMake(pro.getProperty("makename0"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
@@ -691,7 +691,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"^User will verify the vehicle type deleted or not$");
 			master.VerifyDeleteVehicletypegroup(pro.getProperty("vehicletypename"), pro.getProperty("DeleteProducttxt"));
-			//extent.flush();
+			extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);

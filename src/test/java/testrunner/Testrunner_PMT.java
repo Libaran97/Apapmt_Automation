@@ -22,9 +22,9 @@ import cucumber.api.junit.Cucumber;
 		strict = false,
 				
 			
-				tags = {"@sanity"}
+				//tags = {"@sanity"}
 		
-	
+		tags = {"@sanity1"}
 		)
 
 public class Testrunner_PMT {

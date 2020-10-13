@@ -33,7 +33,7 @@ Given User will mouse over on master and choose the make
 When User will select make, Edit make name & save   
 Then User will verify the Edited record should be shown in make grid
 
-Scenario: Editing Application Related vehicle group
+Scenario: Editing Application Related vehicle type group
 Given User will mouse over on Master and choose the vehicle type group page
 When User will select vehicle group, click edit and will edit vehicle type group name & save
 Then User will verify the Edited record should be shown in vehicle type group grid

@@ -432,7 +432,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 					"User will successfully Equipment edited and verify that the record has come");
 			master.Verifymodeleq(pro.getProperty("modelnameeqedit"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
