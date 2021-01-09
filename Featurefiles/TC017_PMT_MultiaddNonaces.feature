@@ -1,14 +1,15 @@
 @sanity
 Feature: PMT Non ACES option TestCases 
+Description: User will check the Non Aces and with attributes
 
-Scenario: Check the Non Aces files in multi add [TC034] 
+Scenario: Check the Non Aces files in vehicle_Mul [TC034] 
 	Given : user will create the application pages 
 	When : user will check the all 
 	And : user will check the all part types 
 	And  User will successfully saved particular non aces product line and verify that the record has come 
 	Then Finally Non Aces matched successfully 
 
-Scenario: Check the Show attributes non ACES[TC034] 
+Scenario: Check the Show attributes non ACES in vehicle_Mul[TC034] 
 	Given : user will create the application pages and multiadd pages 
 	When : user will check the all Vehicle,make and model and click the search 
 	And : user will check the checkbox and use nonaces attributes 

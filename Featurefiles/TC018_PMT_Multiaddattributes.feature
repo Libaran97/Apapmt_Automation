@@ -1,6 +1,6 @@
 @sanity
 Feature: PMT Delete,Cancel and attributes option TestCases 
-
+Description: Check the Cancel,Delete and attributes options
 
 Scenario: Check the Cancel button[TC035] 
 	Given : user will create the application pages and multiadd links 

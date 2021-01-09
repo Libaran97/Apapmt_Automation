@@ -77,7 +77,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@Given("^User will mouse hover and choose the product group master page again$")
 	public void user_will_mouse_hover_and_choose_the_product_group_master_page_again() throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product group Related-edit master").assignCategory("master")
 					.pass("master edited thanks");
 			test = test.createNode(Scenario.class, "editing product group master");
@@ -294,9 +294,9 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	public void user_will_mouse_hover_and_choose_the_system_CK_page(int arg1) throws Throwable {
 		try {
 			//extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product group Related-edit master").assignCategory("master")
-					.pass("master edited thanks");
-			test = test.createNode(Scenario.class, "editing product group master");
+			test = extent.createTest(Feature.class, "PMT Product group Related-system (CK31)").assignCategory("master")
+					.pass("system (CK31) Searched");
+			test = test.createNode(Scenario.class, "search system (CK31)");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover and choose the product group master page again");
 			mpom2.clickonsystemck31();
@@ -346,9 +346,9 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	public void user_will_mouse_hover_and_choose_the_Assembly_CK_page(int arg1) throws Throwable {
 		try {
 			//extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product group Related-assembly master")
-					.assignCategory("master").pass("master assembly thanks");
-			test = test.createNode(Scenario.class, "editing product group master");
+			test = extent.createTest(Feature.class, "PMT Product group Related-Assembly (CK32)")
+					.assignCategory("master").pass("Assembly (CK32)");
+			test = test.createNode(Scenario.class, "search Assembly (CK32)");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover and choose the Assembly (CK32) page");
 			mpom2.clickonassembly32();
@@ -366,7 +366,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will choose CK(\\d+)and search ck(\\d+) name and description");
-			mpom2.clickassemblyck32search(pro.getProperty("systemvalue"), pro.getProperty("ck31"));
+			mpom2.clickassemblyck32search(pro.getProperty("systemvalue"), pro.getProperty("ck32description"));
 			loginfo.pass("Value Entered Successfully");
 			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -398,7 +398,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	@Given("^User will mouse hover and choose the component \\(CK(\\d+)\\) page$")
 	public void user_will_mouse_hover_and_choose_the_component_CK_page(int arg1) throws Throwable {
 		try {
-			 //extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product group Related-component ck33 master")
 					.assignCategory("master").pass("master component thanks");
 			test = test.createNode(Scenario.class, "editing cK33 component");
@@ -422,7 +422,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 					"User will choose CK(\\d+)and search ck(\\d+) name and description");
 			mpom2.clickcomponentck33search(pro.getProperty("Compnenentvalue"));
 			mpom2.acceptAlert();
-			mpom2.verifyingck33(pro.getProperty("Partype"));
+			mpom2.verifyingck33(pro.getProperty("subcategoryname"));
 			loginfo.pass("Value Entered Successfully");
 			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -440,7 +440,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			System.out.println("Product CK33 again successfully");
 			mpom2.Editagain();
 			mpom2.acceptAlert();
-			mpom2.verifyEditagain(pro.getProperty("Partype1"));			
+			mpom2.verifyEditagain(pro.getProperty("subcategoryname"));			
 			loginfo.pass("Product component search");
 			System.out.println("CK33 Verified");
 			//extent.flush();

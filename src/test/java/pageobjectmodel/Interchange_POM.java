@@ -72,7 +72,7 @@ public class Interchange_POM extends Baseclass{
 		private WebElement	ePDverify;
 		
 		
-		@FindBy(xpath="//*[@id=DataTableViewer]/tbody/tr/td")
+		@FindBy(xpath="//*[@class='dataTables_empty']")
 		private WebElement eDeleteVryText;
 		public void partslanding() {
 			partspageheaderclick.click();
@@ -86,8 +86,8 @@ public class Interchange_POM extends Baseclass{
 			
 			for(int i=0; i<list.size(); i++) {
 				System.out.println(list.get(i).getText());
-				//if(list.get(i).getText().contains("Testpart-1 | Ignition Test | Autoapa")) {
-				if(list.get(i).getText().contains("Testpart-1 | description1 | AAA1")) {
+				if(list.get(i).getText().contains("Testpart-1 | Ignition Coil Test | Autoapa3")) {
+				//if(list.get(i).getText().contains("Testpart-1 | description1 | AAA1")) {
 					list.get(i).click();
 					break;
 				}

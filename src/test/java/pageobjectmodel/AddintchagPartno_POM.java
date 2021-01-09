@@ -30,7 +30,8 @@ public class AddintchagPartno_POM extends Baseclass{
 	@CacheLookup
 	public WebElement emaster;
 	
-	@FindBy(xpath ="//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_2_lnkLink3_1']")
+	//@FindBy(xpath ="//*[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_1_lnkLink3_1']")
+	@FindBy(xpath ="//*[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_2_lnkLink3_1']")
 	public WebElement eInterchangepart;
 	
 	@FindBy(xpath="//div[@Class='add_button_icon']")

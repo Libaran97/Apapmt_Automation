@@ -556,6 +556,7 @@ public class MultiAddPom extends Baseclass {
 			} catch (StaleElementReferenceException e) {
 
 				staleElement = true;
+				Thread.sleep(8000);
 
 			}
 
@@ -571,7 +572,7 @@ public class MultiAddPom extends Baseclass {
 		Alert alert = driver.switchTo().alert();
 		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Multiadd is..:" + alert.getText());
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		alert.accept();
 		Thread.sleep(6000);
 	}
@@ -625,8 +626,9 @@ public class MultiAddPom extends Baseclass {
 		Thread.sleep(5000);
 	}
 
-	public void Attrvalues(String Region) {
+	public void Attrvalues(String Region) throws Exception {
 		eshowattribt11.sendKeys(Region);
+		Thread.sleep(5000);
 	}
 
 	////////////// Check the parts page///////////

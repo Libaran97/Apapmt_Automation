@@ -81,8 +81,9 @@ public class ApplicationAddNonAces  extends Baseclass{
 	@FindBy(xpath ="//span[@id='MainContent_GVData_lblEngineBase_0']")
 	public WebElement eAppverify;
 	
-	public void ClickApplication() {
+	public void ClickApplication() throws Exception {
 		eApplication.click();
+		Thread.sleep(3000);
 	}
 
 	public void ClickAddApplication() throws InterruptedException {
@@ -140,8 +141,13 @@ public class ApplicationAddNonAces  extends Baseclass{
 		alert.accept();
 		}
 	public void ClickApplication2() throws InterruptedException {
-		eApplication2.click();
-		Thread.sleep(3000);
+		try {
+			eApplication2.click();
+			Thread.sleep(3000);
+		} catch (org.openqa.selenium.StaleElementReferenceException e) {
+			eApplication2.click();
+			Thread.sleep(3000);
+		}
 	}
 	
    public void ChooseVehiclevry(String vehicletypename0) throws InterruptedException {
@@ -168,8 +174,13 @@ public class ApplicationAddNonAces  extends Baseclass{
 		
 		}
 	public void Clicksearch() throws InterruptedException {
-		eSearchButton.click();
-		Thread.sleep(3000);
+		try {
+			eSearchButton.click();
+			Thread.sleep(4000);
+		} catch (org.openqa.selenium.StaleElementReferenceException ex) {
+			eSearchButton.click();
+			Thread.sleep(3000);
+		}
 		}
 
 	public void SelectFiterdropdown(String SelectFilterName) throws InterruptedException {
@@ -185,12 +196,16 @@ public class ApplicationAddNonAces  extends Baseclass{
 		
 	}
 	public void Clicksearch2() throws InterruptedException {
-		eSearchButton2.click();
-		Thread.sleep(3000);
+		try {
+			eSearchButton2.click();
+			Thread.sleep(5000);
+		} catch (org.openqa.selenium.StaleElementReferenceException e) {
+			eSearchButton2.click();
+			Thread.sleep(3000);
+		}
 		}
 	public void verifytext1(String SearchText1) throws Exception
-	{
-		
+	{		
 		
 		Thread.sleep(5000);
 		String actualText= eAppverify.getText();

@@ -149,7 +149,7 @@ public class TC006_PMT_Partinterchange extends Baseclass {
 		inter.interchangesclick();
 		inter.deletepartinter();
 		inter.acceptDeleteAlert();
-		inter.acceptDeleteAlert2();
+		inter.acceptDeleteAlert();
 		} 	catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);

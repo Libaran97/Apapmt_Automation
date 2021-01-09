@@ -33,11 +33,12 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom = new Masterproductrelated_POM();
 			mpom.clickonproductcategory();
 			loginfo.pass("product category landed successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println(e);
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
@@ -52,12 +53,13 @@ public class TC002_PMT_productrelated extends Baseclass {
 					"User will click on the add button and add a new category");
 			mpom.addcategory();
 			loginfo.pass("Value Entered Successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
 		}
@@ -71,7 +73,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("And"),
 					"User will enter the category name and choose the equivalent PIES category");
 			mpom.entrycategory(pro.getProperty("Categoryprevious"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			mpom.savebtn2();
 			loginfo.pass("Product category Saved Successfully");
 			// Baseclass.updateTestLinkResult("PMT-3", null,
@@ -81,6 +83,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
 
@@ -96,21 +99,22 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.acceptAlert();
 			System.out.println("category successfully added");
 			mpom.verifyingtext(pro.getProperty("Categoryprevious"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			loginfo.pass("Product category saved");
 			System.out.println("Category Verified");
 			loginfo.pass("Product category Saved Successfully & shown in grid");
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
-			//extent.flush();
+			extent.flush();
 
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// loginfo.fail("Already exists");
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
-			//extent.flush();
+			extent.flush();
 		}
 	}
 
@@ -127,12 +131,13 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom = new Masterproductrelated_POM();
 			mpom.clickonproductcategory();
 			loginfo.pass("product category landed successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
 		}
@@ -145,12 +150,13 @@ public class TC002_PMT_productrelated extends Baseclass {
 					"User will click on the add button and add a new category");
 			mpom.Edirtaddcategory("Categoryprevious");
 			loginfo.pass("Value Entered Successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
 		}
@@ -163,7 +169,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 					"User will enter the category name and choose the equivalent PIES category");
 			// mpom.entrycategory(pro.getProperty("categoryname"));
 			mpom.editequalcase(pro.getProperty("categoryname"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			mpom.savebtnedit();
 			loginfo.pass("Product category Saved Successfully");
 			// Baseclass.updateTestLinkResult("PMT-3", null,
@@ -173,6 +179,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
 
@@ -187,7 +194,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.acceptAlert();
 			System.out.println("category successfully added");
 			mpom.verifyingtextedit(pro.getProperty("categoryname"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			loginfo.pass("Product category saved");
 			System.out.println("Category Verified");
 			loginfo.pass("Product category Saved Successfully & shown in grid");
@@ -198,6 +205,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// loginfo.fail("Already exists");
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
@@ -219,10 +227,11 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom = new Masterproductrelated_POM();
 			mpom.clicksubcategory();
 			loginfo.pass("Product sub category add landing page success");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -235,9 +244,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.addcategory();
 			mpom.addsubcategory();
 			loginfo.pass("Product sub category create landing page success");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -249,13 +259,14 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("And"),
 					"User will enter the sub category name  and choose the equivalent and save button is clicked");
 			mpom.entrysubcategory(pro.getProperty("subcategorynameprevious"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			mpom.savingcategory1();
+			
+			mpom.savingcategoryadd();
 			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product sub category entered success");
 
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -270,7 +281,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			System.out.println("sub category successfully added");
 			// mpom.addsubcategoryveri();
 			mpom.verifysubcategory(pro.getProperty("subcategorynameprevious"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			loginfo.pass("Product sub category verified");
 			//extent.flush();
 		} catch (Exception e) {
@@ -284,6 +295,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			System.out.println("Failed to insert");
 			// loginfo.fail("Insert Failed");
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// loginfo.fail("Already exists");
 			//extent.flush();
 		}
@@ -302,10 +314,11 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom = new Masterproductrelated_POM();
 			mpom.clicksubcategory();
 			loginfo.pass("Product sub category add landing page success");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -317,9 +330,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			// mpom.addcategory();
 			mpom.addsubcategoryedit();
 			loginfo.pass("Product sub category create landing page success");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -331,13 +345,14 @@ public class TC002_PMT_productrelated extends Baseclass {
 					"User will enter the sub category name  and choose the equivalent and save button is clicked");
 			// mpom.entrysubcategory(pro.getProperty("subcategorynameprevious"));
 			mpom.entrysubcategoryedit(pro.getProperty("subcategoryname"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			mpom.savingcategory1();
+			
+			mpom.savingcategoryEdit();
 			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product sub category entered success");
 
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -353,7 +368,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			// mpom.addsubcategoryveri();
 			// mpom.verifysubcategory(pro.getProperty("subcategorynameprevious"));
 			mpom.verifysubcategoryedit(pro.getProperty("subcategoryname"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			loginfo.pass("Product sub category verified");
 			//extent.flush();
 		} catch (Exception e) {
@@ -368,6 +383,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			System.out.println("Failed to insert");
 			// loginfo.fail("Insert Failed");
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// loginfo.fail("Already exists");
 			//extent.flush();
 		}
@@ -441,10 +457,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			System.out.println("Part Description Added in the grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product part description submit button clicked & saved in the grid successfully");
-			// extent.flush();
+		    //extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -452,7 +468,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	@Given("^User will go to master and choose part description again$")
 	public void user_will_go_to_master_and_choose_part_description_again() throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product Related-edit Description")
 					.assignCategory("Part Description Tag");
 			test = test.createNode(Scenario.class, "editing part description");
@@ -461,9 +477,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom = new Masterproductrelated_POM();
 			mpom.partdesc1();
 			loginfo.pass("Product part description landed");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -476,10 +493,11 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.editcategory(pro.getProperty("Editequivalent"));
 
 			loginfo.pass("Product part description choosing the given data");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -494,9 +512,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			mpom.equivalentpartdescedit();
 			mpom.savingpartdesc();
 			mpom.acceptAlertline();
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -509,12 +528,13 @@ public class TC002_PMT_productrelated extends Baseclass {
 			// mpom.verifycategory1();
 			mpom.verifypartdescedit(pro.getProperty("subcategoryname"));
 			System.out.println("Part Description Added in the grid");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 			loginfo.pass("Product part description submit button clicked & saved in the grid successfully");
 			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
 	}
 
@@ -523,7 +543,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 	public void user_will_go_to_master_and_choose_product_line() throws Throwable {
 
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Product Related-Add prodLine")
 					.assignCategory("Product Line Tag");
 			test = test.createNode(Scenario.class, "Adding product Line");
@@ -544,7 +564,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click on add button and enter the line code and line name");
 			mpom.addcategory();
-			mpom.addproductline(pro.getProperty("linecode1"), pro.getProperty("textbox"));
+			mpom.addproductline(pro.getProperty("linecode"), pro.getProperty("textbox"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			mpom.savebtn();
 			mpom.acceptAlert();
@@ -561,7 +581,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will see successfully alert and verify the record has come in the grid");
-			mpom.verifyproductline(pro.getProperty("linecode1"));
+			mpom.verifyproductline(pro.getProperty("linecode"));
 			System.out.println("Product Line  Added in the grid");
 			loginfo.pass("Product line added successfully & shown in grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -595,7 +615,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click on add button and enter the line code and line name");
-			mpom.editproduct(pro.getProperty("linecode1"),pro.getProperty("linename"));	
+			mpom.editproduct(pro.getProperty("linecode"),pro.getProperty("linename"));	
 			//mpom.editproduct(pro.getProperty("linecode1"), pro.getProperty("linecode"), pro.getProperty("linename"));
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// mpom.savebtn();
@@ -613,7 +633,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will see successfully alert and verify the record has come in the grid");
-			mpom.verifyproductlineedit(pro.getProperty("linecode1"));
+			mpom.verifyproductlineedit(pro.getProperty("linename"));
 			System.out.println("Product Line  Added in the grid");
 			loginfo.pass("Product line added successfully & shown in grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));

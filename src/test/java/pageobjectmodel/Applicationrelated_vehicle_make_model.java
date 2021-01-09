@@ -65,7 +65,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	
 	private WebElement vehicletypeselect;
 	
-	@FindBy(xpath="//li[text()='Car Test02']")
+	@FindBy(xpath="//li[text()='Car Test']")
 	private WebElement vehicletypesend;
 	
 
@@ -128,7 +128,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	private WebElement equavalentchosesend;
 	
 	
-	@FindBy(xpath = "//label[(text()='Car Test02')]")
+	@FindBy(xpath = "//label[(text()='Car Test')]")
 	private WebElement equivalentvehicle1;
 	
 	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[3]/div/input[1]")
@@ -326,10 +326,11 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	}
 	
 	public void Editvehicletypename(String vehicletypename) throws Exception {
-		
+		Thread.sleep(3000);
 		eEditVgroupBtn.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
+		//driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		Thread.sleep(9000);
+		vehicleentertextbox.click();
 		vehicleentertextbox.clear();
 		Thread.sleep(3000);
 		vehicleentertextbox.sendKeys(vehicletypename);
@@ -417,10 +418,12 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		js.executeScript("arguments[0].scrollIntoView();", pop);
 		pop.click();
 		Thread.sleep(10000);
+		
 
 	}
 
 	public void VerifyMake(String makename0) throws InterruptedException {
+		Thread.sleep(10000);
 
 		eselectddVehicle.click();
 		Thread.sleep(5000);
@@ -456,7 +459,7 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 		vehicletypesend.click();
 		Thread.sleep(5000);
 		
-		eselectddVehicle.click();
+		//eselectddVehicle.click();
 		Thread.sleep(5000);
 		
 		eSearchBox.sendKeys(makename0);
@@ -464,10 +467,10 @@ public class Applicationrelated_vehicle_make_model extends Baseclass {
 	}
 	
 	public void Editmakename(String makename) throws InterruptedException {
-		
+		Thread.sleep(5000);
 
 		eEditMakeBtn.click();
-		Thread.sleep(3000);
+		Thread.sleep(18000);
 		
 		maketextbox.clear();
 		Thread.sleep(3000);

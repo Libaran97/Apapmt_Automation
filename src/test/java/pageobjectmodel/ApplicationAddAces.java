@@ -142,8 +142,13 @@ public class ApplicationAddAces extends Baseclass {
 		Thread.sleep(5000);
 		}
 	public void ClickApplication2() throws InterruptedException {
-		eApplication2.click();
-		Thread.sleep(3000);
+		try {
+			eApplication2.click();
+			Thread.sleep(3000);
+		} catch (org.openqa.selenium.StaleElementReferenceException e) {
+			eApplication2.click();
+			Thread.sleep(3000);
+		}
 	}
 	
 //   public void ChooseVehiclevry(String vehicletypename) throws InterruptedException {
@@ -170,8 +175,13 @@ public class ApplicationAddAces extends Baseclass {
 		
 		}
 	public void Clicksearch() throws InterruptedException {
-		eSearchButton.click();
-		Thread.sleep(3000);
+		try {
+			eSearchButton.click();
+			Thread.sleep(3000);
+		} catch (org.openqa.selenium.StaleElementReferenceException e) {
+			eSearchButton.click();
+			Thread.sleep(3000);
+		}
 		}
 
 	public void SelectFiterdropdown(String SelectFilterName) throws InterruptedException {
@@ -182,13 +192,24 @@ public class ApplicationAddAces extends Baseclass {
 	
 		}
 	public void SelectsearchTextbox(String SearchTextAcesEngine) throws InterruptedException {
-		eSelectsearchbox.sendKeys(SearchTextAcesEngine);
-		Thread.sleep(3000);
+		
+		try {
+			eSelectsearchbox.sendKeys(SearchTextAcesEngine);
+			Thread.sleep(3000);
+		} catch (org.openqa.selenium.StaleElementReferenceException e) {
+			eSelectsearchbox.sendKeys(SearchTextAcesEngine);
+			Thread.sleep(3000);
+		}
 		
 	}
 	public void Clicksearch2() throws InterruptedException {
-		eSearchButton2.click();
-		Thread.sleep(3000);
+		try {
+			eSearchButton2.click();
+			Thread.sleep(5000);
+		} catch (org.openqa.selenium.StaleElementReferenceException e) {
+			eSearchButton2.click();
+			Thread.sleep(3000);
+		}
 		}
 	public void verifytext1(String SearchTextVey) throws InterruptedException
 	{

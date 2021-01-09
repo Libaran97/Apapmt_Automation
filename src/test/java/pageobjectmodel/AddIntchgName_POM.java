@@ -27,7 +27,8 @@ public class AddIntchgName_POM extends Baseclass{
 	@CacheLookup
 	public WebElement emaster;
 	
-	@FindBy(xpath ="//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_2_lnkLink3_0']")
+	//@FindBy(xpath ="//*[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_1_lnkLink3_0']")
+	@FindBy(xpath ="//*[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_2_lnkLink3_0']")
 	public WebElement eInterchangeName;
 	
 	@FindBy(xpath="//*[@id=\"btnadd_new\"]")

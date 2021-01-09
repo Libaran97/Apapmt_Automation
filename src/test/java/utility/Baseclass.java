@@ -61,9 +61,9 @@ public class Baseclass extends ExtentReport {
 			//WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();		
 		}else if(browsername.equals("firefox")) {
-			System.setProperty("webdriver.ie.driver", "E:\\apapmt_automation\\Drivers\\IEDriverServer.exe");
+			System.setProperty("webdriver.gecko.driver", "E:\\apapmt_automation\\Drivers\\geckodriver.exe");
 			//WebDriverManager.iedriver().setup();
-			driver = new InternetExplorerDriver();			
+			driver = new FirefoxDriver();		
 		}else if(browsername.equals("IE")) {
 			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();

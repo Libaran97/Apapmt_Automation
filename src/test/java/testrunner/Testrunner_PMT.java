@@ -24,7 +24,7 @@ import cucumber.api.junit.Cucumber;
 			
 				//tags = {"@sanity"}
 		
-		tags = {"@sanity1"}
+		tags = {"@sanity"}
 		)
 
 public class Testrunner_PMT {

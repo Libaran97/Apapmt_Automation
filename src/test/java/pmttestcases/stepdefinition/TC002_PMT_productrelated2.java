@@ -22,25 +22,27 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 	Masterproductrelated_POM mpom;
 	PartsAdd_POM parts;
 
+	// Master_TC002_Adding product category_Mul
 	@Given("^User will mouse hover and choose the product category page_MUL$")
 	public void user_will_mouse_hover_and_choose_the_product_category_page() throws Throwable {
 
 		try {
-			//extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Cateory")
-					.pass("category added thanks");
+			//extent = setup();
+			test = extent.createTest(Feature.class, "Master_TC002_Adding product category_Mul")
+					.assignCategory("Product category tag").pass("category added thanks");
 			test = test.createNode(Scenario.class, "Adding product category");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover and choose the product category page_MUL");
 			mpom = new Masterproductrelated_POM();
 			mpom.clickonproductcategory();
 			loginfo.pass("product category landed successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
 		}
@@ -54,12 +56,12 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 					"User will click on the add button and add a new category_MUL");
 			mpom.addcategory();
 			loginfo.pass("Value Entered Successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
 		}
@@ -73,16 +75,15 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("And"),
 					"User will enter the category name and choose the equivalent PIES category_MUL");
 			mpom.entrycategory1(pro.getProperty("categoryname1"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			mpom.savebtn2();
 			loginfo.pass("Product category Saved Successfully");
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
 
 		} catch (Exception e) {
-
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
 
@@ -96,16 +97,13 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will successfully added and verify that the record has come_MUL");
 			mpom.acceptAlert();
-			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println("category successfully added");
 			mpom.verifyingtext1(pro.getProperty("categoryname1"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			loginfo.pass("Product category saved");
 			System.out.println("Category Verified");
 			loginfo.pass("Product category Saved Successfully & shown in grid");
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
-			//extent.flush();
+			// extent.flush();
 
 		} catch (Exception e) {
 			/*
@@ -119,30 +117,33 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			 */
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// loginfo.fail("Already exists");
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
-			//extent.flush();
+			// extent.flush();
 		}
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Master_TC002_Adding product sub category_MUL
 	@Given("^User will go to master and choose product sub category_MUL$")
 	public void user_will_go_to_master_and_choose_product_sub_category() throws Throwable {
 
 		try {
 			// extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Sub Category")
-					.pass("sub category added thanks");
+			test = extent.createTest(Feature.class, "Master_TC002_Adding product sub category_MUL")
+					.assignCategory("Sub Category Tag").pass("sub category added thanks");
 			test = test.createNode(Scenario.class, "Adding product sub category");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will go to master and choose product sub category_MUL");
 			mpom = new Masterproductrelated_POM();
 			mpom.clicksubcategory();
 			loginfo.pass("Product sub category add landing page success");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -155,9 +156,11 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			mpom.addcategory();
 			mpom.addsubcategory1();
 			loginfo.pass("Product sub category create landing page success");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -169,13 +172,12 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("And"),
 					"User will enter the sub category name  and choose the equivalent and save button is clicked_MUL");
 			mpom.entrysubcategory1(pro.getProperty("subcategoryname1"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			mpom.savingcategory1();
-			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			mpom.savingcategoryadd();
 			loginfo.pass("Product sub category entered success");
-
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -188,7 +190,6 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			mpom.acceptAlert();
 			System.out.println("sub category successfully added");
 			mpom.verifysubcategory1(pro.getProperty("subcategoryname1"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product sub category verified");
 			// extent.flush();
 		} catch (Exception e) {
@@ -202,27 +203,32 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			System.out.println("Failed to insert");
 			// loginfo.fail("Insert Failed");
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// loginfo.fail("Already exists");
 			// extent.flush();
 		}
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	// Master_TC002_Adding Part description_Mul
 	@Given("^User will go to master and choose part description_MUL$")
 	public void user_will_go_to_master_and_choose_part_description() throws Throwable {
 
 		try {
-			//extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases")
+			// extent = setup();
+			test = extent.createTest(Feature.class, "Master_TC002_Adding Part description_Mul")
 					.assignCategory("Part Description Tag");
-			test = test.createNode(Scenario.class, "Adding part description");
+			test = test.createNode(Scenario.class, "Adding part description_Mul");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will go to master and choose part description_MUL");
 			mpom = new Masterproductrelated_POM();
 			mpom.partdesc1();
 			loginfo.pass("Product part description landed");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -234,15 +240,16 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click on the add button and choose the category & sub category drop down list_MUL");
 			mpom.addcategory2();
-			//mpom.addsubcategory1(); // category choose
+			// mpom.addsubcategory1(); // category choose
 			mpom.categoryselect1(); // subcategory select
 			mpom.entrypartdesc1(pro.getProperty("subcategoryname1"));
 			mpom.equivalentpartdesc1();
 			loginfo.pass("Product part description choosing the given data");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -255,9 +262,10 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			mpom.savingpartdesc();
 			mpom.acceptAlertdesc();
 			loginfo.pass("Product part description submit button clicked success");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -272,30 +280,36 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			mpom.verifycategory2();
 			// mpom.verifypartdesc(pro.getProperty("subcategoryname"));
 			System.out.println("Part Description Added in the grid");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Product part description submit button clicked & saved in the grid successfully");
 			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		}
 	}
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Master_TC002_Adding Product Line_Mul
 	@Given("^User will go to master and choose product line_MUL$")
 	public void user_will_go_to_master_and_choose_product_line() throws Throwable {
 
 		try {
-			 //extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Product Line Tag");
-			test = test.createNode(Scenario.class, "Adding product Line");
+			// extent=setup();
+			test = extent.createTest(Feature.class, "Master_TC002_Adding Product Line_Mul")
+					.assignCategory("Product Line Tag");
+			test = test.createNode(Scenario.class, "Adding product Line_Mul");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will go to master and choose product line_MUL");
 			mpom = new Masterproductrelated_POM();
 			mpom.clickonproductlinecode();
 			loginfo.pass("Product line landing to adding page");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -307,13 +321,13 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 					"User will click on add button and enter the line code and line name_MUL");
 			mpom.addcategory();
 			mpom.addproductline(pro.getProperty("linecode1"), pro.getProperty("linename"));
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			mpom.savebtn();
 			mpom.acceptAlert();
 			loginfo.pass("Product line trying to add & entering the value");
-
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -326,30 +340,33 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			mpom.verifyproductline(pro.getProperty("linecode1"));
 			System.out.println("Product Line  Added in the grid");
 			loginfo.pass("Product line added successfully & shown in grid");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		}
 	}
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Master_TC002_ Adding Custom Attribute_Mul
 	@Given("^User will goto master and choose Custom Attributes_MUL$")
 	public void user_will_goto_master_and_choose_Custom_Attributes() throws Throwable {
 		try {
 			// extent = setup();
-			test = extent.createTest(Feature.class, "PMT Product Related Testcases").assignCategory("Cateory")
-					.pass("Custom Attributes added");
-			test = test.createNode(Scenario.class, "Adding Custom Attributes");
+			test = extent.createTest(Feature.class, "Master_TC002_ Adding Custom Attribute_Mul")
+					.assignCategory("Custom attribute Tag").pass("Custom Attributes added");
+			test = test.createNode(Scenario.class, "Adding Custom Attributes_Mul");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will goto master and choose Custom Attributes_MUL");
 			mpom = new Masterproductrelated_POM();
 			mpom.clickonCustomAttributes();
 			loginfo.pass("Custom Attributes landed successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -360,12 +377,10 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 					"User will click on add and enter Custom Attribute Name_MUL");
 			mpom.AddbtnEnterCustomAtbName1(pro.getProperty("AttributeName1"));
 			loginfo.pass("Attribute Name Entered Successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-
 		} catch (Exception e) {
-			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
-
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -377,12 +392,10 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			mpom.AttributeDetails();
 			mpom.SelectPartDescription1();
 			loginfo.pass("Attribute Value Entered Successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-
 		} catch (Exception e) {
-			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
-
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 
 	}
@@ -394,41 +407,39 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 					"User will Click save Accept Alert and Verify the record has come in the grid_MUL");
 			mpom.savebtn2();
 			mpom.acceptAlert();
-
 			mpom.VerufyAttribute1(pro.getProperty("AttributeName1"));
-
-			loginfo.pass("Product line added successfully & shown in grid");
-			System.out.println("Product Line  Added in the grid");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("cust attr added successfully & shown in grid");
+			System.out.println("cust attr  Added in the grid");
 			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		}
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+	/* Add Part Number Testpart-1 | Engine oil test | Autoapatest Mul */
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+	// Part_TC002_Adding part no with created product category_Mul
 	@Given("^User will click on parts page and it will redirect to parts page_MUL$")
 	public void user_will_click_on_parts_page_and_it_will_redirect_to_parts_page() throws Throwable {
 
 		try {
 			// extent = setup();
-			test = extent.createTest(Feature.class, "PMT Add Product List").assignCategory("Parts Add")
-					.pass("category added thanks");
-			test = test.createNode(Scenario.class, "Adding part# with created product category");
+			test = extent.createTest(Feature.class, "Part_TC002_Adding part no with created product category_Mul")
+					.assignCategory("Parts Add Tag").pass("category added thanks");
+			test = test.createNode(Scenario.class, "Adding part# with created product category_Mul");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will click on parts page and it will redirect to parts page_MUL");
 			parts = new PartsAdd_POM();
 			parts.partslandingpage();
 			loginfo.pass("Parts page landed successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-
 		} catch (Exception e) {
-			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -444,11 +455,10 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			parts.partsadddrp31();
 			parts.partsadddrp41();
 			loginfo.pass("Parts page landed successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
-			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
-
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -461,10 +471,10 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 			parts.savenewpart1(pro.getProperty("partno"));
 			parts.acceptAlert();
 			loginfo.pass("Parts page landed successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
-			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 
 		}
 
@@ -478,11 +488,11 @@ public class TC002_PMT_productrelated2 extends Baseclass {
 					"User will see successfull alert and verify the part# thorugh part# search_MUL");
 
 			loginfo.pass("Parts page landed successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			//extent.flush();
 
 		}

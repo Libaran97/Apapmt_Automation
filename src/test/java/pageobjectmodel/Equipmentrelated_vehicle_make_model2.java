@@ -28,7 +28,7 @@ public class Equipmentrelated_vehicle_make_model2 extends Baseclass {
 	@CacheLookup
 	private WebElement master;
 
-	@FindBy(xpath = "//*[@id=\"ucMenu_rptLevel1_rptLevel2_0_rptLevel3_1_lnkLink3_1\"]")
+	@FindBy(xpath = "//a[@href='VehicleType.aspx?PageTitle=Vehicle Type']")
 	@CacheLookup
 	private WebElement vehicletype;
 
@@ -68,13 +68,13 @@ public class Equipmentrelated_vehicle_make_model2 extends Baseclass {
 	@FindBy(xpath = "//span[@id='select2-drpVehicleTypeAdd-container']")
 	private WebElement vehicletypeselect;
 
-	@FindBy(xpath = "//*[@id='select2-drpVehicleType-container']")
+	@FindBy(xpath = "//*[@id='select2-drpVehicleType-container']")	
 	private WebElement vehicletypeselectadd;
 
-	@FindBy(xpath = "//li[text()='Car equipment']")
+	@FindBy(xpath = "//li[text()='Car equipment test']")
 	private WebElement vehicletypesend;
 
-	@FindBy(xpath = "//li[text()='Car equi']")
+	@FindBy(xpath = "//li[text()='Car equi test']")
 	private WebElement vehicletypesend3;
 
 	@FindBy(xpath = "//table[@id='DataTableViewer']/tbody/tr/td[4]/div/input[1]")
@@ -98,10 +98,10 @@ public class Equipmentrelated_vehicle_make_model2 extends Baseclass {
 	@FindBy(xpath = "//span[@id='select2-drpMakeAdd-container']")
 	private WebElement dropdownmakeselect;
 
-	@FindBy(xpath = "//li[text()='make equipment']")
+	@FindBy(xpath = "//li[text()='make equipment test']")
 	private WebElement dropdownmakesend;
 
-	@FindBy(xpath = "//li[text()='make eq']")
+	@FindBy(xpath = "//li[text()='make eq test']")
 	private WebElement dropdownmakesend3;
 
 	@FindBy(xpath = "//input[@id='txtModel']")
@@ -147,7 +147,7 @@ public class Equipmentrelated_vehicle_make_model2 extends Baseclass {
 	@FindBy(xpath = "//li[text()='Industrial']")
 	private WebElement equavalentchosesend2;
 
-	@FindBy(xpath = "//label[(text()='Car equi')]")
+	@FindBy(xpath = "//label[(text()='Car equi test')]")
 	private WebElement equivalentvehicle1;
 	
 	/*@FindBy(xpath = "//label[(text()='BreakTime')]")
@@ -464,11 +464,11 @@ public class Equipmentrelated_vehicle_make_model2 extends Baseclass {
 		maketextbox.sendKeys(makenameeqedit);
 		Thread.sleep(6000);
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		/*JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", eqmakeradibuttonedit);
 		eqmakeradibuttonedit.click();
-		Thread.sleep(6000);
-
+		Thread.sleep(6000);*/
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", savebutton);
 		savebutton.click();
 		Thread.sleep(2000);
@@ -584,9 +584,9 @@ public class Equipmentrelated_vehicle_make_model2 extends Baseclass {
 		Thread.sleep(5000);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", eqmodelradiobutton1);
+		/*js.executeScript("arguments[0].scrollIntoView();", eqmodelradiobutton1);
 		eqmodelradiobutton1.click();
-		Thread.sleep(4000);
+		Thread.sleep(4000);*/
 
 		js.executeScript("arguments[0].scrollIntoView();", savebutton1);
 		savebutton1.click();
@@ -612,9 +612,9 @@ public class Equipmentrelated_vehicle_make_model2 extends Baseclass {
 		Thread.sleep(8000);
 
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
-		js1.executeScript("arguments[0].scrollIntoView();", eqmodelradiobutton);
+		/*js1.executeScript("arguments[0].scrollIntoView();", eqmodelradiobutton);
 		eqmodelradiobutton.click();
-		Thread.sleep(7000);
+		Thread.sleep(7000);*/
 
 		js1.executeScript("arguments[0].scrollIntoView();", savebutton1);
 		savebutton1.click();

@@ -34,22 +34,22 @@
 		@FindBy(xpath= "//*[@id=\"hylLogout\"]/i")
 		private WebElement elogout;		
 		
-		@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_7']")
+		@FindBy(xpath = "//a[@href='Productgroupmaster.aspx?PageTitle=Product Group Master']")
 		private WebElement mastercategory;
 	
-		@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_4']")
+		@FindBy(xpath = "//a[@href='PartsManufacture.aspx?PageTitle=Brand Master']")
 		private WebElement mastercategorybrand;
 	
-		@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_8']")
+		@FindBy(xpath = "//a[@href='Subproductline.aspx?PageTitle=Sub Product Line Master']")
 		private WebElement mastercategorysub;
 	
-		@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_9']")
+		@FindBy(xpath = "//a[@href='CK31.aspx?PageTitle=System (CK31)']")
 		private WebElement mastercategoryck31;
 	
-		@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_10']")
+		@FindBy(xpath = "//a[@href='CK32.aspx?PageTitle=Assembly (CK32)']")
 		private WebElement mastercategoryckass32;
 	
-		@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_11']")
+		@FindBy(xpath = "//a[@href='CK33.aspx?PageTitle=Component (CK33)']")
 		private WebElement mastercategoryckass33;
 	
 		@FindBy(xpath = "//div[@id='btnadd_new']")
@@ -88,7 +88,7 @@
 		@FindBy(xpath = "//input[@id='txtbrandmaster']")
 		private WebElement brandsearchbox;
 	
-		@FindBy(xpath = "//li[@class='ui-menu-item'] //div[text()='Daimler']")
+		@FindBy(xpath = "//li[@class='ui-menu-item'] //div[text()='Diamond Audio']")
 		private WebElement brandsearchboxdrop;
 	
 		@FindBy(xpath = "//input[@id='btnsearch_html']")
@@ -128,10 +128,11 @@
 		@FindBy(xpath = "//*[@id='DataTableViewer']/tbody/tr/td[1]")
 		private WebElement esubcode;
 	
-		@FindBy(xpath = "//label[text()='Alternator']")
+		@FindBy(xpath = "//label[text()='Ignition Coil Test']")
 		private WebElement ePartype;
 		
-		@FindBy(xpath = "//label[text()='Fuel Injector']")
+		// need to arrange the productrelated2 add before this then change subproduct
+		@FindBy(xpath = "//label[text()='Ignition Coil Test']")
 		private WebElement ePartypeagain;
 	
 		@FindBy(xpath = "//div[@id='save_btn_new_edit']")
@@ -143,17 +144,21 @@
 		@FindBy(xpath = "//span[@id='select2-drpCK31Component-container']")
 		private WebElement eselectsystems;
 	
-		@FindBy(xpath = "//li[text()='000 | Cab, Climate Control, Instrumentation, & Aerodynamic Devices Group']")
+		@FindBy(xpath = "//li[text()='001 | AIR CONDITIONING, HEATING & VENTILATING SYSTEM']")
 		private WebElement eselectedsystem;
 	
-		@FindBy(xpath = "//li[text()='001 | Air Conditioning, Heating & Ventilating System']")
-		private WebElement eselectedsystemSEL;
+
 	
 		@FindBy(xpath = "//td[@class='sorting_1']")
 		private WebElement verifytext;
 	
 		@FindBy(xpath = "//*[@id='DataTableViewer']/tbody/tr/td[2]")
 		private WebElement verifytextsec;
+		
+		@FindBy(xpath = "//*[@class='dataTables_empty']")
+		private WebElement verifyEmptytext;
+		
+		
 	
 		public void clickonproductcategory() throws Throwable {
 			Actions action = new Actions(driver);
@@ -224,6 +229,7 @@
 			eeditproductorder.click();
 			WebDriverWait wait2 = new WebDriverWait(driver, 60);
 			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='save_btn_new_edit']")));
+			Thread.sleep(3000);
 			esubproductlinecode.clear();
 			Thread.sleep(3000);
 			esubproductlinecode.sendKeys(partdesc);
@@ -247,14 +253,14 @@
 			Thread.sleep(5000);
 		}
 	
-		public void clickassemblyck32search(String systemvalue, String ck31) throws Throwable {
+		public void clickassemblyck32search(String systemvalue, String ck32description) throws Throwable {
 			eselectsystem.click();
 			Thread.sleep(5000);
 			eselectedsystem.click();
 			Thread.sleep(5000);
 			searchfilter4.sendKeys(systemvalue);
 			Thread.sleep(5000);
-			searchfilter2.sendKeys(ck31);
+			searchfilter2.sendKeys(ck32description);
 			Thread.sleep(5000);
 		}
 	
@@ -271,16 +277,17 @@
 		public void clickcomponentck33search(String Compnenentvalue) throws Throwable {
 			eselectsystems.click();
 			Thread.sleep(5000);
-			eselectedsystemSEL.click();
+			eselectedsystem.click();
 			Thread.sleep(5000);
 			searchfilter5.sendKeys(Compnenentvalue);
 			Thread.sleep(5000);			
 			eeditproductorder.click();
 			WebDriverWait wait2 = new WebDriverWait(driver, 120);
 			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='btnBack_new']")));
-			
+			Thread.sleep(5000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView();", ePartype);
+			Thread.sleep(5000);
 			ePartype.click();
 			Thread.sleep(8000);
 			
@@ -293,7 +300,7 @@
 		public void clickcomponentck33searchdel(String Compnenentvalue) throws Throwable {
 			eselectsystems.click();
 			Thread.sleep(5000);
-			eselectedsystemSEL.click();
+			eselectedsystem.click();
 			Thread.sleep(5000);
 			searchfilter5.sendKeys(Compnenentvalue);
 			Thread.sleep(5000);			
@@ -330,6 +337,7 @@
 			eeditproductorder.click();
 			WebDriverWait wait2 = new WebDriverWait(driver, 120);
 			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='save_btn_new_add']")));
+			Thread.sleep(2000);
 			eaddproductcategory.clear();
 			Thread.sleep(2000);
 			eaddproductcategory.sendKeys(Equchose);
@@ -381,6 +389,7 @@
 			Thread.sleep(3000);
 			brandsearchbox.sendKeys(brandvalue);
 			Thread.sleep(3000);
+			
 			brandsearchboxdrop.click();
 			Thread.sleep(3000);
 			brandsearch.click();
@@ -464,12 +473,12 @@
 			}
 		}
 	
-		public void verifyingck33(String Partype) throws Exception {
+		public void verifyingck33(String subcategoryname) throws Exception {
 			eselectsystems.click();
 			Thread.sleep(5000);
-			eselectedsystemSEL.click();
+			eselectedsystem.click();
 			Thread.sleep(5000);
-			searchfilter6.sendKeys(Partype);
+			searchfilter6.sendKeys(subcategoryname);
 			Thread.sleep(5000);
 	
 			String actualtext = verifytextsec.getText();
@@ -486,7 +495,7 @@
 			try {
 				eselectsystems.click();
 				Thread.sleep(5000);
-				eselectedsystemSEL.click();
+				eselectedsystem.click();
 				Thread.sleep(5000);
 				searchfilter6.sendKeys(Partype);
 				Thread.sleep(5000);
@@ -509,8 +518,10 @@
 			eeditproductorder.click();
 			WebDriverWait wait2 = new WebDriverWait(driver, 60);
 			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='save_btn_new_edit']")));
+			Thread.sleep(5000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView();", ePartypeagain);
+			Thread.sleep(5000);
 			ePartypeagain.click();
 			Thread.sleep(5000);
 			//JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -519,17 +530,17 @@
 			Thread.sleep(5000);
 		}
 	
-		public void verifyEditagain(String Partype1) throws Exception {
+		public void verifyEditagain(String subcategoryname) throws Exception {
 			eselectsystems.click();
 			Thread.sleep(5000);
-			eselectedsystemSEL.click();
+			eselectedsystem.click();
 			Thread.sleep(5000);
-			searchfilter6.sendKeys(Partype1);
+			searchfilter6.sendKeys(subcategoryname);
 			Thread.sleep(5000);
 	
-			String actualtext = verifytextsec.getText();
+			String actualtext = verifyEmptytext.getText();
 			System.out.println("Text present as " + actualtext);
-			if (actualtext.contains(pro.getProperty("Partype"))) {
+			if (actualtext.contains(pro.getProperty("DeleteProducttxt"))) {
 				System.out.println("Both are same");
 			} else {
 				System.out.println("Both are not same");

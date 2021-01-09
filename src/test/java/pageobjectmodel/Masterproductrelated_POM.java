@@ -32,11 +32,11 @@ public class Masterproductrelated_POM extends Baseclass {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_lnkLink1_0']")
+	@FindBy(xpath = "//*[@id='ucMenu_rptLevel1_lnkLink1_0']")
 	@CacheLookup
 	private WebElement master;
 
-	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_0']")
+	@FindBy(xpath = "//a[@href='Productcategory.aspx?PageTitle=Product Category']")
 	private WebElement mastercategory;
 
 	//@FindBy(xpath = "//button[@id='MainContent_btnAdd']")
@@ -58,18 +58,21 @@ public class Masterproductrelated_POM extends Baseclass {
 	
 	
 
-	//@FindBy(xpath = "//input[@id='MainContent_radioACESList_14']")
-	@FindBy(xpath="//*[text()='Ignition']")
-	private WebElement equivalentcategory;
+	/*
+	 * //@FindBy(xpath = "//input[@id='MainContent_radioACESList_14']")
+	 * 
+	 * @FindBy(xpath="//*[text()='Ignition']") private WebElement
+	 * equivalentcategory;
+	 */
 	
-	@FindBy(xpath="//*[text()='Exhaust']")
+	@FindBy(xpath="//*[text()='Transfer Case']")
 	private WebElement equivalentcategoryprevious;
 	
 	//@FindBy(xpath = "//input[@id='MainContent_radioACESList_14']")
 		//@FindBy(xpath="//*[text()='Ignition']")
 		//private WebElement equivalentcategoryedit;
 
-	@FindBy(xpath = "//*[text()='Engine']")
+	@FindBy(xpath = "//*[text()='Multifunction Terms']")
 	private WebElement equivalentcategory1;
 
 	//@FindBy(xpath = "//input[@id='MainContent_btnSave']")
@@ -77,8 +80,11 @@ public class Masterproductrelated_POM extends Baseclass {
 	private WebElement savecategory;
 
 	@FindBy(xpath="//div[@id='save_btn_new_add']")
-	private WebElement savecategory1;
+	private WebElement savecategoryadd;
 
+	@FindBy(xpath="//div[@id='save_btn_new_edit']")
+	private WebElement savecategoryEdit;
+	
 	@FindBy(xpath="//div[@id='save_btn_new_add']")
 	private WebElement savebt;
 	
@@ -87,6 +93,9 @@ public class Masterproductrelated_POM extends Baseclass {
 	
 
 
+	@FindBy(xpath = "(//td[@class='sorting_1'])/following-sibling::td")	
+	private WebElement verifytext1;
+	
 	@FindBy(xpath = "//td[@class='sorting_1']")	
 	private WebElement verifytext;
 
@@ -120,13 +129,13 @@ public class Masterproductrelated_POM extends Baseclass {
 	public WebElement entersubcategory;
 
 	//@FindBy(id = "MainContent_radioACESList_6")
-	@FindBy(xpath="//label[text()='Ignition Coil']")
+	@FindBy(xpath="//label[text()='Switches']")
 	private WebElement eqsubcategory;
 
 	@FindBy(xpath="//*[text()='Relays']")
 	private WebElement eqsubcategorypre;
 	
-	@FindBy(xpath = "//*[text()='Filters']")
+	@FindBy(xpath = "//*[text()='Undercar']")
 	private WebElement eqsubcategory1;
 
 	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_3']")
@@ -155,17 +164,17 @@ public class Masterproductrelated_POM extends Baseclass {
 	@FindBy(xpath = "//select[@id='MainContent_drpAcesPartTerminology']")
 	private WebElement equivalentpartdes;
 
-	@FindBy(xpath="//*[@id='MainContent_drpAcesPartTerminology']//option[text()='Ignition Coil Seal']")
+	@FindBy(xpath="//*[@id='MainContent_drpAcesPartTerminology']//option[text()='Transfer Case Switch']")
 	private WebElement equivalentpartdessend;
 	
-	@FindBy(xpath="//*[@id='MainContent_drpAcesPartTerminology']//option[text()='Ignition Coil Set']")
+	@FindBy(xpath="//*[@id='MainContent_drpAcesPartTerminology']//option[text()='Transfer Case Vacuum Switch']")
 	private WebElement equivalentpartdessendedit;
 	
 	@FindBy(xpath="//img[@id='MainContent_Image1']")
 	private WebElement eacester;
 	
 	
-	@FindBy(xpath="//*[@id='MainContent_drpAcesPartTerminology']//option[text()='Engine Oil Filter']")
+	@FindBy(xpath="//*[@id='MainContent_drpAcesPartTerminology']//option[text()='Oil Seals']")
 	private WebElement equivalentpartdessend1;
 
 	@FindBy(xpath="//select[@id='MainContent_drpProductCategory']")
@@ -220,8 +229,12 @@ public class Masterproductrelated_POM extends Baseclass {
 	@FindBy(xpath = "//select[@id='MainContent_drpProductCategory']")
 	private WebElement filtercategory1;
 
+	@FindBy(xpath = "//input[@placeholder='Line Name']")
+	private WebElement editlinefilter;
+	
 	@FindBy(xpath = "//input[@placeholder='Line Code']")
 	private WebElement linefilter;
+	
 	
 	@FindBy(xpath = "(//div[@class='edit_icon_ver'])[1]")
 	private WebElement linefilteredit;
@@ -336,7 +349,7 @@ public class Masterproductrelated_POM extends Baseclass {
 		Thread.sleep(3000);
 		entercategoryedit.sendKeys(categoryname);
 		//Thread.sleep(3000);
-		equivalentcategory.click();
+		//equivalentcategory.click();
 		Thread.sleep(5000);
 	}
 	
@@ -384,10 +397,17 @@ public class Masterproductrelated_POM extends Baseclass {
 		//savecategory.click();
 		Thread.sleep(10000);
 	}
+	public void savingcategoryadd() throws InterruptedException {
+		WebElement elementfilteradd = savecategoryadd;
+		((JavascriptExecutor) driver).executeScript("arguments[0].click()", elementfilteradd);		
+		//Thread.sleep(5000);
+		//savecategory.click();
+		Thread.sleep(10000);
+	}
 
-	public void savingcategory1() throws InterruptedException {
-		WebElement elementfilter1 = savecategory1;
-		((JavascriptExecutor) driver).executeScript("arguments[0].click()", elementfilter1);		
+	public void savingcategoryEdit() throws InterruptedException {
+		WebElement elementfilteredit = savecategoryEdit;
+		((JavascriptExecutor) driver).executeScript("arguments[0].click()", elementfilteredit);		
 		//Thread.sleep(5000);
 		//savecategory.click();
 		Thread.sleep(10000);
@@ -634,6 +654,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	}
 	
 	public void entrypartdescedit(String subcategoryname) throws Exception {
+		Thread.sleep(5000);
 		enternewpartdesc.clear();
 		Thread.sleep(3000);
 		enternewpartdesc.sendKeys(subcategoryname);
@@ -668,6 +689,7 @@ public class Masterproductrelated_POM extends Baseclass {
 	}
 	
 	public void equivalentpartdescedit() throws InterruptedException {
+		Thread.sleep(6000);
 		equivalentpartdes.click();
 		Thread.sleep(6000);		
 		//equivalentpartdessend.click();
@@ -761,15 +783,15 @@ public class Masterproductrelated_POM extends Baseclass {
 		Thread.sleep(5000);
 
 	}
-	public void editproduct(String linecode1,String linename) throws Exception {
-		linefilter.sendKeys(linecode1);	
+	public void editproduct(String linecode,String linename ) throws Exception {
+		linefilter.sendKeys(linecode);	
 		Thread.sleep(5000);
-		 /*linefilteredit.click();
+		 linefilteredit.click();
         Thread.sleep(4000);    
-         txtlinecode.clear();
-        Thread.sleep(2000);  
-        txtlinecode.sendKeys(linecode);
-        Thread.sleep(2000);*/
+		/*
+		 * txtlinecode.clear(); Thread.sleep(2000); txtlinecode.sendKeys(linecode);
+		 * Thread.sleep(2000);
+		 */
         txtlinename.clear();
         Thread.sleep(2000);
         txtlinename.sendKeys(linename);
@@ -805,12 +827,12 @@ public class Masterproductrelated_POM extends Baseclass {
 
 	}*/
 
-	public void verifyproductline(String linecode1) {
+	public void verifyproductline(String linecode) {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		linefilter.sendKeys(pro.getProperty("linecode1"));
+		linefilter.sendKeys(pro.getProperty(linecode));
 		String actualtext = verifytext.getText();
 		System.out.println("Text present as " + actualtext);
-		if (actualtext.equals(linecode1)) {
+		if (actualtext.equals(linecode)) {
 			System.out.println("Both are same");
 		} else {
 			System.out.println("Both are not same");
@@ -818,12 +840,12 @@ public class Masterproductrelated_POM extends Baseclass {
 
 	}
 	
-	public void verifyproductlineedit(String linecode1) {
+	public void verifyproductlineedit(String linename) {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		linefilter.sendKeys(pro.getProperty("linecode1"));
-		String actualtext = verifytext.getText();
+		editlinefilter.sendKeys(pro.getProperty("linename"));
+		String actualtext = verifytext1.getText();
 		System.out.println("Text present as " + actualtext);
-		if (actualtext.equals(linecode1)) {
+		if (actualtext.equals(linename)) {
 			System.out.println("Both are same");
 		} else {
 			System.out.println("Both are not same");

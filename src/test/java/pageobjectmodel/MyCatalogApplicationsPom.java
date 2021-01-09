@@ -41,7 +41,8 @@ public class MyCatalogApplicationsPom extends Baseclass {
 	public WebElement SearchButton;
 	
 	// <View Application Data> button
-	@FindBy(xpath = "//a[@id=\"MainContent_GVData_hylAppln_0\"]")
+	//@FindBy(xpath = "//a[@id=\"MainContent_GVData_hylAppln_0\"]")
+	@FindBy(xpath="//*[@id=\"tr_0\"]/td[6]/a")
 	public WebElement ViewApplicationDataButton;
 	
 	
@@ -51,7 +52,7 @@ public class MyCatalogApplicationsPom extends Baseclass {
 	
 	
 	// <View Part Data> button
-	@FindBy(xpath = "//a[@id=\"MainContent_GVData_hylPartno_0\"]")
+	@FindBy(xpath = "//*[@id=\"tr_0\"]/td[6]/a")
 	public WebElement ViewPartDataButton;
 	
 		
@@ -179,8 +180,9 @@ public class MyCatalogApplicationsPom extends Baseclass {
 	}
 	
 	// Click the <Back> button
-	public void ClickBackButton() {
+	public void ClickBackButton() throws Exception {
 		BackButton.click();
+		Thread.sleep(5000);
 	
 	}
 	
@@ -188,6 +190,7 @@ public class MyCatalogApplicationsPom extends Baseclass {
 	// Click the <View Part Data> button
 	public void ClickViewPartDataButton() throws Exception {
 		ViewPartDataButton.click();
+		Thread.sleep(5000);
 	}
 	
 	// Verify the <Part Data> details
