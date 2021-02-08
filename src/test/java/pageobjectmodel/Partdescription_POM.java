@@ -36,7 +36,7 @@ public class Partdescription_POM extends Baseclass {
 	private WebElement txtpartsearch;
 	
 	
-	@FindBy(xpath="//*[@id='MainContent_upAttribute']/div[2]/div[1]/div/span/div/input[8]")
+	@FindBy(xpath="(//input[@class='button_search'])[2]")
 	private WebElement btnPsearch;
 	
 	//div[@id='Description']

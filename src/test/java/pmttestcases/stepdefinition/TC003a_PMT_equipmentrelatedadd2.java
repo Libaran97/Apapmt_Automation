@@ -285,7 +285,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -318,7 +318,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 					"User will click on the edit button and will enter Equipment vehicle type, enter the new make name and choose the equivalent ACES & save");
 			master.addmakenameedit(pro.getProperty("makenameeqedit"));
 			master.acceptAlert();
-			master.acceptAlert();
+			//master.acceptAlert();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);

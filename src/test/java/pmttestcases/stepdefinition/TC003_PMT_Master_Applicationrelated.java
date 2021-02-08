@@ -406,7 +406,7 @@ public class TC003_PMT_Master_Applicationrelated extends Baseclass {
 			master.SearchMake(pro.getProperty("makename0"));
 			master.Editmakename(pro.getProperty("makename"));
 			master.acceptAlertformake();
-			master.acceptAlertformake();
+			//master.acceptAlertformake();
 		
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {

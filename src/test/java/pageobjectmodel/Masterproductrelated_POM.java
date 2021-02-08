@@ -829,7 +829,7 @@ public class Masterproductrelated_POM extends Baseclass {
 
 	public void verifyproductline(String linecode) {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		linefilter.sendKeys(pro.getProperty(linecode));
+		linefilter.sendKeys(linecode);
 		String actualtext = verifytext.getText();
 		System.out.println("Text present as " + actualtext);
 		if (actualtext.equals(linecode)) {

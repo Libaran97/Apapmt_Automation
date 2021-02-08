@@ -22,9 +22,9 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	public void user_will_mouse_hover_and_choose_the_product_group_master_page() throws Throwable {
 		try {
 			//extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product group Related-Add master").assignCategory("master")
+			test = extent.createTest(Feature.class, "PMT Product group Related-Add Web Category").assignCategory("master")
 					.pass("master added thanks");
-			test = test.createNode(Scenario.class, "Adding product group master");
+			test = test.createNode(Scenario.class, "Adding product Web Category");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover and choose the product group master page");
 			mpom2.clickonproductcategory();
@@ -69,7 +69,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+		    //extent.flush();
 		}
 	}
 
@@ -78,9 +78,9 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	public void user_will_mouse_hover_and_choose_the_product_group_master_page_again() throws Throwable {
 		try {
 			//extent=setup();
-			test = extent.createTest(Feature.class, "PMT Product group Related-edit master").assignCategory("master")
+			test = extent.createTest(Feature.class, "PMT Product group Related-edit Web Category").assignCategory("master")
 					.pass("master edited thanks");
-			test = test.createNode(Scenario.class, "editing product group master");
+			test = test.createNode(Scenario.class, "editing product Web Category");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will mouse hover and choose the product group master page again");
 			mpom2.clickonproductcategory();
@@ -134,7 +134,7 @@ public class TC002_PMT_productrelated1 extends Baseclass {
 	public void user_will_mouse_hover_and_choose_the_Brand_Master_page() throws Throwable {
 		try {
 			//extent=setup();
-			test = extent.createTest(Feature.class, "PMT Brand master Related-edit master").assignCategory("master")
+			test = extent.createTest(Feature.class, "PMT Brand master Related-Brand Master").assignCategory("master")
 					.pass("Brand master thanks");
 			test = test.createNode(Scenario.class, "search Brand master");
 			loginfo = test.createNode(new GherkinKeyword("Given"),

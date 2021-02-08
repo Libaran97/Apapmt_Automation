@@ -136,7 +136,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 
 	}

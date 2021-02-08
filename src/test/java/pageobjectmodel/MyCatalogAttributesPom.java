@@ -33,7 +33,7 @@ public class MyCatalogAttributesPom extends Baseclass {
 	/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 	
 	// <My Catalogs> menu link  ^^^^^^^^^^^
-	@FindBy(xpath = "//a[@id=\"ucMenu_rptLevel1_lnkLink1_4\"]")
+	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_lnkLink1_5']")
 	public WebElement MyCatalogsAtt;
 	
 	// <Interchange> submenu link  ^^^^^^^^

@@ -13,7 +13,7 @@ import cucumber.api.junit.Cucumber;
 		features = {"Featurefiles"},
 		//features = "Featurefiles",
 		glue = "pmttestcases.stepdefinition",
-		dryRun = false,
+		dryRun = false, 
 		monochrome = true,
 		//format = {"pretty", "html: test-output"},
 				plugin = {"junit:target/cucumber-results.xml"},
@@ -22,9 +22,9 @@ import cucumber.api.junit.Cucumber;
 		strict = false,
 				
 			
-				//tags = {"@sanity"}
+				tags = {"@qc"}
 		
-		tags = {"@sanity"}
+		//tags = {"@Philips2223"}
 		)
 
 public class Testrunner_PMT {

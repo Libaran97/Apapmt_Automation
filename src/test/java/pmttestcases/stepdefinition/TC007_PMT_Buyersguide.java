@@ -76,9 +76,11 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will see successfull alert and verify the reocrd has shown in the below grid");
 			bguide.bguideverification();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
 		}
 	}
 

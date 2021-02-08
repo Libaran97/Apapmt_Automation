@@ -105,7 +105,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			loginfo.pass("Product category Saved Successfully & shown in grid");
 			// Baseclass.updateTestLinkResult("PMT-3", null,
 			// TestLinkAPIResults.TEST_PASSED);
-			extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -114,7 +114,7 @@ public class TC002_PMT_productrelated extends Baseclass {
 			// loginfo.fail("Already exists");
 			// Baseclass.updateTestLinkResult("PMT-3", e.getMessage(),
 			// TestLinkAPIResults.TEST_FAILED);
-			extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -585,10 +585,10 @@ public class TC002_PMT_productrelated extends Baseclass {
 			System.out.println("Product Line  Added in the grid");
 			loginfo.pass("Product line added successfully & shown in grid");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 

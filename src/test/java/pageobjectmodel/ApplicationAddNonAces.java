@@ -90,10 +90,10 @@ public class ApplicationAddNonAces  extends Baseclass{
 		eAddApplication.click();
 		Thread.sleep(3000);
 	}
-	public void ChooseVehicle(String vehicletypename0) throws InterruptedException {
+	public void ChooseVehicle(String vehicletypename) throws InterruptedException {
 		
 		Select vehicle = new Select(eSelectVehicle);
-		vehicle.selectByVisibleText(vehicletypename0);
+		vehicle.selectByVisibleText(vehicletypename);
 		Thread.sleep(5000);
 	
 		}

@@ -34,7 +34,7 @@
 		@FindBy(xpath= "//*[@id=\"hylLogout\"]/i")
 		private WebElement elogout;		
 		
-		@FindBy(xpath = "//a[@href='Productgroupmaster.aspx?PageTitle=Product Group Master']")
+		@FindBy(xpath = "//a[@href='Productgroupmaster.aspx?PageTitle=Product Web Category']")
 		private WebElement mastercategory;
 	
 		@FindBy(xpath = "//a[@href='PartsManufacture.aspx?PageTitle=Brand Master']")
@@ -106,15 +106,15 @@
 		@FindBy(xpath = "//*[@id='DataTableViewer']/tbody/tr/td[3]")
 		private WebElement validgrid;
 	
-		@FindBy(xpath = "//input[@placeholder='Product Category']")
+		@FindBy(xpath = "//input[@placeholder='Web Category']")
 		private WebElement searchfilter1;
 	
 		@FindBy(xpath = "//input[@placeholder='Description']")
 		private WebElement searchfilter2;
 	
-		@FindBy(xpath = "//input[@placeholder='CK31 Name']")
+		@FindBy(xpath = "//input[@placeholder='Code']")
 		private WebElement searchfilter3;
-		@FindBy(xpath = "//input[@placeholder='CK32 Name']")
+		@FindBy(xpath = "//input[@placeholder='Name']")
 		private WebElement searchfilter4;
 		@FindBy(xpath = "//input[@placeholder='CK33 Name']")
 		private WebElement searchfilter5;
@@ -249,7 +249,7 @@
 		public void clicksystemck31search(String ck31, String ck31description) throws Throwable {
 			searchfilter3.sendKeys(ck31);
 			Thread.sleep(5000);
-			searchfilter2.sendKeys(ck31description);
+			searchfilter4.sendKeys(ck31description);
 			Thread.sleep(5000);
 		}
 	
@@ -258,9 +258,9 @@
 			Thread.sleep(5000);
 			eselectedsystem.click();
 			Thread.sleep(5000);
-			searchfilter4.sendKeys(systemvalue);
+			searchfilter3.sendKeys(systemvalue);
 			Thread.sleep(5000);
-			searchfilter2.sendKeys(ck32description);
+			searchfilter4.sendKeys(ck32description);
 			Thread.sleep(5000);
 		}
 	
@@ -279,7 +279,7 @@
 			Thread.sleep(5000);
 			eselectedsystem.click();
 			Thread.sleep(5000);
-			searchfilter5.sendKeys(Compnenentvalue);
+			searchfilter2.sendKeys(Compnenentvalue);
 			Thread.sleep(5000);			
 			eeditproductorder.click();
 			WebDriverWait wait2 = new WebDriverWait(driver, 120);

@@ -25,7 +25,7 @@ public class Buyersguide_POM extends Baseclass {
 	@FindBy(xpath = "//input[@id='MainContent_txtMelling']")
 	private WebElement txtpartsearch;
 
-	@FindBy(xpath = "(//input[@class='button_search'])[1]")
+	@FindBy(xpath = "(//input[@class='button_search'])[2]")
 	private WebElement btnPsearch;
 
 	@FindBy(xpath = "//div[@id='BuyersGuid1']")
@@ -88,10 +88,11 @@ public class Buyersguide_POM extends Baseclass {
 		txtpartsearch.sendKeys(partnoenter);
 		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ACBehavior_completionListElem']//li"));
 		System.out.println("total number of parts-->" + list.size());
-
-		for (int i = 0; i < list.size(); i++) {
+		
+		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if (list.get(i).getText().contains("Testpart-1 | Ignition Coil Test | Autoapa3")) {
+			if(list.get(i).getText().contains("Testpart-1 | Ignition Coil Test | Autoapa3")) {
+			//if(list.get(i).getText().contains("Testpart-1 | description1 | AAA1")) {
 				list.get(i).click();
 				break;
 			}
