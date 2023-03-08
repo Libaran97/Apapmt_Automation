@@ -53,6 +53,7 @@ public class PartsAdd_POM extends Baseclass {
 	private WebElement drpproductline;
 	
 	
+	
 	//@FindBy(xpath="//*[@id='MainContent_txtPart']")
 	@FindBy(xpath="//textarea[@id='MainContent_txtPart']")
 	private WebElement txtPart;
@@ -71,8 +72,46 @@ public class PartsAdd_POM extends Baseclass {
 	private WebElement btnSave;
 	
 	
+	@FindBy(xpath = "//div[@id='BuyersGuid1']")
+	private WebElement BuyersGuid1click;
+	
+	@FindBy(xpath = "//select[@id='MainContent_drpVehicleType']")
+	private WebElement drpVehicleType;
+
+	@FindBy(xpath = "//select[@id='MainContent_drpMake']")
+	private WebElement drpMake;
+
+	@FindBy(xpath = "//select[@id='MainContent_drpModel']")
+	private WebElement drpModel;
+	
+	@FindBy(xpath="//input[@id='MainContent_txtenginebase']")
+	private WebElement drptext;
+	
+	@FindBy(xpath="//input[@id='chk9_All']")
+	private WebElement drpcheckbox;
+	
+	@FindBy(xpath = "//input[@id='MainContent_searchbtn']")
+	private WebElement searchbtn;
+	
+	@FindBy(xpath="//input[@id='MainContent_GvApplications_chkActivee1_0']")
+	//@FindBy(xpath="//input[@id='chk9_All']")
+	private WebElement checkALL;
+
+	@FindBy(xpath = "//input[@id='MainContent_btnSave']")
+	private WebElement btnSavebuyerlistall;
+	
+	@FindBy(xpath="(//input[@placeholder='Year Range'])[1]")
+	WebElement everifynon1ACES;
+	
+	@FindBy(xpath = "(//input[@placeholder='Year Range'])[1]")
+	WebElement efilter;
+
+	@FindBy(xpath = "(//input[@placeholder='Engine Details'])[1]") //
+	WebElement efilter2;
+
+	
 	//@FindBy(xpath="//select[@id='MainContent_drpProductCategory']")
-	@FindBy(xpath="//select[@id='drpProductCategory']")
+	@FindBy(xpath="//select[@id='drpProductCategoryAdd']")
 	private WebElement drpProductCategory;
 	
 	
@@ -105,10 +144,14 @@ public class PartsAdd_POM extends Baseclass {
 	
 	
 	public void partslandingpage() throws InterruptedException{
-		partspageheaderclick.click();
-		Thread.sleep(7000);
-		addbutton.click();
-		Thread.sleep(7000);
+		Baseclass.waitForElementToBeClickable(driver, partspageheaderclick, 250).click();
+		Baseclass.waitForElementToBeClickable(driver, addbutton, 250).click();
+		//wait//
+		//partspageheaderclick.click();
+	//	Thread.sleep(7000);
+		//addbutton.click();
+		//Thread.sleep(7000);
+		//wait//
 	}
 	
 	public void scrolldown() {
@@ -176,55 +219,185 @@ public class PartsAdd_POM extends Baseclass {
 	public void partsadddrp41() throws InterruptedException {
 		WebElement prdctlnselect = drpproductline;
 		Select select = new Select(prdctlnselect);
-		select.selectByVisibleText(pro.getProperty("linecode1"));
+		select.selectByVisibleText(pro.getProperty("linecode12"));
 		Thread.sleep(5000);
 	}
 	
 	
 	
 	public void savenewpart(String partno3) throws InterruptedException {
-		txtPart.sendKeys(partno3);
-		/*
-		 * WebElement minqtyselect = drpMinQtyUOM; Select select = new
-		 * Select(minqtyselect); select.selectByVisibleText(pro.getProperty("minqty"));
-		 */
+		Baseclass.waitForElementToBeVisible(driver,txtPart, 250).sendKeys(partno3);
+		
+		//wait//
+		//txtPart.sendKeys(partno3);
+		//wait//
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		js.executeScript("arguments[0].scrollIntoView();", unitparts);
-		unitparts.click();
-		//driver.findElement(By.xpath("//input[@id=\"MainContent_chkIsUnit\"]")).click();
-		Thread.sleep(2000);
-	
+		Baseclass.waitForElementToBeClickable(driver, unitparts, 250).click();
+		
+		//wait//
+		//unitparts.click();
+		//Thread.sleep(2000);
+		//wait//
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
-		btnSave.click();
-		Thread.sleep(2000);
+		Baseclass.waitForElementToBeClickable(driver, btnSave, 250).click();
+		//wait//
+		//btnSave.click();
+		//Thread.sleep(2000);
+		//wait//
 	}
 	
 	public void savenewpart1(String partno) throws InterruptedException {
 		Thread.sleep(2000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)");
-		txtPart1.sendKeys(partno);
-		/*
-		 * WebElement minqtyselect = drpMinQtyUOM; Select select = new
-		 * Select(minqtyselect); select.selectByVisibleText(pro.getProperty("minqty"));
-		 * Thread.sleep(2000);
-		 * driver.findElement(By.xpath("//*[@id='MainContent_txtMinQty']")).sendKeys("1"
-		 * );
-		 */
-		Thread.sleep(2000);
+		Baseclass.waitForElementToBeVisible(driver, txtPart1,250).sendKeys(partno);
+		//wait//
+	//	txtPart1.sendKeys(partno);
+	//	Thread.sleep(2000);
+		//wait//
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
-		btnSave.click();
+		Baseclass.waitForElementToBeClickable(driver, btnSave, 250).click();
+		//wait//
+		//btnSave.click();
+		//Thread.sleep(5000);
+		//wait//
+	}
+	
+	public void savenewpartlistall(String partno08) throws InterruptedException {
+		Thread.sleep(2000);
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("window.scrollBy(0,250)");
+		Baseclass.waitForElementToBeVisible(driver, txtPart1, 250).sendKeys(partno08);
+		//wait//
+		//txtPart1.sendKeys(partno08);
+		//Thread.sleep(2000);
+		//wait//
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", btnSave);
+		Baseclass.waitForElementToBeClickable(driver, btnSave,250).click();
+		//wait//
+		//btnSave.click();
+		//Thread.sleep(5000);
+		//wait//
+	}
+	
+
+	public void buyerguideclick() throws InterruptedException {
+		Thread.sleep(2000);
+		Baseclass.waitForElementToBeClickable(driver,BuyersGuid1click, 250).click();
+		//wait//
+		//Thread.sleep(3000);
+		//BuyersGuid1click.click();
+		//Thread.sleep(5000);
+		//wait//
+
+	}
+	public void apppartsvehicldropdown(String vehicletypename0) throws InterruptedException {
+		driver.switchTo().frame(0);
 		Thread.sleep(5000);
+		
+		WebElement vehiclesselect = drpVehicleType;
+		Select select = new Select(vehiclesselect);
+		select.selectByVisibleText(vehicletypename0);
+		
+		Thread.sleep(5000);
+	}
+	public void apppartsmakedropdown(String makename) throws InterruptedException {
+		
+		WebElement makeselect = drpMake;
+		Select select = new Select(makeselect);
+		select.selectByVisibleText(makename);
+		
+		Thread.sleep(5000);
+	}
+	public void appartsenginetextbox() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		Baseclass.waitForElementToBeClickable(driver, drptext, 250).click();
+		Baseclass.waitForElementToBeClickable(driver, drpcheckbox, 250).click();
+		//wait//
+	//drptext.click();
+	//Thread.sleep(2000);
+	//drpcheckbox.click();
+	//wait//
+	}
+
+	public void apppartsmodeldropdown(String modelname) throws InterruptedException {
+		Thread.sleep(2000);
+		WebElement modelselect = drpModel;
+		Select select = new Select(modelselect);
+		select.selectByVisibleText(modelname);
+		
+		Thread.sleep(5000);
+	}
+	public void apppartsearch() throws InterruptedException {
+		
+		Baseclass.waitForElementToBeClickable(driver,searchbtn, 250).click();
+		//wait//
+		//searchbtn.click();
+		//Thread.sleep(8000);
+		//wait//
+	}
+
+	
+	
+	public void Alcheck() throws InterruptedException {
+		Baseclass.waitForElementToBeClickable(driver, checkALL, 250).click();
+		//wait//
+		//checkALL.click();
+	//	Thread.sleep(3000);
+		//wait//
 	}
 	
 	
+	public void btnSavebuyer() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", btnSavebuyerlistall);
+		Baseclass.waitForElementToBeClickable(driver, btnSavebuyerlistall, 250).click();
+		
+		//wait//
+		//btnSavebuyerlistall.click();
+		//Thread.sleep(8000);
+		//wait//
+	}
+	public void acceptAlertlistall() throws InterruptedException {
+		Thread.sleep(3000);
+		Alert alert = driver.switchTo().alert();
+		System.out.println("Parts Related " + "application added " + alert.getText());
+		alert.accept();
+		Thread.sleep(4000);
+	}
+	public void bguideverification() throws InterruptedException {
+		Baseclass.waitForElementToBeVisible(driver, efilter, 250).sendKeys(pro.getProperty("EnterYear"));
+		Baseclass.waitForElementToBeVisible(driver,efilter2, 250).sendKeys(pro.getProperty("SearchTextAcesallEngine"));
+		
+		//wait//
+		//efilter.sendKeys(pro.getProperty("EnterYear"));
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//wait//
+
+		String actualText = everifynon1ACES.getText();
+		System.out.println("Text.." + actualText);
+		if (actualText.contains(pro.getProperty("EnterInvalidYear"))) {
+			System.out.println("Both are same");
+		} else {
+			System.out.println("Both are not same");
+		}
+
+	}
 	
 	/*
 	 * alert accept & fetching text
 	 */
 	public void acceptAlert() throws InterruptedException{
+		Thread.sleep(3000);
 		Alert alert = driver.switchTo().alert();
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Parts Related " + alert.getText());
@@ -239,13 +412,18 @@ public class PartsAdd_POM extends Baseclass {
 	}
 	
 	public void partslandingpage2() throws InterruptedException{
-		partspageheaderclick.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Baseclass.waitForElementToBeClickable(driver, partspageheaderclick,250).click();
+		
+		//wait//
+		//partspageheaderclick.click();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//wait//
 		
 	}
 	
 	
 	public void dropdownfiltercategory() throws InterruptedException{
+		Thread.sleep(2000);
 		WebElement categoryfilterselect = drpProductCategory;
 		Select select = new Select(categoryfilterselect);
 		select.selectByVisibleText(pro.getProperty("categoryname"));
@@ -291,8 +469,12 @@ public class PartsAdd_POM extends Baseclass {
 	
 	
 	public void filetrpartno() throws InterruptedException {
-		btnSearch.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,btnSearch, 250).click();
+		
+		//wait//
+		//btnSearch.click();
+		//Thread.sleep(3000);
+		//wait//
 		
 	}
 	

@@ -38,26 +38,40 @@ public class DeleteProductCatagory extends Baseclass {
 
 		Actions action = new Actions(driver);
 		action.moveToElement(emaster).build().perform();
-		Thread.sleep(3000);
-		emastercategory.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, emastercategory, 90).click();
+		
+		//wait//
+		//Thread.sleep(3000);
+		//emastercategory.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 
 	public void SelectsearchTextbox(String categoryname) throws InterruptedException {
-		esearchbox.sendKeys(categoryname);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver, esearchbox, 90).sendKeys(categoryname);
+		//wait//
+		//esearchbox.sendKeys(categoryname);
+		//Thread.sleep(3000);
+		//wait//
 	}
 
 	public void SelectsearchTextbox1(String categoryname1) throws InterruptedException {
-		esearchbox.clear();
-		Thread.sleep(3000);
-		esearchbox.sendKeys(categoryname1);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, esearchbox, 90).clear();
+		Baseclass.waitForElementToBeVisible(driver, esearchbox, 90).sendKeys(categoryname1);
+		//wait//
+		//esearchbox.clear();
+		//Thread.sleep(3000);
+		//esearchbox.sendKeys(categoryname1);
+		//Thread.sleep(3000);
+		//wait//
 	}
 
 	public void ClickDelete() throws InterruptedException {
-		eDeleteButton.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, eDeleteButton, 90).click();
+		//wait//
+		//eDeleteButton.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 
 	public void acceptAlert() throws InterruptedException {
@@ -65,6 +79,7 @@ public class DeleteProductCatagory extends Baseclass {
 		 * Alert alert = driver.switchTo().alert(); System.out.println("Acess: " +
 		 * alert.getText()); alert.accept(); Thread.sleep(3000);
 		 */
+		Thread.sleep(2000);
 		WebElement pop = driver.findElement(By.xpath("(//button[@type='button'])[2]"));
 		Thread.sleep(5000);
 		System.out.println("Record newly to be deleted");
@@ -81,9 +96,11 @@ public class DeleteProductCatagory extends Baseclass {
 			/*
 			 * esearchbox.click(); Thread.sleep(3000);
 			 */
-			esearchbox.sendKeys(categoryname);
-			Thread.sleep(3000);
-
+			Baseclass.waitForElementToBeVisible(driver,esearchbox, 90).sendKeys(categoryname);
+			//wait//
+			//esearchbox.sendKeys(categoryname);
+			//Thread.sleep(3000);
+			//wait//
 			String actualText = ePcverify.getText();
 			System.out.println("Text" + actualText);
 			actualText.equals(DeleteProducttxt);
@@ -105,9 +122,11 @@ public class DeleteProductCatagory extends Baseclass {
 			/*
 			 * esearchbox.click(); Thread.sleep(3000);
 			 */
-			esearchbox.sendKeys(categoryname1);
-			Thread.sleep(3000);
-
+			Baseclass.waitForElementToBeVisible(driver,esearchbox, 90).sendKeys(categoryname1);
+			//wait//
+			//esearchbox.sendKeys(categoryname1);
+			//Thread.sleep(3000);
+			//wait//
 			String actualText = ePcverify.getText();
 			System.out.println("Text" + actualText);
 			actualText.equals(DeleteProducttxt);

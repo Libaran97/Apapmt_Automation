@@ -4,6 +4,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
 import com.aventstack.extentreports.gherkin.model.Scenario;
+
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -18,7 +20,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 	@Given("^: user will create the application pages and multiadd links$")
 	public void user_will_create_the_application_pages_and_multiadd_links() throws Throwable {
 		try {
-			//extent = setup();
+			extent = setup();
 			test = extent.createTest(Feature.class, "Multiadd_TC018 _Cancel button in Vehicle")
 					.assignCategory("MultiAdd Cancel Tag").pass("Cancel button verified");
 			test = test.createNode(Scenario.class, "Multiadd Cancel case in the Multi add page");
@@ -59,7 +61,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			// mpom1.Checkboxall();
 			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
-			mpom1.Productline(pro.getProperty("linecode"));
+			mpom1.Productlinenew(pro.getProperty("linecode12"));
 			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
@@ -80,33 +82,35 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			mpom1.Cancel();
 			mpom1.cancelverify();
 			loginfo.pass("Cancel button is  click");
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
 	}
 
-	@Then("^: Finally Cancel button finished$")
-	public void finally_Cancel_button_finished() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Cancel button finished");
-			loginfo.pass("Cancel button was succussfully working");
-			System.out.println("**Cancel button was succussfully working**");
-			// extent.flush();
-		} catch (Exception e) {
-			TestStep("Fail", driver, loginfo, e);
-			System.out.println(e);
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
+	/*
+	 * @Then("^: Finally Cancel button finished$") public void
+	 * finally_Cancel_button_finished() throws Throwable { try { loginfo =
+	 * test.createNode(new GherkinKeyword("Then"),
+	 * "Finally Cancel button finished");
+	 * loginfo.pass("Cancel button was succussfully working");
+	 * System.out.println("**Cancel button was succussfully working**"); //
+	 * extent.flush(); } catch (Exception e) { TestStep("Fail", driver, loginfo, e);
+	 * System.out.println(e);
+	 * loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+	 * //extent.flush(); }
+	 */
+	//}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Check the Delete button[TC035]
 	@Given("^: user will create the application pages and multiadd links on same page$")
 	public void user_will_create_the_application_pages_and_multiadd_links_on_same_page() throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "Multiadd_TC018 Delete button in Vehicle")
 					.assignCategory("MultiAdd Delete Tag").pass("Delete button verified");
 			test = test.createNode(Scenario.class, "Multiadd Delete case in the Multi add page");
@@ -138,7 +142,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		}
 	}
 
-	@When("^: user will check the checkbox product desc part number also$")
+	@And("^: user will check the checkbox product desc part number also$")
 	public void user_will_check_the_checkbox_product_desc_part_number_also() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
@@ -146,7 +150,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			// mpom1.Checkboxall();
 			mpom1.Checkbox2("EnterYear", "Acesvalue");
 			mpom1.scrolldown();
-			mpom1.Productline(pro.getProperty("linecode"));
+			mpom1.Productlinenew(pro.getProperty("linecode12"));
 			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
@@ -178,11 +182,11 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally delete button finished");
 			mpom1.Deleteverify(pro.getProperty("Delete"));
-			loginfo.pass("*Delete button succussfully added...");
-			System.out.println("**Delete button succussfully added**");
-			// extent.flush();
+			loginfo.pass("*Delete succussfully ...");
+			System.out.println("**Delete succussfully **");
+			//extent.flush();
 		} catch (Exception e) {
-			// extent.flush();
+			//extent.flush();
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -221,6 +225,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
+			mpom1.checkallbox();
 			loginfo.pass("Vehicle,Make,Model drop down values getting properly");
 
 		} catch (Exception e) {
@@ -251,7 +256,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part number as well");
-			mpom1.Productline(pro.getProperty("linecode"));
+			mpom1.Productlinenew(pro.getProperty("linecode12"));
 			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
@@ -294,7 +299,8 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			mpom1.partsearch();
 			mpom1.buyerguide();
 			mpom1.scrolldown();
-			mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine", "postion");
+			//mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine", "postion");//changed postion
+			mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine");
 			loginfo.pass("Verify attributes values is working");
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
@@ -311,12 +317,13 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Show attributes details is finished");
 			loginfo.pass("Attributes qty,position and notes details verified");
 			System.out.println("Attributes qty,position and notes details verified..");
-			//extent.flush();
+		//extent.flush();
 		} catch (Exception e) {
-			 //extent.flush();
+			 
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
 	}
 
@@ -375,12 +382,12 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		}
 	}
 
-	@When("^:  user will select the product, description, part number in drop field$")
+	@When("^: user will select the product, description, part number in drop field$")
 	public void user_will_select_the_product_description_part_number_in_drop_field() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
-					"user will select the product, description, part number in the dropdown");
-			mpom1.Productline(pro.getProperty("linecode"));
+					"user will select the product, description, part number in drop field");
+			mpom1.Productlinenew(pro.getProperty("linecode12"));
 			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
@@ -512,7 +519,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part no in the dropdown");
-			mpom1.Productline(pro.getProperty("linecode"));
+			mpom1.Productlinenew(pro.getProperty("linecode12"));
 			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 
@@ -556,32 +563,21 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			mpom1.partsearch();
 			mpom1.buyerguide();
 			mpom1.scrolldown();
-			mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine", "postion");
+		//	mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine", "postion");
+			//mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine");
+			mpom1.Qtyverify01("EnterInvalidYear");
 			loginfo.pass("Verify attributes values is working");
-
-		} catch (Exception e) {
-			TestStep("Fail", driver, loginfo, e);
-			System.out.println(e);
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-
-		}
-	}
-
-	@Then("^: Finally qty and position added$")
-	public void finally_qty_and_position_added() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally qty and position added");
-			// extent.flush();
-			loginfo.pass("Attributes qty,position details verified");
 			System.out.println("Attributes qty,position details verified..");
 			//extent.flush();
 		} catch (Exception e) {
-			//extent.flush();
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
 	}
+
+	
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Check the Notes,Position[TC035]
@@ -644,7 +640,7 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part num in the dropdown");
-			mpom1.Productline(pro.getProperty("linecode"));
+			mpom1.Productlinenew(pro.getProperty("linecode12"));
 			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			loginfo.pass("Product line,Partdesc,Partnum.. drop down values getting properly");
@@ -690,7 +686,8 @@ public class TC035_MultaddCancelandDeleteattributes extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will verify the position and notes in the tabular column");
 
-			mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine", "postion");
+		//	mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine", "postion");
+			mpom1.Qtyverify("EnterInvalidYear", "SearchTextAcesallEngine");
 			loginfo.pass("Verify attributes values is working");
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);

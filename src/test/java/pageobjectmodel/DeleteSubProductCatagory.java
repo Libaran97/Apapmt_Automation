@@ -33,7 +33,7 @@ public class DeleteSubProductCatagory extends Baseclass{
 	@FindBy(xpath="//li[text()='Steering Test']")
 	WebElement ecategorysteer;
 	
-	@FindBy(xpath="//li[text()='Engine Coils test']")
+	@FindBy(xpath="//li[text()='Engine oil test']")
 	WebElement ecategorysteer1;	
 	
 	@FindBy(xpath ="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
@@ -66,9 +66,9 @@ public class DeleteSubProductCatagory extends Baseclass{
 	
 	public void SelectCategory1() throws Throwable {	
 		eCategoryDDBox.click();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		ecategorysteer1.click();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 	
 	public void SelectsearchTextbox(String subcategoryname) throws InterruptedException {
@@ -76,10 +76,12 @@ public class DeleteSubProductCatagory extends Baseclass{
 		Thread.sleep(3000);
 	}
 	public void SelectsearchTextbox1(String subcategoryname1) throws InterruptedException {
+		Thread.sleep(3000);
 		esearchbox.sendKeys(subcategoryname1);
 		Thread.sleep(3000);
 	}
 	public void ClickDelete() throws InterruptedException {
+		Thread.sleep(3000);
 		eDeleteButton.click();
 		Thread.sleep(3000);
 		}

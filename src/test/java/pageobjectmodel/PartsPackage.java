@@ -27,12 +27,12 @@ public class PartsPackage extends Baseclass {
 	
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_txtMelling']")
+	@FindBy(xpath="//*[@id='txtsearchpartno']")
 	private WebElement txtpartsearch;
 	
 	
-	@FindBy(xpath="(//input[@class='button_search'])[1]")
-	private WebElement btnPsearch;
+	@FindBy(xpath="//*[@class='button_search']")////*[@id="MainContent_upAttribute"]/div[2]/div[1]/div/div[3]/div/input[8]
+	private WebElement btnPsearch;//(//input[@class='button_search'])[2]
 	
 	@FindBy(xpath="//div[@id='Package']")
 	private WebElement ePackageclick;
@@ -52,13 +52,14 @@ public class PartsPackage extends Baseclass {
 	@FindBy(xpath="//input[@id='txtLength']")
 	private WebElement eLength;
 	
-	@FindBy(xpath="(//input[@id=\"btnSave\"])[2]")
+	@FindBy(xpath="//input[@id='btnSavePkg']")
 	private WebElement btnSave;
 	
-	@FindBy(xpath = "(//button[@type='button'])[2]")
+	@FindBy(xpath = "//*[@class='swal2-confirm swal2-styled']")
 	private WebElement eAcceptalert;
 	
-	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[12]")
+	//@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[12]")
+	@FindBy(xpath="//table[@id=\"DataTableViewer\"]/tbody/tr/td")
 	private WebElement Vrfy;
 	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td")
 	private WebElement Vrfy1;
@@ -76,29 +77,46 @@ public class PartsPackage extends Baseclass {
 	
 	
 	public void partslanding() {
-		partspageheaderclick.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Baseclass.waitForElementToBeClickable(driver,partspageheaderclick,150).click();
+		
+		//wait//
+		//partspageheaderclick.click();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//wait//
 	}
 	
 	public void partsearch(String partnoenter) throws InterruptedException {
-		txtpartsearch.sendKeys(partnoenter);
-		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ACBehavior_completionListElem']//li"));
+		Baseclass.waitForElementToBeVisible(driver,txtpartsearch, 250).sendKeys(partnoenter);
+		//wait//
+		//txtpartsearch.sendKeys(partnoenter);
+		//wait//
+		Thread.sleep(2000);
+		List<WebElement> list = driver.findElements(By.xpath("//*[@id='ui-id-1']//li"));
 		System.out.println("total number of parts-->" + list.size());
 		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().contains("Testpart-1 | Ignition Coil Test | Autoapa3")) {
+			if(list.get(i).getText().equalsIgnoreCase("Testpart-1 | Ignition Coil Test | Autoapa3APATest")) {
 				list.get(i).click();
 				break;
 			}
 		}
-		btnPsearch.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,btnPsearch,150).click();
+		
+		//wait//
+		//btnPsearch.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 
 	public void Packageclick() throws InterruptedException {
-		ePackageclick.click();
-		Thread.sleep(3000);
+		//Thread.sleep(2000);	
+		Baseclass.waitForElementToBeClickable(driver,ePackageclick,150).click();
+		
+		//wait//
+		//ePackageclick.click();
+		Thread.sleep(2000);
+		//wait//
 		}
 	
 	public void SelectPackageUom() throws InterruptedException {
@@ -109,38 +127,62 @@ public class PartsPackage extends Baseclass {
 	}
 	
 	public void EnterUomQty() throws InterruptedException {
+		Baseclass.waitForElementToBeVisible(driver,eUomQty, 150).sendKeys(pro.getProperty("UomQty"));
 		
-		eUomQty.sendKeys(pro.getProperty("UomQty"));
+		//wait//
+		//eUomQty.sendKeys(pro.getProperty("UomQty"));
 		Thread.sleep(2000);	
+		//wait//
 	}
 	public void EnterHeightWidthLength() throws InterruptedException {
-		eHeight.sendKeys(pro.getProperty("Height"));
-		Thread.sleep(2000);	
-		eWidth.sendKeys(pro.getProperty("Width"));
-		Thread.sleep(2000);
-		eLength.sendKeys(pro.getProperty("Length"));
-		Thread.sleep(4000);
+		Baseclass.waitForElementToBeVisible(driver,eHeight, 150).sendKeys(pro.getProperty("Height"));
+		Baseclass.waitForElementToBeVisible(driver,eWidth, 150).sendKeys(pro.getProperty("Width"));
+		Baseclass.waitForElementToBeVisible(driver,eLength, 150).sendKeys(pro.getProperty("Length"));
+		
+		///wait//
+		//eHeight.sendKeys(pro.getProperty("Height"));
+		  Thread.sleep(2000);	
+		//eWidth.sendKeys(pro.getProperty("Width"));
+		//Thread.sleep(2000);
+		//eLength.sendKeys(pro.getProperty("Length"));
+		//Thread.sleep(4000);
+		///wait//
 	}
 	public void SaveAcceptAlert() throws InterruptedException {
+		
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;		
 		js.executeScript("arguments[0].scrollIntoView();",btnSave);
-		btnSave.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, btnSave, 150).click();
+		
+		///wait//
+		//btnSave.click();
+		Thread.sleep(2000);
+		///wait//
+		
 		/*Alert alert=driver.switchTo().alert();
 		System.out.println(alert.getText());
 		alert.accept();
 		Thread.sleep(3000);*/
 	
 		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
-		eAcceptalert.click();
-		Thread.sleep(6000);
+		Baseclass.waitForElementToBeClickable(driver,eAcceptalert, 150).click();
+		///wait//
+		//eAcceptalert.click();
+		Thread.sleep(4000);
+		///wait//
 	}
 	
 	@SuppressWarnings("deprecation")
 	public void Verify() throws InterruptedException {
+		
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", searchuom);
-		searchuom.sendKeys("2 - CA");
+		Baseclass.waitForElementToBeVisible(driver,searchuom, 150).sendKeys("2 - CA");
+		///wait//
+		//searchuom.sendKeys("2 - CA");
+		///wait//
 		
 		js.executeScript("arguments[0].scrollIntoView();", Vrfy);
 		String Text=Vrfy.getText();
@@ -160,10 +202,15 @@ public class PartsPackage extends Baseclass {
 	}
 	
 	public void Verifyedit() throws InterruptedException {
+		
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", searchuom);
-		searchuom.sendKeys("4 - CA");
-		
+		Baseclass.waitForElementToBeVisible(driver,searchuom, 150).sendKeys("4 - CA");
+		Thread.sleep(2000);
+		//wait//
+		//searchuom.sendKeys("4 - CA");
+		//wait//
 		js.executeScript("arguments[0].scrollIntoView();", Vrfy);
 		String Text=Vrfy.getText();
 		
@@ -182,47 +229,73 @@ public class PartsPackage extends Baseclass {
 	}
 	
 	public void EditUomQty() throws InterruptedException {
-		eUomQty.clear();
-		Thread.sleep(2000);	
-		eUomQty.sendKeys(pro.getProperty("UomQtyEdit"));
-		Thread.sleep(2000);	
+		Baseclass.waitForElementToBeClickable(driver, eUomQty, 150).clear();
+		Baseclass.waitForElementToBeVisible(driver,eUomQty, 150).sendKeys(pro.getProperty("UomQtyEdit"));
+		//wait//
+		//eUomQty.clear();
+		//Thread.sleep(2000);	
+		//eUomQty.sendKeys(pro.getProperty("UomQtyEdit"));
+		//Thread.sleep(2000);	
+		//wait//
 	}
 	public void ClickEditButton() throws InterruptedException {
 		//driver.switchTo().frame(0);
+		
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ebtnEdit);
-		ebtnEdit.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, ebtnEdit, 150).click();
+		
+		//wait//
+		//ebtnEdit.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 	
 	public void ClickDeleteButton() throws InterruptedException {
 		//driver.switchTo().frame(0);
+		
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ebtnDelete);
-		ebtnDelete.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, ebtnDelete, 150).click();
+		//wait//
+		//ebtnDelete.click();
+		//Thread.sleep(3000);
+		//wait//
+		
+		
 		/*Alert alert=driver.switchTo().alert();
 		Thread.sleep(3000);
 		System.out.println(alert.getText());
 		alert.accept();
 		Thread.sleep(3000);*/
-
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
-		eAcceptalert.click();
-		Thread.sleep(3000);
-
+		Baseclass.waitForElementToBeClickable(driver,eAcceptalert, 150).click();
+		//wait//
+		//eAcceptalert.click();
+		//Thread.sleep(3000);
+		//wait//
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
-		eAcceptalert.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,eAcceptalert, 150).click();
+		//wait//
+		//eAcceptalert.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 		
 	@SuppressWarnings("deprecation")
 	public void DeleteVerify(String DeleteProducttxt,String DeleteProducttxt2) throws InterruptedException {
 		
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", searchuom);
-		searchuom.sendKeys("4 - CA");
-		
+		Baseclass.waitForElementToBeVisible(driver,searchuom, 150).sendKeys("4 - CA");
+		//wait//
+		//searchuom.sendKeys("4 - CA");
+		//wait//
 		js.executeScript("arguments[0].scrollIntoView();", Vrfy1);
 		String Text=Vrfy1.getText();
 		

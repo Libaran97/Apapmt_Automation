@@ -1,52 +1,27 @@
-@sanity
-Feature: PMT [My Catalog - Interchange] functionality testcases
+@sanity,@Automation
+Feature: My catalog Interchange
+  
 
-@Philips
-Scenario:  Check the [My Catalogs - Interchange Functionality [TC043]
-	Given : Click the My Catalog menu link SP INT
-	When : Click the Interchange submenu link SP INT
-	And : Click the Part Description Link SP INT
-	And : Click the Interchange Link SP INT
-	And : Click the Part Number Link SP INT
-	And : Verify Contents In AllInOne Screen SP INT
-	And : Click the Back Navigation button SP INT
-	Then : Finally Click The Logout button SP INT
-	
-@Philips
-Scenario:  Check the [My Catalogs - Interchange Functionality [TC043]
-	Given : Click the My Catalog menu link SP INT
-	When : Click the Interchange submenu link SP INT
-	And : Click the Part Description Link SP INT
-	And : Click the Interchange Link SP INT
-	And : Fetch the Interchange Part Number SP INT
-	And : Enter the Interchange Part Number SP INT
-	And : Select the Begins With Option SP INT
-	And : Click the Search Button SP INT
-	And : Verify the Interchange Number SP INT
-	Then : Finally Click The Logout button SP INT
-	
-@Philips
-Scenario:  Check the [My Catalogs - Interchange Functionality [TC043]
-	Given : Click the My Catalog menu link SP INT
-	When : Click the Interchange submenu link SP INT
-	And : Click the Part Description Link SP INT
-	And : Click the Interchange Link SP INT
-	And : Fetch the Interchange Part Number SP INT
-	And : Enter the Interchange Part Number SP INT
-	And : Select the Ends With Option SP INT
-	And : Click the Search Button SP INT
-	And : Verify the Interchange Number SP INT
-	Then : Finally Click The Logout button SP INT
-	
-@Philips
-Scenario:  Check the [My Catalogs - Interchange Functionality [TC043]
-	Given : Click the My Catalog menu link SP INT
-	When : Click the Interchange submenu link SP INT
-	And : Click the Part Description Link SP INT
-	And : Click the Interchange Link SP INT
-	And : Fetch the Interchange Part Number SP INT
-	And : Enter the Interchange Part Number SP INT
-	And : Select the Equals Option SP INT
-	And : Click the Search Button SP INT
-	And : Verify the Interchange Number SP INT
-	Then : Finally Click The Logout button SP INT	
+@Philips5001
+Scenario: Adding Interchange in part page
+Given User go to the parts page and Search part#
+When User will click the interchange sub module and choose Interchange name,Enter Interchange part# and save part
+Then User will see successfull alert and verify the record 
+
+@Philips5001
+Scenario: Search Interchange part in My catalog
+Given User go to the my catalog interchange and search Interchange part#
+#When Click part number check All in one page
+#Then Back to Interchnage page
+
+@Philips5001
+Scenario: Deleting Interchange in part page
+Given User will go to the parts page and Search part#
+When User will go to interchange sub module and click delete
+Then User will handle the deleted alert and verify the record
+
+@Philips5001
+Scenario: Search Deleted part search
+Given User will go to my catalog interchange and Interchange part#
+When  user will not see the deleted part# search
+Then handle the alert and print the alert text

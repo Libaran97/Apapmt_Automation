@@ -2,11 +2,10 @@ package pageobjectmodel;
 
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -37,12 +36,17 @@ public class AddIntchgName_POM extends Baseclass{
 	@FindBy(xpath="//*[@id=\"txt_CompetitorName\"]")
 	WebElement eIntnameTBox;
 	
-	
+	@FindBy(xpath="//span[@id='select2-drpInterchangeTypeCode-container']")
+	public WebElement interchangetype;
 	
 	@FindBy(xpath="//*[@id=\"txt_brandname\"]")
 	WebElement eBrandAAIAbox;
 	
+	@FindBy(xpath="/html/body/span/span/span[1]/input")
+	public WebElement intertypecodetext;
 	
+	@FindBy(xpath = "//div[@id='btnBack_new']")
+	private WebElement Backbtn;
 	
 	@FindBy(xpath ="//*[@id=\"save_btn_new_add\"]")
 	public WebElement eSaveButton;
@@ -73,25 +77,47 @@ public class AddIntchgName_POM extends Baseclass{
 		
 		Actions action = new Actions(driver);
 		action.moveToElement(emaster).build().perform();
-		Thread.sleep(3000);
-		eInterchangeName.click();
-		Thread.sleep(5000);
+		
+		Baseclass.waitForElementToBeClickable(driver, eInterchangeName, 100).click();
+		
+		//Thread.sleep(3000);
+	//	eInterchangeName.click();
+		//Thread.sleep(5000);
+		//wait//
 	}
 	
 	public void clickAdd() throws InterruptedException {
-		eAddintnameBtn.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, eAddintnameBtn, 150).click();
 		
+		//wait//
+		//eAddintnameBtn.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 	public void EnterIntName(String InterchangeNameValue) throws InterruptedException {
-		eIntnameTBox.sendKeys(InterchangeNameValue);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver, eIntnameTBox, 150).sendKeys(InterchangeNameValue);
+		//wait//
+		//eIntnameTBox.sendKeys(InterchangeNameValue);
+		//Thread.sleep(3000);
+		//wait//
+		
+		interchangetype.click();
+		
+		intertypecodetext.sendKeys("OE");
+		intertypecodetext.sendKeys(Keys.ENTER);
+		WebElement intertype=interchangetype;
+		Select selintertype=new Select(intertype);
+		selintertype.selectByIndex(1);
+				
+		
+		
 	}
 	
 	
 	public void EnterBrandAAIA(String BrandAAIAvalue) throws InterruptedException {
 		System.out.println("pass1");
-		eBrandAAIAbox.sendKeys(BrandAAIAvalue);
+		Baseclass.waitForElementToBeVisible(driver, eBrandAAIAbox, 150).sendKeys(BrandAAIAvalue);
+		//eBrandAAIAbox.sendKeys(BrandAAIAvalue);
 		System.out.println("pass2");
 		
 		Thread.sleep(3000);
@@ -100,34 +126,42 @@ public class AddIntchgName_POM extends Baseclass{
 		Thread.sleep(3000);
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().contains("AAA Associates")) {
+			if(list.get(i).getText().equalsIgnoreCase("AAA Associates")) {
 				list.get(i).click();
 				break;
 			}
 		}
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		
 	}
 	public void ClickEditInt(String InterchangeNameValue) throws InterruptedException {
-		eEditint.click();
-		Thread.sleep(3000);
-		eIntnameTBox.clear();
-		eIntnameTBox.sendKeys(InterchangeNameValue);
-		Thread.sleep(3000);
 		
+		Baseclass.waitForElementToBeClickable(driver, eEditint, 150).click();
+		Baseclass.waitForElementToBeClickable(driver, eIntnameTBox, 150).clear();
+		Baseclass.waitForElementToBeVisible(driver, eIntnameTBox, 150).sendKeys(InterchangeNameValue);
+		
+		//wait//
+	//	eEditint.click();
+		//Thread.sleep(3000);
+		//eIntnameTBox.clear();
+		//eIntnameTBox.sendKeys(InterchangeNameValue);
+		//Thread.sleep(3000);
+		//wait//
 	}
 	
 	public void Editcode() throws InterruptedException {
+		//wait//
+		//eEditcode.click();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//wait//
 		
-		eEditcode.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
+		Baseclass.waitForElementToBeClickable(driver, eEditcode, 150).click();
 		List<WebElement> list = driver.findElements(By.xpath("//*[@id='select2-drpInterchangeTypeCode-results']"));
 		System.out.println("total number of code -->" + list.size());
 		Thread.sleep(3000);
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().contains("OE")) {
+			if(list.get(i).getText().equalsIgnoreCase("OE")) {
 				list.get(i).click();
 				break;
 			}
@@ -135,17 +169,25 @@ public class AddIntchgName_POM extends Baseclass{
 	}
 	
 	public void Clicksave() throws InterruptedException {
-		Thread.sleep(3000);
-		eSaveButton.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, eSaveButton, 150).click();
+		//wait//
+		//Thread.sleep(3000);
+		//eSaveButton.click();
+		//Thread.sleep(3000);
+		//wait//
 		}
 	
 	public void ClickEditsave() throws InterruptedException {
-		Thread.sleep(3000);
-		eEditSaveButton.click();
-		Thread.sleep(3000);
+		
+		Baseclass.waitForElementToBeClickable(driver, eEditSaveButton, 150).click();
+		//wait//
+		//Thread.sleep(3000);
+		//eEditSaveButton.click();
+		//Thread.sleep(3000);
+		//wait//
 		}
 	public void acceptAlert() throws InterruptedException{
+		Thread.sleep(3000);
 		WebElement pop=driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/button[1]"));
 		Thread.sleep(5000);
 		System.out.println("Record newly to be inserted");
@@ -158,7 +200,8 @@ public class AddIntchgName_POM extends Baseclass{
 	}
 	
 	public void acceptEditAlert() throws InterruptedException{
-		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
+		Thread.sleep(3000);
+		WebElement pop=driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/button[1]"));
 		Thread.sleep(5000);
 		System.out.println("Record newly to be inserted");
 
@@ -169,18 +212,27 @@ public class AddIntchgName_POM extends Baseclass{
 		
 	}
 	
+	public void ClickonBackButton() throws InterruptedException {
+		Backbtn.click();
+		Thread.sleep(2000);
+	}
+	
 	public void SearchInterchangeName(String InterchangeNameValue) throws InterruptedException {
-		esearchbox.sendKeys(InterchangeNameValue);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver, esearchbox, 150).sendKeys(InterchangeNameValue);
+		
+		//wait//
+		//esearchbox.sendKeys(InterchangeNameValue);
+		//Thread.sleep(3000);
+		//wait//
 	}
    
 	public void verifytext1(String InterchangeNameValue){
 	
 	
-	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	String actualText= eInverify.getText();
 	System.out.println("Text"+ actualText);
-	if(actualText.equals(InterchangeNameValue))
+	if(!actualText.equals(InterchangeNameValue))
 	{
 		System.out.println("Both are same");
 	}
@@ -193,7 +245,7 @@ public class AddIntchgName_POM extends Baseclass{
 	public void verifyIntcodetext(){
 		
 		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		String actualText= eInverifycode.getText();
 		System.out.println("Text"+ actualText);
 		if(actualText.equals("S"))

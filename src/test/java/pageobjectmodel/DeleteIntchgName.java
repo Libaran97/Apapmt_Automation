@@ -44,19 +44,29 @@ public class DeleteIntchgName extends Baseclass{
 		
 		Actions action = new Actions(driver);
 		action.moveToElement(emaster).build().perform();
-		Thread.sleep(3000);
-		eInterchangeName.click();
-		Thread.sleep(5000);
+		Baseclass.waitForElementToBeClickable(driver, eInterchangeName, 90).click();
+		//wait//
+		//Thread.sleep(3000);
+		//eInterchangeName.click();
+		//Thread.sleep(5000);
+		//wait//
 	}
 	public void SearchIntchgNameValue(String InterchangeNameValue) throws InterruptedException {
-		eIntnameSTbox.sendKeys(InterchangeNameValue);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver, eIntnameSTbox,90).sendKeys(InterchangeNameValue);
+		//wait//
+		//eIntnameSTbox.sendKeys(InterchangeNameValue);
+		//Thread.sleep(3000);
+		//wait//
 	}
 	public void ClickDelete() throws InterruptedException {
-		eDeleteButton.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,eDeleteButton, 90).click();
+		//wait//
+		//eDeleteButton.click();
+		//Thread.sleep(3000);
+		//wait//
 		}
 	public void acceptAlert() throws InterruptedException{
+		Thread.sleep(2000);
 		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
 		Thread.sleep(5000);
 
@@ -68,8 +78,11 @@ public class DeleteIntchgName extends Baseclass{
 		}
 public void verifytext1(String InterchangeNameValue, String DeleteProducttxt) throws InterruptedException{
 		
-	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	esearchbox.sendKeys(InterchangeNameValue);
+	Baseclass.waitForElementToBeVisible(driver, esearchbox, 90).sendKeys(InterchangeNameValue);
+	//wait//
+	//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	//esearchbox.sendKeys(InterchangeNameValue);
+	//wait//
 		
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	String actualText= ePDverify.getText();

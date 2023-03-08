@@ -5,6 +5,7 @@ import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
 import com.aventstack.extentreports.gherkin.model.Scenario;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -84,7 +85,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 	}
 
 	@Then("^User will Enter NonAces Engine Base details$")
-	public void user_will_Enter_Engine_Base_details() throws Throwable {
+	public void vehicle_page() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Enter NonAces Engine Base details");
 			anpom.EngineDetails(pro.getProperty("Cylindervalue"), pro.getProperty("Ccvalue"),
@@ -131,7 +132,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 			anpom.verifytext1(pro.getProperty("SearchText1"));
 			loginfo.pass("Non Aces Application added successfully & shown in grid");
 
-			 //extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
@@ -140,12 +141,131 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 		}
 
 	}
+/////Adding Vehicle page//////TC019 pmt multi page ////////////
+	@Given("^User will click on vehicle page and Click add button$")
+	public void user_will_click_on_vehicle_page_and_Click_add_button() throws Throwable {
+		try {
+			//extent = setup();
+			test = extent.createTest(Feature.class, "Application_TC004_NonAces_Add_Vehicle")
+					.assignCategory("NonAces Applicarion Tag").pass("NonAces Applicarion added");
+			test = test.createNode(Scenario.class, "Adding NonAces Applicarion");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will click on Application and Click add button");
+			anpom = new ApplicationAddNonAces();
+			anpom.ClickApplication();
+			anpom.ClickAddApplication();
+			loginfo.pass("Application and Application Add is clicked successfully");
+		} catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+ 
+	}
 
-	// Application_TC004_NonAces_Add_Vehicle with all engine
+	@When("^User will select dropdown and Choose Vehicle, Make & Model vehicle page$")
+	public void user_will_select_dropdown_and_Choose_Vehicle_Make_Model_vehicle_page() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will select dropdown and Choose Vehicle, Make & Model");
+			anpom.ChooseVehicle01(pro.getProperty("vehicletypename0"));
+			anpom.ChooseMake01(pro.getProperty("makename0"));
+			anpom.ChooseModel01(pro.getProperty("modelname0"));
+			loginfo.pass("Vehicle, Make & Model dropdown selected Successfully");
+		} catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@And("^User will Enter year vehicle page$")
+	public void user_will_Enter_year_vehicle_page() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"), "User will Enter year");
+			anpom.ApplicationYear01(pro.getProperty("EnterYear"));
+			loginfo.pass("Year Entered in Text box");
+		} catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@Then("^User will click non Aces Engine Radio Button vehicle page$")
+	public void user_will_click_non_Aces_Engine_Radio_Button_vehicle_page() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will click non Aces Engine Radio Button");
+			anpom.checkNonAces();
+			loginfo.pass("Non Aces Engine Radio Button Selected successfully");
+		} catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@Then("^User will Enter NonAces Engine Base details vehicle page$")
+	public void user_will_Enter_NonAces_Engine_Base_details_vehicle_page() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Enter NonAces Engine Base details");
+			anpom.EngineDetails(pro.getProperty("Cylindervalue"), pro.getProperty("Ccvalue"),
+					pro.getProperty("litervalue"));
+			loginfo.pass("Engine Base details Entered successfully");
+
+		} catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@Then("^User will successfully add vehicle page$")
+	public void user_will_successfully_add_vehicle_page() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will successfully add");
+			anpom.Clicksave();
+
+			anpom.acceptAlert();
+			loginfo.pass("Non Aces Application Saved successfully & shown in grid");
+
+		} catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+
+	}
+
+	@Then("^User will verify that NonAces record has come vehicle page$")
+	public void user_will_verify_that_NonAces_record_has_come_vehicle_page() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will verify that NonAces record has come");
+			anpom.ClickApplication2();
+			// anpom.ChooseVehiclevry(pro.getProperty("vehicletypename0"));
+			anpom.ChooseMakevry01(pro.getProperty("makename0"));
+			anpom.ChooseModelvry01(pro.getProperty("modelname0"));
+			anpom.Clicksearch();
+			anpom.SelectFiterdropdown(pro.getProperty("SelectFilterName"));
+			anpom.SelectsearchTextbox(pro.getProperty("SearchText1"));
+			anpom.Clicksearch2();
+			anpom.verifytext1(pro.getProperty("SearchText1"));
+			loginfo.pass("Non Aces Application added successfully & shown in grid");
+
+			// extent.flush();
+		} catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			System.out.println(e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		}
+	}
+	
+	// Application_TC004_NonAces_Add_Vehicle with all engine OK 
 	@Given("^User will click on Application and Click add Application$")
 	public void user_will_click_on_Application_and_Click_add_Application() throws Throwable {
 		try {
-			//extent = setup();
+		//extent = setup();
 			test = extent.createTest(Feature.class, "Application_TC004_NonAces_Add_Vehicle_All engine")
 					.assignCategory("NonAces All year Application Tag").pass("NonAces All year Application added");
 			test = test.createNode(Scenario.class, "Adding NonAces All year Application");
@@ -249,7 +369,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 
 		}
 
@@ -362,7 +482,7 @@ public class TC024_AddNonAcesApplication extends Baseclass {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+		//extent.flush();
 
 		}
 	}

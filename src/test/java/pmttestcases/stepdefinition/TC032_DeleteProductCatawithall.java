@@ -92,13 +92,13 @@ public class TC032_DeleteProductCatawithall extends Baseclass {
 			pdpom.verifytext2(pro.getProperty("categoryname1"), pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Deleteded product category verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println("Deleteded Sub product category Not verify " + e.getMessage());
 			loginfo.fail("Deleteded product category Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 
 	}
@@ -107,7 +107,7 @@ public class TC032_DeleteProductCatawithall extends Baseclass {
 	@Given("^User will mousehover and choose the product group master page$")
 	public void user_will_mousehover_and_choose_the_product_group_master_page() throws Throwable {
 		try {
-			// extent = setup();
+			 //extent = setup();
 			test = extent.createTest(Feature.class, "PMT ProductRelated Delete")
 					.assignCategory("Delete ProductCatagory").pass("Product group master Deleted");
 			test = test.createNode(Scenario.class, "Delete Product group master");
@@ -149,7 +149,7 @@ public class TC032_DeleteProductCatawithall extends Baseclass {
 					"User will Verify product group master is deleted or not");
 			pdpom1.verifyproductgroupmasterdel(pro.getProperty("Equchose"), pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Deleteded product group master verify Successfully");
-			// extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println("Deleteded product group master Not verify " + e.getMessage());
@@ -163,7 +163,7 @@ public class TC032_DeleteProductCatawithall extends Baseclass {
 	@Given("^User will mousehover and choose the Sub product line master page$")
 	public void user_will_mousehover_and_choose_the_Sub_product_line_master_page() throws Throwable {
 		try {
-			// extent = setup();
+		// extent = setup();
 			test = extent.createTest(Feature.class, "PMT ProductRelated Delete")
 					.assignCategory("Delete Sub product line master").pass("Sub product line master Deleted ");
 			test = test.createNode(Scenario.class, "Delete Sub product line master master");
@@ -210,7 +210,7 @@ public class TC032_DeleteProductCatawithall extends Baseclass {
 			System.out.println("Deleteded Sub product line master Not verify " + e.getMessage());
 			loginfo.fail("Deleteded Sub product line master Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
@@ -259,12 +259,12 @@ public class TC032_DeleteProductCatawithall extends Baseclass {
 			mpom2.verifyingck33del(pro.getProperty("Partype"));
 			loginfo.pass("Product component search");
 			System.out.println("CK33 Verified");
-			extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
+			//extent.flush();
 		}
 	}
 

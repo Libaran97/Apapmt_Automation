@@ -119,25 +119,40 @@ public class MyCatalogBuyersGuidePom extends Baseclass {
 
 		
 	public void MyCatalogsClick() throws Exception {
-		MyCatalogs.click();
-		Thread.sleep(5000);
+		Baseclass.waitForElementToBeClickable(driver, MyCatalogs, 150).click();
+		//wait//
+		//MyCatalogs.click();
+		//Thread.sleep(5000);
+		//wait//
 	}
 	
 	public void BuyersGuideClick() throws Exception {
-		BuyersGuide.click();
-		Thread.sleep(5000);
+		Baseclass.waitForElementToBeClickable(driver, BuyersGuide, 150).click();
+		
+		//wait//
+		//BuyersGuide.click();
+		//Thread.sleep(5000);
+		//wait//
 	}
 	
 	public void ApplicationsLinkClick() throws Exception {
-		ApplicationsLink.click();
-		Thread.sleep(5000);
+		Baseclass.waitForElementToBeClickable(driver, ApplicationsLink, 150).click();
+		
+		//wait//
+		//ApplicationsLink.click();
+		//Thread.sleep(5000);
+		//wait//
 	}
 	
 	public void EnterPartNumber() throws Exception {
-		PartNumber.sendKeys(pro.getProperty("ParttNumberr"));
-		Thread.sleep(5000);
-		ListItem.click();
-		Thread.sleep(5000);
+		Baseclass.waitForElementToBeVisible(driver, PartNumber, 150).sendKeys(pro.getProperty("ParttNumberr"));
+		Baseclass.waitForElementToBeClickable(driver,ListItem, 150).click();
+		//wait//
+		//PartNumber.sendKeys(pro.getProperty("ParttNumberr"));
+		//Thread.sleep(5000);
+		//ListItem.click();
+		//Thread.sleep(5000);
+		//wait//
 	}
 	
 	String PartNumberFetched = "";
@@ -150,18 +165,28 @@ public class MyCatalogBuyersGuidePom extends Baseclass {
 	
 	public void TrimEnterPartNumber() throws Exception {
 		PartNumberFetched2 = PartNumberFetched.substring(0, 2);
-		PartNumberSearchBox.sendKeys(PartNumberFetched2);
-		Thread.sleep(5000);
-		CompletePartNumber.click();
+		Baseclass.waitForElementToBeVisible(driver, PartNumberSearchBox, 150).sendKeys(PartNumberFetched2);
+		Baseclass.waitForElementToBeClickable(driver,CompletePartNumber, 150).click();
+		//wait//
+		//PartNumberSearchBox.sendKeys(PartNumberFetched2);
+		//Thread.sleep(5000);
+		//CompletePartNumber.click();
+		//wait//
 	}
 
 	
-	public void ClickSearchButton(){		
-		SearchButton.click();		
+	public void ClickSearchButton(){	
+		Baseclass.waitForElementToBeClickable(driver, SearchButton, 150).click();
+		//wait//
+		//SearchButton.click();
+		//wait//
 	}
 	
 	public void ClickViewApplicationDataButton() {
-		ViewApplicationDataButton.click();
+		Baseclass.waitForElementToBeClickable(driver, ViewApplicationDataButton, 150).click();
+		//wait//
+		//ViewApplicationDataButton.click();
+		//wait//
 	}
 	
 	public void VerifyHighlightedRecord() {
@@ -175,11 +200,18 @@ public class MyCatalogBuyersGuidePom extends Baseclass {
 	}
 	
 	public void ClickBackButton() {
-		BackButton.click();		
+		Baseclass.waitForElementToBeClickable(driver, BackButton, 150).click();
+		
+		//wait//
+		//BackButton.click();		
+		//wait//
 	}
 	
 	public void ClickViewPartDataButton() {
-		ViewPartDataButton.click();
+		Baseclass.waitForElementToBeClickable(driver, ViewPartDataButton, 150).click();
+		//wait//
+		//ViewPartDataButton.click();
+		//wait//
 	}
 	
 	public void DisplayHeaderDetails() {
@@ -201,18 +233,25 @@ public class MyCatalogBuyersGuidePom extends Baseclass {
 	}
 	
 	public void GenerateExcelReport() throws Exception {
-		GenerateExcel.click();
-		Thread.sleep(5000);
+		Baseclass.waitForElementToBeClickable(driver, GenerateExcel,150).click();
+		
+		//wait//
+		//GenerateExcel.click();
+		//Thread.sleep(5000);
+		//wait//
 		
 		/* To be commented for ZIACHEN */
 		Select GenExcel = new Select(SelectExcelGen);
 		GenExcel.selectByValue(pro.getProperty("GenExcelValue"));
 		/* To be commented for ZIACHEN */
 		
-		ExcelDownloadButton.click();
-		
-		Thread.sleep(10000);
-		ExcelDownloadCancelButton.click();
-		Thread.sleep(10000);		
+		Baseclass.waitForElementToBeClickable(driver, ExcelDownloadButton,150).click();
+		Baseclass.waitForElementToBeClickable(driver, ExcelDownloadCancelButton,150).click();
+		//wait//
+		//ExcelDownloadButton.click();
+		//Thread.sleep(10000);
+		//ExcelDownloadCancelButton.click();
+		//Thread.sleep(10000);
+		//wait//
 	}	
 }

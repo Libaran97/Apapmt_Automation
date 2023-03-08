@@ -5,6 +5,7 @@ import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
 import com.aventstack.extentreports.gherkin.model.Scenario;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -19,7 +20,7 @@ public class TC025_EditApplication extends Baseclass {
 	@Given("^User will click on Application page$")
 	public void user_will_click_on_Application_page() throws Throwable {
 		try {
-		   //extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "Application_TC004_NonAces_Edit_Vehicle")
 					.assignCategory("Edit NonAces Applicarion Tag").pass("NonAces Applicarion Edited");
 			test = test.createNode(Scenario.class, "Editing Applicarion");
@@ -53,14 +54,14 @@ public class TC025_EditApplication extends Baseclass {
 
 	}
 
-	@When("^User will selectfilter Engine Base and enter search value and search$")
+	@And("^User will selectfilter Engine Base and enter search value and search$")
 	public void user_will_selectfilter_Engine_Base_and_enter_search_value_and_search() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will selectfilter Engine Base and enter search value and search");
-			// eapom.SelectFiterdropdown(pro.getProperty("SelectFilterName"));
-			// eapom.SelectsearchTextbox1(pro.getProperty("SearchText1"));
-			// eapom.Clicksearch2();
+			 eapom.SelectFiterdropdown(pro.getProperty("SelectFilterName"));
+			eapom.SelectsearchTextbox1(pro.getProperty("SearchText1"));
+			eapom.Clicksearch2();
 			loginfo.pass("Choose Engine Base, search value entered and search button clicked successfully ");
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
@@ -119,7 +120,7 @@ public class TC025_EditApplication extends Baseclass {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 

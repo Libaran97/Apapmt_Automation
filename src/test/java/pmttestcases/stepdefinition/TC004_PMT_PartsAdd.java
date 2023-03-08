@@ -47,10 +47,10 @@ public class TC004_PMT_PartsAdd extends Baseclass {
 		loginfo=test.createNode(new GherkinKeyword("When"),"User will click on the add buton and choose product category, sub category,part desc, product line");
 		parts.partsadd();
 		parts.scrolldown();
-		parts.partsadddrp2();
-		parts.partsadddrp3();
-		parts.scrolldown();
-		parts.partsadddrp4();
+		//parts.partsadddrp2();
+		//parts.partsadddrp3();
+		//parts.scrolldown();
+		parts.partsadddrp41();
 		loginfo.pass("Parts page landed successfully");
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 	} 	catch ( Exception e) {

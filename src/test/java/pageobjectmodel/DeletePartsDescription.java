@@ -34,7 +34,7 @@ public class DeletePartsDescription extends Baseclass{
 	@FindBy(xpath ="//table[@id='DataTableViewer']/tfoot/tr/th[1]/input")
 	public WebElement esearchbox;
 	
-	@FindBy(xpath ="//input[@id='MainContent_ImageButton2']")
+	@FindBy(xpath ="//input[@id='MainContent_delete']")
 	public WebElement eDeleteButton;
 	
 	@FindBy(xpath ="//*[@id='DataTableViewer']/tbody/tr/td")
@@ -58,13 +58,21 @@ public class DeletePartsDescription extends Baseclass{
 	}
 	public void SelectSubCategory(String subcategoryname) throws InterruptedException {
 		Select SubCategory = new Select(eSubCategoryDDBox);
+		eSubCategoryDDBox.clear();
+		Thread.sleep(3000);
 		SubCategory.selectByVisibleText(subcategoryname);
 		Thread.sleep(3000);
 	}
 	
 	
-	public void SelectsearchTextbox(String partdesc) throws InterruptedException {
-		esearchbox.sendKeys(partdesc);
+	public void SelectsearchTextbox(String subcategoryname) throws InterruptedException {
+		Thread.sleep(3000);
+		esearchbox.sendKeys(subcategoryname);
+		Thread.sleep(3000);
+	}
+	public void SelectsearchTextbox01(String subcategoryname1) throws InterruptedException {
+		Thread.sleep(3000);
+		esearchbox.sendKeys(subcategoryname1);
 		Thread.sleep(3000);
 	}
 	public void ClickDelete() throws InterruptedException {
@@ -77,7 +85,8 @@ public class DeletePartsDescription extends Baseclass{
 		alert.accept();
 		Thread.sleep(3000);
 		}
-	public void verifytext1(String DeleteProducttxt, String categoryname, String subcategoryname, String partdesc) throws Exception
+	//public void verifytext1(String DeleteProducttxt, String categoryname, String subcategoryname, String partdesc) throws Exception
+	public void verifytext1(String categoryname,String DeleteProducttxt) throws Exception
 	{
 		
 		try {
@@ -85,12 +94,12 @@ public class DeletePartsDescription extends Baseclass{
 			Category.selectByVisibleText(categoryname);
 			Thread.sleep(3000);
 			
-			Select SubCategory = new Select(eSubCategoryDDBox);
-			SubCategory.selectByVisibleText(subcategoryname);
-			Thread.sleep(3000);
-			
-			esearchbox.sendKeys(partdesc);
-			Thread.sleep(3000);
+			/*
+			 * Select SubCategory = new Select(eSubCategoryDDBox);
+			 * SubCategory.selectByVisibleText(subcategoryname); Thread.sleep(3000);
+			 * 
+			 * esearchbox.sendKeys(partdesc); Thread.sleep(3000);
+			 */
 			
 			
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

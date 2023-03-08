@@ -18,6 +18,10 @@ public class TC018_Parts_price extends Baseclass{
 	ExtentTest loginfo = null;
 	Parts_Price pkprice;
 	
+	
+	//price Add//
+	
+	
 	@Given("^User will click parts page and search part#$")
 	public void user_will_click_parts_page_and_search_part() throws Throwable {
 		try {
@@ -88,6 +92,9 @@ public class TC018_Parts_price extends Baseclass{
 	}
 	
 	
+	//Price edit//
+	
+	
 	@Given("^User will click parts and search partno$")
 	public void user_will_click_parts_and_search_partno() throws Throwable {
 		try {
@@ -128,7 +135,9 @@ public class TC018_Parts_price extends Baseclass{
 	public void user_will_Edit_Price_value() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Edit Price value");
+			//pkprice.Selectpricetype();
 			pkprice.Editprice();
+			//pkprice.PriceDetailsedit();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			loginfo.pass("Price Edited Succesfully");
 		} catch(Exception e) {
@@ -155,6 +164,9 @@ public class TC018_Parts_price extends Baseclass{
 			//extent.flush();
 			}
 	}
+	
+	
+	//Price Delete//
 
 	@Given("^User will click on parts and search part#$")
 	public void user_will_click_on_parts_and_search_part() throws Throwable {
@@ -201,7 +213,7 @@ public class TC018_Parts_price extends Baseclass{
 			pkprice.VryDelete();
 			loginfo.pass("Accept the alert and Verified Succesfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			extent.flush();
 			
 		} catch(Exception e) {
 			System.out.println("Not Accept the alert or Not verified " + e.getMessage());

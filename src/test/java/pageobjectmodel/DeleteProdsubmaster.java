@@ -47,33 +47,48 @@ public class DeleteProdsubmaster extends Baseclass {
 	public void clickonproductgroupmaster() throws Throwable {
 		Actions action = new Actions(driver);
 		action.moveToElement(emaster).build().perform();
-		Thread.sleep(3000);
-		emastercategory.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, emastercategory, 90).click();
+		
+		//Thread.sleep(3000);
+		//emastercategory.click();
+		//Thread.sleep(3000);
 	}
 
 	public void clickonsubproductgroupmaster() throws Throwable {
 		Actions action = new Actions(driver);
 		action.moveToElement(emaster).build().perform();
-		Thread.sleep(3000);
-		emastercategory1.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, emastercategory1,90).click();
+		//wait//
+		//Thread.sleep(3000);
+		//emastercategory1.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 	
 
 	public void SelectsearchTextbox(String Equchose) throws InterruptedException {
-		esearchbox.sendKeys(Equchose);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver,esearchbox,90).sendKeys(Equchose);
+		
+		//wait//
+		//esearchbox.sendKeys(Equchose);
+		//Thread.sleep(3000);
+		//wait//
 	}
 
 	public void SelectsearchTextbox1(String partdesc) throws InterruptedException {
-		esearchbox1.sendKeys(partdesc);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver,esearchbox1,90).sendKeys(partdesc);
+		//wait//
+		//esearchbox1.sendKeys(partdesc);
+		//Thread.sleep(3000);
+		//wait//
 	}
 
 	public void ClickDelete() throws InterruptedException {
-		eDeleteButton.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, eDeleteButton,90).click();
+		//wait//
+		//eDeleteButton.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 
 	public void acceptAlert() throws InterruptedException {
@@ -81,6 +96,7 @@ public class DeleteProdsubmaster extends Baseclass {
 		 * Alert alert = driver.switchTo().alert(); System.out.println("Acess: " +
 		 * alert.getText()); alert.accept(); Thread.sleep(3000);
 		 */
+		Thread.sleep(2000);
 		WebElement pop = driver.findElement(By.xpath("(//button[@type='button'])[2]"));
 		Thread.sleep(5000);
 		// System.out.println("Record newly to be deleted");
@@ -93,8 +109,14 @@ public class DeleteProdsubmaster extends Baseclass {
 
 	public void verifyproductgroupmasterdel(String Equchose, String DeleteProducttxt) throws Exception {
 		try {
-			esearchbox.sendKeys(Equchose);
-			Thread.sleep(3000);
+			Baseclass.waitForElementToBeVisible(driver, esearchbox, 90).sendKeys(Equchose);
+			
+			//wait//
+			//esearchbox.sendKeys(Equchose);
+			//Thread.sleep(3000);
+			//wait//
+			
+			
 			String actualText = ePcverify.getText();
 			System.out.println("Text" + actualText);
 			actualText.equals(DeleteProducttxt);
@@ -107,8 +129,12 @@ public class DeleteProdsubmaster extends Baseclass {
 
 	public void verifysubproductgroupmasterdel(String partdesc, String DeleteProducttxt) throws Exception {
 		try {
-			esearchbox.sendKeys(partdesc);
-			Thread.sleep(3000);
+			
+			Baseclass.waitForElementToBeVisible(driver, esearchbox, 90).sendKeys(partdesc);
+			//wait//
+			//esearchbox.sendKeys(partdesc);
+			//Thread.sleep(3000);
+			//wait//
 			String actualText = ePsubverify.getText();
 			System.out.println("Text" + actualText);
 			actualText.equals(DeleteProducttxt);

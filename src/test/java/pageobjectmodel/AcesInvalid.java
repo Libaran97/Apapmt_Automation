@@ -30,11 +30,12 @@ public class AcesInvalid extends Baseclass {
 	
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_txtMelling']")
+	@FindBy(xpath="//input[@id='txtsearchpartno']")
 	private WebElement txtpartsearch;
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_btnPsearch']")
+	//@FindBy(xpath="//input[@id='MainContent_btnPsearch']")
+	@FindBy(xpath="//input[@id='buttonsearch']")
 	private WebElement btnPsearch;
 	
 	
@@ -61,8 +62,26 @@ public class AcesInvalid extends Baseclass {
 	@FindBy(xpath="//input[@id='MainContent_GvApplications_chkActivee1_1']")
 	private WebElement selectappln;
 	
-	@FindBy(xpath="//input[@id='MainContent_btnacesattibues']")
-	private WebElement showAttribute;
+	@FindBy(xpath="//input[@id='MainContent_txtenginebase']")
+	private WebElement drptext;
+	
+	@FindBy(xpath="//input[@id='chk9_All']")
+	private WebElement drpcheckbox;
+	
+	@FindBy(xpath="//input[@id='MainContent_GvApplications_checkAllrow1']")
+	private WebElement checkALL;
+
+	@FindBy(xpath = "(//input[@placeholder='Year Range'])[1]")
+	WebElement efilter;
+
+	@FindBy(xpath = "(//input[@placeholder='Engine Details'])[1]") //
+	WebElement efilter2;
+	
+	@FindBy(xpath="(//input[@placeholder='Year Range'])[1]")//input[@placeholder='Year Range')[1]
+	WebElement everifynon1ACES;
+
+	@FindBy(xpath="//button[@id='MainContent_btnnonacesattributes']")
+	private WebElement shownonAttribute;
 	
 	@FindBy(xpath="//input[@id='MainContent_dlDisplayColumnList_chkList_1_0_1']")
 	private WebElement checkBase;
@@ -70,7 +89,11 @@ public class AcesInvalid extends Baseclass {
 	@FindBy(xpath="//input[@id='MainContent_dlDisplayColumnList_chkList_19_0_19']")
 	private WebElement BodyNo2;
 	
-	@FindBy(xpath="//input[@id='MainContent_imgSave']")
+	/*
+	 * @FindBy(xpath="//input[@id='MainContent_imgSave']")//input[@id='
+	 * MainContent_btnSave'] private WebElement btnSave;
+	 */
+	@FindBy(xpath="//input[@id='MainContent_btnSave']")
 	private WebElement btnSave;
 	
 	@FindBy(xpath="//tr[@id='tr_2']/td[7]/a")
@@ -113,31 +136,65 @@ public class AcesInvalid extends Baseclass {
 	
 	
 	public void partslanding() {
-		partspageheaderclick.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Baseclass.waitForElementToBeClickable(driver, partspageheaderclick, 150).click();
+		//partspageheaderclick.click();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	
+//	public void partsearch(String partnum) throws InterruptedException {
+//		//txtpartsearch.sendKeys(partnum);
+//		Baseclass.waitForElementToBeVisible(driver, txtpartsearch, 250).sendKeys(partnum);
+//		Thread.sleep(2000);
+//		List<WebElement> list = driver.findElements(By.xpath("//*[@id='ui-id-1']//li"));
+//		System.out.println("total number of parts-->" + list.size());
+//		
+//		for(int i=0; i<list.size(); i++) {
+//			System.out.println(list.get(i).getText());
+//			if(list.get(i).getText().equalsIgnoreCase("Testpart-1 | Engine oil test | Autoapatest")) {
+//		//	if(list.get(i).getText().contains("Testpart-3 | Ignition Coil Test | Autoapa3")) {
+//				list.get(i).click();
+//				break;
+//			}
+//	}
+//		
+//		Baseclass.waitForElementToBeClickable(driver, btnPsearch, 150).click();
+//		//wait///
+//		//btnPsearch.click();
+//		//Thread.sleep(3000);
+//		//wait///
+//	}
+	
+	
 	public void partsearch(String partnoenter) throws InterruptedException {
-		txtpartsearch.sendKeys(partnoenter);
-		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ACBehavior_completionListElem']//li"));
+		Baseclass.waitForElementToBeVisible(driver, txtpartsearch, 250).sendKeys(partnoenter);
+
+		Thread.sleep(2000);
+		List<WebElement> list = driver.findElements(By.xpath("//*[@id='ui-id-1']//li"));
 		System.out.println("total number of parts-->" + list.size());
-		
-		for(int i=0; i<list.size(); i++) {
+
+		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().contains("Testpart-3 | Ignition Test | Autoapa")) {
+			if (list.get(i).getText().equalsIgnoreCase("Testpart-1 | Ignition Coil Test | Autoapa3APATest")) {
+
 				list.get(i).click();
 				break;
 			}
 		}
-		btnPsearch.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, btnPsearch, 250).click();
+		Thread.sleep(2000);
+
 	}
 	
 
 
 	public void buyerguideclick() throws InterruptedException {
-	BuyersGuid1click.click();
-	Thread.sleep(3000);
+		
+		Baseclass.waitForElementToBeClickable(driver, BuyersGuid1click, 150).click();
+		
+		///wait///
+	//BuyersGuid1click.click();
+	//Thread.sleep(3000);
+		///wait///
 	}
 
 
@@ -190,43 +247,103 @@ public class AcesInvalid extends Baseclass {
 
 
 	public void apppartsearch() throws InterruptedException {
-	searchbtn.click();
-	Thread.sleep(2000);
+		Baseclass.waitForElementToBeClickable(driver, searchbtn, 150).click();
+		
+		
+		///wait///
+	//	Thread.sleep(2000);
+		//searchbtn.click();
+		//Thread.sleep(2000);
+		///wait///
 
 	}
 
 
 	public void apppartsenginebase() throws InterruptedException {
-	selectappln.click();
-	Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, selectappln, 150).click();
+		///wait///
+	//selectappln.click();
+	//Thread.sleep(3000);
+		///wait///
+	}
+	public void appartsenginetextbox() throws InterruptedException
+	{
+		Baseclass.waitForElementToBeClickable(driver, drptext, 250).click();
+		
+		Baseclass.waitForElementToBeClickable(driver, drpcheckbox, 250).click();
+		
+		///wait///	
+	//Thread.sleep(3000);
+	//drptext.click();
+	//Thread.sleep(2000);
+	//drpcheckbox.click();
+		///wait///
+	}
+	public void Alcheck() throws InterruptedException {
+		Baseclass.waitForElementToBeClickable(driver, checkALL, 250).click();
+		
+		//wait///	
+		//checkALL.click();
+		//Thread.sleep(3000);
+		//wait///	
+	}
+
+	public void bguideverification() throws InterruptedException {
+		
+		Baseclass.waitForElementToBeVisible(driver, efilter, 150).sendKeys(pro.getProperty("EnterInvalidYear"));
+		
+		Baseclass.waitForElementToBeVisible(driver, efilter2, 150).sendKeys(pro.getProperty("SearchTextAcesallEngine"));
+		
+		//efilter.sendKeys(pro.getProperty("EnterInvalidYear"));
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
+		//	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+
+		String actualText = everifynon1ACES.getText();
+		System.out.println("Text.." + actualText);
+		if (actualText.contains(pro.getProperty("EnterInvalidYear"))) {
+			System.out.println("Both are same");
+		} else {
+			System.out.println("Both are not same");
+		}
 
 	}
 
-
 	public void SelectAttributes() throws InterruptedException {
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", showAttribute);
-		showAttribute.click();
-		Thread.sleep(3000);
-		checkBase.click();
-		Thread.sleep(3000);
+		js.executeScript("arguments[0].scrollIntoView();", shownonAttribute);
+		Baseclass.waitForElementToBeClickable(driver, shownonAttribute, 150).click();
+		
+		//wait///
+		//shownonAttribute.click();
+		//Thread.sleep(3000);
+		//no-checkBase.click();
+		//Thread.sleep(3000);
+		//wait///
+		
 		JavascriptExecutor jsk = (JavascriptExecutor) driver;
 		jsk.executeScript("arguments[0].scrollIntoView();", BodyNo2);
-		BodyNo2.click();
+		//BodyNo2.click();
 		Thread.sleep(3000);
 
 	}
 
 
 	public void savebtn() throws InterruptedException {
+		Baseclass.waitForElementToBeClickable(driver, btnSave, 150).click();
 		
-	btnSave.click();
-	Thread.sleep(8000);
+		//wait///	
+	//btnSave.click();
+	//Thread.sleep(8000);
+		
 
 	}
 
 
 	public void acceptAlert() throws InterruptedException{
+		Thread.sleep(2000);
 	Alert alert = driver.switchTo().alert();
 	//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 	System.out.println("Parts Related " + "application added " + alert.getText());
@@ -238,9 +355,12 @@ public class AcesInvalid extends Baseclass {
 
 	@SuppressWarnings("deprecation")
 	public void validate() throws InterruptedException {
-	
-	validate.click();
-	Thread.sleep(8000);
+		Baseclass.waitForElementToBeClickable(driver, validate, 150).click();
+	//wait//	
+	//validate.click();
+	//Thread.sleep(8000);
+		//wait//
+		
 	Alert alert = driver.switchTo().alert();
 	System.out.println(alert.getText());
 	alert.accept();
@@ -254,10 +374,15 @@ public class AcesInvalid extends Baseclass {
 	}
 	
 	public void Reports() throws InterruptedException {
-		eReports.click();
-		Thread.sleep(3000);
-		eAcesInvalid.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, eReports, 150).click();
+		Baseclass.waitForElementToBeClickable(driver, eAcesInvalid, 150).click();
+		
+		//wait//
+		//eReports.click();
+		//Thread.sleep(3000);
+		//eAcesInvalid.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 	
 	public void Versiondd() throws InterruptedException {
@@ -267,14 +392,21 @@ public class AcesInvalid extends Baseclass {
 	}
 	
 	public void Invalidappsearch() throws InterruptedException {
-		eSearch.click();
-		Thread.sleep(2000);
-
+		Baseclass.waitForElementToBeClickable(driver, eSearch, 150).click();
+		
+		//wait//
+	//	eSearch.click();
+		//Thread.sleep(2000);
+		//wait//
 		}
 	
 	public void AcesValue() throws InterruptedException {
-		eGetAcesValue.click();
-		Thread.sleep(2000);
+		Baseclass.waitForElementToBeClickable(driver, eGetAcesValue, 150).click();
+		
+		//wait//
+		//eGetAcesValue.click();
+		//Thread.sleep(2000);
+		//wait//
 		
 		String Acesdata = eAcesValue.getText();
 		System.out.println("AcesValue is "+Acesdata);
@@ -286,9 +418,16 @@ public class AcesInvalid extends Baseclass {
 			System.out.println("Both are not same "+ Acesdata);
 		}
 		}
+	
+	
 	public void Edit() throws InterruptedException {
-		eEdit.click();
-		Thread.sleep(3000);
+		
+		Baseclass.waitForElementToBeClickable(driver, eEdit, 150).click();
+		
+		//wait//
+	//	eEdit.click();
+	//	Thread.sleep(3000);
+		//wait//
 		
 		String MainWindow=driver.getWindowHandle();		
 		
@@ -306,13 +445,23 @@ public class AcesInvalid extends Baseclass {
         
 		Thread.sleep(3000);
 		driver.manage().window().maximize();
-		Thread.sleep(3000);
-		showAttribute.click();
-		Thread.sleep(3000);
-		BodyNo4.click();
-		Thread.sleep(3000);
-		eUpdate.click();
-		Thread.sleep(3000);
+		
+		Baseclass.waitForElementToBeClickable(driver, shownonAttribute, 150).click();
+		
+		Baseclass.waitForElementToBeClickable(driver, BodyNo4, 150).click();
+		Baseclass.waitForElementToBeClickable(driver, eUpdate, 150).click();
+		
+		//wait//
+		//Thread.sleep(3000);
+		//shownonAttribute.click();
+		//Thread.sleep(3000);
+		//BodyNo4.click();
+		//Thread.sleep(3000);
+		//eUpdate.click();
+		//Thread.sleep(3000);
+		//wait//
+		
+		
 		Alert alert = driver.switchTo().alert();
 		System.out.println(alert.getText());
 		alert.accept();
@@ -332,8 +481,14 @@ public class AcesInvalid extends Baseclass {
 		
 		Thread.sleep(10000);
 		driver.switchTo().frame(0);
-		validate.click();
-	Thread.sleep(5000);
+		
+		Baseclass.waitForElementToBeClickable(driver, validate, 150).click();
+		
+		//wait//
+		//validate.click();
+		//Thread.sleep(5000);
+		//wait//
+		
 	Alert alert = driver.switchTo().alert();
 	System.out.println(alert.getText());
 	alert.accept();

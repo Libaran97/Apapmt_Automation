@@ -20,61 +20,105 @@ public class Productattribute_POM extends Baseclass{
 	}
 	
 	
-	@FindBy(xpath="//div[@id='Attribute']")
+	@FindBy(xpath="//div[@id='Attribute_new']/img")
+
 	private WebElement attrlanding;
 	
 
 	@FindBy(xpath="//input[@id='chkSelectAll']")
 	private WebElement chklstattr;
 	
+	@FindBy(xpath="//input[@id='input1']")
+	private WebElement attributeName;
 	
 	@FindBy(xpath="//input[@id='btnSaveData']")
 	private WebElement btnSave;
 	
-	@FindBy(xpath = "(//button[@type='button'])[2]")
+	@FindBy(xpath="//input[@id='btnSaveAttri']")
+	private WebElement btnsave1;
+	
+	//@FindBy(xpath = "(//button[@type='button'])[2]")
+	@FindBy(xpath="/html/body/div[3]/div/div[3]/button[1]")
 	private WebElement eAcceptalert;
 	
 	@FindBy(xpath = "//table[@id=\"Tbl_Attribute\"]/tbody/tr/td[3] //input[@type='text']")
 	private WebElement attrvalue;
 	
-	@FindBy(xpath = "//*[@id='img_delete']/img")
+	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[7]/div/input[1]")
+	private WebElement clkedit;
+	
+	@FindBy(xpath="//input[@id=\"txtAttrData\"]")
+	private WebElement attributedata;
+	
+	@FindBy(xpath = "//*[@id=\"DataTableViewer\"]/tbody/tr/td[7]/div/input[2]")
 	private WebElement deleattru;
 	
+	//@FindBy(xpath="/html/body/div[2]/div/div[3]/button[1]")
+		//private WebElement delAcceptalert;
+		
+	@FindBy(xpath="//select[@id='drpAttrName']")
+	private WebElement attrname;
 	
+	@FindBy(xpath="//input[@id='txtAttrData']")
+	private WebElement attrdata;
 	
 	/*
 	 *partsize check and uncheck 
 	 */
 	
 	public void partattrlanding() throws InterruptedException {
-		attrlanding.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,attrlanding, 250).click();
+		//wait//
+		//attrlanding.click();
+		Thread.sleep(2000);
+		//wait//
 	}
 	
 	
-	public void attrbut() throws InterruptedException {			
-		driver.findElement(By.xpath("//input[@id='chkSelectAll']")).click();		
-		Thread.sleep(3000);
-		attrvalue.sendKeys(pro.getProperty("newpartnos"));
-		Thread.sleep(3000);
+	public void attrbut() throws InterruptedException {		
+		Thread.sleep(4000);
 		
+		//driver.findElement(By.xpath("//input[@id='chkSelectAll']")).click();	
+		Baseclass.waitForElementToBeClickable(driver,attrname, 150).sendKeys(pro.getProperty("Attributemasnameedit"));
+		attrdata.sendKeys("1");
+		//wait//
+		//Thread.sleep(3000);
+		//attrvalue.sendKeys(pro.getProperty("newpartnos"));
+		//Thread.sleep(3000);
+		//wait//
 	}
-	public void attrbutedit() throws InterruptedException {			
-		driver.findElement(By.xpath("//input[@id='chkSelectAll']")).click();		
-		Thread.sleep(3000);
-		attrvalue.sendKeys(pro.getProperty("newpartno"));
-		Thread.sleep(3000);
+	public void attrbutedit() throws InterruptedException {	
+		Thread.sleep(4000);
+		clkedit.click();
+		attributedata.clear();
+		Thread.sleep(2000);
+		attributedata.sendKeys("2");
+		//driver.findElement(By.xpath("//input[@id='chkSelectAll']")).click();	
+		//Baseclass.waitForElementToBeClickable(driver,attrvalue, 150).sendKeys(pro.getProperty("newpartno"));
+		Thread.sleep(2000);
 		
+		
+		//wait//
+		//Thread.sleep(3000);
+		//attrvalue.sendKeys(pro.getProperty("newpartno"));
+		//Thread.sleep(3000);
+		//wait//
 	}
 	public void saveattr() throws InterruptedException {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", btnSave);
-		btnSave.click();		
+		
 		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", btnsave1);
+		Baseclass.waitForElementToBeClickable(driver, btnsave1, 150).click();
+		//wait//
+		//btnSave.click();		
+		//Thread.sleep(3000);
+		//wait//
 	}
 	
 	
 	public void acceptalert() throws InterruptedException {
+		Thread.sleep(3000);
 		Alert alert = driver.switchTo().alert();
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Parts" + "Size" + alert.getText());
@@ -82,19 +126,43 @@ public class Productattribute_POM extends Baseclass{
 		Thread.sleep(3000);
 	}
 	public void acceptAlert1() throws Exception {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
-		eAcceptalert.click();
-		Thread.sleep(5000);
+		Thread.sleep(4000);
+		//JavascriptExecutor js = (JavascriptExecutor) driver;
+		//js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
+		Baseclass.waitForElementToBeClickable(driver, eAcceptalert, 250).click();
+		//Baseclass.waitForElementToBeClickable(driver, eAcceptalert, 250).click();
+		//wait//
+		//eAcceptalert.click();
+		//Thread.sleep(5000);
+		//wait//
 	}
 	
 	
-	public void delattr() throws Exception {
+	public void delcheckbox() throws InterruptedException
+	{
+		Thread.sleep(4000);
+		Baseclass.waitForElementToBeClickable(driver, chklstattr,250).click();
 		
-		deleattru.click();
-		attrvalue.sendKeys(pro.getProperty("newpartnos"));
-		Thread.sleep(3000);
-			
+		
+	}
+	
+	public void delattr() throws Exception {
+		Thread.sleep(4000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", deleattru);
+		Baseclass.waitForElementToBeClickable(driver, deleattru, 250).click();
+		Thread.sleep(5000);
+		//Baseclass.waitForElementToBeVisible(driver, attrvalue, 250).sendKeys(pro.getProperty("newpartnos"));
+		//wait//
+		//deleattru.click();
+		//attrvalue.sendKeys(pro.getProperty("newpartnos"));
+		//Thread.sleep(3000);
+		//wait//
+	}
+	
+	public void verify1() throws InterruptedException {
+		Thread.sleep(2000);
+		attributeName.sendKeys("testcurs12");
 	}
 	
 	
@@ -112,8 +180,11 @@ public class Productattribute_POM extends Baseclass{
 	}
 	public void verifyattr1() throws Throwable {
 		
-		chklstattr.click();
-		Thread.sleep(3000);
+		
+		//wait//
+		//chklstattr.click();
+		Thread.sleep(5000);
+		//wait//
 		
 		if (chklstattr.isSelected()) {			
 			System.out.println("Attr is not wrong");

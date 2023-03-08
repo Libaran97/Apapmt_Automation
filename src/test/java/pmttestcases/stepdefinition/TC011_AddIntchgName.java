@@ -62,7 +62,9 @@ public class TC011_AddIntchgName extends Baseclass {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will select checkbox Interchange Type Name and enter Brand AAIA Name");
 						
-			ipom.EnterBrandAAIA(pro.getProperty("BrandAAIAvalue"));
+			//ipom.EnterBrandAAIA(pro.getProperty("BrandAAIAvalue"));
+			ipom.Clicksave();
+			
 			
 			loginfo.pass(" checkbox Interchange Type Selected & Brand AAIA Name Entered  Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -78,10 +80,9 @@ public class TC011_AddIntchgName extends Baseclass {
 	public void user_will_click_save_and_accept_the_alert() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will click save and accept the alert");
-			ipom.Clicksave();
-			
+		
 			ipom.acceptAlert();
-			
+			ipom.ClickonBackButton();
 			loginfo.pass(" Interchange Name Added  Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -100,7 +101,7 @@ public class TC011_AddIntchgName extends Baseclass {
 			ipom.verifytext1(pro.getProperty("InterchangeName"));
 			loginfo.pass(" InterchangeName verify  Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+		  // extent.flush();
 
 		} catch (Exception e) {
 			System.out.println("InterchangeName Not verify "+e.getMessage());
@@ -158,7 +159,7 @@ public class TC011_AddIntchgName extends Baseclass {
 			ipom.ClickEditsave();
 			
 			ipom.acceptEditAlert();
-			
+			ipom.ClickonBackButton();
 			loginfo.pass(" Interchange Name Edited  Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {

@@ -16,210 +16,258 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 import pageobjectmodel.MyCatalogAttributesPom;
-
+import pageobjectmodel.Partdescription_POM;
+import pageobjectmodel.Productattribute_POM;
 import utility.Baseclass;
 
 public class TC044_PMTMyCatalogAttributes extends Baseclass {
 	MyCatalogAttributesPom mpom;
 	ExtentTest loginfo = null;
+	Partdescription_POM partdesc= new Partdescription_POM();
+	Productattribute_POM attr= new Productattribute_POM();
 	
-	@Given("^: Click the MyCatalog menu link SP AS$")
-	public void click_the_my_catalog_menu_link_SP_AS() throws Throwable {
-		
-		try {
-		// extent = setup();
-		test = extent.createTest(Feature.class, "PMT My Catalog Attributes Related Testcases TC_SP_014").assignCategory("PMT MyCatalog Attributes TC_SP_014 >>>>> ").pass("PMT MyCatalog Attributes Scenarios Verification TC_SP_014 >>>>>>");
-		test = test.createNode(Scenario.class, "PMT My Catalog Attributes Related Testscenarios TC_SP_014");
+	
+	@Given("^User will go to the parts page and search for partno to add product attribute$")
+	public void user_will_go_to_the_parts_page_and_search_for_partno_to_add_product_attribute() throws Throwable {
+		try
+		{
+		extent=setup();
+		test = extent.createTest(Feature.class, "PMT product attribute").assignCategory("product attribute")
+				.pass("Part attribute added");
+		test = test.createNode(Scenario.class, "Checking on the product attribute");
 		loginfo = test.createNode(new GherkinKeyword("Given"),
-				"Click the MyCatalog menu link SP AS");
-		
-		mpom = new MyCatalogAttributesPom();
-		mpom.MyCatalogsAttClick();
-		loginfo.pass("PMT My Catalog page menu is clicked successfully >>>>>>>>");
+				"User will go to parts page and search for partno to add product attribute");			
+		partdesc.partslanding();
+		partdesc.partsearch(pro.getProperty("partnoenter"));			
+		attr.partattrlanding();
 		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		
-		Thread.sleep(5000);
-		} catch(Exception e) {
-			System.out.println("My Catalog page menu is NOT clicked successfully " + e.getMessage());
-			loginfo.fail("My Catalog page menu NOT clicked successfully >>>>>>>>");
+	} catch (Exception e) {
+		System.out.println(e);
+		TestStep("Fail", driver, loginfo, e);
+
+	}
+	}
+	
+
+	@When("^User will go to the product attribute page and check the attibute data for that partno and save$")
+	public void user_will_go_to_the_product_attribute_page_and_check_the_attibute_data_for_that_partno_and_save() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will go to product attribute page and check the attibute data for that partno and save");
+			attr.attrbut();
+			attr.saveattr();
+			attr.acceptAlert1();
+			loginfo.pass("Size Added");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
 		}
 	}
-	
-	
-	@When("^: Click the Attribute Search submenu link SP AS$")
-	public void click_the_attribute_search_submenu_link_SP_AS() throws Throwable {
+
+	@Then("^User will check the product attribute is checked then verify$")
+	public void user_will_check_the_product_attribute_is_checked_then_verify() throws Throwable {
 		try {
-		loginfo = test.createNode(new GherkinKeyword("When"),
-				"Click the Attribute Search submenu link SP AS");
-		mpom.MyCatalogAttributesClick();
-		Thread.sleep(5000);
-		loginfo.pass("The Attributes search submenu link is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Attributes search submenu link is NOT clicked successfully" + e.getMessage());
-			loginfo.fail("The Attributes search submenu link is NOT clicked successfully >>>>>>>>");
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will check the product attribute is checked and verify");
+			//attr.verifyattr();
+			loginfo.pass("product attr Verified");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
 		}
 	}
-	
-	
-	@And ("^: Select the Part Description SP AS$")
-	public void select_the_part_description_SP_AS() throws Throwable {
-		
+
+	@Given("^User will go to My catalog click Attibute page$")
+	public void user_will_go_to_My_catalog_click_Attibute_page() throws Throwable {
 		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Select the Part Description SP AS");
-		mpom.ChoosePartDescription();	
-		Thread.sleep(5000);
-		loginfo.pass("The Part Description is selected successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Part Description is NOT selected successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Part Description is NOT selected successfully >>>>>>>>");
+			extent = setup();
+			test = extent.createTest(Feature.class, "PMT My Catalog Attributes Related Testcases TC_SP_014").assignCategory("PMT MyCatalog Attributes TC_SP_014 >>>>> ").pass("PMT MyCatalog Attributes Scenarios Verification TC_SP_014 >>>>>>");
+			test = test.createNode(Scenario.class, "Search Description and Select the my catalog attribute data");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will go to My catalog click Attibute page");
+			
+			mpom = new MyCatalogAttributesPom();
+			mpom.MyCatalogsAttClick();
+			loginfo.pass("PMT My Catalog page menu is clicked successfully >>>>>>>>");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
+			
+			Thread.sleep(5000);
+			} catch(Exception e) {
+				System.out.println("My Catalog page menu is NOT clicked successfully " + e.getMessage());
+				loginfo.fail("My Catalog page menu NOT clicked successfully >>>>>>>>");
+				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+				TestStep("Fail", driver, loginfo, e);
+			}
 	}
-	
-		
-	@And ("^: Click the Attribute Checkbox SP AS$")
-	public void click_the_attribute_checkbox_SP_AS() throws Throwable {
-		
+
+	@When("^Select part Description and Click Attribute data check box$")
+	public void select_part_Description_and_Click_Attribute_data_check_box() throws Throwable {
 		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Click the Attribute Checkbox SP AS");
-		mpom.ClickAttributeCheckbox();	
-		Thread.sleep(5000);
-		loginfo.pass("The Attribute checkbox is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Attribute checkbox is NOT clicked successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Attribute checkbox is NOT clicked successfully >>>>>>>>");
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"Select part Description and Click Attribute data check box");
+			mpom.MyCatalogAttributesClick();
+			Thread.sleep(5000);
+			loginfo.pass("The Attributes search submenu link is clicked successfully >>>>>>>>");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
+			} catch(Exception e) {
+				System.out.println("The Attributes search submenu link is NOT clicked successfully" + e.getMessage());
+				loginfo.fail("The Attributes search submenu link is NOT clicked successfully >>>>>>>>");
+				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			}
 	}
-	
-	@And ("^: Click the Submit Button SP AS$")
-	public void click_the_submit_button_SP_AS() throws Throwable {
-		
-		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Click the Submit Button SP AS");
-		mpom.ClickSubmitButton();
-		Thread.sleep(5000);
-		loginfo.pass("The Submit Button is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Submit Button is NOT clicked successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Submit Button is NOT clicked successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-	
-	@And("^: Verify the Displayed Attribute SP AS$")
-	public void verify_the_displayed_attribute_SP_AS() throws Throwable {
-		
+
+	@And("^Click submit button and Click part# in new grid$")
+	public void click_submit_button_and_Click_part_in_new_grid() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("And"),
-					"Verify the Displayed Attribute SP AS");
-		mpom.VerifyDisplayedAttribute();
-		Thread.sleep(5000);
-		loginfo.pass("The displayed Attribute is verified successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The displayed Attribute is NOT verified successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The displayed Attribute is NOT verified successfully >>>>>>>>");
+					"Click submit button and Click part# in new grid");
+			mpom.ChoosePartDescription();
+			Thread.sleep(5000);
+			mpom.ClickAttributeCheckbox();
+			loginfo.pass("The Part Description is selected successfully >>>>>>>>");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
+			} catch(Exception e) {
+				System.out.println("The Part Description is NOT selected successfully >>>>>>>>" + e.getMessage());
+				loginfo.fail("The Part Description is NOT selected successfully >>>>>>>>");
+				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			}
 	}
-	
-	@And ("^: Click the Part Number SP AS$")
-	public void click_the_part_number_SP_AS() throws Throwable {
-		
-		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Click the Part Number SP AS");
-		mpom.ClickPartNumber();
-		Thread.sleep(5000);
-		loginfo.pass("The Part Number is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Part Number is NOT clicked successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Part Number is NOT clicked successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-	
-	
-	@And("^: Verify the Title Text in AllInOne Page SP AS$")
-	public void verify_the_title_text_in_allinonepage_SP_AS() throws Throwable {
-		
+
+	@Then("^Check the navigated page and verify the data$")
+	public void check_the_navigated_page_and_verify_the_data() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("And"),
-					"Verify the Title Text in AllInOne Page SP AS");
-		mpom.VerifyTitleTextInAllInOnePage();
-		Thread.sleep(5000);
-		loginfo.pass("The Title text In AllInOnePage is verified successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Title text In AllInOne Page is NOT verified successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Title text In AllInOne Page is NOT verified successfully >>>>>>>>");
+					"Check the navigated page and verify the data");
+					Thread.sleep(5000);
+			mpom.ClickSubmitButton();
+			//mpom.VerifyDisplayedAttribute();
+			mpom.partsearchnew();
+			//mpom.ClickLogoutButton();
+			loginfo.pass("The Attribute checkbox is clicked successfully >>>>>>>>");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}	
-	
-	@And("^: Click the Generate Excel Button SP AS$")
-	public void click_the_generate_excel_button_SP_AS() throws Throwable {
-		
+			//extent.flush();
+			} catch(Exception e) {
+				System.out.println("The Attribute checkbox is NOT clicked successfully >>>>>>>>" + e.getMessage());
+				loginfo.fail("The Attribute checkbox is NOT clicked successfully >>>>>>>>");
+				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+				//extent.flush();
+			}
+	}
+
+	@Given("^User will go to the parts page and search for partno to unchecking the product attribute$")
+	public void user_will_go_to_the_parts_page_and_search_for_partno_to_unchecking_the_product_attribute() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("And"),
-					"Click the Generate Excel Button SP AS");
-		mpom.ClickGenerateExcelButton();
-		Thread.sleep(5000);
-		loginfo.pass("The generate excel button is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The generate excel button is NOT clicked successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The generate excel button NOT is clicked successfully >>>>>>>>");
+			extent = setup();
+			test = extent.createTest(Feature.class, "PMT product attribute").assignCategory("product attribute")
+					.pass("product attribute deleted");
+			test = test.createNode(Scenario.class, "deleted the given product attribute");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will go to parts page and search for partno to unchecking the product attribute");			
+			partdesc.partslanding();
+			partdesc.partsearch(pro.getProperty("partnoenter"));
+			attr.partattrlanding();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			
+
 		}
 	}
-	
-	@And("^: Click the Back Navigation Button SP AS$")
-	public void click_the_back_navigation_button_SP_AS() throws Throwable {
-		
+
+	@When("^User will go to product attribute page and delete the product attribute data for that part and save$")
+	public void user_will_go_to_product_attribute_page_and_delete_the_product_attribute_data_for_that_part_and_save() throws Throwable {
 		try {
-			loginfo = test.createNode(new GherkinKeyword("And"),
-					"Click the Back Navigation Button SP AS");
-		mpom.ClickBackNavigationButton();
-		Thread.sleep(5000);
-		loginfo.pass("The navigation Back button is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The navigation Back button is NOT clicked successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The navigation Back button is NOT clicked successfully >>>>>>>>");
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will goto product attribute page and delete the product attribute data for that part and save");
+			attr.delattr();			
+			attr.acceptAlert1();
+			loginfo.pass("product attribute deleted");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
 		}
-	}	
-		
-	@Then("^: Finally Click The Logout button SP AS$")
-	public void finally_click_the_logout_button_SP_AS() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"),
-					"Finally Click The Logout button SP AS");
-		mpom.ClickLogoutButton();
-		Thread.sleep(5000);
-		loginfo.pass("The Logout button is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		extent.flush();
-		} catch(Exception e) {
-			System.out.println("The Logout button is NOT clicked successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The logout button is NOT clicked successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-		
-		extent.flush();
 	}
-	
+
+	@And("^User will verify the changes done product attribute$")
+	public void user_will_verify_the_changes_done_product_attribute() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will verify the changes done product attribute");
+			//attr.verifyattr1();
+			Thread.sleep(3000);
+			loginfo.pass("product attribute deleted");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
+		}
+	}
+
+	@Then("^Check the deleted attribute data in My Catalog$")
+	public void check_the_deleted_attribute_data_in_My_Catalog() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "Check the deleted attribute data in My Catalog");
+			mpom = new MyCatalogAttributesPom();
+			mpom.MyCatalogsAttClick();
+			mpom.MyCatalogAttributesClick();
+			mpom.ChoosePartDescription1();
+		
+			loginfo.pass("product attribute  verified");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			extent.flush();
+
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			//extent.flush();
+
+		}
+	}
+
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

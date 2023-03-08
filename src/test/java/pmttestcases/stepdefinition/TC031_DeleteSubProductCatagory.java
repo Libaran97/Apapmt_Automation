@@ -19,7 +19,7 @@ public class TC031_DeleteSubProductCatagory extends Baseclass {
 	@Given("^User will mousehover and choose the Sub product category page$")
 	public void user_will_mousehover_and_choose_the_Sub_product_category_page() throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, " PMT ProductRelated Delete ")
 					.assignCategory(" Delete SubProductCatagory ").pass(" SubProductCatagory Deleted ");
 			test = test.createNode(Scenario.class, " Deleting SubProductCatagory ");
@@ -51,51 +51,63 @@ public class TC031_DeleteSubProductCatagory extends Baseclass {
 			spdpom.verifytext1(pro.getProperty("subcategoryname"), pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Category selected in drop down and product catagory name Entered Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(" Category Not selected in drop down or product catagory name Not Entered in search box"
 					+ e.getMessage());
 			loginfo.fail("Category Not selected in drop down or product catagory name Not Entered in search box");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
 
 	}
 
-	@When("^User will click Delete Sub product category and accept alert$")
-	public void user_will_click_Delete_Sub_product_category_and_accept_alert() throws Throwable {
+	
+	
+	@Given("^User will mousehover and choose the Sub product category page-Enigne oil$")
+	public void user_will_mousehover_and_choose_the_Sub_product_category_page_Enigne_oil() throws Throwable {
+		try {
+			 //extent=setup();
+				test = extent.createTest(Feature.class, " PMT ProductRelated Delete ")
+						.assignCategory(" Delete SubProductCatagory ").pass(" SubProductCatagory Deleted ");
+				test = test.createNode(Scenario.class, " Deleting SubProductCatagory ");
+				loginfo = test.createNode(new GherkinKeyword("Given"),
+						" User will mousehover and choose the Sub product category page-Enigne oil");
+				spdpom = new DeleteSubProductCatagory();
+				spdpom.clickonSubproductcategory();
+				loginfo.pass(" Sub product category page Successfully ");
+				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			} catch (Exception e) {
+				System.out.println(" Sub product category page Not Clicked " + e.getMessage());
+				loginfo.fail(" Sub product category page Not Clicked ");
+				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			}
+	}
+
+	@When("^User will select Category in drop down and Enter product catagory name in search box-Enigne oil$")
+	public void user_will_select_Category_in_drop_down_and_Enter_product_catagory_name_in_search_box_Enigne_oil() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click Delete Sub product category and accept alert");
+			
 			spdpom.SelectCategory1();
 			spdpom.SelectsearchTextbox1(pro.getProperty("subcategoryname1"));
 			spdpom.ClickDelete();
 			spdpom.acceptAlert();
 			spdpom.acceptAlert();
-			loginfo.pass("Sub product catagory Deleted and Alert Accepted Successfully");
+			
+			spdpom.verifytext2(pro.getProperty("subcategoryname1"), pro.getProperty("DeleteProducttxt"));
+			
+			loginfo.pass("Deleteded Sub product category verify Successfully");
+						loginfo.pass("Sub product catagory Deleted and Alert Accepted Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(" Sub product catagory Not Deleted or Alert Not Accepted" + e.getMessage());
 			loginfo.fail("Sub product catagory Not Deleted or Alert Not Accepted");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
-
-	}
-
-	@Then("^User will Verify Sub product category is deleted or not$")
-	public void user_will_Verify_Sub_product_category_is_deleted_or_not() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"),
-					"User will Verify Sub product category is deleted or not");
-			spdpom.verifytext2(pro.getProperty("subcategoryname1"), pro.getProperty("DeleteProducttxt"));
-			loginfo.pass("Deleteded Sub product category verify Successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
-		} catch (Exception e) {
-			System.out.println("Deleteded Sub product category Not verify " + e.getMessage());
-			loginfo.fail("Deleteded Sub product category Not verify");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
-		}
-
 	}
 
 }

@@ -62,7 +62,7 @@ public class TC012_AddIntchgPartno extends Baseclass {
 			loginfo=test.createNode(new GherkinKeyword("When"),"User will Enter the Interchange Part# and Select grade level");
 			ippom.EnterIntchgpartValue(pro.getProperty("interchangepart"));
 			
-			ippom.SelectGradeLevel(pro.getProperty("GradeLevelValue"));
+			//ippom.SelectGradeLevel(pro.getProperty("GradeLevelValue"));
 			loginfo.pass(" Interchange Part# Entered & grade level Selected  successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			
@@ -73,31 +73,31 @@ public class TC012_AddIntchgPartno extends Baseclass {
 		}
 	}
 
-	@When("^User will select Type code and enter internal & interchange notes$")
-	public void user_will_select_Type_code_and_enter_internal_interchange_notes() throws Throwable {
-		try {
-			loginfo=test.createNode(new GherkinKeyword("When"),"User will select Type code and enter internal & interchange notes");
+	//@When("^User will select Type code and enter internal & interchange notes$")
+	//public void user_will_select_Type_code_and_enter_internal_interchange_notes() throws Throwable {
+		//try {
+		//	loginfo=test.createNode(new GherkinKeyword("When"),"User will select Type code and enter internal & interchange notes");
 			
-			ippom.EnterInternalNotes(pro.getProperty("InternalNotesValue"));
-			ippom.EnterInterchangeNotes(pro.getProperty("InterchangeNotesValue"));
-			loginfo.pass(" Type code Selected and internal & interchange Entered  successfully");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch (Exception e) {
-			System.out.println(" Type code Not Selected or internal & interchange Not Entered "+e.getMessage());
-			loginfo.fail(" Type code Not Selected or internal & interchange Not Entered ");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
+			//ippom.EnterInternalNotes(pro.getProperty("InternalNotesValue"));
+			//ippom.EnterInterchangeNotes(pro.getProperty("InterchangeNotesValue"));
+			//loginfo.pass(" Type code Selected and internal & interchange Entered  successfully");
+			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		//} catch (Exception e) {
+			//System.out.println(" Type code Not Selected or internal & interchange Not Entered "+e.getMessage());
+			//loginfo.fail(" Type code Not Selected or internal & interchange Not Entered ");
+			//loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		//}
 		
 	    
-	}
+	//}
 
 	@Then("^User will click save button and accept the alert$")
 	public void user_will_click_save_button_and_accept_the_alert() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will click save button and accept the alert");
 			ippom.Clicksave();
-			
 			ippom.acceptAlert();
+			ippom.ClickonBackButton();
 			loginfo.pass(" Interchange Part# Added  successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -169,6 +169,7 @@ public class TC012_AddIntchgPartno extends Baseclass {
 			ippom.ClickEditsave();
 			
 			ippom.acceptEditAlert();
+			ippom.ClickonBackButton();
 			loginfo.pass(" Interchange Part# Added  successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {

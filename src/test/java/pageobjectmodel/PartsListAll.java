@@ -33,7 +33,7 @@ public class PartsListAll extends Baseclass{
 	WebElement ePartsDescription;
 	
 	@FindBy(xpath ="//select[@id='MainContent_dropproductline']")
-	WebElement eProductLine;
+	WebElement eProductLine1;
 	
 	@FindBy(xpath ="//input[@id='MainContent_btn_Search']")
 	public WebElement eSearchButton;
@@ -98,15 +98,21 @@ public class PartsListAll extends Baseclass{
 	
 	public void clickonParts() throws InterruptedException {
 		
-		ePartsButton.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,ePartsButton, 250).click();
+		
+		//wait//
+		//ePartsButton.click();
+		//Thread.sleep(3000);
+		//wait//
 		
 	}
 	public void clickonListAll() throws Throwable {
-		Thread.sleep(3000);
-	
-		eListAll.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,eListAll, 250).click();
+		//wait//
+		//Thread.sleep(3000);
+		//eListAll.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 	
 	
@@ -129,27 +135,41 @@ public class PartsListAll extends Baseclass{
 		Prodes.selectByVisibleText(partdesc);
 		
 	}
-	public void SelectProductLine(String linecode) throws InterruptedException {
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Select ProdLine = new Select(eProductLine);
-		ProdLine.selectByVisibleText(linecode);
-		Thread.sleep(3000);
-		
-	}
+
+	
+	 public void SelectProductLine(String linecode) throws InterruptedException {
+	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); Select
+	  ProdLine1 = new Select(eProductLine1);
+	  ProdLine1.selectByVisibleText(linecode); 
+	  Thread.sleep(3000);
+	 
+	 }
+	 
 	public void Clicksearch() throws InterruptedException {
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		eSearchButton.click();
 		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,eSearchButton, 250).click();
+		//wait//
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//eSearchButton.click();
+		//Thread.sleep(3000);
+		//wait//
 		}
 	
 	public void EnterSearchText(String partno) throws InterruptedException {
-		esearchTbox.sendKeys(partno);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver, esearchTbox, 150).sendKeys(partno);
+		
+		//wait//
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//esearchTbox.sendKeys(partno);
+		//Thread.sleep(3000);
+		//wait//
 	}
 	public void ClickEditButton() throws InterruptedException {
-		eEditButton.click();
-		Thread.sleep(3000);
-		
+		Baseclass.waitForElementToBeClickable(driver,eEditButton, 250).click();
+		//wait//
+		//eEditButton.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 	public void VerifyEdit(String Allinone) throws InterruptedException {
 		
@@ -166,8 +186,11 @@ public class PartsListAll extends Baseclass{
 		}
 	}
 	public void ClickDeleteButton() throws InterruptedException {
-		eDeleteButton.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,eDeleteButton, 250).click();
+		//wait//
+		//eDeleteButton.click();
+		//Thread.sleep(3000);
+		//wait//
 		
 	}
 	public void acceptAlert() throws InterruptedException{
@@ -182,9 +205,13 @@ public class PartsListAll extends Baseclass{
 		}
 	public void Verifydelete(String DeleteProducttxt2, String DeleteProducttxt, String categoryname, String subcategoryname, String partdesc, String linecode, String partno) throws InterruptedException {
 		try {
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			eSearchButton.click();
-			Thread.sleep(3000);
+			Baseclass.waitForElementToBeClickable(driver,eSearchButton, 250).click();
+			//wait//
+			//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			//eSearchButton.click();
+			////Thread.sleep(3000);
+			//wait//
+			
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String actualText1= eVerify.getText();
 			System.out.println("Text"+actualText1);
@@ -211,15 +238,17 @@ public class PartsListAll extends Baseclass{
 			Prodes.selectByVisibleText(partdesc);
 			Thread.sleep(3000);
 			
-			Select ProdLine = new Select(eProductLine);
-			ProdLine.selectByVisibleText(linecode);
-			Thread.sleep(3000);
-			
-			eSearchButton.click();
-			Thread.sleep(3000);
-			
-			esearchTbox.sendKeys(partno);
-			Thread.sleep(3000);
+			  Select ProdLine = new Select(eProductLine1);
+			 ProdLine.selectByVisibleText(linecode); Thread.sleep(3000);
+			 
+			 Baseclass.waitForElementToBeClickable(driver,eSearchButton, 250).click();
+			 Baseclass.waitForElementToBeVisible(driver, esearchTbox, 250).sendKeys(partno);
+			//wait//
+			//eSearchButton.click();
+			//Thread.sleep(3000);
+			//esearchTbox.sendKeys(partno);
+			//Thread.sleep(3000);
+			//wait//
 			
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String actualText= eVerify.getText();
@@ -236,17 +265,25 @@ public class PartsListAll extends Baseclass{
 		}
 	}
 	public void ClickDuplicateButton() throws InterruptedException {
-		eDuplicateButton.click();
-		Thread.sleep(3000);
+		
+		 Baseclass.waitForElementToBeClickable(driver,eDuplicateButton, 250).click();
+		//wait//
+		//eDuplicateButton.click();
+		//Thread.sleep(3000);
+		//wait//
 		
 	}
 	
 	public void EnterDpartno(String partno2) throws InterruptedException {
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		epartTbox.sendKeys(partno2);
-		Thread.sleep(3000);
-		eSaveButton.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver, epartTbox, 150).sendKeys(partno2);
+		 Baseclass.waitForElementToBeClickable(driver,eSaveButton, 250).click();
+		//wait//
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//epartTbox.sendKeys(partno2);
+		//Thread.sleep(3000);
+		//eSaveButton.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 	
 	public void acceptAlert2() throws InterruptedException{
@@ -276,9 +313,11 @@ public class PartsListAll extends Baseclass{
 	}
 	
 	public void DuplicateAppprtsButton() throws InterruptedException {
-		ecopyButton.click();
+		 Baseclass.waitForElementToBeClickable(driver,ecopyButton, 250).click();
+		//wait//
+		//ecopyButton.click();
 		Thread.sleep(3000);
-		
+		//wait//
 	}
 	public void createAppartsDuplicate(String subcategoryname, String linecode, String Asearchpart, String partno3) throws InterruptedException {
 		
@@ -292,8 +331,12 @@ public class PartsListAll extends Baseclass{
 		Select ProdLine1 = new Select(eCProductLine);
 		ProdLine1.selectByVisibleText(linecode);
 		Thread.sleep(3000);
+		 Baseclass.waitForElementToBeVisible(driver, eAsearch, 150).sendKeys(Asearchpart);
+		//wait//
+		//eAsearch.sendKeys(Asearchpart);
+		//wait//
 		
-		eAsearch.sendKeys(Asearchpart);
+		
 		System.out.println("Part no enter in Text box ");
 		
 		Thread.sleep(3000);
@@ -302,21 +345,24 @@ public class PartsListAll extends Baseclass{
 		Thread.sleep(3000);
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().contains(partno3)) {
+			if(list.get(i).getText().equalsIgnoreCase(partno3)) {
 				list.get(i).click();
 				break;
 			}
 		}
-		
-		Thread.sleep(3000);
-		ePartsearch.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		eSelectallbtn.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		ecreateduplicatebtn.click();
-		
+		 Baseclass.waitForElementToBeClickable(driver,ePartsearch, 250).click();
+		 Baseclass.waitForElementToBeClickable(driver,eSelectallbtn, 250).click();
+		 Baseclass.waitForElementToBeClickable(driver,ecreateduplicatebtn, 250).click();
+		//wait//
+		//Thread.sleep(5000);
+		//ePartsearch.click();
+		//driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		//eSelectallbtn.click();
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(5000);
+		//ecreateduplicatebtn.click();
+		//wait//
+		
+		Thread.sleep(4000);
 		Alert alert = driver.switchTo().alert();
 		System.out.println(alert.getText());
 		alert.accept();
@@ -327,23 +373,26 @@ public class PartsListAll extends Baseclass{
 	}
 	
 public void clickonReports() throws InterruptedException {
-		
-		eReports.click();
-		Thread.sleep(3000);
+	 Baseclass.waitForElementToBeClickable(driver,eReports, 250).click();
+	//wait//
+		//eReports.click();
+		//Thread.sleep(3000);
+		//wait//
 		
 	}
 	
 	public void clickonDropedPart() throws Throwable {
-		
-		
-		eDropedPart.click();
-		Thread.sleep(3000);
+		 Baseclass.waitForElementToBeClickable(driver,eDropedPart, 250).click();
+		//wait//
+		////eDropedPart.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 	
-	public void SelectDescription(String partdesc) throws InterruptedException {
+	public void SelectDescription(String subcategoryall) throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		Select Description = new Select(ePartdes);
-		Description.selectByVisibleText(partdesc);
+		Description.selectByVisibleText(subcategoryall);
 		Thread.sleep(3000);
 	}
 	
@@ -351,8 +400,11 @@ public void clickonReports() throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		Select Reason = new Select(eReason);
 		Reason.selectByVisibleText(Reason1);
-		Thread.sleep(3000);
-		eSearchbtn.click();
+		 Baseclass.waitForElementToBeClickable(driver,eSearchbtn, 250).click();
+		//wait//
+		//Thread.sleep(5000);
+		//eSearchbtn.click();
+		//wait//
 	}
 	public void Verify(String partno3) throws InterruptedException {
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

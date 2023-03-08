@@ -34,6 +34,7 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
 	}
 
@@ -44,9 +45,11 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click on buyersguide frame and choose the vehicle, make, model & search");
 			bguide.buyerguideclick();
-			bguide.apppartsvehicldropdown(pro.getProperty("vehicletypename0"));
+			bguide.apppartsvehicldropdown(pro.getProperty("vehicletypename"));
 			bguide.apppartsmakedropdown(pro.getProperty("makename"));
+			System.out.println("Print-Navigation");
 			bguide.apppartsmodeldropdown(pro.getProperty("modelname"));
+			bguide.appartsenginetextbox();
 			bguide.apppartsearch();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -60,7 +63,8 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 
 		try {
 			loginfo = test.createNode(new GherkinKeyword("And"), "User will choose an enginebase and click on save");
-			bguide.apppartsenginebase();
+			//bguide.apppartsenginebase();
+			bguide.Alcheck();
 			bguide.savebtn();
 			bguide.acceptAlert();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -84,6 +88,9 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 		}
 	}
 
+	
+	
+	
 	@Given("^User will go to parts page and search for a part# will edit notes$")
 	public void user_will_go_to_parts_page_and_search_for_a_part_will_edit_notes() throws Throwable {
 
@@ -146,12 +153,13 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will see succesfull alert and verify the notes added");
 			bguide.bguideverification();
-			//extent.flush();
+		
 			// bguide.acceptAlert();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
-
+			//extent.flush();
 		}
 	}
 
@@ -159,7 +167,7 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 	public void user_will_go_to_parts_page_and_search_for_a_part_to_delete_the_application() throws Throwable {
 
 		try {
-			 //extent=setup();
+			// extent=setup();
 			test = extent.createTest(Feature.class, "PMT parts buyers guide").assignCategory("Parts Buyersguide Delete")
 					.pass("Buyersguide Application delete");
 			test = test.createNode(Scenario.class, "Delete Application through buyers guide");
@@ -167,7 +175,7 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 					"User will go to parts page and search for a part# to delete the application");
 			bguide = new Buyersguide_POM();
 			bguide.partslanding();
-			bguide.partsearch(pro.getProperty("partnoenter"));
+			bguide.partsearch(pro.getProperty("partvalue1"));
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
@@ -191,19 +199,19 @@ public class TC007_PMT_Buyersguide extends Baseclass {
 	}
 
 	@Then("^User will see succesfull alert and verify the application is deleted from the show grid$")
-	public void user_will_see_succesfull_alert_and_verify_the_application_is_deleted_from_the_show_grid()
-			throws Throwable {
+	public void user_will_see_succesfull_alert_and_verify_the_application_is_deleted_from_the_show_grid()throws Throwable {
 
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will see succesfull alert and verify the application is deleted from the show grid");
 			bguide.acceptAlert1();
+			bguide.deleteAlert();
 			bguide.bguideverificationdel();
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 

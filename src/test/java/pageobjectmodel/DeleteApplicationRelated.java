@@ -11,6 +11,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utility.Baseclass;
@@ -48,8 +49,21 @@ public class DeleteApplicationRelated extends Baseclass {
 	@FindBy(xpath = "//span[@id='select2-drpVehicleType-container']")
 	public WebElement echoosemodel;
 
-	@FindBy(xpath = "//li[text()='Car equi']")
+	@FindBy(xpath = "//li[text()='Car equi test']")
 	public WebElement echooseoption;
+	
+	
+	
+	@FindBy(xpath = "//*[@id='select2-drpMake-container']")
+	public WebElement MakeSelect;
+	
+	@FindBy(xpath = "//li[text()='Car Test']")
+	public WebElement echooseoption01;
+
+
+	@FindBy(xpath = "//li[text()='Car Test02']")
+	public WebElement echooseoption02;
+
 
 	@FindBy(xpath = "//input[@placeholder='Model Name']")
 	public WebElement efilter;
@@ -69,7 +83,7 @@ public class DeleteApplicationRelated extends Baseclass {
 	@FindBy(xpath = "//table[@id='DataTableViewer']/tbody/tr/td[4]/div/input[2]")
 	public WebElement edelmake;
 
-	@FindBy(xpath = "//div[@id='divdeletebtn_10200|0']/img")
+	@FindBy(xpath = "//div[@id=\"divdeletebtn_163|0\"]/img")
 	public WebElement edelvehicletypegroup;
 
 	@FindBy(xpath = "(//div[@class='edit_icon_ver'])[2]")
@@ -111,7 +125,7 @@ public class DeleteApplicationRelated extends Baseclass {
 	public void Clickeqvehciletypegroup() throws InterruptedException {
 		Actions action = new Actions(driver);
 		action.moveToElement(master).build().perform();
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		eeqvehciletypegroup.click();
 		WebDriverWait wait2 = new WebDriverWait(driver, 120);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='btnadd_new']")));
@@ -120,7 +134,7 @@ public class DeleteApplicationRelated extends Baseclass {
 	public void Clickeqvehcile() throws InterruptedException {
 		Actions action = new Actions(driver);
 		action.moveToElement(master).build().perform();
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		eeqvehcile.click();
 		WebDriverWait wait2 = new WebDriverWait(driver, 120);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='btnadd_new']")));
@@ -132,17 +146,41 @@ public class DeleteApplicationRelated extends Baseclass {
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"MainContent_txtMelling\"]")));
 	}
 
-	public void eDeletemodel(String modelnameeqedit) throws Throwable {
+	public void eDeletemodel(String modelnameeqedit) throws InterruptedException {
 		echoosemodel.click();
 		Thread.sleep(5000);
 		echooseoption.click();
 		Thread.sleep(5000);
+		MakeSelect.click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//li[text()='make equipment test']")).click();
+		Thread.sleep(2000);
+		
 		efilter.sendKeys(modelnameeqedit);
 		Thread.sleep(3000);
 		edelmodel.click();
 		Thread.sleep(3000);
 	}
-
+	public void eDeletemodel01(String modelname) throws Throwable {
+		echoosemodel.click();
+		Thread.sleep(5000);
+		echooseoption01.click();
+		Thread.sleep(5000);
+		efilter.sendKeys(modelname);
+		Thread.sleep(3000);
+		edelmodel.click();
+		Thread.sleep(3000);
+	}
+	public void eDeletemodel02(String modelname0) throws Throwable {
+		echoosemodel.click();
+		Thread.sleep(5000);
+		echooseoption02.click();
+		Thread.sleep(5000);
+		efilter.sendKeys(modelname0);
+		Thread.sleep(3000);
+		edelmodel.click();
+		Thread.sleep(3000);
+	}
 	public void eDeletemake(String makenameeqedit) throws Throwable {
 		echoosemodel.click();
 		Thread.sleep(5000);
@@ -167,7 +205,18 @@ public class DeleteApplicationRelated extends Baseclass {
 		edelvehicletype.click();
 		Thread.sleep(3000);
 	}
-
+	public void eDeleteeqvehicle01(String vehicletypename) throws Throwable {
+		efilter3.sendKeys(vehicletypename);
+		Thread.sleep(5000);
+		edelvehicletype.click();
+		Thread.sleep(3000);
+	}
+	public void eDeleteeqvehicle02(String vehicletypename0) throws Throwable {
+		efilter3.sendKeys(vehicletypename0);
+		Thread.sleep(8000);
+		edelvehicletype.click();
+		Thread.sleep(8000);
+	}
 	public void partsearch() throws InterruptedException {
 		epartsearch.sendKeys(pro.getProperty("partno"));
 		Thread.sleep(5000);
@@ -176,7 +225,7 @@ public class DeleteApplicationRelated extends Baseclass {
 
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if (list.get(i).getText().contains(pro.getProperty("partvalue1"))) {
+			if (list.get(i).getText().equalsIgnoreCase(pro.getProperty("partvalue1"))) {
 				list.get(i).click();
 				break;
 			}
@@ -198,10 +247,9 @@ public class DeleteApplicationRelated extends Baseclass {
 		eAcceptalert.click();
 		Thread.sleep(8000);
 	}
-
+//
 	public void acceptAlertbrowser() throws Exception {
 		Alert alert = driver.switchTo().alert();
-		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Browser text " + alert.getText());
 		alert.accept();
 		Thread.sleep(2000);
@@ -213,6 +261,9 @@ public class DeleteApplicationRelated extends Baseclass {
 		try {
 			echooseoption.click();
 			Thread.sleep(5000);
+			MakeSelect.click();
+			driver.findElement(By.xpath("//li[text()='make equipment test']")).click();
+			
 			efilter.sendKeys(modelnameeqedit);
 			Thread.sleep(5000);
 			String text = eVryText.getText();
@@ -226,6 +277,45 @@ public class DeleteApplicationRelated extends Baseclass {
 			System.out.println("Model delete working correctly and it removed");
 		}
 	}
+	public void Verifymodeldel01(String modelname) throws Exception {
+		echoosemodel.click();
+		Thread.sleep(5000);
+		try {
+			echooseoption.click();
+			Thread.sleep(5000);
+			efilter.sendKeys(modelname);
+			Thread.sleep(5000);
+			String text = eVryText.getText();
+			if (text.equals(modelname)) {
+				System.out.println("Both are model name still available");
+
+			} else {
+				System.out.println("Both are model name still available but not correct");
+			}
+		} catch (Exception e) {
+			System.out.println("Model delete working correctly and it removed");
+		}
+	}
+	public void Verifymodeldel02(String modelname0) throws Exception {
+		echoosemodel.click();
+		Thread.sleep(5000);
+		try {
+			echooseoption.click();
+			Thread.sleep(5000);
+			efilter.sendKeys(modelname0);
+			Thread.sleep(5000);
+			String text = eVryText.getText();
+			if (text.equals(modelname0)) {
+				System.out.println("Both are model name still available");
+
+			} else {
+				System.out.println("Both are model name still available but not correct");
+			}
+		} catch (Exception e) {
+			System.out.println("Model delete working correctly and it removed");
+		}
+	}
+
 
 	public void Verifymakedel(String makenameeqedit) throws Exception {
 		echoosemodel.click();
@@ -278,6 +368,32 @@ public class DeleteApplicationRelated extends Baseclass {
 			System.out.println("Both are Equipment vehicle  name still available but not correct");
 		}
 	}
+	
+	public void Verifyvehicle01(String vehicletypename, String DeleteProducttxt) throws Exception {
+
+		efilter3.sendKeys(vehicletypename);
+		Thread.sleep(5000);
+		String text = eVryText.getText();
+		if (text.equals(DeleteProducttxt)) {
+			System.out.println("Both are vehicle name delete perfect.");
+
+		} else {
+			System.out.println("Both are Equipment vehicle  name still available but not correct");
+		}
+	}
+	
+	public void Verifyvehicle02(String vehicletypename0, String DeleteProducttxt) throws Exception {
+
+		efilter3.sendKeys(vehicletypename0);
+		Thread.sleep(5000);
+		String text = eVryText.getText();
+		if (text.equals(DeleteProducttxt)) {
+			System.out.println("Both are vehicle name delete perfect.");
+
+		} else {
+			System.out.println("Both are Equipment vehicle  name still available but not correct");
+		}
+	}
 
 	public void Verifypartdel() throws Exception {
 		try {
@@ -288,7 +404,7 @@ public class DeleteApplicationRelated extends Baseclass {
 
 			for (int i = 0; i < list.size(); i++) {
 				System.out.println(list.get(i).getText());
-				if (list.get(i).getText().contains(pro.getProperty("partvalue1"))) {
+				if (list.get(i).getText().equalsIgnoreCase(pro.getProperty("partvalue1"))) {
 					list.get(i).click();
 					break;
 				}

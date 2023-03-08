@@ -7,7 +7,9 @@
 	import com.aventstack.extentreports.GherkinKeyword;
 	import com.aventstack.extentreports.gherkin.model.Feature;
 	import com.aventstack.extentreports.gherkin.model.Scenario;
-	import cucumber.api.java.en.Given;
+
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 	import cucumber.api.java.en.Then;
 	import cucumber.api.java.en.When;
 	import pageobjectmodel.MultiAddPom2;
@@ -23,7 +25,7 @@ import utility.Baseclass;
 		@Given("^: user will Click the Search button$")
 		public void user_will_Click_the_Search_button() throws Throwable {
 			try {
-				//extent = setup();
+				extent = setup();
 				test = extent.createTest(Feature.class, "Check the Description add in singele in all page_TN039")
 						.assignCategory("PIES Single in All page ").pass("Description is add verified");
 				test = test.createNode(Scenario.class, "user will Click the add button");
@@ -58,13 +60,14 @@ import utility.Baseclass;
 			}
 		}
 	
-		@When("^: user will verify the Add product line,Notes and description$")
+		@And("^: user will verify the Add product line,Notes and description$")
 		public void user_will_verify_the_Add_product_line_Notes_and_description() throws Throwable {
 			try {
 				loginfo = test.createNode(new GherkinKeyword("When"),
 						"user will verify the Add product line,Notes and description");
 				spom1.descriptionaddoption("descriptionNotestype","Region");
-				spom1.searchbt();
+			
+				//spom1.searchbt();
 				spom1.Verifydescriptionadd("descriptionNotestype","Region");
 				loginfo.pass("user will verify the Add product line,Notes and description");
 				System.out.println("user will verify the Add product line,Notes and description added");
@@ -84,12 +87,12 @@ import utility.Baseclass;
 				System.out.println("**Finally click the Description added success**");
 				loginfo.pass("Finally click the Description added success");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				// extent.flush();
+				 //extent.flush();
 			} catch (Exception e) {
 				System.out.println("**Finally click the Description added failed**");
 				loginfo.fail("Finally click the Description added failed");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-				// extent.flush();
+				//extent.flush();
 			}
 		}
 	
@@ -131,12 +134,12 @@ import utility.Baseclass;
 			}
 		}
 	
-		@When("^: user will verify the edited description value$")
+		@And("^: user will verify the edited description value$")
 		public void user_will_verify_the_edited_description_value() throws Throwable {
 			try {
 				loginfo = test.createNode(new GherkinKeyword("When"), "user will verify the edited description value");
-				spom1.searchbt();
-				spom1.VerifyEditchange("notesdata");
+				//spom1.searchbt();
+				//spom1.VerifyEditchange(pro.getProperty("notesdata"));
 				loginfo.pass("user will verify the Add product line,Notes and description");
 				System.out.println("user will verify the Add product line,Notes and description added");
 				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -188,6 +191,7 @@ import utility.Baseclass;
 		public void user_will_click_the_delete_options() throws Throwable {
 			try {
 				loginfo = test.createNode(new GherkinKeyword("When"), "user will click the delete options");
+				spom1.descedit();
 				spom1.delete();
 				JavascriptExecutor js = (JavascriptExecutor) driver;
 				WebElement element = driver.findElement(By.xpath("//*[@class='btn btn-primary']"));

@@ -21,272 +21,251 @@ public class TC043_PMTMyCatalogInterchange extends Baseclass {
 	MyCatalogInterchangePom mpom;
 	ExtentTest loginfo = null;
 	
-	@Given("^: Click the My Catalog menu link SP INT$")
-	public void click_the_my_catalog_menu_link_SP_INT() throws Throwable {
-		
+	
+	
+	@Given("^User go to the parts page and Search part#$")
+	public void user_go_to_the_parts_page_and_Search_part() throws Throwable {
 		try {
-		// extent = setup();
-		test = extent.createTest(Feature.class, "PMT My Catalog Interchange Related Testcases TC_SP_009").assignCategory("PMT MyCatalog Interchange TC_SP_009 >>>>> ").pass("PMT MyCatalog Interchange Scenarios Verification TC_SP_009 >>>>>>");
-		test = test.createNode(Scenario.class, "PMT My Catalog Interchange Related Testscenarios TC_SP_009");
-		loginfo = test.createNode(new GherkinKeyword("Given"),
-				"Click the My Catalog menu link SP INT");
-		
-		mpom = new MyCatalogInterchangePom();
-		mpom.MyCatalogsClick();
-		loginfo.pass("My Catalog page menu is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		Thread.sleep(5000);
-		} catch(Exception e) {
-			System.out.println("My Catalog page menu is NOT clicked successfully" + e.getMessage());
-			loginfo.fail("My Catalog page menu is NOT clicked successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			extent = setup();
+			test = extent.createTest(Feature.class, "My catalog Interchange").assignCategory("Category")
+					.pass("category added thanks");
+			test = test.createNode(Scenario.class, "Adding Interchange in part page");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User go to the parts page and Search part#");
+			mpom=new MyCatalogInterchangePom();
+			mpom.partslanding();
+			mpom.partsearch(pro.getProperty("Partvalue"));
+			
+			loginfo.pass("parts landed successfully");
+	}
+		catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			System.out.println(e);
+		}}
+
+	@When("^User will click the interchange sub module and choose Interchange name,Enter Interchange part# and save part$")
+	public void user_will_click_the_interchange_sub_module_and_choose_Interchange_name_Enter_Interchange_part_and_save_part() throws Throwable {
+		try {
+		
+		loginfo = test.createNode(new GherkinKeyword("When"),
+				"User will click the interchange sub module and choose Interchange name,Enter Interchange part#and click save");
+		mpom.interchangesclick();
+		mpom.interchangedrpdownnotes();
+		mpom.Competitorpartno(pro.getProperty("Enterpartpart"));
+		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		
+			
+	}
+	catch (Exception e) {
+		TestStep("Fail", driver, loginfo, e);
+		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		System.out.println(e);
+	}
+	
+	
+	}
+
+	@Then("^User will see successfull alert and verify the record$")
+	public void user_will_see_successfull_alert_and_verify_the_record() throws Throwable {
+	   try {
+		   loginfo = test.createNode(new GherkinKeyword("Then"),
+					"User will see successfull alert and verify the record#");  
+		    mpom.savebtn();
+			mpom.acceptAlert();
+		    mpom.VerifyInterchange(pro.getProperty("Enterpartpart"));
+		// extent.flush();
+	   }
+		catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			System.out.println(e);
+			//extent.flush();
 		}
 	}
 
-	@When("^: Click the Interchange submenu link SP INT$")
-	public void click_the_interchange_submenu_link_SP_INT() throws Throwable {
+	@Given("^User go to the my catalog interchange and search Interchange part#$")
+	public void user_go_to_the_my_catalog_interchange_and_search_Interchange_part() throws Throwable {
+	    
+		try {
+			//extent = setup();
+			test = extent.createTest(Feature.class, "My catalog Interchange").assignCategory("Category")
+					.pass("category added thanks");
+			test = test.createNode(Scenario.class, "Search Interchange part in My catalog");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User go to the my catalog interchange and search Interchange part#");
+			mpom=new MyCatalogInterchangePom();
+			mpom.MyCatalogsClick();
+			mpom.MyCatalogInterchangeClick();
+			mpom.EnterInterchangePartNumber(pro.getProperty("Enterpartpart"));
+			mpom.EqualsOption();
+			mpom.ClickSearchButton();
+			//extent.flush();
+		}
+			catch (Exception e) {
+				TestStep("Fail", driver, loginfo, e);
+				loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+				System.out.println(e);
+				//extent.flush();
+			}
+		
+	}
+
+	@When("^Click part number check All in one page$")
+	public void click_part_number_check_All_in_one_page() throws Throwable {
+	    try {
+	    	loginfo = test.createNode(new GherkinKeyword("When"),
+					"Click part number check All in one page#");	
+	    	mpom.partclick();
+	    	Thread.sleep(4000);
+	    	loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+	    	//extent.flush();
+	    }
+		
+		catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			System.out.println(e);
+			//extent.flush();
+		}
+	
+	}
+
+	@Then("^Back to Interchnage page$")
+	public void back_to_Interchnage_page() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"Back to Interchnage page#");
+			mpom.ClickBackNavigationButton();
+			mpom.ClickBackNavigationButton1();
+			//extent.flush();
+		}
+		catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			System.out.println(e);
+			//extent.flush();
+		}
+	
+	}
+
+	@Given("^User will go to the parts page and Search part#$")
+	public void user_will_go_to_the_parts_page_and_Search_part() throws Throwable {
+		try {
+			extent = setup();
+			test = extent.createTest(Feature.class, "My catalog Interchange").assignCategory("Category")
+					.pass("category Deleted thanks");
+			test = test.createNode(Scenario.class, "Deleting Interchange in part page");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will go to the parts page and Search part#");
+			mpom=new MyCatalogInterchangePom();
+			mpom.partslanding();
+			mpom.partsearch(pro.getProperty("Partvalue"));	
+		}
+		catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			System.out.println(e);
+			//extent.flush();
+		}
+		
+	}
+
+	@When("^User will go to interchange sub module and click delete$")
+	public void user_will_go_to_interchange_sub_module_and_click_delete() throws Throwable {
+		try {
+	    	loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will go to interchange sub module and click delete#");
+	    	mpom.interchangesclick();
+	    	mpom.deletepartinter();
+	    	mpom.acceptDeleteAlert();
+	    	mpom.acceptDeleteAlert();	
+		}
+		catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			System.out.println(e);
+			//extent.flush();
+		}
+		
+	}
+
+	@Then("^User will handle the deleted alert and verify the record$")
+	public void user_will_handle_the_deleted_alert_and_verify_the_record() throws Throwable {
+		try {
+		loginfo = test.createNode(new GherkinKeyword("Then"),
+				"User will handle the deleted alert and verify the record#");
+		mpom.VerifyDeleteIntchange(pro.getProperty("partno2"), pro.getProperty("DeleteProducttxt"));
+		//extent.flush();
+		}
+		catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			System.out.println(e);
+			//extent.flush();
+		}
+			
+		
+	}
+
+	@Given("^User will go to my catalog interchange and Interchange part#$")
+	public void user_will_go_to_my_catalog_interchange_and_Interchange_part() throws Throwable {
+		try {
+			extent = setup();
+			test = extent.createTest(Feature.class, "My catalog Interchange").assignCategory("Category")
+					.pass("category searched thanks");
+			test = test.createNode(Scenario.class, "Search Deleted part search");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will go to my catalog interchange and Interchange part#");
+			mpom=new MyCatalogInterchangePom();
+			mpom.MyCatalogsClick();
+			mpom.MyCatalogInterchangeClick();
+			mpom.EnterInterchangePartNumber(pro.getProperty("Enterpartpart"));
+			mpom.EqualsOption();
+			
+			
+	}
+		catch (Exception e) {
+		TestStep("Fail", driver, loginfo, e);
+		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		System.out.println(e);
+		
+	}
+	}
+
+	@When("^user will not see the deleted part# search$")
+	public void user_will_not_see_the_deleted_part_search() throws Throwable {
 		try {
 		loginfo = test.createNode(new GherkinKeyword("When"),
-				"Click the Interchange submenu link SP INT");
-		mpom.MyCatalogInterchangeClick();
-		Thread.sleep(5000);
-		loginfo.pass("The Interchange submenu link is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Interchange submenu link is not clicked successfully" + e.getMessage());
-			loginfo.fail("The Interchange submenu link is NOT clicked successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-	
-	@And("^: Click the Part Description Link SP INT$")
-	public void click_the_part_description_link_SP_INT() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("And"),
-					"Click the Part Description Link SP INT");
-		mpom.ClickPartDescriptionLink();
-		Thread.sleep(5000);
-		loginfo.pass("The Part description link is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The part description link is NOT clicked successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The part description link is NOT clicked successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-
-	@And ("^: Click the Interchange Link SP INT$")
-	public void click_the_interchange_link_SP_INT() throws Throwable {
-		
-		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Click the Interchange Link SP INT");
-		mpom.ClickInterchangeOELink();	
-		Thread.sleep(5000);
-		loginfo.pass("The Interchange link is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Interchange link is NOT clicked successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Interchange link is NOT clicked successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-
-	
-	@And("^: Click the Part Number Link SP INT$")
-	public void click_the_part_number_link_SP_INT() throws Throwable {
-		
-		try {
-			loginfo = test.createNode(new GherkinKeyword("And"),
-					"Click the Part Number Link SP INT");
-		mpom.ClickPartNumberLink();
-		Thread.sleep(5000);
-		loginfo.pass("The Part Number Link is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Part Number Link is NOT clicked successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Part Number Link is NOT clicked successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-	
-	@And ("^: Fetch the Interchange Part Number SP INT$")
-	public void fetch_the_interchange_part_number_SP_INT() throws Throwable {
-		
-		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Fetch the Interchange Part Number SP INT");
-		mpom.FetchInterchangePartNumber();	
-		Thread.sleep(5000);
-		loginfo.pass("The Interchange Part Number is fetched successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Interchange Part Number is NOT fetched successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Interchange Part Number is NOT fetched successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	} 
-	
-	@And ("^: Enter the Interchange Part Number SP INT$")
-	public void enter_the_interchange_part_number_SP_INT() throws Throwable {
-		
-		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Enter the Interchange Part Number SP INT");
-		mpom.EnterInterchangePartNumber();	
-		Thread.sleep(5000);
-		loginfo.pass("The Interchange Part Number is entered successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Interchange Part Number is NOT entered successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Interchange Part Number is NOT entered successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-	
-	@And ("^: Select the Begins With Option SP INT$")
-	public void select_the_begins_with_option_SP_INT() throws Throwable {
-		
-		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Select the Begins With Option SP INT");
-		mpom.SelectBeginWithOption();
-		Thread.sleep(5000);
-		loginfo.pass("The Begins With option is selected successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Begins With option is NOT selected successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Begins With option is NOT selected successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-	
-	@And ("^: Select the Contains Option SP INT$")
-	public void select_the_contains_option_SP_INT() throws Throwable {
-		
-		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Select the Contains Option SP INT");
-		mpom.ContainsOption();
-		Thread.sleep(5000);
-		loginfo.pass("The Contains option is selected successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Contains option is NOT selected successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Contains option is NOT selected successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-	
-	@And ("^: Select the Ends With Option SP INT$")
-	public void select_the_ends_with_option_SP_INT() throws Throwable {
-		
-		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Select the Ends With Option SP INT");
-		mpom.EndsWithOption();
-		Thread.sleep(5000);
-		loginfo.pass("The Ends With option is selected successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Ends With option is NOT selected successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Ends With option is NOT selected successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-	
-	@And ("^: Select the Equals Option SP INT$")
-	public void select_the_equals_option_SP_INT() throws Throwable {
-		
-		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Select the Equals Option SP INT");
-		mpom.EqualsOption();
-		Thread.sleep(5000);
-		loginfo.pass("The Equals option is selected successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Equals option is NOT selected successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Equals option is NOT selected successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}	
-	
-	
-	@And ("^: Click the Search Button SP INT$")
-	public void click_the_search_button_SP_INT() throws Throwable {
-		
-		try {
-		loginfo = test.createNode(new GherkinKeyword("And"),
-				"Click the Search Button SP INT");
+				"user will not see the deleted part# search#");
 		mpom.ClickSearchButton();
-		Thread.sleep(5000);
-		loginfo.pass("The Search button is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Search button is NOT clicked successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Search button is NOT clicked successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		}
-	}
-	
-	
-	
-	@And("^: Verify Contents In AllInOne Screen SP INT$")
-	public void verify_contents_in_allinone_screen_SP_INT() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("And"),
-					"Verify Contents In AllInOne Screen SP INT");
-		mpom.VerifyHighlightedRecord();
-		Thread.sleep(5000);
-		loginfo.pass("The contents in the AllInOne page is verified successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The contents in the AllInOne page is NOT verified successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The contents in the AllInOne page NOT verified successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-	
-	@And("^: Verify the Interchange Number SP INT$")
-	public void verify_the_interchange_number_SP_INT() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("And"),
-					"Verify the Interchange Number SP INT");
-		mpom.VerifyInterchangeNumber();
-		Thread.sleep(5000);
-		loginfo.pass("The Interchange number is verified successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Interchange number is NOT verified successfully >>>>>>>>" + e.getMessage());
-			loginfo.fail("The Interchange number is NOT verified successfully >>>>>>>>");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-	
-	@And("^: Click the Back Navigation button SP INT$")
-	public void click_the_back_navigation_button_SP_INT() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("And"),
-					"Click the Back Navigation button SP INT");
-		mpom.ClickBackNavigationButton();
-		Thread.sleep(5000);
 		
-		loginfo.pass("The Back Navigation button is clicked successfully >>>>>>>>");
-		loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		} catch(Exception e) {
-			System.out.println("The Back Navigation button is NOT clicked successfully" + e.getMessage());
-			loginfo.fail("The Back Navigation button is NOT clicked successfully >>>>>>>>");
+		catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			System.out.println(e);
+			
 		}
 	}
-	
+
+	@Then("^handle the alert and print the alert text$")
+	public void handle_the_alert_and_print_the_alert_text() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"),
+					"handle the alert and print the alert text#");
+			mpom.acceptinvalidalert();
+			extent.flush();
+		}
+		catch (Exception e) {
+			TestStep("Fail", driver, loginfo, e);
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			System.out.println(e);
+			extent.flush();
+		}
 		
-	@Then("^: Finally Click The Logout button SP INT$")
-	public void finally_click_the_logout_button_SP_INT() throws Throwable {
-		mpom.ClickLogoutButton();
-		//extent.flush();
-	}		
+		
+	}
+	
 	
 }

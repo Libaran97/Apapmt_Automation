@@ -16,12 +16,14 @@ public class TC016_Packageold extends Baseclass {
 
 	ExtentTest loginfo = null;
 	PartsPackage ppckg;
+	
+	//Package Add//
 
 	@Given("^User will go to parts page and search for a partno$")
 	public void user_will_go_to_parts_page_and_search_for_a_partno() throws Throwable {
 
 		try {
-			//extent = setup();
+			extent = setup();
 			test = extent.createTest(Feature.class, "PMT Parts Package Add, Edit and Delete")
 					.assignCategory("Parts Package").pass("Package add");
 			test = test.createNode(Scenario.class, "Adding Package in old parts page");
@@ -58,7 +60,7 @@ public class TC016_Packageold extends Baseclass {
 
 	}
 
-	@When("^User will Enter Quantity, height, width and Length$")
+	@And("^User will Enter Quantity, height, width and Length$")
 	public void user_will_Enter_Quantity_height_width_and_Length() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "User will Enter Quantity, height, width and Length");
@@ -99,16 +101,18 @@ public class TC016_Packageold extends Baseclass {
 			ppckg.Verify();
 			loginfo.pass("Package Verified Succesfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println("Package Not Verified" + e.getMessage());
 			loginfo.fail("Package Not Verified");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 
+	//Package Edit//
+	
 	@Given("^User will go to parts page and search for partno in Search box$")
 	public void user_will_go_to_parts_page_and_search_for_partno() throws Throwable {
 		try {
@@ -146,7 +150,7 @@ public class TC016_Packageold extends Baseclass {
 		}
 	}
 
-	@When("^User will Edit Quantity and save accept alert$")
+	@And("^User will Edit Quantity and save accept alert$")
 	public void user_will_Edit_Quantity_and_save_accept_alert() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "User will Edit Quantity and save accept alert");
@@ -171,21 +175,23 @@ public class TC016_Packageold extends Baseclass {
 			ppckg.Verifyedit();
 			loginfo.pass("Edited Package Verified Succesfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			 //extent.flush();
 
 		} catch (Exception e) {
 			System.out.println("Edited Package Not Verified" + e.getMessage());
 			loginfo.fail("Edited Package Not Verified");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 
 	}
 
+	//Package Delete//
+	
 	@Given("^User will go to parts page and search for the partno$")
 	public void user_will_go_to_parts_page_and_search_for_the_partno() throws Throwable {
 		try {
-			 //extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT Parts Package Add, Edit and Delete")
 					.assignCategory("Parts Package").pass("Package Delete");
 			test = test.createNode(Scenario.class, "Deleting  Package in old parts page");
@@ -235,7 +241,7 @@ public class TC016_Packageold extends Baseclass {
 			System.out.println("Delete Package Not Verified" + e.getMessage());
 			loginfo.fail("Delete Package Not Verified");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+		//extent.flush();
 		}
 	}
 

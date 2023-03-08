@@ -19,7 +19,7 @@ public class TC030_DeletePartsDescription extends Baseclass {
 	@Given("^User will mousehover and choose the Parts Description page$")
 	public void user_will_mousehover_and_choose_the_Parts_Description_page() throws Throwable {
 		try {
-			// extent=setup();
+		//extent=setup();
 			test = extent.createTest(Feature.class, "PMT ProductRelated Delete")
 					.assignCategory("Delete PartsDescription").pass("PartsDescription Deleted");
 			test = test.createNode(Scenario.class, "Deleting PartsDescription");
@@ -60,11 +60,14 @@ public class TC030_DeletePartsDescription extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will Enter Parts Description name in search box");
-			dpdpom.SelectsearchTextbox(pro.getProperty("partdesc"));
+			dpdpom.SelectsearchTextbox(pro.getProperty("subcategoryname"));
 			dpdpom.ClickDelete();
 			dpdpom.acceptAlert();
-			dpdpom.verifytext1(pro.getProperty("categoryname"), pro.getProperty("subcategoryname"),
-					pro.getProperty("partdesc"), pro.getProperty("DeleteProducttxt"));
+			dpdpom.verifytext1(pro.getProperty("categoryname"),pro.getProperty("DeleteProducttxt"));
+			/*
+			 * , pro.getProperty("subcategoryname"), pro.getProperty("partdesc"),
+			 * pro.getProperty("DeleteProducttxt"));
+			 */
 			loginfo.pass("PartsDescription name Entered Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -81,8 +84,8 @@ public class TC030_DeletePartsDescription extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click Delete Parts Description and accept alert");
 			dpdpom.SelectCategory(pro.getProperty("categoryname1"));
-			dpdpom.SelectSubCategory(pro.getProperty("subcategoryname1"));
-			dpdpom.SelectsearchTextbox(pro.getProperty("subcategoryname1"));
+			//dpdpom.SelectSubCategory(pro.getProperty("subcategoryname1"));
+			dpdpom.SelectsearchTextbox01(pro.getProperty("subcategoryname1"));
 			dpdpom.ClickDelete();
 			dpdpom.acceptAlert();
 			loginfo.pass("PartsDescription Deleted Successfully");
@@ -104,7 +107,7 @@ public class TC030_DeletePartsDescription extends Baseclass {
 					pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Deleteded Parts Description verify Successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleteded Parts Description Not verify " + e.getMessage());
 			loginfo.fail("Deleteded Parts Description Not verify");

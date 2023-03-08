@@ -63,54 +63,45 @@ public class MultiAddPom2 extends Baseclass {
 
 	@FindBy(xpath = "//*[@id='GridView1']/tbody/tr/td")
 	private WebElement everifyvieweditdelete;
-
-	public void partslinked() throws Exception {
-		
-			List<WebElement> list = driver.findElements(By.xpath("//span[@class='chkBottomItem']"));
-			System.out.println("Checkbox values..." + list.size());
-
-			int j = 0;
-			for (int i = 1; i <= list.size(); i++) {
-				j = i - 1;
-				String Year = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblYear_" + j + "\"]")).getText();
-				String Type = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblacesnonaces_" + j + "\"]")).getText();
-				String Engine = driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblEngineBase_" + j + "\"]")).getText();
-				System.out.println("Year value is..." + Year);
-				System.out.println("Type value is..." + Type);
-				System.out.println("Engine Value is..."+Engine);
-				
-				if ((Year.contains(pro.getProperty("EnterYear"))) && (Type.contains(pro.getProperty("Acesvalue"))) && (Engine.contains(pro.getProperty("SearchTextAcesEngine"))))
-				{
-					//driver.findElement(By.xpath("(//span[@class='chkBottomItem'])[" + i + "]")).click();
-					//driver.findElement(By.xpath("//*[@id=\"MainContent_GVData_lblPartsLinked_" + j + "\"]")).click();
-					System.out.println("ELEMENT LOCATED******");
-					try {
-						System.out.println("Test1 pass******");
-						driver.findElement(By.xpath("//*[text()=' Testpart-1']")).click();
-					} catch (Exception e) {
-						System.out.println("Test1 FAIL******");
-					}
-				}
-				else 
-				{
-					continue;
-				}
-				}	
-			
-			//ePartsLinked.click();
-			Thread.sleep(5000);
-		}
+	
+	@FindBy(xpath="//span[@id='MainContent_GVData_lblPartsLinked_0']")
+	private WebElement partlink;
+	
+	
+	
+	public void partlinkednew() throws InterruptedException {
+		//Thread.sleep(2000);
+	//Baseclass.waitForElementToBeClickable(driver, partlink, 250).click();
+	//Thread.sleep(2000);
+		//wait//
+		Thread.sleep(5000);
+		partlink.click();
+	
+	}
+	
 
 	String actual = "";
 
 	public void POPEdit(String vehicletypename0) throws InterruptedException {
-		eeditverifynotes.clear();
-		eeditverifynotes.sendKeys(pro.getProperty("vehicletypename0"));
-		Thread.sleep(5000);
+		
+		Baseclass.waitForElementToBeClickable(driver,eeditverifynotes, 250).clear();
+		Baseclass.waitForElementToBeVisible(driver, eeditverifynotes, 250).sendKeys(pro.getProperty("vehicletypename0"));
+		
+		//wait//
+		//eeditverifynotes.clear();
+		//eeditverifynotes.sendKeys(pro.getProperty("vehicletypename0"));
+		//Thread.sleep(5000);
+		//wait//
+		
+		
 		actual = eeditverifynotes.getText();
 		System.out.println("actual");
-		eok.click();
-		Thread.sleep(5000);
+		
+		Baseclass.waitForElementToBeClickable(driver,eok, 250).click();
+		//wait//
+		//eok.click();
+		//Thread.sleep(5000);
+		//wait//
 
 	}
 
@@ -156,6 +147,7 @@ public class MultiAddPom2 extends Baseclass {
 	}
 
 	public void acceptAlert() throws InterruptedException {
+		Thread.sleep(4000);
 		Alert alert = driver.switchTo().alert();
 		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Application Related: " + pro.getProperty("vehicletypename0") + alert.getText());
@@ -164,6 +156,8 @@ public class MultiAddPom2 extends Baseclass {
 	}
 
 	public void verifyedit(String vehicletypename0) {
+		
+		
 		String expect = pro.getProperty("vehicletypename0");
 		// actual = eeditverifynotes.getText();
 		assertEquals(expect, actual);
@@ -171,25 +165,27 @@ public class MultiAddPom2 extends Baseclass {
 	}
 
 	public void vieweditcancel(String vehicletypename0) throws Throwable {
-		eeditverifynotes.clear();
-		eeditverifynotes.sendKeys(pro.getProperty("vehicletypename0"));
-		Thread.sleep(2000);
-		evieweditCancel.click();
-		Thread.sleep(5000);
+		
+		Baseclass.waitForElementToBeClickable(driver, eeditverifynotes, 250).clear();
+		Baseclass.waitForElementToBeVisible(driver, eeditverifynotes,250).sendKeys(pro.getProperty("vehicletypename0"));
+		Baseclass.waitForElementToBeClickable(driver, evieweditCancel, 250).click();
+		//wait//
+		//eeditverifynotes.clear();
+		//eeditverifynotes.sendKeys(pro.getProperty("vehicletypename0"));
+		//Thread.sleep(2000);
+		//evieweditCancel.click();
+		//Thread.sleep(5000);
+		//wait//
 		System.out.println("Passed the Cancel button");
-		/*
-		 * String actualText = evieweditnotes.getText(); System.out.println("Text" +
-		 * actualText); if (actualText.contains(pro.getProperty("notes"))) {
-		 * System.out.println("Both are same"); } else if
-		 * (actualText.contains("United states")) { System.out.println("Both are same");
-		 * 
-		 * }
-		 */
+	
 	}
 
 	public void vieweditdelete() throws Throwable {
-		evieweditdelete.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,evieweditdelete, 250).click();
+		//wait//
+		//evieweditdelete.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 
 	public void verifyvieweditdelete() throws Throwable {

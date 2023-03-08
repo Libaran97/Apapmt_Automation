@@ -13,41 +13,47 @@ import utility.Baseclass;
 
 public class PartSize_POM extends Baseclass{
 
-	
+
 	public PartSize_POM() {
 		PageFactory.initElements(driver, this);
 	}
-	
-	
+
+
 	@FindBy(xpath="//div[@id='Size']")
 	private WebElement Sizelanding;
-	
+
 	//input[@id='MainContent_chklstsizes_0']//following::label
 	//input[@type='checkbox']//following::label
-	
+
 	//@FindBy(xpath="//input[@id='MainContent_chklstsizes_0']/following::label[2]")
 	@FindBy(xpath="(//input[@type='checkbox'and@name='chklstsizes'] /following:: input)[1]")
 	private WebElement chklstsize;
-	
-	
-	@FindBy(xpath="(//input[@id='btnSave'])[2]")
+
+	@FindBy(xpath="//*[@id='chkSelect']")
+	private WebElement chkSelect;
+
+
+	@FindBy(xpath="//input[@id='btnSave_Size']")
 	private WebElement btnSave;
-	
+
 	@FindBy(xpath = "(//button[@type='button'])[2]")
 	private WebElement eAcceptalert;
-	
-	
-	
+
+
+
 	/*
 	 *partsize check and uncheck 
 	 */
-	
+
 	public void partsizelanding() throws InterruptedException {
-		Sizelanding.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, Sizelanding, 150).click();
+		//wait//
+		//Sizelanding.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
-	
-	
+
+
 	public void addsize() throws InterruptedException {
 		//driver.switchTo().frame(0);
 		//List<WebElement> sizes = driver.findElements(By.xpath("//input[@id='MainContent_chklstsizes_0']/following::label"));
@@ -68,21 +74,26 @@ public class PartSize_POM extends Baseclass{
 			System.out.println("Size is not available");
 		}
 	}*/
-		
-		driver.findElement(By.xpath("//*[@id=\"chkSelect\"]")).click();
+		Thread.sleep(3000);
+		//driver.findElement(By.xpath("//*[@id=\"chkSelect\"]")).click();
+		chkSelect.click();
 		System.out.println("Part Size are checked");
 		Thread.sleep(3000);
 	}
-	
+
 	public void savesize() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
-		btnSave.click();		
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, btnSave,150).click();
+		//wait//
+		//btnSave.click();		
+		//Thread.sleep(3000);
+		//wait//
 	}
-	
-	
+
+
 	public void acceptalert() throws InterruptedException {
+		Thread.sleep(3000);
 		Alert alert = driver.switchTo().alert();
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Parts" + "Size" + alert.getText());
@@ -92,15 +103,18 @@ public class PartSize_POM extends Baseclass{
 	public void acceptAlert1() throws Exception {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
-		eAcceptalert.click();
-		Thread.sleep(8000);
+		Baseclass.waitForElementToBeClickable(driver, eAcceptalert, 250).click();
+		//wait//
+		//eAcceptalert.click();
+		//Thread.sleep(8000);
+		//wait//
 	}
-	
-	
+
+
 	public void unchecksize() throws Exception {
 		//String size = chklstsize.getText();
 		//System.out.println("Available size are ---->" +size);
-			/*driver.switchTo().frame(0);
+		/*driver.switchTo().frame(0);
 			boolean ischecked = false;
 			ischecked = chklstsize.isSelected();
 			if(ischecked = true) {
@@ -109,32 +123,34 @@ public class PartSize_POM extends Baseclass{
 			}else {
 				System.out.println("Size is not unchecked");
 			}*/
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id=\"chkDeselect\"]")).click();
 		System.out.println("Part Size are unchecked");
 		Thread.sleep(3000);
-			
+
 	}
-	
-	
-	public void verifysize() {
+
+
+	public void verifysize() throws InterruptedException {
 		//driver.switchTo().frame(0);
 		//List<WebElement> sizes = driver.findElements(By.xpath("//input[@id='MainContent_chklstsizes_0']/following::label"));
 		//System.out.println("Available size are ---->" + sizes.size());
 		//for(int i=0; i<sizes.size(); i++) {
-			//System.out.println("List of sizes are----->"+sizes.get(i).getText());
-			if(chklstsize.isSelected())
-			{
-				//chklstsize.isSelected();
-				System.out.println("Part Size are checked verified");
-				
-			}else
-			{
-				System.out.println("Size is unchecked verified");
-			}
-		
+		//System.out.println("List of sizes are----->"+sizes.get(i).getText());
+		Thread.sleep(3000);
+		if(chkSelect.isSelected())
+		{
+			//chklstsize.isSelected();
+			System.out.println("Part Size are checked verified");
+
+		}else
+		{
+			System.out.println("Size is unchecked verified");
+		}
+
 	}
-	
-	
+
+
 	/*public void verifysizeremove(String givensize) {
 		driver.switchTo().frame(0);
 		String size = chklstsize.getText();
@@ -148,5 +164,5 @@ public class PartSize_POM extends Baseclass{
 			System.out.println("Size is still checked");
 		}
 	}*/
-	
+
 }

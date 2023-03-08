@@ -25,11 +25,12 @@ public class PartsBom extends Baseclass {
 	@FindBy(xpath="//a[@id='ucMenu_rptLevel1_lnkLink1_3']")
 	private WebElement partspageheaderclick;	
 	
-	@FindBy(xpath="//input[@id='MainContent_txtMelling']")
+	@FindBy(xpath="//*[@id='txtsearchpartno']")
 	private WebElement txtpartsearch;	
 	
-	@FindBy(xpath="(//input[@class='button_search'])[1]")
+	@FindBy(xpath="//input[@class='button_search']")
 	private WebElement btnPsearch;
+	
 	
 	@FindBy(xpath="//*[@id=\"btnEdit\"]/input")
 	private WebElement eeditsave;
@@ -42,37 +43,49 @@ public class PartsBom extends Baseclass {
 	@FindBy(xpath="//div[@id='BOM']")
 	private WebElement ebomclick;
 	
-	@FindBy(xpath="//div[@id='Units']")
+	@FindBy(xpath="//div[@id='Units']")//@FindBy(xpath="//*[@id=\"Units\"]/img")
 	private WebElement eunitclick;
 	
-	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[4]/div/input[1]")
+	
+	
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[4]/div/input[1]")
 	private WebElement euniteditclick;
 	
 	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[4]/div/input[2]")
 	private WebElement eunitdelclick;
 	
 	
-	@FindBy(xpath="//input[@id='txtBomPartno']")
+	@FindBy(xpath="//input[@id='txtBomPartno']")//*[@id="ui-id-4"]
 	private WebElement ebompart;
-	@FindBy(xpath="//input[@id=\"txtunitpartno\"]")
+	
+	@FindBy(xpath="//input[@id='txtunitpartno']")
 	private WebElement eunitpart;
 	
 	
-	@FindBy(xpath="//input[@id=\"txtqty\"]")
+	@FindBy(xpath="//input[@id='txtqty']")
 	private WebElement ebomqty;
 	
+	@FindBy(xpath="//input[@id='txtqty']")
+	private WebElement euomqty;
 	
-	
-	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[8]/div/input[2]")
+	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[8]/div/input[2]")
 	private WebElement ebomdel;
 	
-	@FindBy(xpath="(//input[@id=\"btnSave\"])[2]")
+	//@FindBy(xpath="(//input[@id=\"btnSave\"])[2]")//(//input[@id='btnSave'])[2]
+	@FindBy(xpath="//input[@id='btnSave_BOM']")
 	private WebElement btnSave;
+	
+	@FindBy(xpath="//button[text()='OK']")
+	private WebElement savalertedit;
+	
+	@FindBy(xpath="//input[@id='btnSave_Unit']")
+	private WebElement isunitsave;
+	
 	@FindBy(xpath="(//button[@type=\"button\"])[2]")
 	private WebElement btnSavedel;
 	
 	
-	@FindBy(xpath = "(//button[@type='button'])[2]")
+	@FindBy(xpath = "//*[@class='swal2-confirm swal2-styled']")
 	private WebElement eAcceptalert;
 	
 	@FindBy(xpath = "//input[@placeholder='BOM-Part']")
@@ -81,21 +94,31 @@ public class PartsBom extends Baseclass {
 	@FindBy(xpath = "//input[@placeholder='Units']")
 	private WebElement searcunitpart;
 	
-	@FindBy(xpath = "//input[@placeholder='Qty']")
+	@FindBy(xpath = "//*[@id=\"DataTableViewer\"]/tfoot/tr/th[3]/input")
 	private WebElement searchbomqtytedit;
 	
 	
 	@FindBy(xpath = "//table[@id=\"DataTableViewer\"]/tbody/tr/td[8]/div/input[1]")
 	private WebElement eBOMEditbt;
 	
+	@FindBy(xpath="/html/body/div[3]/div/div[3]/button[1]")
+	private WebElement acceptdelete;
 	
+
+	@FindBy(xpath="//*[@class='swal2-confirm swal2-styled']")
+	private WebElement acceptdelete1;
+	
+	@FindBy(xpath="//button[@class='swal2-confirm swal2-styled']")
+	private WebElement clkdel;
 	
 	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[1]")
 	private WebElement Vrfy;
 	
-	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[3]")
-	private WebElement Vrfy1;	
-	@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td")
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[3]")
+	private WebElement Vrfy1;
+	
+	
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td")
 	private WebElement eVrfydel;
 	
 	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[16]/div/input[1]")
@@ -104,53 +127,225 @@ public class PartsBom extends Baseclass {
 	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[16]/div/input[2]")
 	private WebElement ebtnDelete;
 	
+	@FindBy(xpath="//input[@class='edit_icon_new']")
+	private WebElement partsedit;
+	
+	@FindBy(xpath="//*[@id=\"MainContent_chkIsUnit\"]")
+	private WebElement isunit;
+	
+	 @FindBy(xpath="//div[@id='btnAdd']")
+	 private WebElement addbutton;
+	
+	 @FindBy(xpath="//select[@id='drpProductCategoryAdd']")	
+	 private WebElement selectproductcategory;
+	 
+	 @FindBy(xpath="//select[@id='drpProductSubCategoryAdd']")	
+	 private WebElement selectsubcategorydropdown;
+	 
+	 @FindBy(xpath="//select[@id='drpPartDescriptionAdd']")	
+	 private WebElement selectpartdescdropdown;
+	 
+	 @FindBy(xpath="//*[@id='drpproductline']")	
+	 private WebElement drpproductline;
+	 
+	 @FindBy(xpath="//textarea[@id='MainContent_txtPart']")
+	 private WebElement txtPart1;
+	 
+	 @FindBy(xpath="//input[@id='btnSave']")	
+	 private WebElement btnSave2;
+	 
+	 @FindBy(xpath="//input[@id='MainContent_chkIsUnit']")
+	 private WebElement isnot;
+	 
+	public void partslandingpage() throws InterruptedException{
+		Baseclass.waitForElementToBeClickable(driver, partspageheaderclick, 150).click();
+		Baseclass.waitForElementToBeClickable(driver, addbutton, 150).click();
+		//wait//
+		//partspageheaderclick.click();
+		//Thread.sleep(7000);
+		//addbutton.click();
+		//Thread.sleep(7000);
+		//wait//
+	}
+	public void partsadd1() throws InterruptedException {
+		Thread.sleep(2000);
+		WebElement categoryselect = selectproductcategory;
+		Select select = new Select(categoryselect);
+		select.selectByVisibleText(pro.getProperty("categoryname1"));
+		Thread.sleep(4000);
+				
+	}
+	public void partsadddrp21() throws InterruptedException {
+		WebElement subcategoryselect = selectsubcategorydropdown;
+		Select select = new Select(subcategoryselect);
+		select.selectByVisibleText(pro.getProperty("subcategoryname1"));
+		Thread.sleep(4000);
+	}
+	
+	public void partsadddrp31() throws InterruptedException {
+		WebElement partdescselect = selectpartdescdropdown;
+		Select select = new Select(partdescselect);
+		select.selectByVisibleText(pro.getProperty("subcategoryname1"));
+		Thread.sleep(4000);
+	}
+	public void partsadddrp41() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", drpproductline);
+		Thread.sleep(6000);
+		WebElement prdctlnselect = drpproductline;
+		Select select = new Select(prdctlnselect);
+		select.selectByVisibleText(pro.getProperty("linecodename"));
+		Thread.sleep(4000);
+	}
+	public void isunitnot() throws InterruptedException {
+		Baseclass.waitForElementToBeClickable(driver, isnot, 150).isSelected();
+		Baseclass.waitForElementToBeClickable(driver, isnot, 150).click();
+		//wait//
+		//isnot.isSelected();
+		//isnot.click();
+		//Thread.sleep(2000);
+		//wait//
+	}
+	public void savenewpart1(String partno12) throws InterruptedException {
+		Thread.sleep(2000);
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("window.scrollBy(0,250)");
+		Baseclass.waitForElementToBeVisible(driver, txtPart1, 150).sendKeys(partno12);
+		//wait//
+		//txtPart1.sendKeys(partno12);
+		//Thread.sleep(2000);
+		//wait//
+		
+		//JavascriptExecutor js = (JavascriptExecutor) driver;
+		//js.executeScript("arguments[0].scrollIntoView();", btnSave2);
+		//Baseclass.waitForElementToBeClickable(driver, btnSave2, 150).click();
+		
+		//wait//
+		btnSave2.click();
+		Thread.sleep(5000);
+		//wait//
+	}
+	public void acceptAlert() throws InterruptedException{
+		Thread.sleep(3000);
+		Alert alert = driver.switchTo().alert();
+		System.out.println("Parts Related " + alert.getText());
+		alert.accept();
+		Thread.sleep(3000);
+		
+	}
 	
 	public void partslanding() {
-		partspageheaderclick.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Baseclass.waitForElementToBeClickable(driver, partspageheaderclick, 150).click();
+		//wait//
+		//partspageheaderclick.click();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//wait//
 	}
-	
+public void partsearch1(String partno12) throws InterruptedException {
+	Baseclass.waitForElementToBeVisible(driver, txtpartsearch, 150).sendKeys(partno12);
+	Thread.sleep(3000);
+		List<WebElement> list = driver.findElements(By.xpath("//*[@class='ui-menu-item-wrapper']"));
+		//System.out.println("total number of parts-->" + list.size());
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i).getText());
+			if(list.get(i).getText().equalsIgnoreCase("Testpart-04 | Engine oil test | AutoapatestAPATest"))
+					
+			{
+				list.get(i).click();
+				break;
+			}
+			
+		}
+		Baseclass.waitForElementToBeClickable(driver, btnPsearch,150).click();
+		//wait//
+		//btnPsearch.click();
+		//Thread.sleep(3000);
+		//wait//
+}
+
+public void scrolldown() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;		
+		js.executeScript("arguments[0].scrollIntoView();",partsedit);
+		Baseclass.waitForElementToBeClickable(driver, partsedit,150).click();
+		Baseclass.waitForElementToBeClickable(driver,isunit, 150).click();
+		//wait//
+		//partsedit.click();
+		//Thread.sleep(5000);
+		//isunit.click();
+		//Thread.sleep(5000);
+		//wait//
+		
+	}
+
+
 	public void partsearch(String partnoenter) throws InterruptedException {
-		txtpartsearch.sendKeys(partnoenter);
-		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ACBehavior_completionListElem']//li"));
+		Baseclass.waitForElementToBeVisible(driver,txtpartsearch, 150).sendKeys(partnoenter);
+		//wait//
+		//txtpartsearch.sendKeys(partnoenter);
+		//wait//
+		Thread.sleep(2000);
+		List<WebElement> list = driver.findElements(By.xpath("//*[@id='ui-id-1']//li"));
 		System.out.println("total number of parts-->" + list.size());
-		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().contains("Testpart-1 | Ignition Coil Test | Autoapa3")) {
+			if(list.get(i).getText().equalsIgnoreCase("Testpart-1 | Engine oil test | Autoapa3APATest")) {
 				list.get(i).click();
 				break;
 			}
+			
 		}
-		btnPsearch.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,btnPsearch, 150).click();
+		
+		//wait//
+		//btnPsearch.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
+
 	public void partsearchunit(String partnoenter) throws InterruptedException {
-		txtpartsearch.sendKeys(partnoenter);
+		
+		Baseclass.waitForElementToBeVisible(driver, txtpartsearch,150).sendKeys(partnoenter);
+		//wait//
+		//txtpartsearch.sendKeys(partnoenter);
+		//wait//
+		Thread.sleep(2000);
 		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ACBehavior_completionListElem']//li"));
 		System.out.println("total number of parts-->" + list.size());
 		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().contains("Testpart-2 | Ignition Coil Test | Autoapa3")) {
+			if(list.get(i).getText().equalsIgnoreCase("Testpart-2 | Ignition Coil Test | Autoapa3")) {
 				list.get(i).click();
 				break;
 			}
 		}
-		btnPsearch.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, btnPsearch, 150).click();
+		
+		//wait//
+		//btnPsearch.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 	
 	public void parteditsave() throws Exception
 	{
 		JavascriptExecutor js = (JavascriptExecutor) driver;		
 		js.executeScript("arguments[0].scrollIntoView();",eeditsave);
-		eeditsave.click();
-		Thread.sleep(3000);
-		eunitbtcheck.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, eeditsave, 150).click();
+		Baseclass.waitForElementToBeClickable(driver, eunitbtcheck, 150).click();
+		//wait//
+		//eeditsave.click();
+		//Thread.sleep(3000);
+		//eunitbtcheck.click();
+		//Thread.sleep(3000);
+		//wait//
+		
 		js.executeScript("arguments[0].scrollIntoView();",eunitsaves);
-		eunitsaves.click();
+		Baseclass.waitForElementToBeClickable(driver,eunitsaves, 150).click();
+		//wait//
+		//eunitsaves.click();
+		//wait//
+		
 		Thread.sleep(3000);
 		
 		Alert alert = driver.switchTo().alert();
@@ -158,166 +353,271 @@ public class PartsBom extends Baseclass {
 		System.out.println("parts is..:" + alert.getText());
 		Thread.sleep(3000);
 		alert.accept();
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 		
 	}
 	public void bomclick() throws InterruptedException {
-		ebomclick.click();
-		Thread.sleep(3000);
+		
+		Baseclass.waitForElementToBeClickable(driver,ebomclick, 150).click();
+		//wait//
+		//ebomclick.click();
+	//	Thread.sleep(8000);
+		//wait//
 		}
 	
 	public void unitclick() throws InterruptedException {
-		eunitclick.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,eunitclick, 150).click();
+		
+		//wait//
+		//Thread.sleep(2000);
+		//eunitclick.click();
+		//Thread.sleep(3000);
+		//wait//
 		}
 	public void uniteditclick() throws InterruptedException {
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;		
 		js.executeScript("arguments[0].scrollIntoView();",euniteditclick);
-		euniteditclick.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,euniteditclick, 150).click();
+		Thread.sleep(2000);
+		//wait//
+		//euniteditclick.click();
+		//Thread.sleep(3000);
+		//wait//
 		}
 	
 	public void unitdelclick() throws InterruptedException {
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;		
 		js.executeScript("arguments[0].scrollIntoView();",eunitdelclick);
-		eunitdelclick.click();
+		Baseclass.waitForElementToBeClickable(driver,eunitdelclick, 150).click();
+		//wait//
+		//eunitdelclick.click();
+		//Thread.sleep(3000);
+		//wait//
+		
+		
+		js.executeScript("arguments[0].scrollIntoView();",acceptdelete);
+		Baseclass.waitForElementToBeClickable(driver,acceptdelete, 150).click();
+		//wait//
 		Thread.sleep(3000);
+		acceptdelete.click();
+		Thread.sleep(3000);
+		//wait//
+		
 		}
+	
 	
 	public void BOMEditbt() throws InterruptedException {
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;		
 		js.executeScript("arguments[0].scrollIntoView();",eBOMEditbt);
-		eBOMEditbt.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,eBOMEditbt, 150).click();
+		
+		//wait//
+		//eBOMEditbt.click();
+		Thread.sleep(2000);
+		//wait//
 		}
 	
-	
-	public void bompartandqty(String partnoenter,String bompart) throws Exception
-	{
-		ebompart.sendKeys(partnoenter);
+	//String partnoenter,
+	public void bompartandqty(String partno12) throws Exception {
+		Baseclass.waitForElementToBeVisible(driver, ebompart, 250).sendKeys(partno12);
+		
+		
+		//wait//
+		//ebompart.sendKeys(partnoenter);
+		//Thread.sleep(2000);
+		//wait//
+		
 		Thread.sleep(2000);
-		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ui-id-1']//li"));
+		List<WebElement> list = driver.findElements(By.xpath("//div[@class='ui-menu-item-wrapper']"));
 		System.out.println("total number of parts-->" + list.size());
 		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().equals(bompart)) {
+				if(list.get(i).getText().equals("Testpart-04 | Engine oil test | AutoapatestAPATest")) {
 				list.get(i).click();
 				break;
 			}
 		}
-		Thread.sleep(3000);
-		/*ebompart.sendKeys(pro.getProperty("bompart"));
-		Thread.sleep(3000);*/
-		ebomqty.sendKeys(pro.getProperty("qtydata"));
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		Baseclass.waitForElementToBeVisible(driver,ebomqty, 150).sendKeys(pro.getProperty("qtydata"));
+		//wait//
+		//ebomqty.sendKeys(pro.getProperty("qtydata"));
+		//Thread.sleep(3000);
+		//wait//
+		
 	}
 	
-	public void unitpartandqty(String partnoenter,String Enterpartpart) throws Exception
+	public void unitpartandqty(String partno1) throws Exception
 	{
-		/*
-		ebomqty.clear();
+		Baseclass.waitForElementToBeVisible(driver,eunitpart, 150).sendKeys(partno1);
+		//wait//
+		//eunitpart.sendKeys(partnoenter);
+		//Thread.sleep(2000);
+		//wait//
 		Thread.sleep(2000);
-		ebomqty.sendKeys(pro.getProperty("qtydata"));
-		Thread.sleep(2000);*/
-		eunitpart.sendKeys(partnoenter);
-		Thread.sleep(2000);
-		
-		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ui-id-1']//li"));
+		List<WebElement> list = driver.findElements(By.xpath("//ul[@class='ui-menu ui-widget ui-widget-content ui-autocomplete ui-front']//li"));
 		System.out.println("total number of parts-->" + list.size());
 		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().equals(Enterpartpart)) {
+			if(list.get(i).getText().equals(partno1)) {
 				list.get(i).click();
 				break;
 			}
 		}
-		Thread.sleep(3000);
-		/*ebompart.sendKeys(pro.getProperty("bompart"));
-		Thread.sleep(3000);*/
+		
+		
 		
 	}
 	
 	public void unitpartandqtyedit(String partnoenter,String Enterpartpart) throws Exception
 	{
-		ebomqty.clear();
-		Thread.sleep(2000);
-		ebomqty.sendKeys(pro.getProperty("qtydata"));
-		Thread.sleep(2000);
-		/*eunitpart.sendKeys(partnoenter);
-		Thread.sleep(2000);
 		
-		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ui-id-1']//li"));
-		System.out.println("total number of parts-->" + list.size());
-		
-		for(int i=0; i<list.size(); i++) {
-			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().equals(Enterpartpart)) {
-				list.get(i).click();
-				break;
-			}
-		}*/
-		Thread.sleep(3000);
-		/*ebompart.sendKeys(pro.getProperty("bompart"));
-		Thread.sleep(3000);*/
-		
+		Baseclass.waitForElementToBeClickable(driver, ebomqty, 150).click();
+		Baseclass.waitForElementToBeVisible(driver,ebomqty, 150).sendKeys(pro.getProperty("qtydata"));
+		//wait//
+		//ebomqty.clear();
+		//Thread.sleep(2000);
+		//ebomqty.sendKeys(pro.getProperty("qtydata"));
+		//Thread.sleep(2000);
+		//wait//
 	}
-	public void bompartandqtyedit() throws Exception{
-		ebomqty.clear();
+	public void bompartandqtyedit(String partnoenter) throws Exception{
+		Baseclass.waitForElementToBeVisible(driver,ebompart, 150).sendKeys(partnoenter);
+		
+		//wait//
+			//ebompart.sendKeys(partnoenter);
+			//wait//
 		Thread.sleep(2000);
-		ebomqty.sendKeys(pro.getProperty("UomQtyEdit"));
-		Thread.sleep(3000);
+			List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ui-id-1']//li"));
+			System.out.println("total number of parts-->" + list.size());
+			
+			for(int i=0; i<list.size(); i++) {
+				System.out.println(list.get(i).getText());
+				if(list.get(i).getText().equalsIgnoreCase("Testpart-2 | Ignition Coil Test | Autoapa3APATest")) {
+					list.get(i).click();
+					break;
+				}
+			}
+	
+	}
+	
+	public void UomQty() throws InterruptedException {
+		Baseclass.waitForElementToBeClickable(driver, ebomqty, 150).clear();
+		Baseclass.waitForElementToBeVisible(driver,ebomqty, 150).sendKeys(pro.getProperty("UomQtyEdit"));
+		
+		//wait//
+		//ebomqty.clear();
+		//Thread.sleep(2000);
+		//ebomqty.sendKeys(pro.getProperty("UomQtyEdit"));
+		//Thread.sleep(3000);
+		//wait//
+		
 	}
 	public void bomdelbt() throws Exception{
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;		
 		js.executeScript("arguments[0].scrollIntoView();",ebomdel);
-		ebomdel.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, ebomdel, 150).click();
+		//wait//
+		//ebomdel.click();
+		Thread.sleep(2000);
+		//wait//
 		
+		js.executeScript("arguments[0].scrollIntoView();",acceptdelete1);
+		Baseclass.waitForElementToBeClickable(driver, acceptdelete1, 150).click();
+		//wait//
+		Thread.sleep(4000);
+		acceptdelete1.click();
+		Thread.sleep(4000);
+		//wait//
+	}
+	
+		
+	public void SaveisunitAlert1() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;		
+		js.executeScript("arguments[0].scrollIntoView();",isunitsave);
+		Baseclass.waitForElementToBeClickable(driver,isunitsave, 150).click();
+		
+		//wait//
+		//isunitsave.click();
+		//wait//
+		WebElement pop=driver.findElement(By.xpath("//button[@class='swal2-confirm swal2-styled']"));
+		Thread.sleep(4000);
+		//Thread.sleep(3000);
+		//Alert alert=driver.switchTo().alert();
+		//System.out.println(alert.getText());
+		//alert.accept();
+		//Thread.sleep(8000);
 	}
 
 	public void SaveAcceptAlert() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;		
 		js.executeScript("arguments[0].scrollIntoView();",btnSave);
-		btnSave.click();
-		Thread.sleep(3000);
-		/*Alert alert=driver.switchTo().alert();
-		System.out.println(alert.getText());
-		alert.accept();
-		Thread.sleep(3000);*/
+		Baseclass.waitForElementToBeClickable(driver,btnSave, 150).click();
+		Thread.sleep(2000);
+		//wait//
+		//btnSave.click();
+		//Thread.sleep(3000);
+		//wait//
+		
 	
 		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
-		eAcceptalert.click();
-		Thread.sleep(6000);
+		Baseclass.waitForElementToBeClickable(driver,eAcceptalert, 150).click();
+		Thread.sleep(2000);
+		//wait//
+		//eAcceptalert.click();
+		//Thread.sleep(6000);
+		//wait//
+	}
+	public void Unitpartandqtyedit() throws Exception{
+		Baseclass.waitForElementToBeClickable(driver,euomqty, 150).clear();
+		Baseclass.waitForElementToBeVisible(driver, euomqty, 150).sendKeys(pro.getProperty("qtydata"));
+		
+		//wait//
+		//euomqty.clear();
+		///Thread.sleep(2000);
+		//euomqty.sendKeys(pro.getProperty("qtydata"));
+		//Thread.sleep(3000);
+		//wait//
+		
 	}
 	public void SaveAcceptAlertdel() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;		
-		js.executeScript("arguments[0].scrollIntoView();",btnSavedel);
-		btnSavedel.click();
-		Thread.sleep(3000);
-		/*Alert alert=driver.switchTo().alert();
-		System.out.println(alert.getText());
-		alert.accept();
-		Thread.sleep(3000);*/
-		js.executeScript("arguments[0].scrollIntoView();",btnSavedel);
-		btnSavedel.click();
-		Thread.sleep(3000);
-	
+		js.executeScript("arguments[0].scrollIntoView();",isunitsave);
+		Baseclass.waitForElementToBeClickable(driver,isunitsave, 150).click();
+		
+		//wait//
+		////btnSave.click();
+		///sThread.sleep(3000);
+		//wait//
+		
 	}
-	
+	public void savealert() throws InterruptedException {
+		Baseclass.waitForElementToBeClickable(driver,savalertedit, 150).click();
+		//wait//
+		//savalertedit.click();
+		//Thread.sleep(2000);
+		//wait//
+	}
 	@SuppressWarnings("deprecation")
 	public void Verify() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", searchbompart);
-		searchbompart.sendKeys(pro.getProperty("bompart"));
+		Baseclass.waitForElementToBeVisible(driver, searchbompart, 150).sendKeys(pro.getProperty("partno_"));
+		//wait//
+		//searchbompart.sendKeys(pro.getProperty("partno_12"));
+		//wait//
 		
 		js.executeScript("arguments[0].scrollIntoView();", Vrfy);
 		String Text=Vrfy.getText();
 		
 		System.out.println(Text);
 		
-		if (Text.contains(pro.getProperty("bompart")))
+		if (Text.contains(pro.getProperty("partno_")))
 		{
 			System.out.println("Both are same");
 		}
@@ -331,14 +631,17 @@ public class PartsBom extends Baseclass {
 	public void Verifyunit() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", searcunitpart);
-		searcunitpart.sendKeys(pro.getProperty("Enterpartpart"));
+		Baseclass.waitForElementToBeVisible(driver,searcunitpart, 150).sendKeys(pro.getProperty("partno1"));
+		//wait//
+		//searcunitpart.sendKeys(pro.getProperty("Enterpartpart1"));
+		//wait//
 		
 		js.executeScript("arguments[0].scrollIntoView();", Vrfy);
 		String Text=Vrfy.getText();
 		
 		System.out.println(Text);
 		
-		if (Text.contains(pro.getProperty("Enterpartpart")))
+		if (Text.contains(pro.getProperty("partno1")))
 		{
 			System.out.println("Both are same");
 		}
@@ -350,12 +653,17 @@ public class PartsBom extends Baseclass {
 		
 	}
 	public void Verifyunitedit() throws InterruptedException {
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", searchbomqtytedit);
-		searchbomqtytedit.sendKeys(pro.getProperty("qtydata"));
+		Baseclass.waitForElementToBeVisible(driver, searchbomqtytedit, 150).sendKeys(pro.getProperty("qtydata"));
+		//wait//
+		//searchbomqtytedit.sendKeys(pro.getProperty("qtydata"));
+		//wait//
 		
-		js.executeScript("arguments[0].scrollIntoView();", Vrfy);
-		String Text=Vrfy.getText();
+		
+		js.executeScript("arguments[0].scrollIntoView();", Vrfy1);
+		String Text=Vrfy1.getText();
 		
 		System.out.println(Text);
 		
@@ -376,7 +684,10 @@ public class PartsBom extends Baseclass {
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", searchbomqtytedit);
-		searchbomqtytedit.sendKeys(pro.getProperty("UomQtyEdit"));
+		Baseclass.waitForElementToBeVisible(driver, searchbomqtytedit, 150).sendKeys(pro.getProperty("UomQtyEdit"));
+		//wait//
+		//searchbomqtytedit.sendKeys(pro.getProperty("UomQtyEdit"));
+		//wait//
 		
 		js.executeScript("arguments[0].scrollIntoView();", Vrfy1);
 		String Text=Vrfy1.getText();
@@ -400,53 +711,68 @@ public class PartsBom extends Baseclass {
 		//driver.switchTo().frame(0);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ebtnEdit);
-		ebtnEdit.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, ebtnEdit,150).click();
+		//wait//
+		//ebtnEdit.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 	
 			
 	@SuppressWarnings("deprecation")
 	public void DeleteVerifybom() throws InterruptedException {
-		
-		try {
+			Thread.sleep(3000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView();", searchbomqtytedit);
-			searchbomqtytedit.sendKeys(pro.getProperty("UomQtyEdit"));
+			Baseclass.waitForElementToBeVisible(driver, searchbomqtytedit, 150).sendKeys(pro.getProperty("UomQtyEdit"));
+			//wait//
+			//searchbomqtytedit.sendKeys(pro.getProperty("UomQtyEdit"));
+			//driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+			//wait//
 			
 			js.executeScript("arguments[0].scrollIntoView();", eVrfydel);
-			String Text=eVrfydel.getText();
+			Baseclass.waitForElementToBeClickable(driver, eVrfydel,150).click();
+			//wait//
+			//eVrfydel.click();
+			//wait//
 			
+			
+			String Text=eVrfydel.getText();
+             
 			System.out.println(Text);
 			
-			if (Text.contains(pro.getProperty("DeleteProducttxt")))
+			if (Text.contains(pro.getProperty("UomQtyEdit")))
 			{
-				System.out.println("bom deleted success");
+				System.out.println("Both are same");
 			}
-			if (Text.contains(pro.getProperty("DeleteProducttxt2")))
-					{
-						System.out.println("bom deleted successs");
-					}
 			else
 			{
 				System.out.println("Both are not same");
 			}
-		} catch (Exception e) {
-			System.out.println("bom deleted success");
+		
+			
 		}
+			
+		
+		
 	
-	}
 	
 public void DeleteVerifyunit() throws InterruptedException {
 		
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView();", searchbomqtytedit);
-			searchbomqtytedit.sendKeys(pro.getProperty("qtydata"));
+			Baseclass.waitForElementToBeVisible(driver, searchbomqtytedit, 150).sendKeys(pro.getProperty("qtydata"));
+			
+			//wait//
+			//searchbomqtytedit.sendKeys(pro.getProperty("qtydata"));
+			//wait//
 			
 			js.executeScript("arguments[0].scrollIntoView();", eVrfydel);
 			String Text=eVrfydel.getText();
 			
 			System.out.println(Text);
+		
 			
 			if (Text.contains(pro.getProperty("DeleteProducttxt")))
 			{

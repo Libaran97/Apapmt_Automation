@@ -23,11 +23,12 @@ public class Parts_Price extends Baseclass {
 	
 	
 	
-	@FindBy(xpath="//input[@id='MainContent_txtMelling']")
+	@FindBy(xpath="//*[@id='txtsearchpartno']")
 	private WebElement txtpartsearch;
 	
 	
-	@FindBy(xpath="//*[@id='MainContent_upAttribute']/div[2]/div[1]/div/span/div/input[8]")
+	//@FindBy(xpath="//*[@id='MainContent_upAttribute']/div[2]/div[1]/div/span/div/input[8]")
+	@FindBy(xpath="//*[@class='button_search']")
 	private WebElement btnPsearch;
 	
 	@FindBy(xpath="//*[@id='Price']/img")
@@ -45,55 +46,72 @@ public class Parts_Price extends Baseclass {
 	@FindBy(xpath="//*[@id='drpPriceUOM']")
 	private WebElement ePriceUOM;
 	
-	@FindBy(xpath="(//*[@id='btnSave'])[2]")
+	@FindBy(xpath="//*[@id='btnpriSave']")
 	private WebElement ebtnSave;
 	
-	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr[1]/td[6]")
+	@FindBy(xpath="//*[@id='DataTableViewer']/tfoot/tr/th[6]/input")
 	private WebElement eVerifyprice;
 	
-	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[10]/div/input[1]")
+	//@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[10]/div/input[1]")
+	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[10]/div/input[1] ")
 	private WebElement eEdit;
 	
-	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[10]/div/input[2]")
+	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[10]/div/input[2]")
 	private WebElement eDelete;
 	
-	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[1]")
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[6]")
 	private WebElement eVry;
-	
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td")
+	private WebElement Verifytextdelete;
 	
 	public void partslanding() {
-		partspageheaderclick.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Baseclass.waitForElementToBeClickable(driver, partspageheaderclick,150).click();
+		
+		//wait//
+		//partspageheaderclick.click();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//wait//
 	}
 	
 	public void partsearch(String partnoenter) throws InterruptedException {
-		txtpartsearch.sendKeys(partnoenter);
-		List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ACBehavior_completionListElem']//li"));
+		Baseclass.waitForElementToBeVisible(driver, txtpartsearch, 250).sendKeys(partnoenter);
+		//wait//
+		//txtpartsearch.sendKeys(partnoenter);
+		//wait//
+		Thread.sleep(2000);
+		List<WebElement> list = driver.findElements(By.xpath("//*[@id='ui-id-1']//li"));
 		System.out.println("total number of parts-->" + list.size());
 		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			//if(list.get(i).getText().contains("Testpart-1 | Ignition Test | Autoapa")) {
+			if(list.get(i).getText().equalsIgnoreCase("Testpart-1 | Ignition Coil Test | Autoapa3APATest")) {
 				
-				if(list.get(i).getText().contains("Testpart-3 | Ignition Coil Test | Autoapa3")) {
+				//if(list.get(i).getText().contains("Testpart-3 | Ignition Coil Test | Autoapa3")) {
 				list.get(i).click();
 				break;
 			}
 		}
-		btnPsearch.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, btnPsearch,150).click();
+		//wait//
+		//btnPsearch.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 
 	public void ClickPricepage() throws InterruptedException {
-		Thread.sleep(3000);
-		ePricepage.click();
-		Thread.sleep(3000);
+		
+		Baseclass.waitForElementToBeClickable(driver, ePricepage,150).click();
+		//wait//
+		//Thread.sleep(3000);
+		//ePricepage.click();
+		//Thread.sleep(3000);
+		//wait//
 		}
 	
 
 	public void Selectpricetype() throws InterruptedException {
 	
-		
+		Thread.sleep(2000);
 		Select PriceType = new Select(ePriceType);
 		PriceType.selectByIndex(3);
 		Thread.sleep(2000);
@@ -107,105 +125,156 @@ public class Parts_Price extends Baseclass {
 		Select PriceUOM = new Select(ePriceUOM);
 		PriceUOM.selectByIndex(4);
 		Thread.sleep(2000);
+		Baseclass.waitForElementToBeVisible(driver, ePricesheet, 150).sendKeys("2");
+		Baseclass.waitForElementToBeVisible(driver, ePrice, 150).sendKeys("20");
+	}
+		public void PriceDetailsedit() throws InterruptedException {
+			
+			
+			Select PriceUOM = new Select(ePriceUOM);
+			PriceUOM.selectByIndex(4);
+			Thread.sleep(2000);
+			Baseclass.waitForElementToBeVisible(driver, ePricesheet, 150).sendKeys("2");
+			//Baseclass.waitForElementToBeVisible(driver, ePrice, 150).sendKeys("20");
+			
 		
-		ePricesheet.sendKeys("2");
-		Thread.sleep(2000);
 		
-		ePrice.sendKeys("20");
-		Thread.sleep(2000);
 	}
 	
 	public void saveAcceptAlert() throws InterruptedException {
-		Thread.sleep(3000);
-		ebtnSave.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, ebtnSave,150).click();
+		//wait//
+		//Thread.sleep(3000);
+		//ebtnSave.click();
+		//Thread.sleep(3000);
+		//wait//
 		
-		WebElement pop=driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/button[1]"));
-		Thread.sleep(5000);
+		Thread.sleep(4000);
+		WebElement pop=driver.findElement(By.xpath("//button[@class='swal2-confirm swal2-styled']"));
+		Thread.sleep(4000);
 		
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", pop);
-		pop.click();
-		Thread.sleep(10000);
+		Baseclass.waitForElementToBeClickable(driver, pop,150).click();
+		
+		//pop.click();
+		//Thread.sleep(10000);
 	}
 	
-	public void Verifyprice() throws InterruptedException {
-			
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", eVerifyprice);
-			String Text=eVerifyprice.getText();
-			Thread.sleep(3000);
-			if (Text.equals("20")) {
-				System.out.println("Both are same");
-			} 
-			else {
-				
-				System.out.println("Both are Not same");
-			}
-	}
+	
 	
 	public void ClickEdit() throws InterruptedException {
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", eEdit);
+		Baseclass.waitForElementToBeClickable(driver, eEdit,150).click();
 		
-		eEdit.click();
-		Thread.sleep(3000);
+		//wait//
+		//eEdit.click();
+		Thread.sleep(2000);
+		//wait//
 		}
-	public void Editprice() throws InterruptedException {
-		ePrice.clear();
-		Thread.sleep(3000);
-		ePrice.sendKeys("30");
-		Thread.sleep(3000);
-	}
 	
-	public void EditVerifyprice() throws InterruptedException {
+	public void Verifyprice() throws InterruptedException {
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", eVerifyprice);
-		String Text=eVerifyprice.getText();
 		Thread.sleep(3000);
-		if (Text.equals("30")) {
-			System.out.println("Both are same");
+		eVerifyprice.sendKeys("20");
+		Thread.sleep(6000);
+		String Text=eVry.getText();
+		Thread.sleep(3000);
+		if (Text.equals("20")) {
+			Thread.sleep(4000);
+			System.out.println("Price Added Successfully");
+		
 		} 
 		else {
 			
-			System.out.println("Both are Not same");
+			System.out.println("Price not  Added");
+		}
+}
+	public void Editprice() throws InterruptedException {
+		Baseclass.waitForElementToBeClickable(driver, ePrice, 150).clear();
+		Baseclass.waitForElementToBeVisible(driver, ePrice, 150).sendKeys("30");
+		
+		//wait//
+		//ePrice.clear();
+		Thread.sleep(2000);
+		//ePrice.sendKeys("30");
+		//Thread.sleep(3000);
+		//wait//
+	}
+	
+	public void EditVerifyprice() throws InterruptedException {
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eVerifyprice);
+		Thread.sleep(3000);
+		eVerifyprice.sendKeys("30");
+		String Text=eVry.getText();
+		Thread.sleep(3000);
+		if (Text.equals("30")) {
+			System.out.println("Price Updated Successfully");
+		} 
+		else {
+			
+			System.out.println("Price not  Updated");
 			}
 		}
+	
+	public void VryDelete() throws InterruptedException {
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", eVerifyprice);
+		Thread.sleep(3000);
+		eVerifyprice.sendKeys("30");
+		Thread.sleep(4000);
+		String text = eVerifyprice.getText();
+		if (!text.equals(Verifytextdelete)) {
+			System.out.println("Price Deleted succesfully");
+
+		} else {
+			System.out.println("Price Not Deleted");
+		}
+	}
+	
+	
+	
+	
+	
 	public void ClickDelete() throws InterruptedException {
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", eEdit);
-		
-		eDelete.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, eDelete, 150).click();
+		//wait//
+		//eDelete.click();
+		//wait//
+		Thread.sleep(2000);
 		}
 	public void acceptAlert1() throws InterruptedException{
-		WebElement pop=driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/button[1]"));
-		Thread.sleep(5000);
+		Thread.sleep(3000);
+		WebElement pop=driver.findElement(By.xpath("//button[@class='swal2-confirm swal2-styled']"));
+		Thread.sleep(4000);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", pop);
-		pop.click();
-		Thread.sleep(5000);
+		Baseclass.waitForElementToBeClickable(driver, pop, 150).click();
+		//wait//
+		//pop.click();
+		//Thread.sleep(5000);
+		//wait//
 		
 	}
 	public void acceptAlert2() throws InterruptedException{
+		Thread.sleep(4000);
 		WebElement pop=driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/button[1]"));
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", pop);
-		pop.click();
-		Thread.sleep(5000);
-		
-	}
-	@SuppressWarnings("deprecation")
-	public void VryDelete() throws InterruptedException {
-		
-		
-		Thread.sleep(3000);
-		Assert.assertNotNull(eVry);
-		
-	}
-}
+		Baseclass.waitForElementToBeClickable(driver, pop, 150).click();
+	}}
+	

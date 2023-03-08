@@ -5,6 +5,7 @@ import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
 import com.aventstack.extentreports.gherkin.model.Scenario;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -18,7 +19,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 	@Given("^: user will select the Multiadd page with application$")
 	public void user_will_select_the_Multiadd_page_with_application() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent
 					.createTest(Feature.class,
 							"Check the multiplepart part linked verfication in the grid -first-TC036")
@@ -26,9 +27,10 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			test = test.createNode(Scenario.class, "user will select the Multiadd page with application");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"user will select the Multiadd page with application");
-			// mpom1 = new MultiAddPom();
+			 mpom1 = new MultiAddPom();
 			mpom1.Application();
 			mpom1.Multiaddbt();
+			Thread.sleep(5000);
 			loginfo.pass("Application and Multiadd page landed successfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -45,10 +47,13 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("when"),
 					"user will chose the all chosed Vehicle,make,model along with click the");
+			Thread.sleep(6000);
 			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
-			mpom1.Makedata(pro.getProperty("makename"));
-			mpom1.Modeldata(pro.getProperty("modelname"));
+			mpom1.Makedata(pro.getProperty("makename0"));
+			mpom1.Modeldata(pro.getProperty("modelname0"));
 			mpom1.searchbt();
+			Thread.sleep(6000);
+			mpom1.checkallbox();
 			loginfo.pass("Vehicle,Make,Model drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -59,7 +64,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		}
 	}
 
-	@When("^: user will chose checkbox in the grid$")
+	@And("^: user will chose checkbox in the grid$")
 	public void user_will_chose_checkbox_in_the_grid() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("when"), "user will chose checkbox in the grid");
@@ -77,13 +82,14 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		}
 	}
 
-	@When("^: user will select the product, description, part numbers in the dropdown$")
+	@And("^: user will select the product, description, part numbers in the dropdown$")
 	public void user_will_select_the_product_description_part_numbers_in_the_dropdown() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part numbers in the dropdown");
-			mpom1.Productline(pro.getProperty("linecode"));
-			mpom1.Partdesc(pro.getProperty("partdesc"));
+			mpom1.Productlinenew(pro.getProperty("linecode12"));
+			mpom1.Partdesc(pro.getProperty("subcategoryname"));
+			Thread.sleep(3000);
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.scrolldown();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -97,7 +103,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		}
 	}
 
-	@When("^: user will click the qty,position and Notes and click the add button$")
+	@And("^: user will click the qty,position and Notes and click the add button$")
 	public void user_will_click_the_qty_position_and_Notes_and_click_the_add_button() throws Throwable {
 
 		try {
@@ -110,26 +116,36 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			mpom1.scrolldown();
 			mpom1.Savebutton();
 			mpom1.acceptAlert();
+			Thread.sleep(5000);
 			loginfo.pass("qty is not getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println("qty is not getting properly" + e.getMessage());
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
 	}
 
-	@When("^: user will again click the Vehicle,make,model in the drop down$")
+	
+	
+	
+	
+	@And("^: user will again click the Vehicle,make,model in the drop down$")
 	public void user_will_again_click_the_Vehicle_make_model_in_the_drop_down() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("when"),
 					"user will again click the Vehicle,make,model in the drop down");
 			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
-			mpom1.Makedata(pro.getProperty("makename"));
-			mpom1.Modeldata(pro.getProperty("modelname"));
+			mpom1.Makedata(pro.getProperty("makename0"));
+			mpom1.Modeldata(pro.getProperty("modelname0"));
+		
 			mpom1.searchbt();
+			Thread.sleep(5000);
 			loginfo.pass("Re-Vehicle,Make,Model drop down values getting properly");
+			loginfo.pass("Finally multiple parts Linked verified success");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
 			System.out.println("Re-Vehicle,Make,Model drop down values not getting properly" + e.getMessage());
@@ -139,13 +155,15 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		}
 	}
 
-	@When("^: user will check the parts linked the partnumber present or not$")
+	@And("^: user will check the parts linked the partnumber present or not$")
 	public void user_will_check_the_parts_linked_the_partnumber_present_or_not() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("when"),
 					"user will check the parts linked the partnumber present or not");
-			mpom1.Checkbox2("EnterYear", "Acesvalue");
+			//mpom1.Checkbox2("EnterYear", "Acesvalue");
+
 			mpom1.VerifyParslinked(pro.getProperty("partno"));
+		
 			loginfo.pass("Partlinked matched with part number");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			System.out.println("Partlinked matched with part number");
@@ -203,9 +221,10 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the all chosed Vehicle,make,model along with click the search");
 			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
-			mpom1.Makedata(pro.getProperty("makename"));
-			mpom1.Modeldata(pro.getProperty("modelname"));
+			mpom1.Makedata(pro.getProperty("makename0"));
+			mpom1.Modeldata(pro.getProperty("modelname0"));
 			mpom1.searchbt();
+			mpom1.checkallbox();
 			loginfo.pass("Vehicle,Make,Model drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -221,7 +240,7 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 		try {
 
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check the checkboxs in the tables col");
-			mpom1.Checkbox2("EnterYear", "Acesvalue");
+			//mpom1.Checkbox2("EnterYear", "Acesvalue");
 			mpom1.scrolldown();
 			loginfo.pass("Check box is working");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -294,14 +313,14 @@ public class TC036_Multiaddpartslinked1 extends Baseclass {
 			System.out.println("** 2 parts added for different part description and but single product line**");
 			loginfo.pass("2 parts added for different part description and but single product line");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(
 					"** 2 parts added for different part description and but single product line not working**");
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			 //extent.flush();
 		}
 	}
 

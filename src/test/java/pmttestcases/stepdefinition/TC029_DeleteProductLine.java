@@ -5,6 +5,7 @@ import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
 import com.aventstack.extentreports.gherkin.model.Scenario;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -16,10 +17,62 @@ public class TC029_DeleteProductLine extends Baseclass {
 	DeleteProductLine dplpom;
 	ExtentTest loginfo = null;
 	
+	
+	
+	@Given("^User will mousehover and choose the WebCategory pages$")
+	public void user_will_mousehover_and_choose_the_WebCategory_pages() throws Throwable {
+		try {
+			//extent=setup();
+			test = extent.createTest(Feature.class, "PMT ProductRelated Delete").assignCategory("Delete ProductLine")
+					.pass("WebCategory Deleted");
+			test = test.createNode(Scenario.class, "Deleting ProductLine");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will mousehover and choose the WebCategory pages");
+			
+			dplpom = new DeleteProductLine();
+			dplpom.clickonwebcategory();
+			
+			loginfo.pass("WebCategory clicked successfully");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		} catch (Exception e) {
+			System.out.println(" Product Line page Not Clicked " + e.getMessage());
+			loginfo.fail("Product Line page is not click");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+		}
+	}
+
+	@When("^User will Enter webcategory and deleted and alert message$")
+	public void user_will_Enter_webcategory_and_deleted_and_alert_message() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"), "User will Enter webcategory and deleted and alert message");
+			dplpom.SelectWebCategoryTextbox(pro.getProperty("Equchose"));
+			dplpom.ClickDelete();
+			dplpom.acceptAlert();
+			dplpom.SelectWebCategoryTextbox(pro.getProperty("Equchose"));
+			dplpom.verifytext1(pro.getProperty("DeleteProducttxt"));
+			loginfo.pass("WebCategory Deleted Successfully");
+			
+			loginfo.pass("WebCategory name Entered in search box Successfully");
+			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println("Product Line name Not Entered in search box" + e.getMessage());
+			loginfo.fail("Product Line name Not Entered in search box");
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
+		}
+	}
+
+
+	
+	
+	
+	///////////////////////////product line //////////////////////////////////
+	
 	@Given("^User will mousehover and choose the product Line page$")
 	public void user_will_mousehover_and_choose_the_product_Line_page() throws Throwable {
 		try {
-			// extent=setup();
+			//extent=setup();
 			test = extent.createTest(Feature.class, "PMT ProductRelated Delete").assignCategory("Delete ProductLine")
 					.pass("ProductLine Deleted");
 			test = test.createNode(Scenario.class, "Deleting ProductLine");
@@ -42,17 +95,20 @@ public class TC029_DeleteProductLine extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "User will Enter product Line name in search box");
 			dplpom.SelectsearchTextbox(pro.getProperty("linecode"));
+			
 			loginfo.pass("Product Line name Entered in search box Successfully");
-			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			 loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 		} catch (Exception e) {
 			System.out.println("Product Line name Not Entered in search box" + e.getMessage());
 			loginfo.fail("Product Line name Not Entered in search box");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			
 		}
 
 	}
 
-	@When("^User will click Delete product Line and accept alert$")
+	@And("^User will click Delete product Line and accept alert$")
 	public void user_will_click_Delete_product_Line_and_accept_alert() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
@@ -72,7 +128,7 @@ public class TC029_DeleteProductLine extends Baseclass {
 
 	}
 
-	@When("^User will another delet product line and accept alert$")
+	@And("^User will another delet product line and accept alert$")
 	public void user_will_another_delet_product_line_and_accept_alert() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
@@ -96,15 +152,17 @@ public class TC029_DeleteProductLine extends Baseclass {
 	public void user_will_Verify_product_Line_is_deleted_or_not() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify product Line is deleted or not");
+			
 			dplpom.verifytext1(pro.getProperty("DeleteProducttxt"));
+			
 			loginfo.pass("Deleteded product Line verify Successfully");
-			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			 loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleteded product Line Not verify " + e.getMessage());
 			loginfo.fail("Deleteded product Line Not verify");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 
 	}
@@ -113,7 +171,7 @@ public class TC029_DeleteProductLine extends Baseclass {
 	@Given("^User will mousehover and choose the custome attribute page$")
 	public void user_will_mousehover_and_choose_the_custome_attribute_page() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT ProductRelated Delete")
 					.assignCategory("Delete custome attribute").pass("custom attribute Deleted");
 			test = test.createNode(Scenario.class, "Deleting custome attribute");
@@ -175,7 +233,7 @@ public class TC029_DeleteProductLine extends Baseclass {
 			dplpom.verifytextcusdelanother(pro.getProperty("AttributeName1"), pro.getProperty("DeleteProducttxt"));
 			loginfo.pass("Deleteded custom attribute verify Successfully");
 			// loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println("Deleteded custom attribute Not verify " + e.getMessage());
 			loginfo.fail("Deleteded custom attribute Not verify");

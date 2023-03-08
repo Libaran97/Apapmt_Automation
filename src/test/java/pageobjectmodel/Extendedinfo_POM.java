@@ -31,7 +31,7 @@ public class Extendedinfo_POM extends Baseclass {
 	@FindBy(xpath="//select[@id='Drplanguage']")
 	private WebElement Drplanguage;
 	
-	@FindBy(xpath="//button[@id='btnSave']")
+	@FindBy(xpath="//button[@id='btnSave_Exd']")
 	private WebElement btnSave;
 	
 	
@@ -46,10 +46,11 @@ public class Extendedinfo_POM extends Baseclass {
 	@FindBy(xpath="//table[@id='MainContent_GVextended']//preceding-sibling::td[2]")
 	private WebElement Vextended;
 	
-	@FindBy(xpath="//input[@placeholder='Code Description']")
+	@FindBy(xpath="//input[@placeholder='EXPIDATA']")
 	private WebElement vcodesc;
 	
-	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[2]")
+	//@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td[2]")
+	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr")
 	private WebElement vcodescget;
 	
 	@FindBy(xpath="//table[@id='DataTableViewer']/tbody/tr/td")
@@ -60,7 +61,6 @@ public class Extendedinfo_POM extends Baseclass {
 	@FindBy(xpath = "(//button[@type='button'])[2]")
 	private WebElement eAcceptalert;
 	
-	//table[@id='MainContent_GVextended']//preceding-sibling::td[2]
 	
 	
 	/*
@@ -69,20 +69,24 @@ public class Extendedinfo_POM extends Baseclass {
 	 */
 	
 	public void extendframe() throws InterruptedException {
-		clkextended.click();
-		Thread.sleep(4000);
+		Baseclass.waitForElementToBeClickable(driver, clkextended, 250).click();
+		//wait//
+		//clkextended.click();
+		Thread.sleep(2000);
+		//wait//
 	}
 	
 	
 	
 	public void selectextenddrop() throws InterruptedException {
 		//driver.switchTo().frame(0);
+		
+		Thread.sleep(4000);
 		WebElement codedesc = drpcodedesc ;
 		Select select = new Select(codedesc);
-		select.selectByVisibleText("Country of Origin 2");
+		select.selectByVisibleText("Country of Origin 2 (CTP)");
 		Thread.sleep(4000);
 	}
-	
 	
 	public void entertextextend() throws InterruptedException {
 		
@@ -99,19 +103,24 @@ public class Extendedinfo_POM extends Baseclass {
 		//driver.switchTo().frame(0);
 		WebElement language = Drplanguage ;
 		Select select = new Select(language);
-		select.selectByValue("EN");
+		select.selectByVisibleText("English (EN)");
 		Thread.sleep(2000);
 	}
 	
 	
-	
 	public void btsave1() throws InterruptedException {
-		btnSave.click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, btnSave, 250).click();
+		Thread.sleep(3000);
+		//wait//
+		//btnSave.click();
+		//Thread.sleep(1000);
+		//wait//
 	}
 	
 	
 	public void acceptAlert() throws InterruptedException{
+		Thread.sleep(5000);
 		Alert alert = driver.switchTo().alert();
 		//logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Parts" + "Extended Info " + alert.getText());
@@ -122,16 +131,28 @@ public class Extendedinfo_POM extends Baseclass {
 	public void acceptAlert1() throws Exception {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", eAcceptalert);
-		eAcceptalert.click();
-		Thread.sleep(8000);
+		Thread.sleep(2000);
+		Baseclass.waitForElementToBeClickable(driver, eAcceptalert, 250).click();
+		
+		Thread.sleep(2000);
+		//wait//
+		//eAcceptalert.click();
+		//Thread.sleep(8000);
+		//wait//
 	}
 	public void extverification() throws InterruptedException{
-		vcodesc.sendKeys("Country of Origin 2");
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		Baseclass.waitForElementToBeVisible(driver, vcodesc, 150).sendKeys("US");
+		//wait//
+		//vcodesc.sendKeys("Country of Origin 2 (CTP)");
+		//Thread.sleep(3000);
+		//wait//
+		
+		Thread.sleep(2000);
 		String Actualtext= vcodescget.getText();
 		System.out.println("Actual text is.."+Actualtext);
 		
-		if (Actualtext.contains("Country of Origin 2"))
+		if (Actualtext.contains("US"))
 		{
 		System.out.println("Both are same");
 		}
@@ -142,8 +163,13 @@ public class Extendedinfo_POM extends Baseclass {
 	}
 	
 	public void extverificationdel() throws InterruptedException{
-		vcodesc.sendKeys("Country of Origin 2");
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		Baseclass.waitForElementToBeVisible(driver, vcodesc, 150).sendKeys("US");
+		//wait//
+		//vcodesc.sendKeys("Country of Origin 2 (CTP)");
+		//Thread.sleep(3000);
+		//wait//
+		
 		String Actualtext= delinvalidtex.getText();
 		System.out.println("Actual text is.."+Actualtext);
 		
@@ -164,21 +190,14 @@ public class Extendedinfo_POM extends Baseclass {
 	
 	public void deleteinfo() throws InterruptedException {
 		//driver.switchTo().frame(0);
-		
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", imgDelete);
-		imgDelete.click();
-		Thread.sleep(3000);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		Baseclass.waitForElementToBeClickable(driver, imgDelete,250).click();
+		
+		//wait//
+		//imgDelete.click();
+		//Thread.sleep(3000);
+		//wait//
+	}	
 }

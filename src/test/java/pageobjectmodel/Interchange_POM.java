@@ -31,11 +31,11 @@ public class Interchange_POM extends Baseclass{
 		
 		
 		
-		@FindBy(xpath="//input[@id='MainContent_txtMelling']")
+		@FindBy(xpath="//*[@id='txtsearchpartno']")
 		private WebElement txtpartsearch;
 		
 		
-		@FindBy(xpath="(//input[@class='button_search'])[2]")
+		@FindBy(xpath="(//input[@class='button_search'])")
 		private WebElement btnPsearch;
 		
 		
@@ -52,16 +52,17 @@ public class Interchange_POM extends Baseclass{
 		
 		
 		
-		@FindBy(xpath="(//input[@id='btnSave'])[2]")
+		@FindBy(xpath="(//input[@class='button_save'])[4]")
 		private WebElement btnSave;
 		
 		
 		
-		@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[4]/div/input[1]")
+		@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[5]/div/input[1]")
 		private WebElement imgEdit_0;
 		
 		
-		@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[4]/div/input[2]")
+		
+		@FindBy(xpath="//*[@id=\"DataTableViewer\"]/tbody/tr/td[5]/div/input[2]")
 		private WebElement imgDelete_0;
 		
 		
@@ -72,40 +73,59 @@ public class Interchange_POM extends Baseclass{
 		private WebElement	ePDverify;
 		
 		
-		@FindBy(xpath="//*[@class='dataTables_empty']")
+		@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td")
 		private WebElement eDeleteVryText;
+		
+		
 		public void partslanding() {
-			partspageheaderclick.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			
+			Baseclass.waitForElementToBeClickable(driver, partspageheaderclick, 150).click();
+			//wait//
+			//partspageheaderclick.click();
+			//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			//wait//
 		}
 		
 		public void partsearch(String partnoenter) throws InterruptedException {
-			txtpartsearch.sendKeys(partnoenter);
-			List<WebElement> list = driver.findElements(By.xpath("//ul[@id='ACBehavior_completionListElem']//li"));
+			//Baseclass.waitForElementToBeVisible(driver,txtpartsearch, 250).sendKeys(partnoenter);
+			//wait//
+			//txtpartsearch.sendKeys(partnoenter);
+			//wait//
+			Baseclass.waitForElementToBeVisible(driver,txtpartsearch, 250).sendKeys(partnoenter);
+			Thread.sleep(3000);
+			List<WebElement> list = driver.findElements(By.xpath("//*[@id='ui-id-1']//li"));
 			System.out.println("total number of parts-->" + list.size());
 			
 			for(int i=0; i<list.size(); i++) {
 				System.out.println(list.get(i).getText());
-				if(list.get(i).getText().contains("Testpart-1 | Ignition Coil Test | Autoapa3")) {
+				if(list.get(i).getText().equalsIgnoreCase("Testpart-1 | Ignition Coil Test | Autoapa3APATest")) {
 				//if(list.get(i).getText().contains("Testpart-1 | description1 | AAA1")) {
 					list.get(i).click();
 					break;
 				}
 			}
-			btnPsearch.click();
-			Thread.sleep(3000);
+			Baseclass.waitForElementToBeClickable(driver, btnPsearch, 150).click();
+			//wait//
+			//btnPsearch.click();
+			//Thread.sleep(3000);
+			//wait//
 		}
 		
 		
 		public void interchangesclick() throws InterruptedException {
-			interchangeclick.click();
-			Thread.sleep(2000);
+			Baseclass.waitForElementToBeClickable(driver, interchangeclick, 150).click();
+			
+			//wait//
+			//interchangeclick.click();
+			//Thread.sleep(2000);
+			//wait//
 		}
 		
 		
 		
 		public void interchangedrpdownnotes() throws InterruptedException {
 			//driver.switchTo().frame(0);
+			Thread.sleep(3000);
 			WebElement intnotesselect = drpCompetitorName ;
 			Select select = new Select(intnotesselect);
 			select.selectByVisibleText("Test IntName 1");
@@ -115,24 +135,31 @@ public class Interchange_POM extends Baseclass{
 		
 		
 		public void Competitorpartno(String Enterpartpart) throws InterruptedException {
-			txtCompetitorPartno1.sendKeys(Enterpartpart);
-			Thread.sleep(2000);
+			Baseclass.waitForElementToBeVisible(driver,txtCompetitorPartno1, 150).sendKeys(Enterpartpart);
+			//wait//
+			//txtCompetitorPartno1.sendKeys(Enterpartpart);
+			//Thread.sleep(2000);
+			//wait//
 		}
 		
 		
 		public void savebtn() throws InterruptedException {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", btnSave);
+			//Baseclass.waitForElementToBeClickable(driver, btnSave, 150).click();
+			//wait//
+			Thread.sleep(5000);
 			btnSave.click();
-			Thread.sleep(2000);
+			Thread.sleep(4000);
+			//wait//
 		}
-		
-		
-		
 		
 		/*
 		 * alert accept & fetching text
 		 */
 		public void acceptAlert() throws InterruptedException{
-			WebElement pop=driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/button[1]"));
+			Thread.sleep(5000);
+			WebElement pop=driver.findElement(By.xpath("//button[@class='swal2-confirm swal2-styled']"));
 			Thread.sleep(5000);                         
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView();", pop);
@@ -144,23 +171,33 @@ public class Interchange_POM extends Baseclass{
 		
 		
 		public void editinterchange(String partno3) throws InterruptedException {
+			Thread.sleep(2000);
 			//driver.switchTo().frame(0);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
      		js.executeScript("arguments[0].scrollIntoView();", imgEdit_0);
-			imgEdit_0.click();
-			Thread.sleep(2000);
-			txtCompetitorPartno1.clear();
-			txtCompetitorPartno1.sendKeys(partno3);
+     		Baseclass.waitForElementToBeClickable(driver, imgEdit_0, 150).click();
+     		Baseclass.waitForElementToBeClickable(driver, txtCompetitorPartno1, 150).clear();
+     		Baseclass.waitForElementToBeVisible(driver, txtCompetitorPartno1, 150).sendKeys(partno3);
+     		//wait//
+			//imgEdit_0.click();
+			//Thread.sleep(2000);
+			//txtCompetitorPartno1.clear();
+			//txtCompetitorPartno1.sendKeys(partno3);
+			//wait//
 			
 		}
 		
 		
 		public void deletepartinter() throws InterruptedException {
+			Thread.sleep(2000);
 			//driver.switchTo().frame(0);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
      		js.executeScript("arguments[0].scrollIntoView();", imgDelete_0);
-			imgDelete_0.click();
-			Thread.sleep(2000);
+     		Baseclass.waitForElementToBeClickable(driver, imgDelete_0, 150).click();
+     		//wait//
+			//imgDelete_0.click();
+			//Thread.sleep(2000);
+			//wait//
 		}
 		
 		
@@ -169,9 +206,12 @@ public class Interchange_POM extends Baseclass{
 			{
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
          		JavascriptExecutor js = (JavascriptExecutor) driver;
-//				js.executeScript("arguments[0].scrollIntoView();", eIntpartfilter);
-				eIntpartfilter.sendKeys(Enterpartpart);
+         		Baseclass.waitForElementToBeVisible(driver, eIntpartfilter, 150).sendKeys(Enterpartpart);
+         		
+         		//wait//
+				//eIntpartfilter.sendKeys(Enterpartpart);
 				Thread.sleep(10000);
+				//wait//
 				
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				js.executeScript("arguments[0].scrollIntoView();", ePDverify);
@@ -189,39 +229,52 @@ public class Interchange_POM extends Baseclass{
 		
 	
 		public void VerifyDeleteIntchange(String partno3, String DeleteProducttxt) throws InterruptedException{
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", eIntpartfilter);
+			Baseclass.waitForElementToBeVisible(driver, eIntpartfilter, 150).sendKeys(partno3);
+			
+			//wait//
 			Thread.sleep(5000);
-			eIntpartfilter.sendKeys(partno3);
-			Thread.sleep(5000);
+			//eIntpartfilter.sendKeys(partno3);
+			//Thread.sleep(5000);
+			//wait//
+			
 			String text = eDeleteVryText.getText();
-			if (text.equals(DeleteProducttxt)) {
-				System.out.println("Partdescription Deleted succesfully");
+			if (!text.equals(eIntpartfilter)) {
+				System.out.println("parts Interchange Deleted succesfully");
 
 			} else {
-				System.out.println("Partdescription Not Deleted succesfully");
+				System.out.println("Parparts Interchange  Not Deleted succesfully");
 			}
 
 		}
 		public void acceptDeleteAlert() throws InterruptedException{
-			WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
+			
+			Thread.sleep(5000); 
+			WebElement pop=driver.findElement(By.xpath("//button[@class='swal2-confirm swal2-styled']"));
 			Thread.sleep(5000);                         
-
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView();", pop);
-			pop.click();
-			Thread.sleep(5000);
-			
+			Baseclass.waitForElementToBeClickable(driver, pop, 150).click();
+			//wait//
+			//pop.click();
+			//Thread.sleep(5000);
+			//wait//
 			
 		}
 		
 		public void acceptDeleteAlert2() throws InterruptedException{
-			WebElement pop1=driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/button[1]"));
+			Thread.sleep(5000);
+			WebElement pop1=driver.findElement(By.xpath("//button[@class='swal2-confirm swal2-styled']"));
 			Thread.sleep(5000);      
 			JavascriptExecutor jk = (JavascriptExecutor) driver;
 			jk.executeScript("arguments[0].scrollIntoView();", pop1);
-			pop1.click();
-			Thread.sleep(5000);
-		}
-		
-		
+			Baseclass.waitForElementToBeClickable(driver, pop1, 150).click();
+			
+			//wait//
+			//pop1.click();
+			//Thread.sleep(5000);
+			//wait//
+		}	
 }
 

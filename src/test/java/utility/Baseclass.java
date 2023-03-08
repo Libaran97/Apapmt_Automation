@@ -8,8 +8,10 @@ import java.util.Properties;
 
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
+import org.apache.tools.ant.taskdefs.WaitFor.Unit;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -39,10 +41,11 @@ public class Baseclass extends ExtentReport {
 	    //String exception = null;
 	    
 	
+
 	public Baseclass() {
 		try {
 			pro = new Properties();
-			FileInputStream fis = new FileInputStream("E:\\apapmt_automation\\Configuration\\pmtdetails.properties");
+			FileInputStream fis = new FileInputStream("C:\\Users\\qctest\\eclipse-workspace\\newqctest\\Demoapapmtautomatecode2\\Configuration\\pmtdetails.properties");
 			pro.load(fis);
 		} catch(IOException e) {
 			e.getMessage();
@@ -56,19 +59,20 @@ public class Baseclass extends ExtentReport {
 		String browsername = pro.getProperty("Browser");
 		
 		if(browsername.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "E:\\apapmt_automation\\Drivers\\chromedriver.exe");
-			
+			//System.setProperty("webdriver.chrome.driver", "C:\\Users\\qctest\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+		//	System.setProperty("webdriver.chrome.driver", ".\\Drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","C:\\Users\\qctest\\Downloads\\chromedriver_win32 (4)\\chromedriver.exe");
 			//WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();		
 		}else if(browsername.equals("firefox")) {
-			System.setProperty("webdriver.gecko.driver", "E:\\apapmt_automation\\Drivers\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "E:\\apapmt_automation\\geckodriver.exe");
 			//WebDriverManager.iedriver().setup();
 			driver = new FirefoxDriver();		
 		}else if(browsername.equals("IE")) {
 			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();
 		}else if(browsername.equals("edge")) {
-			System.setProperty("webdriver.edge.driver", "E:\\apapmt_automation\\Drivers\\MicrosoftWebDriver.exe");
+			System.setProperty("webdriver.edge.driver", "E:\\apapmt_automation\\MicrosoftWebDriver.exe");
 			//WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		}/*else if(browsername.equals("headless")) {
@@ -83,7 +87,6 @@ public class Baseclass extends ExtentReport {
 			
 		
 	}
-	
 	public String getReportConfigPath(){
 		String reportConfigPath = pro.getProperty("reportConfigPath");
 		if(reportConfigPath!= null) return reportConfigPath;
@@ -118,8 +121,30 @@ public class Baseclass extends ExtentReport {
 	public void explicitWait(ExpectedConditions cond, int seconds, By locate){
 		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions.alertIsPresent());
+		
 	}
 	
+	public static WebElement waitForElementToBeVisible(WebDriver driver, WebElement webElement, int seconds) {
+		
+		WebDriverWait wait = new WebDriverWait(driver,seconds);
+		WebElement element = wait.until(ExpectedConditions.visibilityOf(webElement));
+		return element;
+	}
+	public static WebElement waitForElementToBeClickable(WebDriver driver, WebElement webElement, int seconds) {
+		
+		WebDriverWait wait = new WebDriverWait(driver, seconds );
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
+		return element;
+	}
+	
+	
+	public static void acceptAlertdel() throws InterruptedException{
+		Alert alert = driver.switchTo().alert();
+		System.out.println("Deleted : " + alert.getText());
+		alert.accept();
+		Thread.sleep(4000);
+		
+	}
 	
 	/*public static void updateTestLinkResult(String testCase, String exception, String result) throws TestLinkAPIException{
         TestLinkAPIClient testlinkAPIClient = new TestLinkAPIClient(DEV_KEY, SERVER_URL);
@@ -128,5 +153,6 @@ public class Baseclass extends ExtentReport {
     }*/
 	
 }
+
 
 

@@ -37,7 +37,7 @@ public class MyCatalogAttributesPom extends Baseclass {
 	public WebElement MyCatalogsAtt;
 	
 	// <Interchange> submenu link  ^^^^^^^^
-	@FindBy(xpath = "//a[@id=\"ucMenu_rptLevel1_rptLevel2_4_lnkLink2_3\"]")
+	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_5_lnkLink2_3']")
 	public WebElement MyCatalogAttributes;
 	
 	// Select Part Description
@@ -50,7 +50,7 @@ public class MyCatalogAttributesPom extends Baseclass {
 	
 
 	// Submit button
-	@FindBy(xpath = "//input[@id=\"MainContent_btnSubmit\"]")
+	@FindBy(xpath = "//button[@class='button_save_new']")
 	public WebElement SubmitButton;
 	
 	// Part Number
@@ -71,6 +71,10 @@ public class MyCatalogAttributesPom extends Baseclass {
 	// @FindBy(xpath = "//input[@name=\"ctl00$MainContent$rptLevel1$ctl00$chkSelectAll\"]")
 	@FindBy(xpath = "//input[@id=\"MainContent_rptLevel1_chkSelectAll_1\"]")
 	public WebElement SelectAllCheckbox_TC014;
+	
+	//@FindBy(xpath="//a[@id='MainContent_GridParts_lnkPartNo_0']")
+	@FindBy(xpath="//a[@id=\"ucMenu_rptLevel1_lnkLink1_3\"]")
+	private WebElement partsearch;
 	
 	// Attribute Name
 	@FindBy(xpath = "//span[@id=\"MainContent_rptLevel1_lblAttribute_0\"]")
@@ -107,8 +111,7 @@ public class MyCatalogAttributesPom extends Baseclass {
 	public WebElement LogoutButton;	
 	
 	
-	/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-	/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+	
 	
 	// Click the <My Catalogs> menu link ^^^^^^^^^^
 	public void MyCatalogsAttClick() throws Exception {
@@ -126,10 +129,23 @@ public class MyCatalogAttributesPom extends Baseclass {
 	public void ChoosePartDescription() throws Exception {
 		//Select PartDescSelect = new Select(driver.findElement(By.name("ctl00$MainContent$ddlPartDescription")));
 		Select PartDescSelect = new Select(PartDescription);
-		PartDescSelect.selectByIndex(1);
+		PartDescSelect.selectByVisibleText("Ignition Coil Test");
+		
+	}
+	public void ChoosePartDescription1() throws Exception {
+		//Select PartDescSelect = new Select(driver.findElement(By.name("ctl00$MainContent$ddlPartDescription")));
+		Select PartDescSelect = new Select(PartDescription);
+		List<WebElement> e = PartDescSelect.getOptions();
+		int itemCount = e.size();
+
+		for(int i = 0; i < itemCount; i++)
+		{
+		    System.out.println(e.get(i).getText());
+		    System.out.println("No Data");
+		}
+			
 	}
 	
-		
 	public void ClickAttributeCheckbox() throws Exception {
 		AttributeCheckBox.click();
 	}
@@ -170,7 +186,12 @@ public class MyCatalogAttributesPom extends Baseclass {
 		// driver.findElement(By.xpath("//input[@name=\"ctl00$MainContent$rptLevel1$ctl00$chkSelectAll\"]")).click();
 		SelectAllCheckbox_TC014.click();
 	}
-	
+	public void partsearchnew() throws InterruptedException {
+		partsearch.click();
+		Thread.sleep(3000);
+		
+		
+	}
 		
 	// Verify the displayed Attribute
 	public void VerifyDisplayedAttribute() throws Exception {

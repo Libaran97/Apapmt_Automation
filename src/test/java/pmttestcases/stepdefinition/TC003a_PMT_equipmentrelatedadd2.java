@@ -20,6 +20,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 	ExtentTest loginfo = null;
 
 	// Master_TC003a_Adding Equipment Related vehicle type
+
 	@Given("^User will mouse hover on Master and choose the Equipment vehicle type page$")
 	public void user_will_mouse_hover_on_Master_and_choose_the_Equipment_vehicle_type_page() throws Throwable {
 		try {
@@ -47,6 +48,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 					"User will click on the add button and will enter the new Equipment vehicle type and choose the equivalent ACES & save");
 			master.vehicletypename(pro.getProperty("vehicletypenameeq"));
 			master.acceptAlert();
+			master.ClickonBackButton();
 			loginfo.pass("vehicle type Added successfully");
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
@@ -61,7 +63,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the added record should be shown in Equipment vehicle grid");
 			master.VerifyEquipment(pro.getProperty("vehicletypenameeq"));
-			 //extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
@@ -70,12 +72,12 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 		}
 	}
 
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// Master_TC003a_Editing Equipment Related vehicle type 
+	// Master_TC003a_Editing Equipment Related vehicle type
+
 	@Given("^User will mouse hover on Master page and edit the Equipment vehicle type page$")
 	public void user_will_mouse_hover_on_Master_page_and_edit_the_Equipment_vehicle_type_page() throws Throwable {
 		try {
-			//extent=setup();
+			// extent=setup();
 			test = extent.createTest(Feature.class, "Master_TC003a_Editing Equipment Related vehicle type ")
 					.assignCategory("Equipment Related vehicle Tag").pass("Vehicle type edited thanks");
 			test = test.createNode(Scenario.class, "Editing Equipment Related vehicle type Test Cases");
@@ -98,9 +100,9 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will click on the Edit button and will enter the new Equipment vehicle type and choose the equivalent ACES & save");
-			// master.vehicletypename(pro.getProperty("vehicletypenameeq"));
 			master.vehcileediticon(pro.getProperty("vehicletypenameeq"), pro.getProperty("vehicletypenameeqedit"));
 			master.acceptAlert();
+			master.ClickonBackButton();
 			loginfo.pass("vehicle type Added successfully");
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
@@ -115,7 +117,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the edited record should be shown in Equipment vehicle grid");
 			master.VerifyEquipmentedit(pro.getProperty("vehicletypenameeqedit"));
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
@@ -123,13 +125,12 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 			// extent.flush();
 		}
 	}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Master_TC003a_Adding Equipment Related vehicle type group
+
 	@Given("^User will mouse hover on Master and choose the Equipment vehicle type group page$")
 	public void user_will_mouse_hover_on_Master_and_choose_the_Equipment_vehicle_type_group_page() throws Throwable {
 		try {
-			//extent = setup();
+			// extent = setup();
 			test = extent.createTest(Feature.class, "Master_TC003a_Adding Equipment Related vehicle type group")
 					.assignCategory("Equipment Related vehicle Type Group Tag").pass("Vehicle Type group added thanks");
 			test = test.createNode(Scenario.class, "Adding Equipment Related vehicle type group Test Cases");
@@ -155,6 +156,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 					"User will click on the add button and will enter the Equipment vehicle type group and choose the equivalent ACES & save");
 			master.vehicletypegroups(pro.getProperty("vehicletypenameeqedit"));
 			master.acceptAlert();
+			master.ClickonBackButton2();
 			loginfo.pass("Equipement type group Added successfully");
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
@@ -171,7 +173,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the added record should be shown in Equipment vehicle type group grid");
 			master.VerifyequVehicletypegroup(pro.getProperty("vehicletypenameeqedit"));
-			//extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
@@ -180,12 +182,12 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 		}
 	}
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Master_TC003a_Editing Equipment Related vehicle type group
+
 	@Given("^User will mouse hover on Master and edit the Equipment vehicle type group page$")
 	public void user_will_mouse_hover_on_Master_and_edit_the_Equipment_vehicle_type_group_page() throws Throwable {
 		try {
-			//extent = setup();
+			// extent = setup();
 			test = extent.createTest(Feature.class, "Master_TC003a_Editing Equipment Related vehicle type group ")
 					.assignCategory("Equipment Related vehicle type group edit Tag")
 					.pass("Vehicle type group edited thanks");
@@ -211,6 +213,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 			master.vehicletypegroupsedit(pro.getProperty("vehicletypenameeqedit"),
 					pro.getProperty("vehicletypenameeq"));
 			master.acceptAlert();
+			master.ClickonBackButton2();
 			loginfo.pass("Equipement type group Added successfully");
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
@@ -227,7 +230,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the edited record should be shown in Equipment vehicle type group grid");
 			master.VerifyequVehicletypegroupedit(pro.getProperty("vehicletypenameeq"));
-		 //extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
@@ -236,8 +239,8 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 		}
 	}
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Master_TC003a_Adding Equipment Related add make
+
 	@Given("^User will mouse hover on master and choose the make for equipment$")
 	public void user_will_mouse_hover_on_master_and_choose_the_make_for_equipment() throws Throwable {
 		try {
@@ -267,6 +270,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 			master.addmakename();
 			master.newmakename(pro.getProperty("makenameeq"));
 			master.acceptAlert();
+			master.ClickonBackButton1();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
@@ -280,21 +284,21 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the added Equipment record should be shown in make grid");
 			master.VerifyMake(pro.getProperty("makenameeq"));
-		    //extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			// extent.flush();
 		}
 	}
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Master_TC003a_Editing Equipment Related Make
+
 	@Given("^User will mouse hover on master and edit the make for equipment$")
 	public void user_will_mouse_hover_on_master_and_edit_the_make_for_equipment() throws Throwable {
 		try {
-			//extent=setup();
+			// extent=setup();
 			test = extent.createTest(Feature.class, "Master_TC003a_Editing Equipment Related Make")
 					.assignCategory("Equipment Related Make Tag").pass("Equipment make edited thanks");
 			test = test.createNode(Scenario.class, "editing equipment Related Make");
@@ -318,7 +322,6 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 					"User will click on the edit button and will enter Equipment vehicle type, enter the new make name and choose the equivalent ACES & save");
 			master.addmakenameedit(pro.getProperty("makenameeqedit"));
 			master.acceptAlert();
-			//master.acceptAlert();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
@@ -333,17 +336,17 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will verify the edited Equipment record should be shown in make grid");
 			master.VerifyMake(pro.getProperty("makenameeqedit"));
-			 //extent.flush();
+			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			 //extent.flush();
+			// extent.flush();
 		}
 	}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Master_TC003a_Adding Equipment Related Model
+
 	@Given("^User will mouse hover on master and choose the model for equipment$")
 	public void user_will_mouse_hover_on_master_and_choose_the_model_for_equipment() throws Throwable {
 		try {
@@ -370,7 +373,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will mouse hover on master and choose the model,click on the add button and will choose the added vehicle type, make & enter the new model name and choose the equivalent ACES & save");
 			master.addmodelname();
-			master.addmodeldrp2();
+			master.addmodeldrp2(pro.getProperty("makenameeq"));
 			master.modelnameadd(pro.getProperty("modelnameeq"));
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
@@ -387,8 +390,9 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 					"User will successfully Equipment added and verify that the record has come");
 			master.acceptAlert();
 			master.acceptAlert();
-			master.Verifymodeleq(pro.getProperty("modelnameeq"));
-			//extent.flush();
+			master.ClickonBackButton1();
+			master.Verifymodeleq(pro.getProperty("modelnameeq"),pro.getProperty("makenameeq"));
+			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
@@ -397,9 +401,8 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 
 		}
 	}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Master_TC003a_Editing Equipment Related Model
+
 	@Given("^User will mouse hover on master and edit the model for equipment$")
 	public void user_will_mouse_hover_on_master_and_edit_the_model_for_equipment() throws Throwable {
 		try {
@@ -426,7 +429,7 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will mouse hover on master and edit the model click on the add button and will choose the added for equipment type, make & enter the new model name and choose the equivalent ACES & save");
-			master.addmodelnameedit(pro.getProperty("modelnameeqedit"));
+			master.addmodelnameedit(pro.getProperty("modelnameeqedit"),pro.getProperty("makenameeq"));
 			master.acceptAlert();
 			master.acceptAlert();
 		} catch (Exception e) {
@@ -442,8 +445,8 @@ public class TC003a_PMT_equipmentrelatedadd2 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will successfully Equipment edited and verify that the record has come");
-			master.Verifymodeleq(pro.getProperty("modelnameeqedit"));
-			//extent.flush();
+			master.Verifymodeleq(pro.getProperty("modelnameeq"),pro.getProperty("makenameeq"));
+			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);

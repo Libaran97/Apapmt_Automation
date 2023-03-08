@@ -58,32 +58,45 @@ public class DeleteIntchgPartno extends Baseclass{
 		
 		Actions action = new Actions(driver);
 		action.moveToElement(emaster).build().perform();
-		Thread.sleep(3000);
-		eInterchangepart.click();
-		Thread.sleep(5000);
+		
+		Baseclass.waitForElementToBeClickable(driver, eInterchangepart,90).click();
+		
+		//wait//
+		//Thread.sleep(3000);
+		//eInterchangepart.click();
+		//Thread.sleep(5000);
+		//wait//
 	}
 	
 	
 	public void SelectIntName(String InterchangeNameValue) throws InterruptedException {
-
-		eIntnameDDBox.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+         Baseclass.waitForElementToBeClickable(driver, eIntnameDDBox, 90).click();
+		 Baseclass.waitForElementToBeVisible(driver, eIntnamesearchBox,90).sendKeys(InterchangeNameValue);
+		 Baseclass.waitForElementToBeClickable(driver, eIntnamesearchresult, 90).click();
 		
-		eIntnamesearchBox.sendKeys(InterchangeNameValue);
-		
-		Thread.sleep(6000);
-		eIntnamesearchresult.click();	
-		Thread.sleep(5000);
+		//eIntnameDDBox.click();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//eIntnamesearchBox.sendKeys(InterchangeNameValue);
+		//Thread.sleep(6000);
+		//eIntnamesearchresult.click();	
+		//Thread.sleep(5000);
 	}
 	public void SearchIntchgpartValue(String interchangepartno) throws InterruptedException {
-		eIntPartSTbox.sendKeys(interchangepartno);
-		Thread.sleep(3000);
+		 Baseclass.waitForElementToBeVisible(driver, eIntPartSTbox,90).sendKeys(interchangepartno);
+		 //wait//
+		//eIntPartSTbox.sendKeys(interchangepartno);
+		//Thread.sleep(3000);
+		//wait//
 	}
 	public void ClickDelete() throws InterruptedException {
-		eDeleteButton.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, eDeleteButton, 90).click();
+		//wait//
+		//eDeleteButton.click();
+		//Thread.sleep(3000);
+		//wait//
 		}
 	public void acceptAlert() throws InterruptedException{
+		Thread.sleep(2000);
 		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
 		Thread.sleep(5000);
 
@@ -100,13 +113,15 @@ public class DeleteIntchgPartno extends Baseclass{
 		
 		try
 		{
-			eIntnameDDBox.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Baseclass.waitForElementToBeClickable(driver, eIntnameDDBox, 90).click();
+			Baseclass.waitForElementToBeVisible(driver, eIntnamesearchBox, 90).sendKeys(InterchangeNameValue);
 			
-			eIntnamesearchBox.sendKeys(InterchangeNameValue);
-			
-			Thread.sleep(6000);
-			
+			//wait.//
+			//eIntnameDDBox.click();
+			//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			//eIntnamesearchBox.sendKeys(InterchangeNameValue);
+			//Thread.sleep(6000);
+			//wait.//
 			
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String actualText= ePDverify.getText();

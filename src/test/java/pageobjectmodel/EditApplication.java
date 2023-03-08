@@ -66,20 +66,23 @@ public class EditApplication extends Baseclass {
 	public WebElement eAppverify;
 
 	public void ClickApplication() throws InterruptedException {
-		eApplication.click();
-		Thread.sleep(8000);
+		Baseclass.waitForElementToBeClickable(driver, eApplication, 250).click();
+		//wait//
+		//eApplication.click();
+		Thread.sleep(2000);
+		//wait//
 	}
 
 	public void ChooseVehicle(String vehicletypename0) throws InterruptedException {
-
+		Thread.sleep(4000); 
 		Select vehicle = new Select(eSelectVehicle);
 		vehicle.selectByVisibleText(vehicletypename0);
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 
 	}
 
 	public void ChooseMake(String makename) throws InterruptedException {
-
+		Thread.sleep(5000); 
 		Select make = new Select(eSelectMake);
 		make.selectByVisibleText(makename);
 		Thread.sleep(5000);
@@ -90,23 +93,29 @@ public class EditApplication extends Baseclass {
 
 		Select model = new Select(eSelectModel);
 		model.selectByVisibleText(modelname);
-		Thread.sleep(6000);
+		Thread.sleep(5000);
 
 	}
 
 	public void Clicksearch() throws InterruptedException {
 		try {
-			eSearchButton.click();
-			Thread.sleep(5000);
+			Baseclass.waitForElementToBeClickable(driver, eSearchButton, 150).click();
+			//wait//
+			//eSearchButton.click();
+			//Thread.sleep(9000);
+			//wait//
 		} catch (org.openqa.selenium.StaleElementReferenceException e) {
-			eSearchButton.click();
-			Thread.sleep(5000);
-			// e.printStackTrace();
+			
+			Baseclass.waitForElementToBeClickable(driver, eSearchButton, 150).click();
+			//wait//
+			//eSearchButton.click();
+			//Thread.sleep(9000);
+			//wait//
 		}
 	}
 
 	public void SelectFiterdropdown(String SelectFilterName) throws InterruptedException {
-
+		Thread.sleep(3000);
 		Select Filer = new Select(eSelectFilter);
 		Filer.selectByVisibleText(SelectFilterName);
 		Thread.sleep(3000);
@@ -114,31 +123,54 @@ public class EditApplication extends Baseclass {
 	}
 
 	public void SelectsearchTextbox1(String SearchText1) throws InterruptedException {
-		eSelectsearchbox.sendKeys(SearchText1);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver, eSelectsearchbox, 150).sendKeys(SearchText1);
+		//wait//
+		//eSelectsearchbox.sendKeys(SearchText1);
+		//Thread.sleep(3000);
+		//wait//
 
 	}
 
 	public void Clicksearch2() throws InterruptedException {
 		try {
-			eSearchButton2.click();
-			Thread.sleep(5000);
+			Baseclass.waitForElementToBeClickable(driver, eSearchButton2, 250).click();
+			//wait//
+			//eSearchButton2.click();
+			Thread.sleep(2000);
+			//wait//
+			
 		} catch (org.openqa.selenium.StaleElementReferenceException e) {
-			eSearchButton2.click();
-			Thread.sleep(5000);
+			Baseclass.waitForElementToBeClickable(driver,eSearchButton2, 150).click();
+			//wait//
+			//eSearchButton2.click();
+			//Thread.sleep(5000);
+			//wait//
 		}
 	}
 
 	public void ClickEdit() throws InterruptedException {
-		eEditButton.click();
-		Thread.sleep(3000);
+		
+		try
+		{
+		Baseclass.waitForElementToBeClickable(driver,eEditButton, 150).click();
+		}catch (org.openqa.selenium.StaleElementReferenceException e) {
+			Baseclass.waitForElementToBeClickable(driver,eEditButton, 150).click();
+		}
+		//wait//
+		//eEditButton.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 
 	public void EditCc(String EditCcvalue) throws InterruptedException {
-		eCc.clear();
-		Thread.sleep(3000);
-
-		eCc.sendKeys(EditCcvalue);
+		
+		Baseclass.waitForElementToBeClickable(driver,eCc, 150).clear();
+		Baseclass.waitForElementToBeVisible(driver, eCc, 150).sendKeys(EditCcvalue);
+		//wait//
+		//eCc.clear();
+		//Thread.sleep(3000);
+		//eCc.sendKeys(EditCcvalue);
+		//wait//
 
 	}
 
@@ -146,12 +178,17 @@ public class EditApplication extends Baseclass {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", eUpdateButton);
-		eUpdateButton.click();
-		Thread.sleep(5000);
+		Baseclass.waitForElementToBeClickable(driver, eUpdateButton, 150).click();
+		
+		//wait//
+		//eUpdateButton.click();
+		//Thread.sleep(5000);
+		//wait//
 
 	}
 
 	public void acceptAlert() throws InterruptedException {
+		Thread.sleep(5000);
 		Alert alert = driver.switchTo().alert();
 		System.out.println("Acess: " + alert.getText());
 		alert.accept();
@@ -161,28 +198,44 @@ public class EditApplication extends Baseclass {
 	public void ClickApplication2() throws InterruptedException {
 
 		try {
-			eApplication2.click();
-			Thread.sleep(3000);
+			Baseclass.waitForElementToBeClickable(driver,eApplication2, 150).click();
+			
+			//wait//
+			//eApplication2.click();
+			//Thread.sleep(3000);
+			//wait//
+			
 		} catch (org.openqa.selenium.StaleElementReferenceException e) {
-			eApplication2.click();
-			Thread.sleep(3000);
+			Baseclass.waitForElementToBeClickable(driver, eApplication2, 150).click();
+			
+			//wait//
+			//eApplication2.click();
+			//Thread.sleep(3000);
+			//wait//
 		}
 	}
 
 	public void SelectsearchTextbox2(String SearchText2) throws InterruptedException {
 		try {
-			eSelectsearchbox2.sendKeys(SearchText2);
-			Thread.sleep(3000);
+			Baseclass.waitForElementToBeClickable(driver, eSelectsearchbox2, 150).click();
+			//wait//
+			//eSelectsearchbox2.sendKeys(SearchText2);
+			//Thread.sleep(3000);
+			//wait//
+			
 		} catch (org.openqa.selenium.StaleElementReferenceException e) {
-			eSelectsearchbox2.sendKeys(SearchText2);
-			Thread.sleep(3000);
+			Baseclass.waitForElementToBeClickable(driver, eSelectsearchbox2, 150).click();
+			//wait//
+			//eSelectsearchbox2.sendKeys(SearchText2);
+			//Thread.sleep(3000);
+			//wait//
 		}
 
 	}
 
 	public void verifytext1(String SearchText2) throws Exception {
 
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		String actualText = eAppverify.getText();
 		System.out.println("Text" + actualText);
 		if (actualText.equals(SearchText2)) {

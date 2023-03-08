@@ -17,8 +17,8 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 	ExtentTest loginfo = null;
 
 	
-	@Given("^User will mousehover and choose the partno page$")
-	public void user_will_mousehover_and_choose_the_partno_page() throws Throwable {
+	@Given("^User Will Mouse over on master and choose Model for delete$")
+	public void user_Will_Mouse_over_on_master_and_choose_Model_for_delete() throws Throwable {
 		try {
 			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT del related-del partno")
@@ -35,8 +35,8 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 		}
 	}
 
-	@When("^User will search the partno in search box and delete with accept alert$")
-	public void user_will_search_the_partno_in_search_box_and_delete_with_accept_alert() throws Throwable {
+	@When("^User will search Model, click delete and accept alert$")
+	public void user_will_search_Model_click_delete_and_accept_alert() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will search the partno in search box and delete with accept alert");
@@ -52,8 +52,8 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 		}
 	}
 
-	@Then("^User will Verify partno is deleted$")
-	public void user_will_Verify_partno_is_deleted() throws Throwable {
+	@Then("^User will Verify the Model is deleted or not$")
+	public void user_will_Verify_the_Model_is_deleted_or_not() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify partno is deleted");
 			mode.Verifypartdel();
@@ -61,7 +61,7 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
+			 //extent.flush();
 		}
 	}
 
@@ -69,10 +69,10 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 	@Given("^User will mousehover and choose the model page$")
 	public void user_will_mousehover_and_choose_the_model_page() throws Throwable {
 		try {
-			// extent = setup();
+			extent = setup();
 			test = extent.createTest(Feature.class, "PMT del Equipment related-del model")
 					.assignCategory("Master-Equipment Related model").pass("model deleted thanks");
-			test = test.createNode(Scenario.class, "deleting Equipment Related Model Test Cases");
+			test = test.createNode(Scenario.class, "deleting Car Equipment test Related Model Test Cases");
 			loginfo = test.createNode(new GherkinKeyword("Given"), "User will mousehover and choose the model page");
 			mode.Clickmodel();
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -106,7 +106,107 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify model is deleted");
 			mode.Verifymodeldel(pro.getProperty("modelnameeqedit"));
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
 			// extent.flush();
+		}
+	}
+	
+	///////////////////////car test model/////////////////////////////////////
+	
+	@Given("^User will mousehover and choose the model page-Car Test$")
+	public void user_will_mousehover_and_choose_the_model_page_Car_Test() throws Throwable {
+		try {
+			//extent = setup();
+			test = extent.createTest(Feature.class, "PMT del Vehicle related-del model")
+					.assignCategory("Master-Equipment Related model").pass("model deleted thanks");
+			test = test.createNode(Scenario.class, "deleting Car  test Related Model Test Cases");
+			loginfo = test.createNode(new GherkinKeyword("Given"), "User will mousehover and choose the model page-Car Test");
+			mode.Clickmodel();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Equipment model type page landed successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will Enter modelname in search box and accept alert-Car Test$")
+	public void user_will_Enter_modelname_in_search_box_and_accept_alert_Car_Test() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will Enter modelname in search box and accept alert-Car Test");
+			mode.eDeletemodel01(pro.getProperty("modelname"));
+			mode.acceptAlert();
+			mode.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("model deleted successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will Verify model is deleted-Car Test$")
+	public void user_will_Verify_model_is_deleted_Car_Test() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify model is deleted");
+			mode.Verifymodeldel01(pro.getProperty("modelname"));
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			// extent.flush();
+		}
+	}
+	
+	///////////////////////car test-two model/////////////////////////////////////
+	
+	@Given("^User will mousehover and choose the model page-Car Test-two$")
+	public void user_will_mousehover_and_choose_the_model_page_Car_Test_two() throws Throwable {
+		try {
+			extent = setup();
+			test = extent.createTest(Feature.class, "PMT del Equipment related-del model")
+					.assignCategory("Master-Equipment Related model").pass("model deleted thanks");
+			test = test.createNode(Scenario.class, "deleting Car test two Related Model Test Cases");
+			loginfo = test.createNode(new GherkinKeyword("Given"), "User will mousehover and choose the model page-Car Test-two");
+			mode.Clickmodel();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Equipment model type page landed successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will Enter modelname in search box and accept alert-Car Test-two$")
+	public void user_will_Enter_modelname_in_search_box_and_accept_alert_Car_Test_two() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will Enter modelname in search box and accept alert-Car Test-two");
+			mode.eDeletemodel02(pro.getProperty("modelname0"));
+			mode.acceptAlert();
+			mode.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("model deleted successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will Verify model is deleted-Car Test-two$")
+	public void user_will_Verify_model_is_deleted_Car_Test_two() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify model is deleted");
+			mode.Verifymodeldel02(pro.getProperty("modelname0"));
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
@@ -114,11 +214,13 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 		}
 	}
 
+
+
 	// Euipment Make del
 	@Given("^User will mousehover and choose the Make page$")
 	public void user_will_mousehover_and_choose_the_Make_page() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT del Equipment related-del make")
 					.assignCategory("Master-Equipment Related make").pass("make deleted thanks");
 			test = test.createNode(Scenario.class, "deleting Equipment Related make Test Cases");
@@ -155,11 +257,11 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify make is deleted");
 			mode.Verifymakedel(pro.getProperty("makenameeqedit"));
-			// extent.flush();
+			 //extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
+			 //extent.flush();
 		}
 	}
 
@@ -167,7 +269,7 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 	@Given("^User will mousehover and choose the equipment vehicle type group$")
 	public void user_will_mousehover_and_choose_the_equipment_vehicle_type_group() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT del Equipment related-del  equipment vehicle type group")
 					.assignCategory("Master-Equipment Related vehicle")
 					.pass("equipment vehicle type group deleted thanks");
@@ -219,7 +321,7 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 	@Given("^User will mousehover and choose the equipment vehicle$")
 	public void user_will_mousehover_and_choose_the_equipment_vehicle() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT del Equipment related-del  equipment vehicle")
 					.assignCategory("Master-Equipment Related vehilce").pass("equipment vehicle deleted thanks");
 			test = test.createNode(Scenario.class, "deleting Equipment Related vehicle Test Cases");
@@ -257,12 +359,114 @@ public class TC022_PMT_Delete_Master_Applicationrelated2 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify equipment vehicle is deleted");
 			mode.Verifyvehicle(pro.getProperty("vehicletypenameeqedit"), pro.getProperty("DeleteProducttxt"));
-			// extent.flush();
+			///extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			 //extent.flush();
+		}
+	}
+	
+	@Given("^User will mousehover and choose the equipment vehicle-Car Test$")
+	public void user_will_mousehover_and_choose_the_equipment_vehicle_Car_Test() throws Throwable {
+		try {
+			//extent = setup();
+			test = extent.createTest(Feature.class, "PMT del Equipment related-del  equipment vehicle")
+					.assignCategory("Master-Equipment Related vehilce").pass("equipment vehicle deleted thanks");
+			test = test.createNode(Scenario.class, "deleting Equipment Related vehicle Test Cases");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will mousehover and choose the equipment vehicle-Car Test");
+			mode.Clickeqvehcile();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Equpiment vehicle type page landed successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will Enter equipment vehicle in search box and accept alert-Car Test$")
+	public void user_will_Enter_equipment_vehicle_in_search_box_and_accept_alert_Car_Test() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will Enter equipment vehicle in search box and accept alert-Car Test");
+			mode.eDeleteeqvehicle01(pro.getProperty("vehicletypename"));
+			mode.acceptAlert();
+			mode.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Equpiment vehicle deleted successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will Verify equipment vehicle is deleted-Car Test$")
+	public void user_will_Verify_equipment_vehicle_is_deleted_Car_Test() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify equipment vehicle is deleted-Car Test");
+			mode.Verifyvehicle01(pro.getProperty("vehicletypename"), pro.getProperty("DeleteProducttxt"));
+			//extent.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+			 //extent.flush();
+		}
+	}
+	
+	
+	@Given("^User will mousehover and choose the equipment vehicle-Car Test-two$")
+	public void user_will_mousehover_and_choose_the_equipment_vehicle_Car_Test_two() throws Throwable {
+		try {
+			//extent = setup();
+			test = extent.createTest(Feature.class, "PMT del Equipment related-del  equipment vehicle")
+					.assignCategory("Master-Equipment Related vehilce").pass("equipment vehicle deleted thanks");
+			test = test.createNode(Scenario.class, "deleting Equipment Related vehicle Test Cases");
+			loginfo = test.createNode(new GherkinKeyword("Given"),
+					"User will mousehover and choose the equipment vehicle-Car Test-two");
+			mode.Clickeqvehcile();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Equpiment vehicle type page landed successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@When("^User will Enter equipment vehicle in search box and accept alert-Car Test-two$")
+	public void user_will_Enter_equipment_vehicle_in_search_box_and_accept_alert_Car_Test_two() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("When"),
+					"User will Enter equipment vehicle in search box and accept alert-Car Test-two");
+			mode.eDeleteeqvehicle02(pro.getProperty("vehicletypename0"));
+			mode.acceptAlert();
+			mode.acceptAlert();
+			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			loginfo.pass("Equpiment vehicle deleted successfully");
+		} catch (Exception e) {
+			System.out.println(e);
+			TestStep("Fail", driver, loginfo, e);
+
+		}
+	}
+
+	@Then("^User will Verify equipment vehicle is deleted-Car Test-two$")
+	public void user_will_Verify_equipment_vehicle_is_deleted_Car_Test_two() throws Throwable {
+		try {
+			loginfo = test.createNode(new GherkinKeyword("Then"), "User will Verify equipment vehicle is deleted-Car Test-two");
+			mode.Verifyvehicle02(pro.getProperty("vehicletypename0"), pro.getProperty("DeleteProducttxt"));
+			//extent.flush();
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
 			// extent.flush();
 		}
 	}
+
+
+
 
 }

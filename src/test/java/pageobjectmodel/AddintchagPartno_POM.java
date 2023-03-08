@@ -67,6 +67,9 @@ public class AddintchagPartno_POM extends Baseclass{
 	@FindBy(xpath ="//div[@id='save_btn_new_add']")
 	public WebElement eSaveButton;
 	
+	@FindBy(xpath = "//div[@id='btnBack_new']")
+	private WebElement Backbtn;
+
 	@FindBy(xpath ="//div[@id='save_btn_new_edit']")
 	public WebElement eEditSaveButton;
 	
@@ -83,43 +86,63 @@ public class AddintchagPartno_POM extends Baseclass{
 		
 		Actions action = new Actions(driver);
 		action.moveToElement(emaster).build().perform();
-		Thread.sleep(3000);
-		eInterchangepart.click();
-		Thread.sleep(5000);
+		
+		Baseclass.waitForElementToBeClickable(driver,eInterchangepart, 250).click();
+		
+		//wait//
+		//Thread.sleep(3000);
+		//eInterchangepart.click();
+		//Thread.sleep(5000);
+		//wait//
 	}
 	
 	public void clickAdd() throws InterruptedException {
-		eAddintpartBtn.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,eAddintpartBtn, 250).click();
+		
+		//wait//
+		//eAddintpartBtn.click();
+		//Thread.sleep(3000);
+		//wait//
 		
 	}
 	public void EnterIntName(String InterchangeNameValue) throws InterruptedException {
 	
+		Baseclass.waitForElementToBeClickable(driver,eIntnameDDBox, 250).click();
+		Baseclass.waitForElementToBeVisible(driver, eIntnamesearchBox, 250).sendKeys(InterchangeNameValue);
+		Baseclass.waitForElementToBeClickable(driver,eIntnamesearchresult, 250).click();
 		
-		eIntnameDDBox.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
-		eIntnamesearchBox.sendKeys(InterchangeNameValue);
-		
-		Thread.sleep(6000);
-		eIntnamesearchresult.click();	
-		Thread.sleep(5000);
-		
+		//wait//
+		//eIntnameDDBox.click();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//eIntnamesearchBox.sendKeys(InterchangeNameValue);
+		//Thread.sleep(6000);
+		//eIntnamesearchresult.click();	
+		//Thread.sleep(5000);
+		//wait//
 	}
 	public void EnterIntchgpartValue(String interchangepartno) throws InterruptedException {
-		eIntnamePartTbox.sendKeys(interchangepartno);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver, eIntnamePartTbox, 250).sendKeys(interchangepartno);
+		
+		
+		//wait//
+		//eIntnamePartTbox.sendKeys(interchangepartno);
+		//Thread.sleep(3000);
+		//wait//
 	}
 	public void SelectGradeLevel(String GradeLevelValue) throws InterruptedException {
-		eGradeLevelDDBox.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Baseclass.waitForElementToBeClickable(driver,eGradeLevelDDBox, 250).click();
+		
+		//wait//
+		//eGradeLevelDDBox.click();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//wait//
 		
 		List<WebElement> list = driver.findElements(By.xpath("//li[@Class='select2-results__option']"));
 		System.out.println("total number of Grade -->" + list.size());
 		Thread.sleep(3000);
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().contains(GradeLevelValue)) {
+			if(list.get(i).getText().equalsIgnoreCase(GradeLevelValue)) {
 				list.get(i).click();
 				break;
 			}
@@ -127,54 +150,76 @@ public class AddintchagPartno_POM extends Baseclass{
 	}
 
 	public void EnterInternalNotes(String InternalNotesValue) {
-		eInternalNotes.sendKeys(InternalNotesValue);
+		Baseclass.waitForElementToBeVisible(driver, eInternalNotes, 250).sendKeys(InternalNotesValue);
+		//eInternalNotes.sendKeys(InternalNotesValue);
 	}
 	public void EnterInterchangeNotes(String InterchangeNotesValue) {
-		eInterchangeNotes.sendKeys(InterchangeNotesValue);
+		Baseclass.waitForElementToBeVisible(driver, eInterchangeNotes, 250).sendKeys(InterchangeNotesValue);
+		//eInterchangeNotes.sendKeys(InterchangeNotesValue);
 	}
 	
 	public void SelectPartno(String InterchangeNameValue, String interchangepart) throws InterruptedException{
+		Baseclass.waitForElementToBeClickable(driver, eInterchangeDDbox, 250).click();
 		
-		eInterchangeDDbox.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//wait//
+		//eInterchangeDDbox.click();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//wait//
 		
 		List<WebElement> list = driver.findElements(By.xpath("//li[@Class='select2-results__option']"));
 		Thread.sleep(3000);
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getText());
-			if(list.get(i).getText().contains(InterchangeNameValue)) {
+			if(list.get(i).getText().equalsIgnoreCase(InterchangeNameValue)) {
 				list.get(i).click();
 				break;
 			}
 		}
 
+		Baseclass.waitForElementToBeVisible(driver, esearchbox, 250).sendKeys(interchangepart);
+		Baseclass.waitForElementToBeClickable(driver, eEditBtn, 250).click();
 		
-		esearchbox.sendKeys(interchangepart);
-		Thread.sleep(3000);
-		eEditBtn.click();
-		Thread.sleep(3000);
-
+		//wait//
+		//esearchbox.sendKeys(interchangepart);
+		//Thread.sleep(3000);
+		//eEditBtn.click();
+		//Thread.sleep(3000);
+		//wait//
 	}
 	
 	public void Editpartno(String interchangepartno) throws InterruptedException {
+		Baseclass.waitForElementToBeClickable(driver,eIntnamePartTbox, 250).clear();
+		Baseclass.waitForElementToBeVisible(driver, eIntnamePartTbox, 250).sendKeys(interchangepartno);
 		
-		eIntnamePartTbox.clear();
-		Thread.sleep(3000);
-		eIntnamePartTbox.sendKeys(interchangepartno);
-
-		Thread.sleep(3000);
+		//wait//
+		//eIntnamePartTbox.clear();
+		//Thread.sleep(3000);
+	//	eIntnamePartTbox.sendKeys(interchangepartno);
+		//Thread.sleep(3000);
+		//wait//
 		
 	}
 	
 	public void Clicksave() throws InterruptedException {
-		eSaveButton.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,eSaveButton, 250).click();
+		
+		//wait//
+		//eSaveButton.click();
+		//Thread.sleep(3000);
+		//wait//
 		}
+	
 	public void ClickEditsave() throws InterruptedException {
-		eEditSaveButton.click();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
+		Baseclass.waitForElementToBeClickable(driver,eEditSaveButton, 250).click();
+		Thread.sleep(2000);
+		//wait//
+		//eEditSaveButton.click();
+		//Thread.sleep(3000);
+		//wait//
 		}
 	public void acceptAlert() throws InterruptedException{
+		Thread.sleep(3000);
 		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
 		Thread.sleep(5000);
 		System.out.println("Record newly to be inserted");
@@ -185,8 +230,9 @@ public class AddintchagPartno_POM extends Baseclass{
 		Thread.sleep(10000);
 		}
 	public void acceptEditAlert() throws InterruptedException{
+		Thread.sleep(2000);
 		WebElement pop=driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]"));
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 		System.out.println("Record newly to be inserted");
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -195,6 +241,12 @@ public class AddintchagPartno_POM extends Baseclass{
 		Thread.sleep(10000);
 		
 	}
+	
+	public void ClickonBackButton() throws InterruptedException {
+		Backbtn.click();
+		Thread.sleep(2000);
+	}
+	
 	public void verifytext1(String InterchangeNameValue,String interchangepartno) throws InterruptedException{
 		
 		
@@ -202,25 +254,27 @@ public class AddintchagPartno_POM extends Baseclass{
 		try
 		{
 			
-			
-			eInterchangeDDbox.click();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			
+			Baseclass.waitForElementToBeClickable(driver, eInterchangeDDbox, 250).click();
+			//wait//
+			//eInterchangeDDbox.click();
+			//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			//wait//
 			List<WebElement> list = driver.findElements(By.xpath("//li[@Class='select2-results__option']"));
 			System.out.println("total number of code -->" + list.size());
 			Thread.sleep(3000);
 			for(int i=0; i<list.size(); i++) {
 				System.out.println(list.get(i).getText());
-				if(list.get(i).getText().contains(InterchangeNameValue)) {
+				if(list.get(i).getText().equalsIgnoreCase(InterchangeNameValue)) {
 					list.get(i).click();
 					break;
 				}
 			}
-
+			Baseclass.waitForElementToBeVisible(driver, esearchbox, 250).sendKeys(interchangepartno);
+			//wait//
+			//esearchbox.sendKeys(interchangepartno);
+			//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			//wait//
 			
-			esearchbox.sendKeys(interchangepartno);
-			
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String actualText= ePDverify.getText();
 			System.out.println("Text"+actualText);
 			actualText.equals(interchangepartno);

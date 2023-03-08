@@ -21,7 +21,7 @@ public class TC009_PMT_Partextendedinfo extends Baseclass {
 	
 	/*
 	 * 
-	 * extendedinfo
+	 * extendedinfoadd
 	 */
 	
 	@Given("^User will go to parts page and search for partno$")
@@ -75,10 +75,11 @@ public class TC009_PMT_Partextendedinfo extends Baseclass {
 		}catch ( Exception e) {
 			System.out.println(e);
 			TestStep("Fail",driver,loginfo,e);
-			
+			//extent.flush();
 		}
 	}
-
+//extendedinfodelete//
+	
 	@Given("^User will go to part page and search for partno to delete extended info record$")
 	public void user_will_go_to_part_page_and_search_for_partno_to_delete_extended_info_record() throws Throwable {
 	   

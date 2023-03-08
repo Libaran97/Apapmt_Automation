@@ -26,7 +26,7 @@ public class TC010_PMT_PartSize extends Baseclass {
 	public void user_will_go_to_parts_page_and_search_for_partno_to_add_partsize() throws Throwable {
 
 		try {
-			// extent=setup();
+			extent=setup();
 			test = extent.createTest(Feature.class, "PMT Part Size").assignCategory("Part Sizes")
 					.pass("Part Size added");
 			test = test.createNode(Scenario.class, "Checking on the part size");
@@ -71,12 +71,12 @@ public class TC010_PMT_PartSize extends Baseclass {
 			size.verifysize();
 			loginfo.pass("Size Verified");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 
 		} catch (Exception e) {
 			System.out.println(e);
 			TestStep("Fail", driver, loginfo, e);
-			// extent.flush();
+			//extent.flush();
 		}
 	}
 

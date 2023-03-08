@@ -38,7 +38,7 @@ public class ApplicationAddNonAces  extends Baseclass{
 	@FindBy(xpath ="//input[@id='MainContent_txtYear']")
 	public WebElement eYear;
 	
-	@FindBy(xpath ="//input[@id='MainContent_rblist_1']")
+	@FindBy(xpath ="(//input[@name='ctl00$MainContent$rblist'])[2]")
 	public WebElement eNonAces;
 	
 	@FindBy(id ="MainContent_txtcylinders")
@@ -75,23 +75,33 @@ public class ApplicationAddNonAces  extends Baseclass{
 	@FindBy(xpath ="//input[@id='MainContent_txtFind']")
 	public WebElement eSelectsearchbox;
 	
-	@FindBy(xpath ="//input[@id='MainContent_btnFilterSearch']")
+	//@FindBy(xpath ="//input[@id='MainContent_btnFilterSearch']")
+	@FindBy(xpath="//input[@class='button_search']")
 	public WebElement eSearchButton2;
 	
 	@FindBy(xpath ="//span[@id='MainContent_GVData_lblEngineBase_0']")
 	public WebElement eAppverify;
 	
 	public void ClickApplication() throws Exception {
-		eApplication.click();
-		Thread.sleep(3000);
+		Thread.sleep(8000);
+		Baseclass.waitForElementToBeClickable(driver, eApplication, 250).click();
+		//wait///
+		//eApplication.click();
+		Thread.sleep(8000);
+		//wait///
 	}
 
 	public void ClickAddApplication() throws InterruptedException {
-		eAddApplication.click();
-		Thread.sleep(3000);
+		Thread.sleep(8000);
+		Baseclass.waitForElementToBeClickable(driver, eAddApplication, 250).click();
+		Thread.sleep(8000);
+		//wait//
+		//eAddApplication.click();
+		//Thread.sleep(5000);
+		//wait//
 	}
 	public void ChooseVehicle(String vehicletypename) throws InterruptedException {
-		
+		Thread.sleep(2000);
 		Select vehicle = new Select(eSelectVehicle);
 		vehicle.selectByVisibleText(vehicletypename);
 		Thread.sleep(5000);
@@ -114,21 +124,33 @@ public class ApplicationAddNonAces  extends Baseclass{
 		
 		}
 	public void ApplicationYear(String EnterYear) throws InterruptedException {
-		eYear.sendKeys(EnterYear);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver, eYear, 250).sendKeys(EnterYear);
+		//wait//
+		//eYear.sendKeys(EnterYear);
+		Thread.sleep(2000);
+		//wait//
 		}
 	public void checkNonAces() throws InterruptedException {
-		eNonAces.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver,eNonAces, 250).click();
+		//wait//
+		//eNonAces.click();
+		Thread.sleep(2000);
+		//wait//
 	}
 	public void EngineDetails(String Cylindervalue, String Ccvalue,String litervalue ) throws InterruptedException {
-		eCylinder.sendKeys(Cylindervalue);
 		
-		eCc.sendKeys(Ccvalue);
-		eLiter.sendKeys(litervalue);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver,eCylinder, 250).sendKeys(Cylindervalue);
+		Baseclass.waitForElementToBeVisible(driver, eCc, 250).sendKeys(Ccvalue);
+		Baseclass.waitForElementToBeVisible(driver, eLiter, 250).sendKeys(litervalue);
+		//wait//
+		//eCylinder.sendKeys(Cylindervalue);
+		//eCc.sendKeys(Ccvalue);
+		//eLiter.sendKeys(litervalue);
+		//Thread.sleep(3000);
+		//wait//
 	}
 	public void Clicksave() throws InterruptedException {
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", eSaveButton);
 		eSaveButton.click();
@@ -136,22 +158,82 @@ public class ApplicationAddNonAces  extends Baseclass{
 		
 		}
 	public void acceptAlert() throws InterruptedException{
+		Thread.sleep(2000);
 		Alert alert = driver.switchTo().alert();
 		System.out.println("Acess: " + alert.getText());
 		alert.accept();
+		Thread.sleep(2000);
 		}
+public void ChooseVehicle01(String vehicletypename) throws InterruptedException {
+		Thread.sleep(2000);
+		Select vehicle = new Select(eSelectVehicle);
+		vehicle.selectByVisibleText(vehicletypename);
+		Thread.sleep(5000);
+	
+		}
+
+	public void ChooseMake01(String makename) throws InterruptedException {
+		Thread.sleep(2000);
+		Select make = new Select(eSelectMake);
+		make.selectByVisibleText(makename);
+		Thread.sleep(5000);
+		
+		}
+ 
+	public void ChooseModel01(String modelname ) throws InterruptedException {
+		
+		Select model = new Select(eSelectModel);
+		model.selectByVisibleText(modelname);
+		Thread.sleep(3000);
+		
+		}
+	public void ApplicationYear01(String EnterYear) throws InterruptedException {
+		Baseclass.waitForElementToBeVisible(driver,eYear, 250).sendKeys(EnterYear);
+		//wait//
+		//eYear.sendKeys(EnterYear);
+		//Thread.sleep(3000);
+		//wait//
+		}
+	
+	public void ChooseMakevry01(String makename ) throws InterruptedException {
+		Thread.sleep(2000);
+		Select Vmake = new Select(eVSelectMake);
+		Vmake.selectByVisibleText(makename);
+		Thread.sleep(8000);
+		
+		}
+ 
+	public void ChooseModelvry01(String modelname ) throws InterruptedException {
+		
+		Select Vmodel = new Select(eVSelectModel);
+		Vmodel.selectByVisibleText(modelname);
+		Thread.sleep(3000);
+		
+		}
+	
+	
+	
+	
 	public void ClickApplication2() throws InterruptedException {
 		try {
-			eApplication2.click();
 			Thread.sleep(3000);
+			Baseclass.waitForElementToBeClickable(driver, eApplication2, 250).click();
+			//wait//
+			//eApplication2.click();
+			Thread.sleep(3000);
+			//wait//
 		} catch (org.openqa.selenium.StaleElementReferenceException e) {
-			eApplication2.click();
 			Thread.sleep(3000);
+			Baseclass.waitForElementToBeClickable(driver, eApplication2, 250).click();
+			//wait///
+			//eApplication2.click();
+			Thread.sleep(3000);
+			//wait///
 		}
 	}
 	
    public void ChooseVehiclevry(String vehicletypename0) throws InterruptedException {
-		
+	   Thread.sleep(2000);
 		Select Vvehicle = new Select(eVSelectVehicle);
 		Vvehicle.selectByVisibleText(vehicletypename0);
 		Thread.sleep(5000);
@@ -162,7 +244,7 @@ public class ApplicationAddNonAces  extends Baseclass{
 	 
 		Select Vmake = new Select(eVSelectMake);
 		Vmake.selectByVisibleText(makename);
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		
 		}
  
@@ -175,39 +257,54 @@ public class ApplicationAddNonAces  extends Baseclass{
 		}
 	public void Clicksearch() throws InterruptedException {
 		try {
-			eSearchButton.click();
-			Thread.sleep(4000);
-		} catch (org.openqa.selenium.StaleElementReferenceException ex) {
-			eSearchButton.click();
+			Baseclass.waitForElementToBeClickable(driver, eSearchButton, 250).click();
+			//wait//
+			//eSearchButton.click();
 			Thread.sleep(3000);
+			//wait//
+		} catch (org.openqa.selenium.StaleElementReferenceException ex) {
+			Baseclass.waitForElementToBeClickable(driver, eSearchButton, 250).click();
+			//wait//
+			//eSearchButton.click();
+			//Thread.sleep(6000);
+			//wait//
 		}
 		}
 
 	public void SelectFiterdropdown(String SelectFilterName) throws InterruptedException {
-		
+		Thread.sleep(2000);
 		Select Filer = new Select(eSelectFilter);
 		Filer.selectByVisibleText(SelectFilterName);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	
 		}
 	public void SelectsearchTextbox(String SearchText1) throws InterruptedException {
-		eSelectsearchbox.sendKeys(SearchText1);
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeVisible(driver, eSelectsearchbox, 250).sendKeys(SearchText1);
+		//wait//
+		//eSelectsearchbox.sendKeys(SearchText1);
+		Thread.sleep(5000);
+		//wait//
 		
 	}
 	public void Clicksearch2() throws InterruptedException {
 		try {
+			//Baseclass.waitForElementToBeClickable(driver, eSearchButton2, 250).click();
+			//wait//
 			eSearchButton2.click();
-			Thread.sleep(5000);
+	Thread.sleep(8000);
+			//wait//
 		} catch (org.openqa.selenium.StaleElementReferenceException e) {
-			eSearchButton2.click();
-			Thread.sleep(3000);
+			//Baseclass.waitForElementToBeClickable(driver, eSearchButton2, 250).click();
+			//wait//
+			//eSearchButton2.click();
+	Thread.sleep(3000);
+			//wait//
 		}
 		}
 	public void verifytext1(String SearchText1) throws Exception
 	{		
 		
-		Thread.sleep(5000);
+		Thread.sleep(12000);
 		String actualText= eAppverify.getText();
 		System.out.println("Text"+actualText);
 		if(actualText.equals(SearchText1))

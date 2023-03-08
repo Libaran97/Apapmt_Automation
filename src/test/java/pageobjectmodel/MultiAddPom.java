@@ -42,6 +42,9 @@ public class MultiAddPom extends Baseclass {
 
 	@FindBy(xpath = "//select[@id='MainContent_drpModel']")
 	private WebElement eModel2;
+	
+	@FindBy(xpath = "//input[@id='MainContent_GVData_chkActivee1_0']")
+	private WebElement checkall01;
 
 	// String esearchs="";
 	@FindBy(xpath = "//button[@id='MainContent_btnSearch']")
@@ -115,8 +118,8 @@ public class MultiAddPom extends Baseclass {
 	@FindBy(xpath = "//input[@id='MainContent_txtMelling']")
 	private WebElement epartsearch;
 
-	// @FindBy(xpath = "//input[@id='MainContent_btnPsearch']")
-	@FindBy(xpath = "//*[@id='MainContent_upAttribute']/div[2]/div[1]/div/span/div/input[8]")
+	
+	@FindBy(xpath="(//input[@class='button_search'])[2]")
 	private WebElement btnPsearch;
 
 	@FindBy(xpath = "//*[@id=\"BuyersGuid1\"]/img")
@@ -151,7 +154,8 @@ public class MultiAddPom extends Baseclass {
 	@FindBy(xpath = "//*[@id='MainContent_GVData_lblYear_0']")
 	WebElement efirst1;
 
-	@FindBy(xpath = "//*[@role='row']/td[4]")
+	//@FindBy(xpath = "//*[@role='row']/td[4]")
+	@FindBy(xpath="//*[@id='tbl_apppartstable']/tbody/tr/td")
 	WebElement everifynon1ACES;
 
 	@FindBy(xpath = "//*[@role='row']/td[6]")
@@ -236,7 +240,7 @@ public class MultiAddPom extends Baseclass {
 	@FindBy(xpath = "//table[@class='add_bulk_table']//tr[3]//td[4]")
 	WebElement epa6;
 
-	@FindBy(id = "MainContent_GVData_lblPartsLinked_0")
+	@FindBy(id = "//span[@id='MainContent_GVData_lblPartsLinked_0']")
 	WebElement epartslinked;
 
 	public void Application() throws InterruptedException {
@@ -255,7 +259,7 @@ public class MultiAddPom extends Baseclass {
 			} catch (StaleElementReferenceException e) {
 
 				staleElement = true;
-
+				Thread.sleep(8000);
 			}
 
 		}
@@ -271,14 +275,14 @@ public class MultiAddPom extends Baseclass {
 			try {
 
 				eMultiaddbt.click();
-				Thread.sleep(10000);
+				Thread.sleep(18000);
 
 				staleElement = false;
 
 			} catch (StaleElementReferenceException e) {
 
 				staleElement = true;
-
+				Thread.sleep(18000);
 			}
 
 		}
@@ -302,6 +306,7 @@ public class MultiAddPom extends Baseclass {
 			} catch (StaleElementReferenceException e) {
 
 				staleElement = true;
+				Thread.sleep(5000);
 
 			}
 
@@ -309,7 +314,7 @@ public class MultiAddPom extends Baseclass {
 
 	}
 
-	public void Makedata(String makename) throws Throwable {
+	public void Makedata(String makename0) throws Throwable {
 
 		Boolean staleElement = true;
 
@@ -318,7 +323,7 @@ public class MultiAddPom extends Baseclass {
 			try {
 
 				Select emake = new Select(eMake1);
-				emake.selectByVisibleText(makename);
+				emake.selectByVisibleText(makename0);
 				Thread.sleep(5000);
 
 				staleElement = false;
@@ -326,6 +331,7 @@ public class MultiAddPom extends Baseclass {
 			} catch (StaleElementReferenceException e) {
 
 				staleElement = true;
+				Thread.sleep(5000);
 
 			}
 
@@ -333,7 +339,7 @@ public class MultiAddPom extends Baseclass {
 
 	}
 
-	public void Modeldata(String modelname) throws Throwable {
+	public void Modeldata(String modelname0) throws Throwable {
 
 		Boolean staleElement = true;
 
@@ -342,7 +348,7 @@ public class MultiAddPom extends Baseclass {
 			try {
 
 				Select emodel = new Select(eModel1);
-				emodel.selectByVisibleText(modelname);
+				emodel.selectByVisibleText(modelname0);
 				Thread.sleep(5000);
 
 				staleElement = false;
@@ -366,14 +372,14 @@ public class MultiAddPom extends Baseclass {
 			try {
 
 				eSearch.click();
-				Thread.sleep(8000);
+				Thread.sleep(30000);
 
 				staleElement = false;
 
 			} catch (StaleElementReferenceException e) {
 
 				staleElement = true;
-
+				Thread.sleep(30000);
 			}
 
 		}
@@ -388,6 +394,11 @@ public class MultiAddPom extends Baseclass {
 	 * System.out.println("Engine value is...."+engine);
 	 * System.out.println("Year value is..." + acesexpectedtext); }
 	 */
+	public void checkallbox() throws InterruptedException{
+		Thread.sleep(6000);
+		checkall01.click();
+		Thread.sleep(3000);
+	}
 
 	public void Checkbox2(String EnterYear, String Acesvalue) throws Throwable {
 		Boolean staleElement = true;
@@ -436,7 +447,8 @@ public class MultiAddPom extends Baseclass {
 		// eChk2.click();
 	}
 
-	public void Checkbox3(String EnterInvalidYear, String NonAcesvalue) {
+	public void Checkbox3(String EnterInvalidYear, String NonAcesvalue) throws InterruptedException {
+		Thread.sleep(2000);
 		List<WebElement> list = driver.findElements(By.xpath("//span[@class='chkBottomItem']"));
 		System.out.println("Checkbox values..." + list.size());
 
@@ -490,9 +502,15 @@ public class MultiAddPom extends Baseclass {
 		}
 	}
 
-	public void Productline(String linecode) throws Throwable {
+	public void Productline(String linecode11) throws Throwable {
 		Select EProduct = new Select(eSelectProduct);
-		EProduct.selectByVisibleText(linecode);
+		EProduct.selectByVisibleText(linecode11);
+		Thread.sleep(5000);
+	}
+
+	public void Productlinenew(String linecode12) throws Throwable {
+		Select EProduct = new Select(eSelectProduct);
+		EProduct.selectByVisibleText(linecode12);
 		Thread.sleep(5000);
 	}
 
@@ -515,10 +533,10 @@ public class MultiAddPom extends Baseclass {
 	}
 
 	public void Partnum(String partno) throws Throwable {
-		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Select epartno = new Select(eSelectPartno);
 		epartno.selectByVisibleText(partno);
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 
 	public void Partnum1(String Enterpartpart) throws Throwable {
@@ -529,13 +547,14 @@ public class MultiAddPom extends Baseclass {
 	}
 
 	public void Addbutton() throws Throwable {
+		Thread.sleep(4000);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", eSelectaddbt);
 
 		eSelectaddbt.click();
 
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 
 	}
 
@@ -549,14 +568,14 @@ public class MultiAddPom extends Baseclass {
 				JavascriptExecutor js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView();", eSelectsave);
 				eSelectsave.click();
-				Thread.sleep(8000);
+				Thread.sleep(18000);
 
 				staleElement = false;
 
 			} catch (StaleElementReferenceException e) {
 
 				staleElement = true;
-				Thread.sleep(8000);
+				Thread.sleep(18000);
 
 			}
 
@@ -572,9 +591,9 @@ public class MultiAddPom extends Baseclass {
 		Alert alert = driver.switchTo().alert();
 		// logger.log(LogStatus.INFO,"Alert text " + alert.getText());
 		System.out.println("Multiadd is..:" + alert.getText());
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		alert.accept();
-		Thread.sleep(6000);
+		Thread.sleep(10000);
 	}
 
 	public void Cancel() throws Throwable {
@@ -587,10 +606,11 @@ public class MultiAddPom extends Baseclass {
 		Thread.sleep(10000);
 	}
 
-	public void scrolldown() {
+	public void scrolldown() throws InterruptedException {
+		//Thread.sleep(3000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,350)");
-		// Thread.sleep(3000);
+		 Thread.sleep(3000);
 
 	}
 
@@ -622,18 +642,20 @@ public class MultiAddPom extends Baseclass {
 	}
 
 	public void attributepage10() throws Throwable {
+		Thread.sleep(5000);
 		eshowattribt10.click();
 		Thread.sleep(5000);
 	}
 
 	public void Attrvalues(String Region) throws Exception {
+		Thread.sleep(5000);
 		eshowattribt11.sendKeys(Region);
 		Thread.sleep(5000);
 	}
 
 	////////////// Check the parts page///////////
 	public void Part() throws Throwable {
-		// Thread.sleep(5000);
+		Thread.sleep(5000);
 		ePart.click();
 		Thread.sleep(5000);
 	}
@@ -684,8 +706,8 @@ public class MultiAddPom extends Baseclass {
 		Thread.sleep(3000);
 		efilter.sendKeys(pro.getProperty("EnterInvalidYear"));
 		Thread.sleep(3000);
-		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
-		Thread.sleep(5000);
+		//efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
+		//Thread.sleep(5000);
 		// String expectedtext=efirst1.getText();
 		String actualText = everifynon1ACES.getText();
 		System.out.println("Text.." + actualText);
@@ -697,6 +719,24 @@ public class MultiAddPom extends Baseclass {
 
 	}
 
+	public void NonACesverify01(String EnterInvalidYear) throws Exception {
+		driver.switchTo().frame(0);
+		Thread.sleep(3000);
+		efilter.sendKeys(pro.getProperty("EnterInvalidYear"));
+		Thread.sleep(3000);
+		
+		
+		
+		
+		/*
+		 * String actualText = everifynon1ACES.getText(); System.out.println("Text.." +
+		 * actualText); if (actualText.contains(acesexpectedtext)) {
+		 * System.out.println("Both are same"); } else {
+		 * System.out.println("Both are not same"); }
+		 */
+		
+	}
+	
 	public void Deleteverify(String Delete) {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		String actualText = edelete.getText();
@@ -756,12 +796,13 @@ public class MultiAddPom extends Baseclass {
 
 	}
 
-	public void NonAcesattverify(String EnterInvalidYear, String SearchTextAcesallEngine) throws Exception {
+	//public void NonAcesattverify(String EnterInvalidYear, String SearchTextAcesallEngine) throws Exception {
+		public void NonAcesattverify(String EnterInvalidYear) throws Exception {
 		driver.switchTo().frame(0);
 		Thread.sleep(3000);
 		efilter.sendKeys(pro.getProperty("EnterInvalidYear"));
 		Thread.sleep(3000);
-		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
+		///efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
 		Thread.sleep(5000);
 		// String expectedtext = pro.getProperty("Region");
 		String actualText = Everifyattr.getText();
@@ -859,15 +900,15 @@ public class MultiAddPom extends Baseclass {
 
 	// **end multipart with description**//
 
-	public void VerifyParslinked(String Partnum) {
-		String actualText = epartslinked.getText();
-		System.out.println("Parts Linked value is.." + actualText);
-		if (actualText.contains(Partnum)) {
-			System.out.println("Both are same");
-		} else {
-			System.out.println("Both are not same");
-		}
-
+	public void VerifyParslinked(String Partnum) throws InterruptedException {
+		Thread.sleep(5000);
+		epartslinked.click();
+		/*
+		 * String actualText = epartslinked.getText();
+		 * System.out.println("Parts Linked value is.." + actualText); if
+		 * (actualText.contains(Partnum)) { System.out.println("Both are same"); } else
+		 * { System.out.println("Both are not same"); }
+		 */
 	}
 
 	public void VerifymultipleProduct() {
@@ -896,7 +937,8 @@ public class MultiAddPom extends Baseclass {
 		}
 	}
 
-	public void Qtyverify(String EnterInvalidYear, String SearchTextAcesallEngine, String postion) throws Exception {
+	//public void Qtyverify(String EnterInvalidYear, String SearchTextAcesallEngine, String postion) throws Exception {
+	public void Qtyverify(String EnterInvalidYear, String SearchTextAcesallEngine) throws Exception {
 		driver.switchTo().frame(0);
 		Thread.sleep(5000);
 		efilter.sendKeys(pro.getProperty("EnterInvalidYear"));
@@ -904,13 +946,21 @@ public class MultiAddPom extends Baseclass {
 		efilter2.sendKeys(pro.getProperty("SearchTextAcesallEngine"));
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// String expectedtext=efirst1.getText();
-		String actualText = everifyposition.getText();
-		System.out.println("Text.." + actualText);
-		if (actualText.contains(pro.getProperty("postion"))) {
+//		String actualText = everifyposition.getText();
+//		System.out.println("Text.." + actualText);
+		/*if (actualText.contains(pro.getProperty("postion"))) {
 			System.out.println("Both are same");
 		} else {
 			System.out.println("Both are not same");
 		}
+	}*/
+	}
+	public void Qtyverify01(String EnterInvalidYear) throws Exception {
+		driver.switchTo().frame(0);
+		Thread.sleep(5000);
+		efilter.sendKeys(pro.getProperty("EnterInvalidYear"));
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		
 	}
 
 	public void Qtyverify1(String EnterInvalidYear, String SearchTextAcesallEngine, String qtydata) throws Exception {

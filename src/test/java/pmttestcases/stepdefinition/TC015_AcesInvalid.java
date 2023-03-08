@@ -22,7 +22,7 @@ public class TC015_AcesInvalid extends Baseclass {
 	public void user_will_go_to_parts_page_and_search_for_a_partno_and_will_tie_up_the_application() throws Throwable {
 		
 		try {
-			//extent=setup();	
+			extent=setup();	
 			test = extent.createTest(Feature.class, "PMT Reports Aces Invalid check").assignCategory("Parts Buyersguide").pass("Buyers guide add");
 			test=test.createNode(Scenario.class, "Adding AcesInvalid application through buyers guide");
 			loginfo=test.createNode(new GherkinKeyword("Given"),"User will go to parts page and search for a partno and will tie-up the application");
@@ -47,6 +47,7 @@ public class TC015_AcesInvalid extends Baseclass {
 			AcesInd.apppartsvehicldropdown();
 			AcesInd.apppartsmakedropdown();
 			AcesInd.apppartsmodeldropdown();
+			AcesInd.appartsenginetextbox();
 			AcesInd.apppartsearch();
 			loginfo.pass(" Application search succesfully ");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -62,8 +63,9 @@ public class TC015_AcesInvalid extends Baseclass {
 	public void user_will_choose_an_enginebase_Select_Attributes_Invalid_data_and_click_on_save() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("And"),"User will choose an enginebase, Select Attributes Invalid data and click on save");
-			AcesInd.apppartsenginebase();
-			AcesInd.SelectAttributes();
+			//AcesInd.apppartsenginebase();
+			AcesInd.Alcheck();
+			//AcesInd.SelectAttributes();
 			AcesInd.savebtn();
 			AcesInd.acceptAlert();
 			loginfo.pass(" Application Added succesfully ");
@@ -79,7 +81,8 @@ public class TC015_AcesInvalid extends Baseclass {
 	public void user_will_see_successfull_alert_and_verify_the_reocrd_has_shown_in_the_below_grid_is_Invalid() throws Throwable {
 		try {
 			loginfo=test.createNode(new GherkinKeyword("Then"),"User will verify the reocrd has shown in the below grid is Invalid");
-			AcesInd.validate();
+			AcesInd.bguideverification();
+			//AcesInd.validate();
 			loginfo.pass(" Aces Invalid Application Validated succesfully ");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			//extent.flush();
@@ -87,7 +90,7 @@ public class TC015_AcesInvalid extends Baseclass {
 			System.out.println("Application not Validated " + e.getMessage());
 			 loginfo.fail("Application not Added ");
 			 loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	   
 	}

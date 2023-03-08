@@ -20,7 +20,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 	@Given("^: user will choos the application paged and multiadd pages$")
 	public void user_will_choos_the_application_paged_and_multiadd_pages() throws Throwable {
 		try {
-			//extent = setup();
+			extent = setup();
 			test = extent.createTest(Feature.class, "Check the partslinked2 edit-TC037").assignCategory("PIES MultiAdd")
 					.pass("Part Linked Edit option is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
@@ -47,8 +47,8 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 					"user will check the all chosed Vehicle,make,model along with click the search");
 			Thread.sleep(5000);
 			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
-			mpom1.Makedata(pro.getProperty("makename"));
-			mpom1.Modeldata(pro.getProperty("modelname"));
+			mpom1.Makedata(pro.getProperty("makename0"));
+			mpom1.Modeldata(pro.getProperty("modelname0"));
 			mpom1.searchbt();
 			loginfo.pass("Vehicle,Make,Model drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -60,12 +60,13 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 		}
 	}
 
-	@When("^:  user will Click the Parts Linked popup$")
-	public void user_will_Click_the_Parts_Linked_popup() throws Throwable {
+	@And("^: user will Click , Parts Linked popups$")
+	public void user_will_Click_Parts_Linked_popups() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will Click the Parts Linked popup");
 			//mpom2 = new MultiAddPom2();
-			mpom2.partslinked();			
+			//mpom2.partslinked();	
+			mpom2.partlinkednew();
 			mpom2.windowhandler();			
 			mpom2.viewedit();			
 			//mpom2.POPEdit("vehicletypename0");
@@ -74,39 +75,24 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 			// mpom2.verifyedit("vehicletypename0");
 			System.out.println("Click the Parts linked and Edit is verification Passed");
 			loginfo.pass("Click the Parts linked and Edit is verification Passed");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-
-		} catch (Exception e) {
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
-			System.out.println(
-					"Finally click the Parts linked and open the popup box and verification failed " + e.getMessage());
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-
-	@Then("^: Finally click the Parts linked and open the popup box and verification$")
-	public void finally_click_the_Parts_linked_and_open_the_popup_box_and_verification() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"),
-					"Finally click the Parts linked and open the popup box and verification");
-			loginfo.pass("Finally click the Parts linked Edit or delete verification");
 			System.out.println("Finally click the Parts linkedEdit or delete verification");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail",driver,loginfo,e);
 			 System.out.println(e);
-			System.out.println("Finally click the Parts linked Edit verification failed" + e.getMessage());
+			System.out.println(
+					"Finally click the Parts linked and open the popup box and verification failed " + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
+			//extent.flush();
 		}
 	}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 	@Given("^: user will choos the application paged and multiadd page$")
 	public void user_will_choos_the_application_paged_and_multiadd_page() throws Throwable {
 		try {
-			// extent = setup();
+			extent = setup();
 			test = extent.createTest(Feature.class, "Check the partslinked2 Cancel-TC037").assignCategory("PIES MultiAdd")
 					.pass("Part Linked Cancel is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
@@ -133,8 +119,8 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 					"user will check the all chosed Vehicle make model along with click search");
 			Thread.sleep(5000);
 			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
-			mpom1.Makedata(pro.getProperty("makename"));
-			mpom1.Modeldata(pro.getProperty("modelname"));
+			mpom1.Makedata(pro.getProperty("makename0"));
+			mpom1.Modeldata(pro.getProperty("modelname0"));
 			mpom1.searchbt();
 			loginfo.pass("Vehicle,Make,Model drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -151,7 +137,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user check the Cancel button and Part linked");
 			// mpom2 = new MultiAddPom2();
-			mpom2.partslinked();
+			mpom2.partlinkednew();
 			System.out.println("Purila");
 			Thread.sleep(5000);
 			mpom2.windowhandler();
@@ -161,39 +147,25 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 			// mpom2.verifyedit("vehicletypename0");
 			System.out.println("Click the Parts linked Cancel and verification Passed");
 			loginfo.pass("Click the Parts linked Cancel and verification Passed");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-
-		} catch (Exception e) {
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
-			System.out.println("Click the Parts linked Cancel and verification failed " + e.getMessage());
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-
-	@Then("^: Finally click the Parts linked open the popup box and verification$")
-	public void finally_click_the_Parts_linked_open_the_popup_box_and_verification() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"),
-					"Finally click the Parts linked open the popup box and verification");
-			loginfo.pass("Finally click the Parts linked Cancel verification$");
 			System.out.println("Finally click the Parts linked Cancel verification");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail",driver,loginfo,e);
 			 System.out.println(e);
-			System.out.println("Finally click the Parts linked Cancel failed" + e.getMessage());
+			System.out.println("Click the Parts linked Cancel and verification failed " + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
 		}
 	}
 
+	
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Given("^: user will choos the application page and multiadd pages$")
 	public void user_will_choos_the_application_page_and_multiadd_pages() throws Throwable {
 		try {
-			//extent = setup();
+			extent = setup();
 			test = extent.createTest(Feature.class, "Check the partslinked2 Delete-TC037").assignCategory("PIES MultiAdd")
 					.pass("Part Linked Delete is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
@@ -219,8 +191,8 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 					"user will check the all chosed Vehicle make model with click the search");
 			Thread.sleep(5000);
 			mpom1.Vehicledata(pro.getProperty("vehicletypename0"));
-			mpom1.Makedata(pro.getProperty("makename"));
-			mpom1.Modeldata(pro.getProperty("modelname"));
+			mpom1.Makedata(pro.getProperty("makename0"));
+			mpom1.Modeldata(pro.getProperty("modelname0"));
 			mpom1.searchbt();
 			loginfo.pass("Vehicle,Make,Model drop down values getting properly");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
@@ -236,7 +208,7 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 	public void user_check_the_Delete_button_and_Part_linked() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user check the Delete button and Part linked");
-			mpom2.partslinked();
+			mpom2.partlinkednew();
 			mpom2.windowhandler();
 			try {
 				mpom2.vieweditdelete();
@@ -248,37 +220,25 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 
 			System.out.println("Click the Parts linked Delete and verification Passed");
 			loginfo.pass("Click the Parts linked Delete and verification Passed");
+			System.out.println("Finally click the Parts delete verification");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail",driver,loginfo,e);
 			 System.out.println(e);
 			System.out.println("Click the Parts linked Delete and verification failed " + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
 	}
 
-	@Then("^: Finally click the Parts linked$")
-	public void finally_click_the_Parts_linked() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally click the Parts linked");
-			loginfo.pass("Finally click the Parts delete verification");
-			System.out.println("Finally click the Parts delete verification");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			extent.flush();
-		} catch (Exception e) {
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
-			System.out.println("Finally click the Parts delete verification failed" + e.getMessage());
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		//	extent.flush();
-		}
-	}
+	
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Given("^: user will choos the application paged and multiadd$")
 	public void user_will_choos_the_application_paged_and_multiadd() throws Throwable {
 		try {
-			//extent = setup();
+			extent = setup();
 			test = extent.createTest(Feature.class, "Check the sorting2 in partlinked-TC037").assignCategory("PIES MultiAdd").pass("Vehicle sorting is verified");
 			test = test.createNode(Scenario.class, "Multiadd part description and part no to check add or not");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
@@ -302,32 +262,19 @@ public class TC037_Multiaddpartslinked2 extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("And"), "user will check the sorting order TC037");
 			mpom2.SortPartDescription_TC037();
 			loginfo.pass("sorting order verification Passed");
+			System.out.println("Finally click the Parts sorting verification Passed");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 
 		} catch (Exception e) {
 			TestStep("Fail",driver,loginfo,e);
 			 System.out.println(e);
 			System.out.println("sorting order verification Passed failed" + e.getMessage());
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-		}
-	}
-
-	@Then("^: Finally click the Parts linked and open the popup box$")
-	public void finally_click_the_Parts_linked_and_open_the_popup_box() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"),
-					"Finally click the Parts linked and open the popup box");
-			loginfo.pass("Finally click the Parts sorting verification Passed");
-			System.out.println("Finally click the Parts sorting verification Passed");
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
-		} catch (Exception e) {
-			TestStep("Fail",driver,loginfo,e);
-			 System.out.println(e);
-			System.out.println("Finally click the Parts sorting verification failed" + e.getMessage());
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			//extent.flush();
 		}
 	}
 
-}
+	
+	}
+

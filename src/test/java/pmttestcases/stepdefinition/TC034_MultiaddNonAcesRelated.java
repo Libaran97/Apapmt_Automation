@@ -5,6 +5,7 @@ import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
 import com.aventstack.extentreports.gherkin.model.Scenario;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -20,7 +21,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 	public void user_will_create_the_application_pages() throws Throwable {
 
 		try {
-			// extent = setup();
+			extent = setup();
 			test = extent.createTest(Feature.class, "TC017_Check the Non Aces in vehicle_Mul")
 					.assignCategory("MultiAdd NonAces Vehicle Tag").pass("Non Aces values verified");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces save and reflected to buyersguide");
@@ -45,6 +46,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
+			mpom1.checkallbox();
 			loginfo.pass("Vehicle,Make,Model drop down values getting properly");
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
@@ -59,7 +61,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"), "user will check the all part types");
 			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
-			mpom1.Productline(pro.getProperty("linecode"));
+			mpom1.Productlinenew(pro.getProperty("linecode12"));
 			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.Addbutton();
@@ -72,7 +74,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 		}
 	}
 
-	@When("^User will successfully saved particular non aces product line and verify that the record has come$")
+	@And("^User will successfully saved particular non aces product line and verify that the record has come$")
 	public void user_will_successfully_saved_particular_non_aces_product_line_and_verify_that_the_record_has_come()
 			throws Throwable {
 		try {
@@ -85,37 +87,27 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 			mpom1.partsearch();
 			mpom1.buyerguide();
 			mpom1.scrolldown();
-			mpom1.NonACesverify("EnterInvalidYear", "SearchTextAcesallEngine");
+			//mpom1.NonACesverify("EnterInvalidYear", "SearchTextAcesallEngine");
+			mpom1.NonACesverify01("EnterInvalidYear");
 			loginfo.pass("Save or Pop up aleat was working");
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
 	}
 
-	@Then("^Finally Non Aces matched successfully$")
-	public void finally_Non_Aces_matched_successfully() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Non Aces matched successfully");
-
-			loginfo.pass("Non Aces is successfully working");
-			System.out.println("**Non Aces is successfully working**");
-			// extent.flush();
-		} catch (Exception e) {
-			TestStep("Fail", driver, loginfo, e);
-			System.out.println(e);
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
-		}
-	}
+	
+	
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Check the Show attributes non ACES[TC034]
 	@Given("^: user will create the application pages and multiadd pages$")
 	public void user_will_create_the_application_pages_and_multiadd_pages() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "TC017_Check the Non Aces attributes files in vehicle_Mul")
 					.assignCategory("MultiAdd Non Aces attibute-Tag ").pass("Non Aces attributes values verified");
 			test = test.createNode(Scenario.class, "Multiadd Non-aces attributes values reflected to buyers guide");
@@ -140,6 +132,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 			mpom1.Makedata(pro.getProperty("makename"));
 			mpom1.Modeldata(pro.getProperty("modelname"));
 			mpom1.searchbt();
+			mpom1.checkallbox();
 			loginfo.pass("Multi add landed successfully");
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
@@ -148,11 +141,12 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 		}
 	}
 
-	@When("^: user will check the checkbox and use nonaces attributes$")
+	@And("^: user will check the checkbox and use nonaces attributes$")
 	public void user_will_check_the_checkbox_and_use_nonaces_attributes() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will check the checkbox and use nonaces attributes");
+			
 			mpom1.Checkbox3("EnterInvalidYear", "NonAcesvalue");
 			mpom1.scrolldown();
 			mpom1.attributepage10();
@@ -167,12 +161,12 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 		}
 	}
 
-	@When("^:  user will select the product, description, part number$")
+	@And("^:  user will select the product, description, part number$")
 	public void user_will_select_the_product_description_part_number() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"user will select the product, description, part number");
-			mpom1.Productline(pro.getProperty("linecode"));
+			mpom1.Productlinenew(pro.getProperty("linecode12"));
 			mpom1.Partdesc(pro.getProperty("subcategoryname"));
 			mpom1.Partnum(pro.getProperty("partno"));
 			mpom1.scrolldown();
@@ -186,7 +180,7 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 		}
 	}
 
-	@When("^: user will do save option and alert popup to accept or not$")
+	@And("^: user will do save option and alert popup to accept or not$")
 	public void user_will_do_save_option_and_alert_popup_to_accept_or_not() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("When"),
@@ -197,27 +191,17 @@ public class TC034_MultiaddNonAcesRelated extends Baseclass {
 			mpom1.partsearch();
 			mpom1.buyerguide();
 			mpom1.scrolldown();
-			mpom1.NonAcesattverify("EnterInvalidYear", "SearchTextAcesallEngine");
+			//mpom1.NonAcesattverify("EnterInvalidYear", "SearchTextAcesallEngine");
+			mpom1.NonAcesattverify("EnterInvalidYear");
 			loginfo.pass("Product,desc,part...is working");
+			System.out.println("**Show non-aces attributes succussfully added**");
+			//extent.flush();
 		} catch (Exception e) {
 			TestStep("Fail", driver, loginfo, e);
 			System.out.println(e);
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
+			//extent.flush();
 		}
 	}
 
-	@Then("^: Finally Show non aces attributes is finished$")
-	public void finally_Show_non_aces_attributes_is_finished() throws Throwable {
-		try {
-			loginfo = test.createNode(new GherkinKeyword("Then"), "Finally Show non aces attributes is finished");
-			System.out.println("**Show non-aces attributes succussfully added**");
-			loginfo.pass("Show non-aces attributes succussfully added");
-			// extent.flush();
-		} catch (Exception e) {
-			TestStep("Fail", driver, loginfo, e);
-			System.out.println(e);
-			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			// extent.flush();
-		}
-	}
 }

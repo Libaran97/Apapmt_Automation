@@ -21,10 +21,10 @@ public class TC016_PMTsusbtituteandBrand extends Baseclass {
 	@Given("^User will go to parts page and search for partno to add subs$")
 	public void user_will_go_to_parts_page_and_search_for_partno_to_add_subs() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Parts subs Add, Delete").assignCategory("Parts Package")
 					.pass("Package add");
-			test = test.createNode(Scenario.class, "Adding subs in  parts page");
+			test = test.createNode(Scenario.class, "Checking on the substitue add");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will go to parts page and search for partno to add subs");
 			ppsubbrand = new PartsSubstitute();
@@ -45,11 +45,10 @@ public class TC016_PMTsusbtituteandBrand extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("When"),
 					"User will go to substitute page and check the subs for that partno and save");
 			ppsubbrand.Substituteclick();
-			ppsubbrand.Substituteclickentry(pro.getProperty("partnoenter"), pro.getProperty("Enterpartpart"),
-					pro.getProperty("textbox"));
-			ppsubbrand.save();
-			ppsubbrand.AcceptAlert();
-			ppsubbrand.AcceptAlert();
+			ppsubbrand.Substituteclickentry(pro.getProperty("partno1"), pro.getProperty("textbox"));
+			ppsubbrand.subsaving();
+			ppsubbrand.acceptalertsub();
+			ppsubbrand.acceptalertsub();
 			loginfo.pass("Susbtitute page clicked  Succesfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 		} catch (Exception e) {
@@ -63,7 +62,7 @@ public class TC016_PMTsusbtituteandBrand extends Baseclass {
 	public void user_will_check_the_subs_is_checked_and_verify() throws Throwable {
 		try {
 			loginfo = test.createNode(new GherkinKeyword("Then"), "User will check the subs is checked and verify");
-			ppsubbrand.verifysub();
+			ppsubbrand.verifysub(pro.getProperty("partno1"));
 			loginfo.pass("Susbtitute Verified Succesfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
 			// extent.flush();
@@ -77,10 +76,11 @@ public class TC016_PMTsusbtituteandBrand extends Baseclass {
 	}
 
 	// Subs delete option
+
 	@Given("^User will go to parts page and search for partno to del subs$")
 	public void user_will_go_to_parts_page_and_search_for_partno_to_del_subs() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Parts subs Add, Delete").assignCategory("Parts Subs")
 					.pass("subs del");
 			test = test.createNode(Scenario.class, "deleting subs in parts page");
@@ -134,10 +134,11 @@ public class TC016_PMTsusbtituteandBrand extends Baseclass {
 	}
 
 	// Adding the Brand value
+
 	@Given("^User will go to parts page and search for partno to add brand$")
 	public void user_will_go_to_parts_page_and_search_for_partno_to_add_brand() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Parts brand Add,edit Delete").assignCategory("Parts brand")
 					.pass("subs add");
 			test = test.createNode(Scenario.class, "adding brand in parts page");
@@ -191,10 +192,11 @@ public class TC016_PMTsusbtituteandBrand extends Baseclass {
 	}
 
 	// Brand deleted code
+
 	@Given("^User will go to parts page and search for partno to del brand$")
 	public void user_will_go_to_parts_page_and_search_for_partno_to_del_brand() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Parts brand Add,edit Delete").assignCategory("Parts brand")
 					.pass("Brand del");
 			test = test.createNode(Scenario.class, "deleting brand in parts page");
@@ -248,10 +250,11 @@ public class TC016_PMTsusbtituteandBrand extends Baseclass {
 	}
 
 	// Not del brand
+
 	@Given("^User will go to parts page and search for partno to notdel brand$")
 	public void user_will_go_to_parts_page_and_search_for_partno_to_notdel_brand() throws Throwable {
 		try {
-			// extent = setup();
+			//extent = setup();
 			test = extent.createTest(Feature.class, "PMT Parts brand Add,edit Delete")
 					.assignCategory("Parts brand notdel").pass("Brand notdel");
 			test = test.createNode(Scenario.class, "Not deleting brand in parts page");
@@ -304,12 +307,13 @@ public class TC016_PMTsusbtituteandBrand extends Baseclass {
 	}
 
 	// Hazardous Maternial adding only
+
 	@Given("^User will go to parts page and search for partno to Hazardous Material$")
 	public void user_will_go_to_parts_page_and_search_for_partno_to_Hazardous_Material() throws Throwable {
 		try {
 			// extent = setup();
-			test = extent.createTest(Feature.class, "PMT Parts Hazardous Material Add").assignCategory("Parts Hazardous Material")
-					.pass("Hazardous Material");
+			test = extent.createTest(Feature.class, "PMT Parts Hazardous Material Add")
+					.assignCategory("Parts Hazardous Material").pass("Hazardous Material");
 			test = test.createNode(Scenario.class, "Hazardous Material add in parts page");
 			loginfo = test.createNode(new GherkinKeyword("Given"),
 					"User will go to parts page and search for partno to Hazardous Material");
@@ -348,10 +352,10 @@ public class TC016_PMTsusbtituteandBrand extends Baseclass {
 			loginfo = test.createNode(new GherkinKeyword("Then"),
 					"User will check the Hazardous Material is checked and verify");
 			ppsubbrand.AcceptAlert();
-			System.out.println("Hazrodous finsihed");			
+			System.out.println("Hazrodous finsihed");
 			loginfo.pass("Hazardous Material added Verified Succesfully");
 			loginfo.addScreenCaptureFromPath(Screenshotcapture(driver));
-			//extent.flush();
+			 //extent.flush();
 
 		} catch (Exception e) {
 			System.out.println("Hazardous Material not correct Verified" + e.getMessage());

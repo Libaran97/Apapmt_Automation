@@ -22,6 +22,9 @@ public class DeleteProductLine extends Baseclass {
 
 	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_5']")
 	private WebElement eProductLine;
+	
+	@FindBy(xpath="//a[text()='Web Category']")
+	private WebElement eWebCategory;
 
 	@FindBy(xpath = "//a[@id='ucMenu_rptLevel1_rptLevel2_0_rptLevel3_0_lnkLink3_2']")
 	private WebElement eProductcustomattr;
@@ -32,7 +35,7 @@ public class DeleteProductLine extends Baseclass {
 	@FindBy(xpath = "(//div[@class='edit_icon_ver'])[2]")
 	public WebElement eDeleteButton;
 
-	@FindBy(xpath = "(//button[@type='button'])[2]")
+	@FindBy(xpath = "//button[text()='OK']")
 	public WebElement eaccept;
 
 	@FindBy(xpath = "//*[@id='DataTableViewer']/tbody/tr/td")
@@ -44,6 +47,14 @@ public class DeleteProductLine extends Baseclass {
 		action.moveToElement(emaster).build().perform();
 		Thread.sleep(3000);
 		eProductLine.click();
+		Thread.sleep(3000);
+	}
+	public void clickonwebcategory() throws Throwable {
+
+		Actions action = new Actions(driver);
+		action.moveToElement(emaster).build().perform();
+		Thread.sleep(3000);
+		eWebCategory.click();
 		Thread.sleep(3000);
 	}
 
@@ -59,6 +70,11 @@ public class DeleteProductLine extends Baseclass {
 	public void SelectsearchTextbox(String linecode) throws InterruptedException {
 		Thread.sleep(3000);
 		esearchbox.sendKeys(linecode);
+		Thread.sleep(3000);
+	}
+	public void SelectWebCategoryTextbox(String Equchose) throws InterruptedException {
+		Thread.sleep(3000);
+		esearchbox.sendKeys(Equchose);
 		Thread.sleep(3000);
 	}
 
@@ -87,11 +103,7 @@ public class DeleteProductLine extends Baseclass {
 	}
 
 	public void acceptAlert() throws InterruptedException {
-		/*
-		 * Alert alert = driver.switchTo().alert(); System.out.println("Acess: " +
-		 * alert.getText()); alert.accept(); Thread.sleep(3000); alert.accept();
-		 * Thread.sleep(3000);
-		 */
+		
 		eaccept.click();
 		Thread.sleep(5000);
 		eaccept.click();
@@ -127,7 +139,7 @@ public class DeleteProductLine extends Baseclass {
 		} catch (InterruptedException e) {
 			System.out.println("Both are not same so some custome attribute there first");
 		}
-		Thread.sleep(5000);	
+		Thread.sleep(8000);	
 	}
 	
 	public void verifytextcusdelanother(String AttributeName1,String DeleteProducttxt) {

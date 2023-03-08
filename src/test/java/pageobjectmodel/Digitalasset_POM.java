@@ -8,152 +8,166 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import utility.Baseclass;
 
-public class Digitalasset_POM extends Baseclass{
+public class Digitalasset_POM extends Baseclass {
 
 	public Digitalasset_POM() {
 		PageFactory.initElements(driver, this);
 	}
-	
-	
-	@FindBy(xpath="//div[@id='DigitalAsset']")
+
+	@FindBy(xpath = "//div[@id='DigitalAsset']")
 	private WebElement clkasset;
-	
-	
-	@FindBy(xpath="//input[@id='fuImage']")
+
+	@FindBy(xpath = "//input[@id='fuImage']")
 	private WebElement imageselect;
-	
-	
-	@FindBy(xpath="//input[@id='txtSortBy']")
+
+	@FindBy(xpath = "//input[@id='txtSortBy']")
 	private WebElement txtSortBy;
-	
-	
-	@FindBy(xpath="//div[@id='btnSave_new']")
+
+	@FindBy(xpath = "//div[@id='btnSave_digital']")
 	private WebElement btnSave;
-	
-	@FindBy(xpath="//div[@id='btnEdit_new']")
+
+	@FindBy(xpath = "//div[@id='btnEdit_digital']")
 	private WebElement btnEditSave;
-	
-	
-	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[10]/div/input")
+
+	@FindBy(xpath = "//table[@id='DataTableViewer']/tbody/tr/td[10]/div/input")
 	private WebElement imgDelete;
-	
-	@FindBy(xpath="//*[@id='DataTableViewer']/tfoot/tr/th[1]/input")
+
+	@FindBy(xpath = "//*[@id='DataTableViewer']/tfoot/tr/th[1]/input")
 	private WebElement eFilter;
-	
-	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td[1]")
+
+	@FindBy(xpath = "//*[@id='DataTableViewer']/tbody/tr/td[1]")
 	private WebElement eVerifyText;
-	
-	@FindBy(xpath="//*[@id='DataTableViewer']/tbody/tr/td")
+
+	@FindBy(xpath = "//*[@id='DataTableViewer']/tbody/tr/td")
 	private WebElement eVerifytextdelete;
-	
-	
-	
-	/*
-	 * 
-	 * image add and delete
-	 */
-	
+
+	@FindBy(xpath = "//*[@id=\"DataTableViewer\"]/tbody/tr/td[9]/div/input")
+	private WebElement edit;
+
+	@FindBy(xpath = "//Select[@id='drpOrientationView']")
+	private WebElement orient;
+
+	@FindBy(xpath = "//*[@id='DataTableViewer']/tfoot/tr/th[6]/input")
+	private WebElement editcheck;
+
+	@FindBy(xpath = "//*[@id='DataTableViewer']/tbody/tr/td[6]")
+	private WebElement editverifytext;
+
 	public void clickasset() throws InterruptedException {
-		clkasset.click();
-		Thread.sleep(3000);
+		Baseclass.waitForElementToBeClickable(driver, clkasset, 150).click();
 	}
-	
-	
+
 	public void imagesselect() throws Exception {
-		//driver.switchTo().frame(0);
-		imageselect.sendKeys("E:\\apapmt_automation\\Store\\Parttest.jpg");
-		//imageselect.sendKeys("./Store/Parttest.jpg");
-		//imageselect.sendKeys("C:\\Users\\kavin\\git\\apapmt_automation\\apapmt_automation\\Store\\Parttest.jpg");
-		txtSortBy.sendKeys("1");
-		Thread.sleep(2000);
+		Baseclass.waitForElementToBeVisible(driver, imageselect, 150)
+				.sendKeys("E:\\apapmt_automation\\Store\\Parttest.jpg");
+		Baseclass.waitForElementToBeVisible(driver, txtSortBy, 150).sendKeys("1");
 	}
-	
-	
+
 	public void savebutton() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSave);
-		btnSave.click();
-		Thread.sleep(3000);
-	}
-	
-	
-	public void assetAlert() throws InterruptedException{
-		WebElement pop=driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/button[1]"));
-		Thread.sleep(5000);
+		Baseclass.waitForElementToBeClickable(driver, btnSave, 150).click();
+		Thread.sleep(8000);
 
+	}
+
+	public void assetAlert() throws InterruptedException {
+
+		Thread.sleep(8000);
+		WebElement pop = driver.findElement(By.xpath("//*[@class='swal2-confirm swal2-styled']"));
+		Thread.sleep(5000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", pop);
-		pop.click();
-		Thread.sleep(10000);
-		
+		Baseclass.waitForElementToBeClickable(driver, pop, 250).click();
+
 	}
-	
-	
+
 	public void deleteimg() throws InterruptedException {
-		//driver.switchTo().frame(0);
 		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", imgDelete);
-		Thread.sleep(1000);
-		imgDelete.click();
-		Thread.sleep(1000);
+		Baseclass.waitForElementToBeClickable(driver, imgDelete, 150).click();
 	}
-	
-	
-	public void assetAlertdelete() throws InterruptedException{
-		WebElement pop=driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/button[1]"));
+
+	public void assetAlertdelete() throws InterruptedException {
+		Thread.sleep(5000);
+		WebElement pop = driver.findElement(By.xpath("//*[@class='swal2-confirm swal2-styled']"));
 		Thread.sleep(5000);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", pop);
-		pop.click();
-		Thread.sleep(10000);
-		
+		Baseclass.waitForElementToBeClickable(driver, pop, 150).click();
 	}
-	public void verifyImageadd (String Imagefilename) throws InterruptedException {
-		try
-		{
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", eFilter);
-		eFilter.sendKeys(Imagefilename);
+
+	public void verifyImageadd(String Imagefilename) throws InterruptedException {
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", eFilter);
+			Baseclass.waitForElementToBeVisible(driver, eFilter, 150).sendKeys(Imagefilename);
+
+			String actualText = eVerifyText.getText();
+			System.out.println("Filename:" + actualText);
+			actualText.equals(Imagefilename);
+			System.out.println("Both are same");
+
+		} catch (Exception e) {
+			System.out.println("Both are not same");
+		}
+	}
+
+	public void verifyDelete(String Imagefilename, String Deleteverifytext) throws InterruptedException {
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", eFilter);
+			Baseclass.waitForElementToBeVisible(driver, eFilter, 150).sendKeys(Imagefilename);
+			String actualText = eVerifytextdelete.getText();
+			System.out.println("Text:" + actualText);
+			actualText.equals(Deleteverifytext);
+			System.out.println("Deleted");
+
+		} catch (Exception e) {
+			System.out.println("Not deleted");
+		}
+	}
+
+//Image Edit //
+
+	public void editclick() throws InterruptedException {
 		Thread.sleep(5000);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		String actualText= eVerifyText .getText();
-		System.out.println("Text"+actualText);
-		actualText.equals(Imagefilename);
-		System.out.println("Both are same");
-		
-	}
-	catch (Exception e)
-	{
-		System.out.println("Both are not same");
-	}
-}
-		
-	public void verifyDelete (String Imagefilename, String Deleteverifytext) throws InterruptedException {
-		try
-		{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", eFilter);
-		eFilter.sendKeys(Imagefilename);
-		Thread.sleep(5000);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		String actualText= eVerifytextdelete
-				
-				
-				.getText();
-		System.out.println("Text"+actualText);
-		actualText.equals(Deleteverifytext);
-		System.out.println("Deleted");
-		
+		js.executeScript("arguments[0].scrollIntoView();", edit);
+		Thread.sleep(6000);
+		edit.click();
+		Thread.sleep(6000);
+		WebElement orientation = orient;
+		Select select = new Select(orientation);
+		orientation.click();
+		select.selectByVisibleText("Front (FRO)");
+		Thread.sleep(6000);
+		btnEditSave.click();
+		Thread.sleep(6000);
+
 	}
-	catch (Exception e)
-	{
-		System.out.println("Not deleted");
+
+	public void editverify(String datas, String editverifytext) {
+		try {
+
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", editcheck);
+			Baseclass.waitForElementToBeVisible(driver, editcheck, 150).sendKeys(datas);
+			Thread.sleep(5000);
+			String actualText = editcheck.getText();
+			actualText.equals(editverifytext);
+			System.out.println("Orientation view:"+datas);
+			System.out.println("Updated");
+
+		} catch (Exception e) {
+			System.out.println("Not Updated");
+		}
 	}
-}
-		
+
 }

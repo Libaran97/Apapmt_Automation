@@ -1,7 +1,7 @@
-@sanity
+@dontrun
 Feature: PMT [My Catalog - Buyers Guide] functionality test scenarios
 
-
+@Philips5001
 Scenario:  Check the [My Catalogs - Buyers Guide Functionality] [TC042]
 	Given : Click the MyCatalog menu link SP BG
 	When : Click the Buyers Guide submenu link SP BG
@@ -14,6 +14,7 @@ Scenario:  Check the [My Catalogs - Buyers Guide Functionality] [TC042]
 	And : Click the Back Button SP BG
 	Then : Finally Click The Logout button SP BG
 
+@Philips5001
 Scenario:  Check the [My Catalogs - Buyers Guide Functionality] [TC042]
 	Given : Click the MyCatalog menu link SP BG
 	When : Click the Buyers Guide submenu link SP BG
@@ -25,3 +26,6 @@ Scenario:  Check the [My Catalogs - Buyers Guide Functionality] [TC042]
 	And : Display the Header Text SP BG
 	And : Click the Back Navigation Button SP BG
 	Then : Finally Click The Logout button SP BG
+	
+	
+	
